@@ -4,6 +4,7 @@ Proyecto **Umbral**, atlas de decisión municipal para el track 2 del Hackathon 
 
 ## Documentación
 
+- [Explicación del proyecto y análisis general](ANALISIS_GENERAL_DEL_PROYECTO.md).
 - [Por qué, qué y cómo se desarrolló](EXPLICACION_DEL_PROYECTO.md).
 - [Resultados reales y limitaciones](02_Prediccion_y_escenarios_de_riesgo/modelado/RESULTADOS.md).
 - [Metodología y reproducción](02_Prediccion_y_escenarios_de_riesgo/modelado/METODOLOGIA.md).
