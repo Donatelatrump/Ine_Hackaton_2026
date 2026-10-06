@@ -1,5 +1,7 @@
 # Resultado de la comparación temporal
 
+Actualización: [correcciones y nuevas métricas](../CORRECCIONES_Y_ESTADO.md). Reporte y presentación ya generados, escenario SV+NV 2024 y mapa Base/Intervención/Δ. Registro, firmas y envío siguen sin acreditar; requisitos humanos no se completaron automáticamente.
+
 La propuesta ahora responde una decisión concreta: con capacidad para atender N municipios, cuáles revisar primero, con qué calidad y bajo qué supuestos. La complejidad del modelo queda subordinada a evidencia observable.
 
 | Corte | Método | Municipios evaluados | MAE (pp) | MAE ponderado (pp) | Aciertos top 50 |
@@ -25,10 +27,10 @@ El rango mostrado en 2027 es estimación ±21.05 pp, percentil 90 del error abso
 
 ## Escenario operativo
 
-Selección por tasa estimada descendente, empate por clave. Capacidad N, alcance por municipio y respuesta supuesta son editables. Participación adicional hipotética = alcance limitado × tasa estimada /100 × respuesta /100. Alcance limitado por LN histórica 2024, sin proyectar el electorado de 2027. Se supone que las personas alcanzadas presentan la tasa observada; no existe evidencia causal de una intervención ni estimación monetaria de costos. La exportación registra estos supuestos.
+Selección por criterio editable (tasa, volumen sobre observados o variación), empate por clave. Capacidad N, alcance y respuesta son editables. Participación adicional hipotética = alcance limitado × tasa estimada /100 × respuesta /100. Alcance limitado y reducción sobre SV+NV 2024, con NS fuera, sin proyectar electorado 2027. Se supone que las personas alcanzadas presentan la tasa observada; no existe evidencia causal ni costos monetarios inventados. La exportación registra supuestos y ficha preventiva.
 
 ## Para competir
 
-El diferencial defendible es una decisión revisable, con calidad, referencia simple, resultados adversos visibles y restricciones de capacidad. Para sostener una candidatura fuerte aún faltan revisión territorial/institucional del caso de uso, armonización o justificación de límites, informe exigido de 10–15 páginas, presentación de máximo 10 diapositivas y cartas de la convocatoria. No se garantiza ganar ni se presenta el prototipo como sistema validado para asignación definitiva de recursos.
+El diferencial defendible es una decisión revisable, con calidad, referencia simple, resultados adversos visibles y restricciones de capacidad. Reporte de 12 páginas y presentación de 10 diapositivas disponibles en `entrega/`. Faltan revisión territorial/institucional, armonización o justificación de límites, confirmación de registro y firmas/envío oficiales. No se garantiza ganar ni se presenta como sistema validado para asignación definitiva de recursos.
 
 Evidencia íntegra: `salidas/metricas.json`, `salidas/backtest_predicciones.csv`, `salidas/metricas_entidad.csv`, `salidas/proyeccion_exploratoria_2027.csv`. Fuentes: [CCPC INE](https://ine.mx/transparencia/datos-abiertos/visualizacion-datos/conteos-censales-participacion/) y [cartografía INE](https://pautas.ine.mx/transparencia/mapas/index_2025.html).

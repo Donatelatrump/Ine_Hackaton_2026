@@ -1,5 +1,7 @@
 # Umbral: por qué, qué y cómo se desarrolló
 
+**Versión corregida Tecnocalidos:** [cambios y estado](02_Prediccion_y_escenarios_de_riesgo/CORRECCIONES_Y_ESTADO.md). Reporte 12 páginas, presentación 10 diapositivas, capas y fichas ya generados. Registro/firmas/envío no acreditados. Escenario actual sobre SV+NV 2024; nuevas métricas posteriores, sin retuning.
+
 Fecha de documentación: 5 de octubre de 2026. Proyecto para el track 2 del Hackathon INE 2026: predicción y escenarios de riesgo de abstención. Alcance elegido: todo México por municipio.
 
 ## Por qué se hizo
@@ -53,7 +55,7 @@ Ridge estima un ajuste a esa referencia usando tasas previas, diferencia entre e
 | 2024 | 2015, 2018 y 2021 |
 | Proyección exploratoria 2027 | 2015, 2018, 2021 y 2024 |
 
-Cada etiqueta de entrenamiento también utiliza características anteriores a su propio año. Se evaluaron error absoluto medio (MAE), MAE ponderado por LN histórica del objetivo y coincidencia entre los 50 municipios de mayor abstención observada y los 50 priorizados por el método.
+Cada etiqueta utiliza características anteriores a su propio año. MAE ponderado usa SV+NV del objetivo histórico, corrigiendo la descripción previa de LN sin alterar las cifras. Top50 compara dentro de la misma cohorte elegible.
 
 La regla de selección se fijó para 2021: adoptar Ridge si mejora MAE al menos 1% y no empeora MAE ponderado ni precisión top50. El corte 2024 se mantuvo como comprobación adicional, sin reajustar parámetros tras observarlo.
 
@@ -83,12 +85,12 @@ Un filtro inicial conserva entidades con catálogo de claves constante y deja 1,
 Se prioriza por abstención estimada descendente, con empate resuelto por clave. La persona usuaria define capacidad N, alcance por municipio y respuesta supuesta. El escenario aplica:
 
 ```text
-alcance limitado = mínimo(alcance supuesto, LN 2024)
+alcance limitado = mínimo(alcance supuesto, SV+NV 2024)
 participación adicional hipotética = alcance limitado × estimación/100 × respuesta/100
-abstención del escenario = estimación − 100 × participación adicional / LN 2024
+abstención del escenario = estimación − 100 × participación adicional / (SV+NV 2024)
 ```
 
-La comparación agregada usa los mismos municipios seleccionados y pondera por LN 2024. Respuesta cero conserva el escenario base. Capacidad cero o filtros sin resultados generan una selección vacía; las entradas inválidas bloquean exportación y resultados hasta corregirse.
+La comparación usa los mismos municipios y pondera por SV+NV 2024, con NS fuera. Respuesta cero conserva el escenario. Capacidad cero o filtros vacíos no seleccionan; entradas inválidas bloquean resultados y exportación.
 
 Estos cálculos suponen que las personas alcanzadas presentan la tasa de abstención observada utilizada por la proyección. LN 2024 es una referencia histórica, no una estimación del electorado de 2027. No se han demostrado efectos causales de una intervención ni costos monetarios. El CSV registra el alcance limitado, respuesta, estimación, rango y escenario hipotético. No se utilizan identidades individuales ni afinidad política.
 
@@ -96,7 +98,7 @@ Estos cálculos suponen que las personas alcanzadas presentan la tasa de abstenc
 
 Python procesa y evalúa los datos; el núcleo puro separa características, métricas y escenarios. La demo utiliza HTML, CSS, JavaScript y Leaflet 1.9.4 local. Datos, geometría y librerías se sirven desde la computadora, sin teselas ni llamadas remotas necesarias para su funcionamiento. Los enlaces a fuentes oficiales requieren internet cuando se abren.
 
-Se comprobaron 11 pruebas Python, 5 pruebas Node y 11 comprobaciones de navegador Edge: filtros, cobertura, detalle, respuesta cero, capacidad, exportación, selección vacía, entrada inválida, métricas, mapa y móvil. Además se verificaron claves únicas, cobertura geométrica, valores finitos, rangos, SHA256 del insumo y correspondencia de datos entre modelo y demo. Se inspeccionaron capturas de escritorio y móvil.
+Se comprobaron 15 pruebas Python, 9 pruebas Node y 19 comprobaciones de navegador Edge: cobertura, filtros, detalle, respuesta cero, capacidad, exportación con denominador, selección vacía, entrada inválida, métricas, mapa, móvil, capas Base/Intervención/Δ, estabilidad entre variantes, métodos, lentes, resumen por entidad, fichas y exclusiones, y apertura file://. Además se verificaron claves únicas, cobertura geométrica, valores finitos, rangos, SHA256 del insumo y correspondencia de datos entre modelo y demo. Se inspeccionaron capturas de escritorio y móvil.
 
 La revisión independiente no encontró problemas críticos ni importantes. Detectó que una entrada inválida podía conservar resultados anteriores en pantalla; se añadió una comprobación que reprodujo el fallo y se corrigió vaciando cifras y ocultando el mapa mientras la entrada es inválida.
 
@@ -108,7 +110,7 @@ Descomprimir el paquete y abrir una terminal en la carpeta `Ine_Hackaton`. Ejecu
 python -m http.server 8765 --bind 127.0.0.1 --directory 02_Prediccion_y_escenarios_de_riesgo/demo
 ```
 
-Abrir http://127.0.0.1:8765 y mantener la terminal activa. Detener con Ctrl+C. No abrir index.html directamente: los JSON necesitan servirse mediante HTTP.
+Abrir http://127.0.0.1:8765 y mantener terminal activa, detener con Ctrl+C. Alternativamente abrir `demo/index.html` con doble clic: versión corregida incrusta datos y geometría en JavaScript y no requiere servidor.
 
 Los comandos para regenerar el modelo y recursos están en `02_Prediccion_y_escenarios_de_riesgo/modelado/METODOLOGIA.md`. El paquete incluye las dependencias locales de esta computadora; para otro sistema operativo o versión de Python se deben reinstalar según requirements. La demo preparada requiere únicamente un servidor HTTP, sin volver a entrenar.
 
@@ -133,7 +135,7 @@ En la tabla, `02_…` abrevia `02_Prediccion_y_escenarios_de_riesgo`.
 
 ## Qué falta y qué no se afirma
 
-El prototipo está implementado y probado, pero no constituye una candidatura finalizada ni un sistema validado para asignación definitiva de recursos. Faltan armonización o justificación territorial histórica, revisión institucional del caso de uso y entregables formales del concurso: informe de 10–15 páginas, presentación de máximo 10 diapositivas y cartas requeridas. No se garantiza ganar el hackathon.
+El prototipo y documentos técnicos están implementados. Faltan armonización o justificación territorial histórica, revisión institucional, confirmar registro, firmar cartas y enviar oficialmente. El reporte y presentación están en `entrega/`. No se garantiza ganar ni se valida asignación definitiva de recursos.
 
 La oportunidad competitiva es presentar una herramienta que haga explícitos su capacidad, evidencia, incertidumbre y supuestos. La mejora del algoritmo en una elección debe explicarse junto con su deterioro en otra.
 

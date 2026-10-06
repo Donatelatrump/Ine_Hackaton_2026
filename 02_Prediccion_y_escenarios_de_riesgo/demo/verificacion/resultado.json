@@ -6,12 +6,20 @@
     "detalle",
     "respuesta_cero",
     "capacidad",
-    "exportacion",
+    "exportacion_denominador",
     "seleccion_vacia",
     "entrada_invalida",
     "metricas",
     "mapa",
-    "movil"
+    "movil",
+    "capas_escenario",
+    "delta",
+    "estabilidad",
+    "metodos",
+    "lentes",
+    "entidades",
+    "fichas_y_exclusiones",
+    "apertura_file"
   ],
   "page_errors": []
 }

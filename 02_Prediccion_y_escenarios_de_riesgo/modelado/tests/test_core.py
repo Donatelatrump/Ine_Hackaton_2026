@@ -49,7 +49,7 @@ class CoreTests(unittest.TestCase):
         self.assertEqual(api().missingness_bounds(60,30,10),(30,40))
         self.assertEqual(api().missingness_bounds(60,40,0),(40,40))
     def test_scenario_is_limited_by_capacity_electorate_and_response(self):
-        items=[dict(key='a',risk=60,ln=1000),dict(key='b',risk=None,ln=1000),dict(key='c',risk=50,ln=20)]
+        items=[dict(key='a',risk=60,observed=1000),dict(key='b',risk=None,observed=1000),dict(key='c',risk=50,observed=20)]
         s=api().scenario(items,1,100,25)
         self.assertEqual([x['key'] for x in s['selected']],['a'])
         self.assertEqual(s['additional'],15)
@@ -57,7 +57,7 @@ class CoreTests(unittest.TestCase):
         self.assertEqual(s['served'],120)
         self.assertEqual(s['additional'],70)
     def test_zero_effect_and_zero_capacity_are_valid(self):
-        items=[dict(key='a',risk=60,ln=1000)]
+        items=[dict(key='a',risk=60,observed=1000)]
         self.assertEqual(api().scenario(items,1,100,0)['additional'],0)
         self.assertEqual(api().scenario(items,0,100,25)['served'],0)
     def test_non_finite_scenario_input_is_rejected(self):

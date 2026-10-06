@@ -60,13 +60,13 @@ def missingness_bounds(sv,nv,ns):
 def scenario(items,capacity,reach,response):
     if not all(math.isfinite(float(v)) for v in [capacity,reach,response]) or capacity<0 or int(capacity)!=capacity or reach<0 or not 0<=response<=100:
         raise ValueError('Capacidad, alcance y respuesta fuera de rango')
-    valid=[r for r in items if r.get('risk') is not None and math.isfinite(r['risk']) and 0<=r['risk']<=100 and math.isfinite(r['ln']) and r['ln']>0]
+    valid=[r for r in items if r.get('risk') is not None and math.isfinite(r['risk']) and 0<=r['risk']<=100 and r.get('observed') is not None and math.isfinite(r['observed']) and r['observed']>0]
     selected=[]
     for r in sorted(valid,key=lambda r:(-r['risk'],r['key']))[:int(capacity)]:
-        served=min(reach,r['ln']);additional=served*r['risk']/100*response/100
-        selected.append({**r,'served':served,'additional':additional,'after':max(0,r['risk']-100*additional/r['ln'])})
-    population=sum(r['ln'] for r in selected)
+        served=min(reach,r['observed']);additional=served*r['risk']/100*response/100
+        selected.append({**r,'served':served,'additional':additional,'after':max(0,r['risk']-100*additional/r['observed'])})
+    population=sum(r['observed'] for r in selected)
     additional=sum(r['additional'] for r in selected)
-    before=sum(r['risk']*r['ln'] for r in selected)/population if population else 0
+    before=sum(r['risk']*r['observed'] for r in selected)/population if population else 0
     return {'selected':selected,'served':sum(r['served'] for r in selected),'additional':additional,
       'reference_population':population,'before':before,'after':max(0,before-100*additional/population) if population else 0}

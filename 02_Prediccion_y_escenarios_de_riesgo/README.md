@@ -1,5 +1,7 @@
 # Track 2: Predicción y escenarios de riesgo de abstención
 
+**Tecnocalidos, versión corregida:** [estado](CORRECCIONES_Y_ESTADO.md), [reporte 12 páginas](entrega/reporte/Umbral_reporte_metodologico_preventivo.pdf), [presentación 10 diapositivas](entrega/presentacion/Umbral_presentacion.pptx). Demo abre con doble clic y compara Base/Intervención/Δ. Registro, firmas y envío no acreditados.
+
 [Documento para analizar requisitos, decisiones, resultados y pendientes](ANALISIS_TRACK_2.md).
 
 **Prototipo ejecutable:** [Umbral](demo/README.md), con mapa nacional, filtros de calidad, priorización por capacidad y exportación de escenarios. [Resultados reales del modelo](modelado/RESULTADOS.md) y [reproducción](modelado/METODOLOGIA.md). Ridge mejora en 2021 y pierde frente a la referencia en 2024: la proyección 2027 se conserva explícitamente como exploratoria.

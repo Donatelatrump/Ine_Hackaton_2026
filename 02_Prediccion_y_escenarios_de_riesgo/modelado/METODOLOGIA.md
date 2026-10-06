@@ -1,11 +1,14 @@
 # Reproducción
 
+Actualización: `ampliar_analisis.py` reproduce el experimento y añade análisis posteriores y variantes, sin retuning. Escenario con SV+NV 2024, NS fuera. MAE ponderado también usa SV+NV del objetivo, corrigiendo menciones previas a LN. Comando de cifras: `python 02_Prediccion_y_escenarios_de_riesgo/modelado/imprimir_cifras.py`. Ver `../CORRECCIONES_Y_ESTADO.md`.
+
 Desde la raíz `Ine_Hackaton`, ejecutar:
 
 ```powershell
 python -m pip install --target .task_packages -r 02_Prediccion_y_escenarios_de_riesgo/modelado/requirements.txt
 python -m unittest discover -s 02_Prediccion_y_escenarios_de_riesgo/modelado/tests
 python 02_Prediccion_y_escenarios_de_riesgo/modelado/ejecutar.py
+python 02_Prediccion_y_escenarios_de_riesgo/modelado/ampliar_analisis.py
 python 02_Prediccion_y_escenarios_de_riesgo/demo/preparar_datos.py
 node --test 02_Prediccion_y_escenarios_de_riesgo/demo/decision.test.cjs
 ```
@@ -14,7 +17,7 @@ El insumo es `datos_preparados/municipios_historico_con_calidad.csv`; su SHA256 
 
 Características: tasas del último proceso y último del mismo tipo, diferencia de ambas, logaritmo de LN, proporciones etarias/urbanas, NS de ambos antecedentes y tipo de elección. Todos los datos son anteriores al objetivo. Edades superiores a 120 se excluyen de proporciones etarias; no se altera la tasa agregada de votación. No se utilizan identidades individuales ni afinidad política.
 
-Se ajusta StandardScaler y Ridge únicamente con entrenamiento previo al corte. Ridge estima un ajuste residual a la referencia del mismo tipo, alpha fijo 10; salida truncada a [0,100]. Etiquetas de entrenamiento 2015/2018 para 2021 y 2015/2018/2021 para 2024. El ajuste final para 2027 incorpora etiquetas hasta 2024. MAE ponderado utiliza LN del objetivo histórico; el top50 se compara dentro de la misma cohorte elegible para ambos métodos.
+Se ajusta StandardScaler y Ridge únicamente con entrenamiento previo al corte. Ridge estima un ajuste residual a la referencia del mismo tipo, alpha fijo 10; salida truncada a [0,100]. Etiquetas de entrenamiento 2015/2018 para 2021 y 2015/2018/2021 para 2024. El ajuste final para 2027 incorpora etiquetas hasta 2024. MAE ponderado utiliza SV+NV del objetivo histórico; el top50 se compara dentro de la misma cohorte elegible para ambos métodos.
 
 El bootstrap agrupa por entidad (500 réplicas, semilla 123) como sensibilidad espacial. No incluye incertidumbre temporal ni establece confianza para próximas elecciones. Sensibilidades NS y catálogos son análisis adicionales, sin reajustar alpha ni la regla elegida.
 

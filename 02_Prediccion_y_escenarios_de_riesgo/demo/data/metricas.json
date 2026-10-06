@@ -268,7 +268,7 @@
     2024
   ],
   "territorial_definition": "Claves INE, polígonos de referencia visual de mayo 2024. Límites históricos sin armonizar.",
-  "scenario_definition": "Participación adicional hipotética = alcance × abstención estimada/100 × respuesta supuesta/100. Alcance limitado por LN histórica 2024; no es una población proyectada a 2027.",
+  "scenario_definition": "Base observable SV+NV 2024 para alcance máximo, reducción y ponderación; NS fuera del escenario. No población proyectada 2027; respuesta hipotética.",
   "sources": [
     {
       "label": "CCPC",
@@ -322,5 +322,132 @@
     }
   ],
   "ridge_intercept": -3.161905559727422,
-  "input_sha256": "f570ab633f03386cfeb208b8a1d96c8865ab4889d9beb03cd6bc686133829c2a"
+  "input_sha256": "f570ab633f03386cfeb208b8a1d96c8865ab4889d9beb03cd6bc686133829c2a",
+  "additional_evaluation": {
+    "version": "analisis_posterior_2026_10_05",
+    "warning": "Métricas añadidas después de conocer MAE; no nueva evaluación independiente ni ajuste de alpha.",
+    "cuts": {
+      "2021": {
+        "persistencia": {
+          "umbral_alto_entrenamiento": 47.81388552166188,
+          "rojos_observados": 487,
+          "rojos_predichos": 849,
+          "verdaderos_positivos": 397,
+          "precision_rojo": 0.46760895170789163,
+          "recobrado_rojo": 0.8151950718685832,
+          "spearman": 0.4848773821411889,
+          "precision_rojo_vs_tercio_observado_test": 0.4746760895170789,
+          "umbral_tercio_observado_test_solo_evaluacion": 47.3813975120282
+        },
+        "ridge": {
+          "umbral_alto_entrenamiento": 47.81388552166188,
+          "rojos_observados": 487,
+          "rojos_predichos": 654,
+          "verdaderos_positivos": 359,
+          "precision_rojo": 0.5489296636085627,
+          "recobrado_rojo": 0.7371663244353183,
+          "spearman": 0.5989391227664363,
+          "precision_rojo_vs_tercio_observado_test": 0.5581039755351682,
+          "umbral_tercio_observado_test_solo_evaluacion": 47.3813975120282
+        }
+      },
+      "2024": {
+        "persistencia": {
+          "umbral_alto_entrenamiento": 47.72596515010451,
+          "rojos_observados": 264,
+          "rojos_predichos": 113,
+          "verdaderos_positivos": 100,
+          "precision_rojo": 0.8849557522123894,
+          "recobrado_rojo": 0.3787878787878788,
+          "spearman": 0.8266099018565313,
+          "precision_rojo_vs_tercio_observado_test": 0.9646017699115044,
+          "umbral_tercio_observado_test_solo_evaluacion": 43.02961168273282
+        },
+        "ridge": {
+          "umbral_alto_entrenamiento": 47.72596515010451,
+          "rojos_observados": 264,
+          "rojos_predichos": 55,
+          "verdaderos_positivos": 54,
+          "precision_rojo": 0.9818181818181818,
+          "recobrado_rojo": 0.20454545454545456,
+          "spearman": 0.8108398797842512,
+          "precision_rojo_vs_tercio_observado_test": 1.0,
+          "umbral_tercio_observado_test_solo_evaluacion": 43.02961168273282
+        }
+      }
+    },
+    "error_by_size": {
+      "2021_persistencia": {
+        "100000_mas": {
+          "n": 116,
+          "mae": 6.910310614568616,
+          "p90_abs_error_pp": 12.095126055024341
+        },
+        "10000_99999": {
+          "n": 608,
+          "mae": 11.339703287871501,
+          "p90_abs_error_pp": 24.950483978125188
+        },
+        "menos_10000": {
+          "n": 766,
+          "mae": 13.520224365128824,
+          "p90_abs_error_pp": 31.115471055679453
+        }
+      },
+      "2021_ridge": {
+        "100000_mas": {
+          "n": 116,
+          "mae": 4.698314757878237,
+          "p90_abs_error_pp": 8.122190003093529
+        },
+        "10000_99999": {
+          "n": 608,
+          "mae": 8.353170591240733,
+          "p90_abs_error_pp": 18.532655176685534
+        },
+        "menos_10000": {
+          "n": 766,
+          "mae": 10.582825138605413,
+          "p90_abs_error_pp": 23.68001595478643
+        }
+      },
+      "2024_persistencia": {
+        "100000_mas": {
+          "n": 122,
+          "mae": 3.3172748183585528,
+          "p90_abs_error_pp": 6.827595442895559
+        },
+        "10000_99999": {
+          "n": 622,
+          "mae": 4.849736850378455,
+          "p90_abs_error_pp": 9.100175848810428
+        },
+        "menos_10000": {
+          "n": 732,
+          "mae": 6.696334457907385,
+          "p90_abs_error_pp": 13.4969843928609
+        }
+      },
+      "2024_ridge": {
+        "100000_mas": {
+          "n": 122,
+          "mae": 3.434814024287828,
+          "p90_abs_error_pp": 6.738225522636548
+        },
+        "10000_99999": {
+          "n": 622,
+          "mae": 7.812915747720645,
+          "p90_abs_error_pp": 14.05381049902167
+        },
+        "menos_10000": {
+          "n": 732,
+          "mae": 10.099225324156121,
+          "p90_abs_error_pp": 18.07770989473872
+        }
+      }
+    },
+    "weight_definition": "SV+NV del objetivo histórico para MAE ponderado; tamaño usa SV+NV del último antecedente disponible."
+  },
+  "variant_definition": "Dos métodos × NS máximo 5/10/20, alpha10. Frecuencia topN descriptiva, no probabilidad; no elegible cuenta como no seleccionado e informa cobertura de variantes.",
+  "weight_definition": "SV+NV del objetivo histórico para MAE ponderado; tamaño usa SV+NV del último antecedente disponible."
 }

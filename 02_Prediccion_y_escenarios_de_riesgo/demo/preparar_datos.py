@@ -9,7 +9,7 @@ TRACK=DEMO.parent
 def main():
     (DEMO/'data').mkdir(exist_ok=True)
     (DEMO/'vendor').mkdir(exist_ok=True)
-    for name in ['resultados.json','metricas.json']:
+    for name in ['resultados.json','metricas.json','evaluacion_adicional.json']:
         shutil.copyfile(TRACK/'modelado/salidas'/name,DEMO/'data'/name)
     source=TRACK/'cartografia/municipios_ine_2024.geojson'
     geo=json.loads(source.read_text(encoding='utf-8'))
@@ -25,5 +25,7 @@ def main():
         url='https://unpkg.com/leaflet@1.9.4/dist/'+name
         urllib.request.urlretrieve(url,DEMO/'vendor'/name)
     urllib.request.urlretrieve('https://unpkg.com/leaflet@1.9.4/LICENSE',DEMO/'vendor/LICENSE')
+    data=json.loads((DEMO/'data/resultados.json').read_text(encoding='utf-8'))
+    (DEMO/'data/datos_embebidos.js').write_text('window.UMBRAL_DATA='+json.dumps(data,ensure_ascii=True,allow_nan=False,separators=(',',':'))+';\nwindow.UMBRAL_GEO='+json.dumps({'type':'FeatureCollection','features':features},ensure_ascii=True,separators=(',',':'))+';\n',encoding='utf-8')
     print(json.dumps({'features':len(features),'geometry_bytes':output.stat().st_size,'sample_properties':features[0]['properties']},ensure_ascii=True))
 if __name__=='__main__':main()
