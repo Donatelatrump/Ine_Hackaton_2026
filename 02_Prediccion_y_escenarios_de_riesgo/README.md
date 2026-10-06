@@ -1,5 +1,7 @@
 # Track 2: Predicción y escenarios de riesgo de abstención
 
+[Documento para analizar requisitos, decisiones, resultados y pendientes](ANALISIS_TRACK_2.md).
+
 **Prototipo ejecutable:** [Umbral](demo/README.md), con mapa nacional, filtros de calidad, priorización por capacidad y exportación de escenarios. [Resultados reales del modelo](modelado/RESULTADOS.md) y [reproducción](modelado/METODOLOGIA.md). Ridge mejora en 2021 y pierde frente a la referencia en 2024: la proyección 2027 se conserva explícitamente como exploratoria.
 
 Analítica predictiva para anticipar abstención territorial y priorizar recursos: modelar riesgo con tendencias y variables agregadas, comparar escenarios con/sin intervención, comunicar riesgo y recomendar prevención. Sin datos personales.
