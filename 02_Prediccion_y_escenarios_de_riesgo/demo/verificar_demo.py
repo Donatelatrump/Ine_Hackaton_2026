@@ -13,6 +13,20 @@ with sync_playwright() as p:
     page.goto('http://127.0.0.1:8765')
     page.wait_for_function("document.getElementById('status').textContent.startsWith('Datos locales cargados')",timeout=60000)
     assert page.locator('#eligible').inner_text()=='1,144'
+    assert page.locator('#explore-entry').is_visible()
+    page.locator('#plan-entry').click()
+    assert page.locator('#planning-settings').evaluate('e=>e.open')
+    assert '50 municipios' in page.locator('#scenario-assumptions').inner_text()
+    assert page.locator('#documents a').count()>=5
+    assert 'Pendiente de corrección' in page.locator('#report-status').inner_text()
+    page.locator('#planning-settings summary').click()
+    assert 'Filtro activo' in page.locator('#filter-summary').inner_text()
+    assert not page.locator('#planning-settings').evaluate('e=>e.open')
+    page.locator('#show-all').click()
+    assert page.locator('#eligible').inner_text()=='1,783'
+    assert not page.locator('#show-all').is_visible()
+    page.locator('a[href="#planning-settings"]').first.click()
+    assert page.locator('#planning-settings').evaluate('e=>e.open')
     page.locator('#settings summary').click()
     page.locator('#stable').uncheck()
     assert page.locator('#eligible').inner_text()=='1,783'
@@ -29,6 +43,13 @@ with sync_playwright() as p:
     page.locator('#capacity').fill('2')
     page.locator('#response').fill('25')
     assert page.locator('#selected').inner_text()=='2'
+    assert '2 municipios' in page.locator('#scenario-assumptions').inner_text()
+    assert '25%' in page.locator('#scenario-assumptions').inner_text()
+    page.locator('#confidence').check()
+    page.locator('[data-scenario-map="cambio"]').click()
+    assert page.locator('#map-mode').input_value()=='cambio'
+    assert not page.locator('#confidence').is_checked()
+    page.locator('[data-scenario-map="base"]').click()
     with page.expect_download() as d:page.locator('#export').click()
     d.value.save_as(OUT/'plan.csv')
     rows=list(csv.DictReader((OUT/'plan.csv').open(encoding='utf-8-sig',newline='')))
@@ -39,6 +60,7 @@ with sync_playwright() as p:
     assert page.locator('#selected').inner_text()=='0' and page.locator('#export').is_disabled()
     page.locator('#search').fill('')
     page.locator('#reach').fill('-1')
+    assert 'Corrige' in page.locator('#scenario-assumptions').inner_text()
     assert page.locator('#export').is_disabled()
     assert page.locator('#selected').inner_text()=='—'
     assert page.locator('#map').evaluate("e=>getComputedStyle(e).visibility")=='hidden'
@@ -59,9 +81,12 @@ with sync_playwright() as p:
     assert baseline_color!=scenario_color
     assert page.locator('#after').inner_text()=='0.00%'
     page.locator('#map-mode').select_option('cambio')
-    assert 'reducción' in page.locator('#map-caption').inner_text()
+    assert 'reducción' in page.locator('#map-caption').inner_text().lower()
+    assert '60%' in page.locator('.map-guide').inner_text()
     page.locator('#confidence').check()
     assert '6/6' in page.locator('#confidence-note').inner_text()
+    assert '6 de 6' in page.locator('#map-caption').inner_text()
+    assert 'nunca entran' in page.locator('.map-guide').inner_text()
     page.locator('#confidence').uncheck()
     page.locator('#method').select_option('baseline')
     assert page.evaluate('byKey.get(plan.selected[0].key).risk===byKey.get(plan.selected[0].key).baseline')
