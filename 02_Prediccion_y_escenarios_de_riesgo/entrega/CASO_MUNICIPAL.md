@@ -4,13 +4,15 @@
 
 ## Configuración reproducible
 
-Abrir `demo/index.html`. Todas las entidades, búsqueda vacía, filtro de catálogo constante activado, Ridge, tasa, capacidad de 50 municipios, estabilidad «Todas», alcance 1,000 y respuesta supuesta 25%. Buscar el caso en la lista y abrir su ficha. No introducirlo en el buscador antes de revisar el puesto: la búsqueda cambia el universo y la estabilidad.
+Abrir `demo/index.html`. En el paso 3 elegir municipio, Quintana Roo, clave 23008, SMS Suecia y cobertura total de 1,000 personas. Mantener Ridge y catálogo constante. La distribución por prioridad o proporcional coincide al simular un solo municipio.
+
+Los puestos 1/3 y la estabilidad 4/6 de la tabla siguiente se calculan **como referencia nacional top50** sobre 1,144 municipios estimables con catálogo constante. No son el puesto o la estabilidad recalculados al filtrar un único municipio. `generar_caso.cjs` reproduce ambos universos por separado.
 
 ## Evidencia del caso
 
 | Variable | Valor | Significado |
 |---|---:|---|
-| Puesto Ridge | 1 de 1,144 estimables | Con la configuración indicada |
+| Puesto Ridge | 1 de 1,144 estimables | Referencia nacional con catálogo constante |
 | Puesto de referencia | 3 | Misma cohorte y criterio |
 | Abstención 2021 | 66.30% | Última intermedia observada |
 | Abstención 2024 | 48.96% | Presidencial observada; otro tipo electoral |
@@ -21,7 +23,7 @@ Abrir `demo/index.html`. Todas las entidades, búsqueda vacía, filtro de catál
 | Composición 18–29 / urbana | 28.26% / 91.02% | Proporciones agregadas de LN |
 | Estabilidad | 4/6, media | Seleccionado en las cuatro variantes elegibles |
 
-Referencia y Ridge coinciden dentro de la capacidad. Las variantes NS ≤5% no son elegibles por NS 2021. Por eso pertenece a la zona de revisión, aunque ocupe el primer lugar Ridge. Cuatro variantes de seis no equivalen a una probabilidad de acierto del 67%. Catálogo constante tampoco acredita fronteras constantes.
+Referencia y Ridge coinciden dentro de la referencia top50. Las variantes NS ≤5% no son elegibles por NS 2021. Por eso pertenece a la zona de revisión, aunque ocupe el primer lugar Ridge. Cuatro variantes de seis no equivalen a una probabilidad de acierto del 67%. Catálogo constante tampoco acredita fronteras constantes.
 
 ## Propuesta operativa por validar
 
@@ -36,14 +38,19 @@ Referencia y Ridge coinciden dentro de la capacidad. Las variantes NS ≤5% no s
 
 ## Escenario hipotético
 
-Con alcance de 1,000 y respuesta supuesta de 25%:
+Con 1,000 personas distintas previstas para recibir un recordatorio SMS y efecto ITT externo de +0.30 puntos porcentuales:
 
 ```text
-H = 1,000 × 0.6210680555 × 0.25 = 155.27 adicionales hipotéticos
-Tasa = 62.10680555 − 100 × 155.26701388 / 255,362 = 62.04600284%
+H = 1,000 × 0.30 / 100 = 3 votos adicionales esperados
+Tasa posterior = 62.10680555 − 100 × 3 / 255,362 = 62.10563075%
+Reducción municipal = 0.00117480 puntos porcentuales
 ```
 
-La pantalla redondea **62.11% → 62.05%**, reducción de **0.0608 pp**. El cambio es pequeño y el municipio permanece en nivel alto: el escenario no garantiza pasar a verde. La respuesta de 25% es un supuesto ilustrativo, sin evidencia de efectividad. Se usa SV+NV 2024, no electorado proyectado. La cifra decimal expresa una expectativa algebraica, no una cuenta de personas observadas.
+El intervalo publicado de 0.13–0.48 pp corresponde a 1.3–4.8 votos esperados al trasladarlo aritméticamente a esta cobertura. No incluye incertidumbre del predictor ni de transferencia a México; no es un intervalo de efecto local. El municipio permanece en riesgo alto. Los decimales expresan expectativas, no personas observadas.
+
+Fuente del coeficiente: Lindgren, Nyman y Oskarsson (2025), *Examining Voting Spillover Effects of Text Message Reminders*, sección Results, figura 1. [Artículo original](https://doi.org/10.1017/S0007123424000504). El experimento es de Suecia, elección europea 2019, con voto registrado y asignación a SMS; no equivale a lectores efectivos, WhatsApp o talleres.
+
+La propuesta de talleres descrita arriba es una alternativa operativa por evaluar. **No se le asigna el coeficiente de SMS.** Para explorar talleres sin evidencia comparable se debe usar el modo personalizado con respuesta explícitamente supuesta.
 
 ## Decisión que se puede defender
 

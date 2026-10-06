@@ -1,5 +1,7 @@
 # Reproducción
 
+Actualización de la demo: el catálogo de acciones y las reglas de distribución están en `demo/decision.js` y [EVIDENCIA_INTERVENCIONES.md](EVIDENCIA_INTERVENCIONES.md). La cobertura es total; se reparte por prioridad o proporcional a SV+NV 2024. Estas funciones no reentrenan el predictor ni alteran métricas históricas. Pruebas adicionales: `node --test 02_Prediccion_y_escenarios_de_riesgo/demo/intervenciones.test.cjs` y `python 02_Prediccion_y_escenarios_de_riesgo/demo/verificar_demo.py`. Este último verifica el flujo vigente y regenera capturas con configuración explícita, sin servidor.
+
 Actualización: `ampliar_analisis.py` reproduce el experimento y añade análisis posteriores y variantes, sin retuning. Escenario con SV+NV 2024, NS fuera. MAE ponderado también usa SV+NV del objetivo, corrigiendo menciones previas a LN. Comando de cifras: `python 02_Prediccion_y_escenarios_de_riesgo/modelado/imprimir_cifras.py`. Ver `../CORRECCIONES_Y_ESTADO.md`.
 
 Desde la raíz `Ine_Hackaton`, ejecutar:

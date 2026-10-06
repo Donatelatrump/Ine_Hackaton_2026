@@ -29,6 +29,10 @@ La carpeta `.packages` es una instalación local auxiliar; no es fuente de datos
 
 ## Verificación realizada
 
+Actualización del 6 de octubre: ámbito municipio/estado/país, cobertura total única, distribución por prioridad o proporcional y comparación sobre todos los estimables filtrados. Fuentes originales de acciones se identifican por DOI y localizador en la página 11. Caso 23008: 1,000 SMS Suecia, ITT 0.30 pp, 3 votos hipotéticos [1.3,4.8], reducción 0.001175 pp. Estabilidad 4/6 pertenece al ranking de referencia top50. Las capturas nacionales corresponden a cobertura total 100,000 y reparto proporcional, no al caso municipal. No se reejecutó el modelo.
+
+Se corrigió una sentinela que impedía imprimir la tabla de resultados y se incorporó ajuste de texto en celdas de todas las tablas. La tabla de la página 7 ahora muestra las métricas existentes de 2021 y 2024, sin recalcular ni inventar resultados. Se renderizaron e inspeccionaron individualmente las 14 páginas; sin texto recortado, superposición ni tablas fuera de página. El marcador del skill PDF se ejecutó antes de la edición.
+
 Se generaron 14 páginas con texto extraíble y cajas dentro del tamaño carta. Se incrustan dos figuras (mapa del semáforo y tres paneles de escenario) y tres tablas (métricas, variables y viabilidad). Se renderizó cada página mediante PyMuPDF, alternativa local disponible a Poppler, y se inspeccionaron la hoja de contacto y páginas densas a resolución de lectura. Se confirmó legibilidad de tablas, referencias y fichas, sin superposición ni texto recortado. La última comprobación se registra en `verificacion.json`; las pruebas de documento no acreditan precisión futura ni impacto causal.
 
 El marcador de operación de autoría del skill PDF se ejecutó correctamente antes de la primera creación. La convocatoria oficial se abrió y contrastó en páginas 3-5: método/escenarios, reporte de 10-15 cuartillas y mínimos de entrega. Fuente: https://ine.mx/wp-content/uploads/2026/09/Convocatoria_Hackaton-1.pdf.

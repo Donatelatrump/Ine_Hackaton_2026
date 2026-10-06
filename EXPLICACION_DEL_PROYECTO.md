@@ -82,25 +82,21 @@ Un filtro inicial conserva entidades con catálogo de claves constante y deja 1,
 
 ### Decisión y escenario
 
-La prioridad permite tasa, volumen sobre SV+NV 2024 o deterioro frente al mismo tipo; los empates se resuelven por clave. La persona usuaria define capacidad N, alcance por municipio y respuesta supuesta. El escenario aplica:
+La persona usuaria elige municipio, estado o México con municipios estimables incluidos, una acción y cobertura total. Para SMS se cuentan personas distintas previstas para envío, no mensajes ni lectores; para la llamada, contactos efectivos. La capacidad es un supuesto operativo del usuario, no un dato CCPC.
 
-```text
-alcance limitado = mínimo(alcance supuesto, SV+NV 2024)
-participación adicional hipotética = alcance limitado × estimación/100 × respuesta/100
-abstención del escenario = estimación − 100 × participación adicional / (SV+NV 2024)
-```
+Dos reglas propias de planeación distribuyen la cobertura: focalización por ranking (tasa, volumen o deterioro), o reparto proporcional a SV+NV 2024. La proporcional usa mayor resto para conservar personas enteras y desempata por clave. Ambas limitan la cobertura a la base disponible, sin asignar acciones a municipios sin estimación. No son recomendaciones de efectividad derivadas de los estudios.
 
-La comparación usa los mismos municipios y pondera por SV+NV 2024, con NS fuera. Respuesta cero conserva el escenario. Capacidad cero o filtros vacíos no seleccionan; entradas inválidas bloquean resultados y exportación.
+Las acciones con evidencia usan `H = min(E × efecto_pp / 100, E × tasa / 100)`. El modo personalizado usa `H = E × tasa / 100 × respuesta / 100`, con respuesta supuesta sin fuente causal. Tasa posterior municipal = tasa − 100 × H / (SV+NV 2024). La comparación territorial incluye municipios no atendidos, ponderados por SV+NV, y excluye los no estimables. El resumen distingue población incluida y excluida por filtros.
 
-Estos cálculos suponen que las personas alcanzadas presentan la tasa de abstención observada utilizada por la proyección. SV+NV 2024 es una referencia histórica, no una estimación del electorado de 2027. No se han demostrado efectos causales de una intervención ni costos monetarios. El CSV registra el alcance limitado, respuesta, estimación, rango y escenario hipotético. No se utilizan identidades individuales ni afinidad política.
+Cada acción incluye publicación original, país, población, elección, estimador y límites en la página y CSV. Véase [evidencia de intervenciones](02_Prediccion_y_escenarios_de_riesgo/modelado/EVIDENCIA_INTERVENCIONES.md). El traslado a México es hipotético: los intervalos externos no incorporan incertidumbre local ni del predictor. NS queda fuera; SV+NV 2024 no es electorado proyectado. Entradas inválidas bloquean resultados y exportación.
 
 ### Implementación técnica y validación
 
 Python procesa y evalúa los datos; el núcleo puro separa características, métricas y escenarios. La demo utiliza HTML, CSS, JavaScript y Leaflet 1.9.4 local. Datos, geometría y librerías se sirven desde la computadora, sin teselas ni llamadas remotas necesarias para su funcionamiento. Los enlaces a fuentes oficiales requieren internet cuando se abren.
 
-Se comprobaron 15 pruebas Python, 12 pruebas Node y 24 comprobaciones de navegador Edge: cobertura, filtros, detalle, respuesta cero, capacidad, exportación con denominador, selección vacía, entrada inválida, métricas, mapa, móvil, capas Base/Intervención/Δ, estabilidad entre variantes, métodos, lentes, resumen por entidad, fichas y exclusiones, plan sugerido, frontera de decisión, perfil CCPC, capacidad humana, estabilidad mínima y apertura file://. Además se verificaron claves únicas, cobertura geométrica, valores finitos, rangos, SHA256 del insumo y correspondencia de datos entre modelo y demo. Se inspeccionaron capturas de escritorio y móvil.
+La verificación vigente ejecuta 30 pruebas Python y 21 pruebas Node, además de `demo/verificar_intervenciones.py`: escalas, asignación total y proporcional, ITT/ATT, incertidumbre, CSV con fuentes, invalidación y vista móvil/file://. Las capturas se regeneran con `demo/capturar_demo.py` y registran su configuración. Las comprobaciones antiguas del navegador correspondían al flujo anterior; no acreditan por sí solas los controles actuales.
 
-La revisión independiente no encontró problemas críticos ni importantes. Detectó que una entrada inválida podía conservar resultados anteriores en pantalla; se añadió una comprobación que reprodujo el fallo y se corrigió vaciando cifras y ocultando el mapa mientras la entrada es inválida.
+La revisión independiente detectó y corrigió redondeo de efectos pequeños y uso del presupuesto territorial en la inversión municipal. La inversión personalizada usa la cobertura realmente asignada al municipio. Verificar el software no demuestra efectividad causal ni valida la proyección 2027.
 
 ## Cómo abrir y reproducir
 

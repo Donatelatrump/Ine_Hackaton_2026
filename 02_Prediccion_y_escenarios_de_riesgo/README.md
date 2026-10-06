@@ -21,3 +21,5 @@ Los archivos ya fueron aportados manualmente. Ver [revisión inicial](auditoria/
 La base municipal y su documentación están en [datos_preparados](datos_preparados/README.md). El resultado de la auditoría completa está en [RESULTADOS.md](auditoria/RESULTADOS.md); los polígonos de referencia visual están en `cartografia/municipios_ine_2024.geojson`.
 
 Entrega unificada el 6 de octubre de 2026: [caso municipal](entrega/CASO_MUNICIPAL.md) y [guion de presentación](entrega/GUION_PRESENTACION.md). Estabilidad de selección es frecuencia descriptiva; las variantes comparten datos y pueden equivocarse juntas.
+
+Actualización de escenarios: municipio, estado o México con estimación incluida; cobertura total, distribución por prioridad o proporcional a SV+NV 2024 y acciones con citas originales. El efecto trasladado a México es hipotético. Caso, reporte y presentación distinguen la evidencia publicada de reglas de planeación y supuestos. La demo muestra exclusiones y conserva fuentes y distribución en CSV.

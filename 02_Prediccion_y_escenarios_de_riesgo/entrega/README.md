@@ -23,3 +23,5 @@ python 02_Prediccion_y_escenarios_de_riesgo/entrega/verificar_entrega.py
 ```
 
 La presentación usa Segoe UI de Windows. El PDF se construye con la misma composición del generador; no es una conversión mediante PowerPoint. La revisión del motor PowerPoint sigue pendiente. El ZIP anterior conserva su identificación como respaldo histórico; estos archivos son la entrega técnica vigente.
+
+Actualización de escenarios: municipio, estado o México con estimación incluida; cobertura total, distribución por prioridad o proporcional a SV+NV 2024 y acciones con citas originales. El efecto trasladado a México es hipotético. Caso, reporte y presentación distinguen la evidencia publicada de reglas de planeación y supuestos. La demo muestra exclusiones y conserva fuentes y distribución en CSV.

@@ -1,20 +1,14 @@
 ﻿# Presentación Umbral
 
-`Umbral_presentacion.pptx`: diez diapositivas con textos y tabla editables.
+Actualización: 6 de octubre de 2026. Diez diapositivas. [PPTX editable](Umbral_presentacion.pptx) y [PDF](Umbral_presentacion.pdf). Ver [guion](../GUION_PRESENTACION.md).
 
-Actualización: 6 de octubre de 2026. Incluye ficha de decisión, estabilidad de selección, frontera y caso 23008. SOLIDARIDAD es el nombre del catálogo histórico. El resultado adverso de 2024 y los supuestos del escenario permanecen explícitos. Ver [guion](../GUION_PRESENTACION.md) y [caso completo](../CASO_MUNICIPAL.md).
+Incluye territorio municipio/estado/país, cobertura total, acciones con evidencia externa, reglas propias de distribución y caso 23008 con 1,000 personas previstas para SMS Suecia. Los 3 votos adicionales y la reducción 0.001175 pp son un traslado hipotético a México. La estabilidad del plan usa N equivalente a municipios atendidos y no recalcula presupuesto ni reparto. El 4/6 del caso describe el ranking de referencia top50 documentado. Ridge mejora en 2021 y empeora en 2024. Modelo congelado.
 
-`Umbral_presentacion.pdf`: exportación de la misma composición con ReportLab. No es una conversión del PPTX mediante PowerPoint.
+La diapositiva 6 explica coeficientes y comparación territorial con texto editable. Las capturas mapa_intervencion.png y mapa_cambio.png son capturas actuales auxiliares copiadas de demo/verificacion. No se usan en el deck.
 
-`generar_presentacion.py`: fuente reproducible. Ejecutar con Python y python-pptx, reportlab y pymupdf instalados. Busca dependencias locales en `.packages` y en `../reporte/.packages`.
+`generar_presentacion.py` reproduce el deck mediante edición OOXML estándar de `plantilla_base.pptx`, sin python-pptx, y genera PDF con ReportLab. Requiere reportlab, PyMuPDF y Pillow. Usa dependencias locales .packages y ../reporte/.packages de solo lectura. Conserva diseño, Segoe UI, dimensión y tabla nativa del original.
 
-Paleta y tipografía tomadas de la demo Umbral: teal #10685F, sage #E5EEEA, fondo #F3F6F4, Segoe UI. Cifras retrospectivas del experimento original y Spearman de `modelado/salidas/evaluacion_adicional.json`, identificado como análisis posterior.
+El PDF comparte composición y contenido con PPTX, pero no es conversión de PowerPoint. Los PNG QA_01 a QA_10 proceden del PDF. Se inspeccionaron diez renders y se verificaron cantidad de diapositivas, texto editable, notas y tabla nativa. El entorno no ofrece runtime Artifact Tool ni conversión nativa PowerPoint/LibreOffice. Queda pendiente comprobar el PPTX bajo ese motor antes de presentar.
 
-## Revisión
-
-Se generaron diez páginas PNG `QA_01.png` a `QA_10.png` desde el PDF y se inspeccionó su composición. Se comprobó el número de diapositivas, los nombres del equipo y la presencia de textos y tabla editables en PPTX. LibreOffice no está disponible en este entorno. Falta abrir el PPTX en PowerPoint para comprobar la composición bajo su motor de renderizado.
-
-La diapositiva 6 incorpora capturas reales de la demo corregida: intervención hipotética y diferencia. Las capturas se conservan como fuentes PNG junto al script.
-
-Firmas, registro y envío formal quedan pendientes del equipo.
+Firmas, registro y envío formal pendientes del equipo.
 

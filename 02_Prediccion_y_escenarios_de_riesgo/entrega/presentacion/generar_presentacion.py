@@ -1,13 +1,11 @@
-﻿"""Umbral: PPTX editable y PDF con la misma composición. Python 3 + python-pptx/reportlab.
+﻿"""Umbral: PPTX editable y PDF con la misma composición. Python 3 + OOXML estándar/reportlab.
 Ejecutar desde esta carpeta. Dependencias locales opcionales en .packages.
 """
 from pathlib import Path
 import sys, textwrap, json
 HERE=Path(__file__).resolve().parent
 sys.path[:0]=[str(HERE/'.packages'),str(HERE.parent/'reporte'/'.packages')]
-from pptx import Presentation
-from pptx.util import Inches, Pt
-from pptx.dml.color import RGBColor
+import zipfile, copy, xml.etree.ElementTree as ET
 from reportlab.pdfgen import canvas
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
@@ -15,29 +13,119 @@ from reportlab.pdfbase.ttfonts import TTFont
 INK='15353B'; TEAL='10685F'; PAPER='F3F6F4'; MUTED='587177'; SAGE='E5EEEA'
 CCPC='https://ine.mx/transparencia/datos-abiertos/visualizacion-datos/conteos-censales-participacion/'
 CALL='https://ine.mx/wp-content/uploads/2026/09/Convocatoria_Hackaton-1.pdf'
-slides=[
-('UMBRAL', [('Atlas de decisión municipal',28),('Revisión territorial con evidencia, capacidad y supuestos visibles',22),('Tecnocalidos · Hackathon INE 2026 · Track 2',18),('Martin Isai Nuñez Villeda y Cesar Donnet Hernandez Gastelum',17),('Versión técnica · 6 de octubre de 2026',17)],'Datos agregados CCPC 2009–2024. Prototipo para revisión institucional.'),
-('Una capacidad de 50 municipios', [('La decisión inicial',24),('Un área de educación cívica puede revisar 50 municipios. Umbral ordena antecedentes, calidad y supuestos para preparar un plan de atención.',22),('La persona usuaria elige entidad, capacidad y criterio de prioridad. Revisa cada municipio antes de exportar la lista.',22),('50 es una capacidad propuesta y editable.',18)],'Fuente: convocatoria INE, pp. 3–5. '+CALL),
-('Cobertura y calidad visibles', [('1,783 con estimación',36),('694 sin estimación · 2,477 claves históricas',24),('Abstención observada = 100 × NV / (SV + NV)',24),('NS identifica participación no especificada. La regla principal exige NS ≤10% en ambos antecedentes relevantes.',20),('El catálogo constante orienta la revisión territorial. Falta comprobar equivalencia de límites históricos.',20)],'Fuente: auditoría y base municipal del proyecto. CCPC: '+CCPC),
-('La referencia también compite', [('Referencia: última elección del mismo tipo',24),('Para 2027 usa 2021. Ridge estima un ajuste con historia electoral, edad agregada, urbanización y calidad.',22),('Alpha = 10 permanece congelado. Cada corte aprende con resultados anteriores al año objetivo.',22),('2021 seleccionó el método. Ese corte no es una prueba independiente posterior a la selección.',20)],'Fuente: modelado/METODOLOGIA.md y modelado/salidas/metricas.json. No hay ajuste para mejorar 2024.'),
-('Ridge mejora en 2021 y empeora en 2024', [],'MAE en puntos porcentuales. Ponderación por SV+NV observado del objetivo. Top50 dentro de cada cohorte evaluable.'),
-('Mapa y escenario sobre los mismos territorios', [('Base, con intervención y diferencia',26),('La persona usuaria cambia alcance y respuesta supuesta. Los umbrales de la base permanecen fijos al comparar los mapas.',22),('La cobertura usa SV+NV observado en 2024. NS queda fuera del escenario y se informa por separado.',22),('Ejemplo hipotético: base 60%, 10,000 observados, alcance 1,000 y respuesta 5% producen 30 participantes adicionales y 59.7%.',20)],'Capturas de la demo corregida. El escenario es hipotético, sin efecto causal demostrado ni población 2027 proyectada.'),
-('Una ficha para revisar cada prioridad', [('¿Por qué este municipio?',26),('Puesto, antecedentes, calidad NS y acuerdo entre referencia y Ridge. Perfil CCPC por grupos como capa descriptiva separada.',21),('Estabilidad de selección: dos métodos × NS 5/10/20.',22),('6/6: núcleo robusto; 1/6–5/6: zona de revisión. Elegibilidad aparte. Las variantes comparten datos y pueden equivocarse juntas.',21)],'Frecuencia descriptiva, no probabilidad de acierto. La frontera orienta revisión y propuesta de piloto.'),
-('Caso 23008: prioridad que requiere revisión', [('SOLIDARIDAD · catálogo histórico de Quintana Roo',24),('Puesto Ridge 1; referencia 3. Estimación exploratoria 62.11%. Estabilidad 4/6: NS 2021 de 9.60% excluye variantes NS ≤5%.',21),('Acción propuesta: talleres abiertos sobre requisitos y procedimiento. Educación cívica y junta local; sedes y capacidad por validar.',21),('1,000 alcanzados y respuesta supuesta 25%: 155.27 adicionales hipotéticos; 62.11% → 62.05%. Permanece alto.',21)],'Configuración nacional: catálogo constante, tasa, Ridge, 50 municipios, estabilidad Todas. Base SV+NV 2024: 255,362.'),
-('De la ficha a un plan verificable', [('Recursos, condiciones y medición',25),('Exportar acción, responsable propuesto, alcance, supuestos y estabilidad. Capacidad por municipios o por personas alcanzables.',21),('Registrar alcance único agregado, horas y conocimiento previo/posterior. El perfil joven orienta canales; no demuestra barreras.',21),('Validar límites, sedes y atribuciones. Un efecto sobre participación requiere evaluación comparativa y protocolo previo.',21)],'Caso completo: entrega/CASO_MUNICIPAL.md. Guion y demo de tres pasos: entrega/GUION_PRESENTACION.md.'),
-('Siguiente decisión: un piloto acotado', [('Validación con el área usuaria',26),('Acordar objetivo de priorización, capacidad real y protocolo de revisión territorial. Elegir acciones con cobertura que pueda medirse.',22),('Evaluación antes de ampliar',26),('Predefinir indicadores y asignación del piloto. Conservar la referencia y publicar resultados favorables y adversos.',22),('Equipo: Tecnocalidos. Firmas, registro y envío formal siguen pendientes.',19)],'2024 es presidencial y no valida directamente 2027. No se promete superioridad predictiva o efectividad preventiva.')]
+slides=[('UMBRAL',
+  [('Atlas de decisión municipal', 28),
+   ('Revisión territorial con evidencia, capacidad y supuestos visibles', 22),
+   ('Tecnocalidos · Hackathon INE 2026 · Track 2', 18),
+   ('Martin Isai Nuñez Villeda y Cesar Donnet Hernandez Gastelum', 17),
+   ('Versión técnica · 6 de octubre de 2026', 17)],
+  'Datos agregados CCPC 2009–2024. Prototipo para revisión institucional.'),
+ ('Territorio y cobertura total',
+  [('Municipio, estado o país', 26),
+   ('La persona usuaria elige territorio, acción con evidencia y cobertura total. SMS cuenta personas distintas previstas para '
+    'envío. Llamada cuenta contactos efectivos.',
+    21),
+   ('Prioridad concentra por ranking. Proporcional reparte por SV+NV 2024 entre todos los elegibles, con redondeo por mayor '
+    'resto y tope de población.',
+    21),
+   ('Estas reglas son decisiones de planeación propias.', 19)],
+  'País: México, municipios con estimación incluidos. Los filtros y exclusiones delimitan el alcance.'),
+ ('Cobertura y calidad visibles',
+  [('1,783 con estimación', 36),
+   ('694 sin estimación · 2,477 claves históricas', 24),
+   ('Abstención observada = 100 × NV / (SV + NV)', 24),
+   ('NS identifica participación no especificada. La regla principal exige NS ≤10% en ambos antecedentes relevantes.', 20),
+   ('El catálogo constante orienta la revisión territorial. Falta comprobar equivalencia de límites históricos.', 20)],
+  'Fuente: auditoría y base municipal del proyecto. CCPC: '
+  'https://ine.mx/transparencia/datos-abiertos/visualizacion-datos/conteos-censales-participacion/'),
+ ('La referencia también compite',
+  [('Referencia: última elección del mismo tipo', 24),
+   ('Para 2027 usa 2021. Ridge estima un ajuste con historia electoral, edad agregada, urbanización y calidad.', 22),
+   ('Alpha = 10 permanece congelado. Cada corte aprende con resultados anteriores al año objetivo.', 22),
+   ('2021 seleccionó el método. Ese corte no es una prueba independiente posterior a la selección.', 20)],
+  'Fuente: modelado/METODOLOGIA.md y modelado/salidas/metricas.json. No hay ajuste para mejorar 2024.'),
+ ('Ridge mejora en 2021 y empeora en 2024',
+  [],
+  'MAE en puntos porcentuales. Ponderación por SV+NV observado del objetivo. Top50 dentro de cada cohorte evaluable.'),
+ ('Evidencia externa y escenario territorial',
+  [('Acción y coeficiente publicado', 25),
+   ('SMS Suecia: +0.30 pp ITT, intervalo 0.13–0.48. SMS EEUU: +0.25 pp ITT, intervalo 0.17–0.34. Llamada: +4.1 pp ATT, error '
+    'estándar 1.7.',
+    20),
+   ('Votos adicionales hipotéticos = cobertura × coeficiente / 100, limitados por abstención esperada entre cubiertos. '
+    'El coeficiente ya mide cambio en participación, sin otra tasa de respuesta.',
+    21),
+   ('La comparación conserva todo el territorio estimable, incluso municipios sin atención. Umbrales base fijos y ponderación '
+    'SV+NV 2024.',
+    20)],
+  'DOI: 10.1017/S0007123424000504; 10.1007/s11109-026-10121-2; 10.1177/0956797609359326. Traslado a México: supuesto.'),
+ ('Una ficha para revisar cada prioridad',
+  [('¿Por qué este municipio?', 26),
+   ('Puesto, antecedentes, calidad NS y acuerdo entre referencia y Ridge. Perfil CCPC por grupos como capa descriptiva separada.',
+    21),
+   ('Frecuencia entre seis variantes: dos métodos × NS 5/10/20. N equivale a municipios atendidos del plan actual.', 22),
+   ('Compara rankings con N equivalente. No recalcula presupuesto ni reparto y no es probabilidad. El caso 23008 documenta '
+    'por separado el ranking de referencia top50.',
+    21)],
+  'Frecuencia descriptiva. Las variantes comparten datos y pueden equivocarse juntas.'),
+ ('Caso 23008: SMS con traslado hipotético',
+  [('SOLIDARIDAD · catálogo histórico de Quintana Roo', 24),
+   ('Puesto Ridge 1, referencia 3. Base 62.106806%. Estabilidad 4/6 del ranking de referencia top50. NS 2021: 9.60%, excluye '
+    'umbral ≤5%.',
+    20),
+   ('1,000 personas distintas previstas para SMS Suecia: 3 votos adicionales hipotéticos, rango externo 1.3–4.8.', 23),
+   ('Escenario 62.105631%. Reducción de 0.001175 pp. El efecto publicado proviene de Suecia y su traslado a México requiere '
+    'evaluación.',
+    21)],
+  'Fuente: entrega/caso_municipal.json. SV+NV 2024: 255,362. SMS: Lindgren, Nyman y Oskarsson (2025), DOI '
+  '10.1017/S0007123424000504.'),
+ ('De la ficha a un plan verificable',
+  [('Recursos, condiciones y medición', 25),
+   ('Exportar territorio, acción y cita, cobertura total, distribución, supuestos y estabilidad del plan actual.', 21),
+   ('Registrar alcance único agregado, horas y conocimiento previo/posterior. El perfil por edad describe grupos agregados y no '
+    'demuestra barreras.',
+    21),
+   ('Validar límites, sedes y atribuciones. Un efecto sobre participación requiere evaluación comparativa y protocolo previo.',
+    21)],
+  'Caso completo: entrega/CASO_MUNICIPAL.md. Guion y demo de tres pasos: entrega/GUION_PRESENTACION.md.'),
+ ('Siguiente decisión: un piloto acotado',
+  [('Validación con el área usuaria', 26),
+   ('Acordar objetivo de priorización, capacidad real y protocolo de revisión territorial. Elegir acciones con cobertura que '
+    'pueda medirse.',
+    22),
+   ('Evaluación antes de ampliar', 26),
+   ('Predefinir indicadores y asignación del piloto. Conservar la referencia y publicar resultados favorables y adversos.', 22),
+   ('Equipo: Tecnocalidos. Firmas, registro y envío formal siguen pendientes.', 19)],
+  '2024 es presidencial y no valida directamente 2027. No se promete superioridad predictiva o efectividad preventiva.')]
 
-prs=Presentation(); prs.slide_width=Inches(13.333); prs.slide_height=Inches(7.5)
+TEMPLATE=HERE/'plantilla_base.pptx'
+if not TEMPLATE.exists(): TEMPLATE.write_bytes((HERE/'Umbral_presentacion.pptx').read_bytes())
+with zipfile.ZipFile(TEMPLATE) as z: package={n:z.read(n) for n in z.namelist()}
+NS={'p':'http://schemas.openxmlformats.org/presentationml/2006/main','a':'http://schemas.openxmlformats.org/drawingml/2006/main'}
+for k,v in NS.items(): ET.register_namespace(k,v)
+ET.register_namespace('r','http://schemas.openxmlformats.org/officeDocument/2006/relationships')
+shape_template=ET.fromstring(package['ppt/slides/slide1.xml']).find('p:cSld/p:spTree/p:sp',NS)
+def native_text(root,value,x,y,w,h,size,color,bold):
+    shape=copy.deepcopy(shape_template)
+    tree=root.find('p:cSld/p:spTree',NS)
+    prop=shape.find('p:nvSpPr/p:cNvPr',NS); prop.set('id',str(len(tree)+1));prop.set('name','Texto editable')
+    xfrm=shape.find('p:spPr/a:xfrm',NS)
+    off=xfrm.find('a:off',NS); off.set('x',str(round(x*914400)));off.set('y',str(round(y*914400)))
+    ext=xfrm.find('a:ext',NS);ext.set('cx',str(round(w*914400)));ext.set('cy',str(round(h*914400)))
+    body=shape.find('p:txBody',NS)
+    for el in list(body):
+        if el.tag.endswith('}p'): body.remove(el)
+    para=ET.SubElement(body,'{'+NS['a']+'}p');run=ET.SubElement(para,'{'+NS['a']+'}r')
+    rp=ET.SubElement(run,'{'+NS['a']+'}rPr',{'sz':str(size*100),'b':'1' if bold else '0'})
+    fill=ET.SubElement(rp,'{'+NS['a']+'}solidFill');ET.SubElement(fill,'{'+NS['a']+'}srgbClr',{'val':color})
+    ET.SubElement(rp,'{'+NS['a']+'}latin',{'typeface':'Segoe UI'})
+    ET.SubElement(run,'{'+NS['a']+'}t').text=value
+    tree.append(shape)
+
 fontpath=Path('C:/Windows/Fonts/segoeui.ttf'); boldpath=Path('C:/Windows/Fonts/segoeuib.ttf')
 pdfmetrics.registerFont(TTFont('Segoe',str(fontpath))); pdfmetrics.registerFont(TTFont('SegoeBold',str(boldpath)))
 pdf=canvas.Canvas(str(HERE/'Umbral_presentacion.pdf'),pagesize=(960,540))
-def rgb(h): return RGBColor.from_string(h)
 def text(slide,value,x,y,w,h,size=22,color=INK,bold=False):
-    box=slide.shapes.add_textbox(Inches(x), Inches(y), Inches(w), Inches(h)); tf=box.text_frame; tf.word_wrap=True
-    tf.margin_left=tf.margin_right=0; tf.margin_top=tf.margin_bottom=0
-    for i,line in enumerate(value.split('\n')):
-        p=tf.paragraphs[0] if i==0 else tf.add_paragraph(); p.text=line
-        p.font.name='Segoe UI'; p.font.size=Pt(size); p.font.bold=bold; p.font.color.rgb=rgb(color)
     pdf.setFillColor('#'+color); pdf.setFont('SegoeBold' if bold else 'Segoe',size)
     words=value.split(); lines=[]; current=''
     for word in words:
@@ -45,48 +133,56 @@ def text(slide,value,x,y,w,h,size=22,color=INK,bold=False):
         if pdfmetrics.stringWidth(test,'SegoeBold' if bold else 'Segoe',size)>w*72 and current: lines.append(current); current=word
         else: current=test
     if current: lines.append(current)
-    box.height=Inches(max(h,len(lines)*size*1.22/72+.08))
+    native_text(slide,value,x,y,w,max(h,len(lines)*size*1.22/72+.08),size,color,bold)
     for i,line in enumerate(lines): pdf.drawString(x*72,540-y*72-size-i*size*1.22,line)
     return len(lines)*size*1.22/72
 
 for num,(title,parts,foot) in enumerate(slides,1):
-    slide=prs.slides.add_slide(prs.slide_layouts[6]); slide.background.fill.solid(); slide.background.fill.fore_color.rgb=rgb(PAPER)
+    slide=ET.fromstring(package[f'ppt/slides/slide{num}.xml'])
+    tree=slide.find('p:cSld/p:spTree',NS)
+    for shape in list(tree)[2:]: tree.remove(shape)
     pdf.setFillColor('#'+PAPER); pdf.rect(0,0,960,540,fill=1,stroke=0)
     text(slide,'UMBRAL · '+str(num).zfill(2),.65,.35,12,.3,12,TEAL,True)
     text(slide,title,.65,.9,12,1.2,44 if num==1 else 32,TEAL if num==1 else INK,True)
     if num==5:
         data=[['Corte / método','n','MAE (pp)','Ponderado','Top50'],['2021 · Referencia','1,490','12.12','8.05','16/50'],['2021 · Ridge','1,490','9.21','5.49','19/50'],['2024 · Referencia','1,476','5.64','3.54','27/50'],['2024 · Ridge','1,476','8.58','4.49','27/50']]
-        table=slide.shapes.add_table(5,5, Inches(.65), Inches(2.0), Inches(12), Inches(2.6)).table
-        table.columns[0].width=Inches(4)
-        for c in range(1,5): table.columns[c].width=Inches(2)
+        old=ET.fromstring(package['ppt/slides/slide5.xml'])
+        table=old.find('p:cSld/p:spTree/p:graphicFrame',NS)
+        table=copy.deepcopy(table)
+        table.find('p:nvGraphicFramePr/p:cNvPr',NS).set('id',str(len(tree)+1))
+        tree.append(table)
         for r,row in enumerate(data):
             for c,value in enumerate(row):
-                cell=table.cell(r,c); cell.text=value; cell.fill.solid(); cell.fill.fore_color.rgb=rgb(SAGE if r==0 else PAPER)
-                for p in cell.text_frame.paragraphs: p.font.name='Segoe UI'; p.font.size=Pt(20); p.font.bold=r==0; p.font.color.rgb=rgb(INK)
                 text_x=.75+sum([4,2,2,2,2][:c])
                 pdf.setFillColor('#'+INK); pdf.setFont('SegoeBold' if r==0 else 'Segoe',20); pdf.drawString(text_x*72,540-(2.1+r*.52)*72-20,value)
         text(slide,'La evidencia no demuestra superioridad consistente.',.65,4.95,12,.5,25,TEAL,True)
         text(slide,'Spearman referencia / Ridge: 0.485 / 0.599 en 2021 y 0.827 / 0.811 en 2024. Análisis posterior, sin reajuste del modelo.',.65,5.6,12,.7,20)
-    elif num==6:
-        text(slide,'Con intervención hipotética',.65,2.0,5.9,.4,22,TEAL,True)
-        text(slide,'Diferencia respecto a la base',6.85,2.0,5.8,.4,22,TEAL,True)
-        for filename,x in [('mapa_intervencion.png',.65),('mapa_cambio.png',6.85)]:
-            img=HERE/filename
-            slide.shapes.add_picture(str(img),Inches(x),Inches(2.55),width=Inches(5.85))
-            pdf.drawImage(str(img),x*72,540-2.55*72-5.85*72*648/1026,width=5.85*72,height=5.85*72*648/1026)
-        text(slide,'Mismos territorios y umbrales base fijos. Cobertura y ponderación: SV+NV observado 2024. NS se informa por separado.',.65,6.25,12,.5,16)
     else:
         y=2.15 if num!=1 else 2.6
         for value,size in parts:
             h=text(slide,value,.65,y,11.9,1.0 if size<28 else .7,size,TEAL if size>=24 else INK,size>=24)
             y+=h+.22
     text(slide,foot,.65,6.83,11.9,.45,10,MUTED)
-    slide.notes_slide.notes_text_frame.text=foot+'\nFuentes primarias: '+CCPC+'\nConvocatoria: '+CALL
+    package[f'ppt/slides/slide{num}.xml']=ET.tostring(slide,encoding='utf-8',xml_declaration=True)
+    notes=ET.fromstring(package[f'ppt/notesSlides/notesSlide{num}.xml'])
+    for t in notes.findall('.//a:t',NS): t.text=''
+    texts=notes.findall('.//a:t',NS)
+    if texts: texts[-1].text=foot+' Fuentes primarias: '+CCPC+' Convocatoria: '+CALL
+    package[f'ppt/notesSlides/notesSlide{num}.xml']=ET.tostring(notes,encoding='utf-8',xml_declaration=True)
     pdf.showPage()
-prs.save(HERE/'Umbral_presentacion.pptx'); pdf.save()
+with zipfile.ZipFile(HERE/'Umbral_presentacion.pptx','w',zipfile.ZIP_DEFLATED) as z:
+    for n,b in package.items(): z.writestr(n,b)
+pdf.save()
 import fitz
 doc=fitz.open(HERE/'Umbral_presentacion.pdf')
 for i,page in enumerate(doc): page.get_pixmap(matrix=fitz.Matrix(1.2,1.2)).save(HERE/f'QA_{i+1:02}.png')
+from PIL import Image
+thumbs=[]
+for i in range(10):
+    im=Image.open(HERE/f'QA_{i+1:02}.png'); im.thumbnail((590,332));thumbs.append(im)
+montage=Image.new('RGB',(1200,1750),'#E5EEEA')
+for i,im in enumerate(thumbs): montage.paste(im,(5+(i%2)*600,5+(i//2)*350))
+montage.save(HERE/'QA_montaje.png')
 print('Generadas 10 diapositivas PPTX editables, PDF y 10 vistas QA.')
 
 

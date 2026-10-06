@@ -3,7 +3,7 @@
 **Proyecto:** Umbral, atlas de decisión municipal.
 **Concurso:** Hackathon INE 2026, Reto 2 (predicción y escenarios de riesgo de abstención).
 **Equipo:** Tecnocalidos — Martin Isai Nuñez Villeda y Cesar Donnet Hernandez Gastelum.
-**Corte del documento:** 5 de octubre de 2026.
+**Corte del documento:** 6 de octubre de 2026; actualizado con acciones citadas y distribución territorial.
 **Estado:** prototipo funcional y evaluación retrospectiva; entrega formal pendiente de actos humanos (registro, firmas, envío).
 
 Este documento explica **todo el proyecto** y ofrece un **análisis general** con datos observados. No sustituye al reporte metodológico y preventivo de la convocatoria; es una guía de lectura y una valoración honesta de fortalezas, límites y riesgos.
@@ -14,7 +14,7 @@ Este documento explica **todo el proyecto** y ofrece un **análisis general** co
 
 Umbral es una herramienta de **priorización territorial auditable**. Responde una decisión concreta:
 
-> Si un área de educación cívica dispone de capacidad para atender **N municipios**, ¿cuáles conviene revisar primero, con qué respaldo, qué tan confiable es esa prioridad y qué puede hacerse después?
+> Si un área de educación cívica dispone de cobertura total para una acción, ¿cuáles conviene revisar primero, con qué respaldo, qué tan confiable es esa prioridad y qué puede hacerse después?
 
 Combina una **referencia sencilla** (la abstención de la última elección del mismo tipo) con un **ajuste Ridge regularizado**, muestra la **calidad del dato** y ofrece **escenarios** sin y con intervención hipotética. Prioriza por **tasa de abstención estimada** (con lentes alternativos de volumen y deterioro), no por número absoluto.
 
@@ -151,7 +151,7 @@ Abre con **doble clic** en `demo/index.html` (datos incrustados; sin servidor, s
 - **Capas Base / Con intervención / Δ** con umbrales base fijos.
 - **Ficha "¿por qué este municipio?"**: posición de prioridad, riesgo, estabilidad, razones verificables, robustez 6/6, acción, hipótesis y cómo evaluarla.
 - **Perfil CCPC observado** por edad, sexo y tipo de sección, como capa explicativa **separada del modelo**.
-- **Modo Director**: capacidad territorial (municipios) o humana (personas alcanzables), criterio y estabilidad mínima; plan sugerido y descarga CSV.
+- **Planeación territorial**: municipio, estado o México incluido; acción citada, cobertura total y distribución por prioridad o proporcional a SV+NV 2024; plan y CSV con fuentes.
 - **Frontera de decisión**: núcleo robusto, zona de revisión y fuera; piloto aleatorio propuesto.
 - Vista por entidad y exportación con supuestos.
 
@@ -235,7 +235,7 @@ Proyecto **metodológicamente serio y bien auditado**, que responde una pregunta
 5. **Validar** responsables, recursos y diseño de piloto con el área usuaria.
 6. Confirmar con la organización el criterio de **"cuartilla"**.
 
-La presentación se regeneró el 6 de octubre con ficha, perfil descriptivo, capacidad territorial o humana, frontera y caso 23008. Ver [caso completo](02_Prediccion_y_escenarios_de_riesgo/entrega/CASO_MUNICIPAL.md) y [guion](02_Prediccion_y_escenarios_de_riesgo/entrega/GUION_PRESENTACION.md).
+La presentación se regeneró el 6 de octubre con ficha, perfil descriptivo, cobertura total y distribución territorial, frontera y caso 23008. Ver [caso completo](02_Prediccion_y_escenarios_de_riesgo/entrega/CASO_MUNICIPAL.md) y [guion](02_Prediccion_y_escenarios_de_riesgo/entrega/GUION_PRESENTACION.md).
 
 ---
 
@@ -285,3 +285,9 @@ Demo: abrir `02_Prediccion_y_escenarios_de_riesgo/demo/index.html` con doble cli
 - [Correcciones y estado](02_Prediccion_y_escenarios_de_riesgo/CORRECCIONES_Y_ESTADO.md).
 - [Análisis del track](02_Prediccion_y_escenarios_de_riesgo/ANALISIS_TRACK_2.md).
 - [Demo](02_Prediccion_y_escenarios_de_riesgo/demo/README.md).
+
+## Actualización del simulador y evidencia de acciones
+
+La interfaz distingue focalizar por prioridad de distribuir proporcionalmente a SV+NV 2024. Ambas son reglas del proyecto, no efectos publicados. La cobertura se introduce como total, sin repetirla en cada municipio. México significa municipios estimables incluidos bajo los filtros; se muestran exclusiones. El promedio territorial incluye municipios no atendidos.
+
+Las acciones usan coeficientes, estimadores e incertidumbre de publicaciones originales; [catálogo y citas](02_Prediccion_y_escenarios_de_riesgo/modelado/EVIDENCIA_INTERVENCIONES.md). El traslado a México es hipotético. Caso 23008: SMS Suecia a 1,000 personas previstas implica 3 votos esperados y reducción de 0.0011748 pp, no 155 votos de una respuesta supuesta de 25%. Los talleres siguen como propuesta sin coeficiente causal. Las pruebas vigentes y las capturas se describen en la [demo](02_Prediccion_y_escenarios_de_riesgo/demo/README.md).

@@ -2,7 +2,7 @@
 
 Fecha de consulta: 6 de octubre de 2026. Revisión inicial de artículos originales, tesis y fuentes institucionales. No es una revisión sistemática exhaustiva ni una calibración de efectos para México.
 
-La búsqueda responde a la necesidad de fundamentar escenarios de intervención de Umbral. No se modificó la simulación ni se asignaron coeficientes nuevos. Las cifras siguientes describen los estudios originales, no predicciones para municipios mexicanos.
+La búsqueda responde a la necesidad de fundamentar escenarios de intervención de Umbral. La revisión inicial no modificó la simulación. La actualización al final documenta el catálogo implementado con referencias externas; las cifras describen los estudios originales, no efectos validados para municipios mexicanos.
 
 ## Cómo interpretar los resultados
 
@@ -141,10 +141,34 @@ El INE publica resultados e informes sobre acciones de promoción de participaci
 
 ## Implicación para Umbral
 
-La fórmula actual usa una fracción supuesta de abstencionistas contactados que pasarían a votar. Los estudios suelen reportar diferencias de participación entre tratamiento y control. No introducir +0.9 pp como si fuera una respuesta de 0.9% en la fórmula actual.
+La fórmula del modo personalizado usa una fracción supuesta de abstencionistas contactados que pasarían a votar. Los estudios suelen reportar diferencias de participación entre tratamiento y control. No introducir +0.9 pp como si fuera una respuesta de 0.9% en esa fórmula. El catálogo implementado usa un cálculo separado en puntos porcentuales.
 
 Una eventual versión basada en evidencia debe registrar, para cada efecto: fuente, país, elección, año, población, acción, unidad, resultado, estimador, cobertura e incertidumbre. Mantener los efectos publicados como referencias externas y etiquetar cualquier transferencia a México como supuesto del escenario.
 
 Ejemplo aritmético, sin validación de transferencia: un efecto de 0.9 pp aplicado a 1,000 personas comparables implica 9 votos adicionales esperados. Si el efecto es ITT, las 1,000 corresponden a personas asignadas; si es entre contactados, deben corresponder a contactados efectivos. La reducción municipal en pp es 100 × votos adicionales / población de referencia, limitada por la abstención base. No es una promesa de impacto.
 
 Faltan efectos locales por acción y edad, intervalos de incertidumbre completos para varios estudios y evaluación de equivalencia con la población mexicana. No hay base en esta revisión para establecer una tabla universal «jóvenes X%, adultos Y%, mayores Z%».
+
+## Catálogo implementado y verificación de fuentes — 6 de octubre de 2026
+
+Solo se incorporan tres referencias verificadas en publicaciones originales. «Sin intervención» es la opción inicial; «personalizada» conserva un supuesto del usuario, sin adjudicarle evidencia causal. No se asignó coeficiente a infografías o talleres ni una tabla general por edad.
+
+| Acción / fuente original | Estimador y coeficiente | Incertidumbre y localización |
+|---|---|---|
+| SMS, Suecia: Lindgren, K.-O., Nyman, P. y Oskarsson, S. (2025), *Examining Voting Spillover Effects of Text Message Reminders*, British Journal of Political Science | ITT directo: +0.30 pp sobre personas asignadas | Intervalo publicado 0.13–0.48 pp; sección Results, figura 1. [DOI 10.1017/S0007123424000504](https://doi.org/10.1017/S0007123424000504) |
+| SMS, Estados Unidos: Haenschen, Mann y DeMora (2026), referencia 1 | ITT global: +0.25 pp sobre personas asignadas | IC 95% [0.0017, 0.0034] en proporción, convertido a 0.17–0.34 pp; introducción. [DOI 10.1007/s11109-026-10121-2](https://doi.org/10.1007/s11109-026-10121-2) |
+| Llamada con plan de votación: Nickerson y Rogers (2010), referencia 3 | ATT ajustado por contacto: +4.1 pp sobre contactos efectivos | Error estándar 1.7 pp; tabla 1, Implementation intentions. El ITT es 0.9 pp; no intercambiar denominadores. [Artículo](https://doi.org/10.1177/0956797609359326), [tabla en PDF](https://marketing.wharton.upenn.edu/wp-content/uploads/2016/10/nickerson20and20rogers_FINAL.pdf) |
+
+El experimento sueco corresponde a Parlamento Europeo 2019, muestra inicial 3,161,654 residentes de 18–75 años con un número móvil asociado, vinculados a registros de voto. No se suman efectos en convivientes. El estadounidense de SMS corresponde a intermedias de 2018 y una población específica, no a todo el electorado. El de llamada corresponde a electores de baja propensión en el registro demócrata de Pensilvania en 2008, no a sesiones abiertas en México. Estas diferencias se muestran en la página.
+
+Regla implementada: `H = min(E × efecto_pp / 100, E × abstención_base / 100)`; tasa posterior `A − 100 × H / O`, con `O = SV2024 + NV2024` y `E` limitado por O y capacidad. El segundo límite es una restricción del escenario: asume que los cubiertos presentan la tasa municipal y evita convertir más abstencionistas que los esperados entre ellos. No es una estimación adicional de los estudios. Los extremos de SMS usan la misma regla y se agregan con cobertura fija; no se reduce la incertidumbre artificialmente por número de municipios.
+
+El rango trasladado no es un intervalo de impacto para México. No incorpora error del modelo, equivalencia poblacional, implementación, contexto ni transferencia. La llamada muestra el error estándar sin presentar un intervalo nuevo como publicado. Todas las citas, coeficientes, unidades y límites se incluyen en los CSV exportados. Modelo predictivo y salidas de Python permanecen separados de este catálogo de escenarios de la demo.
+
+## Distribución de cobertura y agregación territorial
+
+Las reglas de reparto son decisiones de planeación del proyecto, no resultados de los artículos. Prioridad recorre el ranking hasta agotar el total; proporcional asigna `total × O_municipio / suma(O)` a municipios elegibles. Se limita el total a la población disponible, se toman pisos y los lugares restantes se asignan por mayor resto, con desempate por clave. La base O es SV+NV 2024. No se infieren teléfonos, accesibilidad digital ni capacidad institucional a partir de CCPC.
+
+La comparación de estado o país incluye todos los municipios estimables del territorio filtrado, atendidos o no, usando la misma población y umbrales base. Los excluidos se cuentan y no se extrapola a ellos. «México: municipios con estimación incluidos» evita presentar el agregado parcial como una tasa nacional completa.
+
+Con un coeficiente homogéneo y sin límites de abstención activos, ambas distribuciones producen el mismo total de votos esperados para la misma cobertura. Lo que cambia es dónde se asigna la acción y la reducción municipal. El simulador no estima efectos heterogéneos locales ni demuestra que un reparto maximice impacto; hacerlo requeriría evidencia adicional.

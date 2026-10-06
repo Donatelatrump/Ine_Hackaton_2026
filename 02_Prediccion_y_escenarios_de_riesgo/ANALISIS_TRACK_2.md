@@ -4,7 +4,7 @@ Actualización: 6 de octubre de 2026. Equipo: Tecnocalidos.
 
 ## Decisión y alcance
 
-Umbral permite priorizar una revisión territorial con antecedentes observables, restricciones de capacidad y supuestos visibles. La persona usuaria define territorio, capacidad por municipios o personas, criterio de tasa/volumen/deterioro y estabilidad mínima. Inspecciona cada ficha y exporta un plan para revisión humana.
+Umbral permite priorizar una revisión territorial con antecedentes observables, restricciones de capacidad y supuestos visibles. La persona usuaria define territorio, cobertura total de personas, distribución por prioridad o proporcional a SV+NV 2024, criterio de tasa/volumen/deterioro y estabilidad mínima. Inspecciona cada ficha y exporta un plan para revisión humana.
 
 El horizonte 2027 es exploratorio. La herramienta no está validada para asignar recursos automáticamente ni demuestra la efectividad de las intervenciones. El recorrido de presentación es: definir capacidad, revisar un municipio y comparar un escenario.
 
@@ -49,6 +49,14 @@ En modo personas, la estabilidad usa el número de municipios que caben en el pl
 
 ## Escenario y prevención
 
+La demo incorpora un selector: sin intervención (inicial), SMS con referencia sueca o estadounidense, llamada para elaborar un plan de votación y modo personalizado. El catálogo muestra citas originales, población, elección, estimador e incertidumbre; las descargas preservan esa información. Véanse [fuentes y reglas del catálogo](modelado/EVIDENCIA_INTERVENCIONES.md).
+
+La simulación permite municipio, estado y país. La cobertura es un total de personas para ese territorio y se asigna por prioridad o proporcionalmente a SV+NV 2024, sin repetir el total por municipio. El promedio territorial usa toda la base estimable del filtro, incluidos municipios no atendidos; el resumen de atendidos se presenta aparte. Municipios sin estimación y excluidos por catálogo no se tratan como abstención cero. En SMS el usuario proporciona la capacidad prevista de envío a personas distintas; CCPC no proporciona ese dato operativo.
+
+Las acciones con evidencia usan `H = min(E × efecto_pp / 100, E × tasa estimada / 100)`, seguido de `tasa posterior = tasa estimada − 100 × H / O`. ITT se aplica a asignados; ATT a contactos efectivos. La cobertura comparable y la transferencia a México son supuestos explícitos, no hallazgos CCPC. Los extremos publicados de SMS se trasladan sin incluir incertidumbre del modelo ni de transferencia. El catálogo de la demo no modifica las salidas históricas de Python.
+
+La fórmula siguiente corresponde al modo personalizado, que conserva una respuesta supuesta sin fuente causal:
+
 ```text
 O = SV2024 + NV2024
 E = mínimo(alcance supuesto, O)
@@ -56,7 +64,7 @@ H = E × tasa estimada / 100 × respuesta supuesta / 100
 Tasa del escenario = tasa estimada − 100 × H / O
 ```
 
-En capacidad humana E también se limita al presupuesto restante. Se agregan los mismos territorios, ponderados por O. Se supone que los alcanzados presentan la tasa estimada y que la respuesta es aplicable; ambas son hipótesis. H es un número esperado hipotético, no personas observadas ni efecto probado.
+E es la asignación municipal de la cobertura total. La comparación agrega todos los municipios estimables del territorio filtrado, incluidos los no atendidos, ponderados por O. Se supone que los alcanzados presentan la tasa estimada y que la respuesta es aplicable; ambas son hipótesis. H es un número esperado hipotético, no personas observadas ni efecto probado.
 
 Las fichas registran acción, responsable propuesto, condiciones, alcance, recurso y medición. El [caso municipal completo](entrega/CASO_MUNICIPAL.md) distingue cifras verificadas y propuesta operativa. El piloto propone asignación aleatoria entre territorios elegibles con balance y protocolo previo; cercanía del score no acredita equivalencia. Medir alcance y conocimiento es distinto de demostrar efecto sobre participación, que requiere comparación causal y potencia suficiente.
 

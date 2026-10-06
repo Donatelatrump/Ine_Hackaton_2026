@@ -1,21 +1,21 @@
 {
   "pages": 14,
   "structure": "8 secciones",
-  "pdf_sha256": "03d43afdc242625990abf88b18655e3e06837f10477ab2f470ebc6e693bb6a22",
+  "pdf_sha256": "01fe1718c2341574437ba4f726b1e7611f89f8670a23925d796a4205f24e9cde",
   "checks": [
     {
       "page": 1,
-      "text_chars": 1397,
+      "text_chars": 1341,
       "bounds_ok": true
     },
     {
       "page": 2,
-      "text_chars": 1171,
+      "text_chars": 1123,
       "bounds_ok": true
     },
     {
       "page": 3,
-      "text_chars": 1629,
+      "text_chars": 1625,
       "bounds_ok": true
     },
     {
@@ -35,12 +35,12 @@
     },
     {
       "page": 7,
-      "text_chars": 955,
+      "text_chars": 1155,
       "bounds_ok": true
     },
     {
       "page": 8,
-      "text_chars": 1387,
+      "text_chars": 1228,
       "bounds_ok": true
     },
     {
@@ -50,22 +50,22 @@
     },
     {
       "page": 10,
-      "text_chars": 1232,
+      "text_chars": 1461,
       "bounds_ok": true
     },
     {
       "page": 11,
-      "text_chars": 1073,
+      "text_chars": 1446,
       "bounds_ok": true
     },
     {
       "page": 12,
-      "text_chars": 1243,
+      "text_chars": 1163,
       "bounds_ok": true
     },
     {
       "page": 13,
-      "text_chars": 975,
+      "text_chars": 1265,
       "bounds_ok": true
     },
     {
@@ -73,5 +73,9 @@
       "text_chars": 1517,
       "bounds_ok": true
     }
-  ]
+  ],
+  "model_rerun": false,
+  "visual_review": "14 p\u00e1ginas inspeccionadas individualmente; sin recortes ni superposici\u00f3n",
+  "scenario_source": "entrega/caso_municipal.json",
+  "metrics_table_present": true
 }
