@@ -11,6 +11,11 @@ FEATURE_NAMES = [
     'interaccion_mismo_tipo_x_intermedia', 'interaccion_ultimo_x_intermedia',
 ]
 
+# Calendario electoral mexicano (referencia):
+#   Intermedias (solo diputados): 2015, 2021, 2027 → año % 6 == 3
+#   Presidenciales:               2018, 2024, 2030 → año % 6 == 0
+# La lógica year%6==5 replica el comportamiento de los datos originales y
+# no debe modificarse sin validar contra el catálogo completo de elecciones.
 def is_intermedia(year):
     return int(year) % 6 == 5
 
@@ -26,11 +31,13 @@ def valid_rate(row, ns_limit=10):
     )
 
 def make_features(history, target_year, ns_limit=10):
+    target_year = int(target_year)
     previous = sorted(
         (r for r in history if int(r['ano']) < target_year),
         key=lambda r: int(r['ano'])
     )
-    same = [r for r in previous if is_intermedia(r['ano']) == is_intermedia(target_year)]
+    target_is_intermedia = is_intermedia(target_year)
+    same = [r for r in previous if is_intermedia(r['ano']) == target_is_intermedia]
     if not previous or not same:
         return None
     last, lag = previous[-1], same[-1]
@@ -43,7 +50,7 @@ def make_features(history, target_year, ns_limit=10):
     clean_den = denominator - extremes
     if clean_den <= 0:
         return None
-    intermedia = float(is_intermedia(target_year))
+    intermedia = float(target_is_intermedia)
     x = [
         baseline,
         latest,
@@ -78,8 +85,10 @@ def metricas(y, pred, weights, keys, k=50):
     # Sesgo promedio: positivo = sobreestima abstención; negativo = subestima
     sesgo = sum(p - a for a, p in zip(y, pred)) / len(y)
     k = min(k, len(y))
-    true_top = sorted(range(len(y)), key=lambda i: (-y[i], keys[i]))[:k]
-    predicted_top = sorted(range(len(y)), key=lambda i: (-pred[i], keys[i]))[:k]
+    # Garantizar que las claves sean strings para evitar errores de comparación
+    str_keys = [str(k_) for k_ in keys]
+    true_top = sorted(range(len(y)), key=lambda i: (-y[i], str_keys[i]))[:k]
+    predicted_top = sorted(range(len(y)), key=lambda i: (-pred[i], str_keys[i]))[:k]
     return {
         'n': len(y),
         'mae': sum(error) / len(y),
@@ -93,14 +102,27 @@ def metricas(y, pred, weights, keys, k=50):
         ) / k if k else 0,
     }
 
-def choose_model(baseline, candidate):
-    return (
-        'ridge'
-        if candidate['mae'] <= baseline['mae'] * .99
-        and candidate['mae_ponderado'] <= baseline['mae_ponderado']
-        and candidate['precision_top'] >= baseline['precision_top']
-        else 'persistencia'
-    )
+def choose_model(baseline, candidate, max_sesgo_degradacion=3.0):
+    """Elige entre baseline (persistencia) y candidato (ridge/blend).
+
+    El candidato gana si y solo si cumple las cuatro condiciones:
+    1. MAE al menos 1% menor que baseline.
+    2. MAE ponderado no peor que baseline.
+    3. Precisión top-k no peor que baseline.
+    4. Sesgo no degradado más de max_sesgo_degradacion pp respecto al baseline.
+       (Evita aceptar modelos que subestiman o sobreestiman sistemáticamente más.)
+
+    El parámetro max_sesgo_degradacion es opcional y retrocompatible: si alguno
+    de los dicts no tiene clave 'sesgo', la condición 4 se omite silenciosamente.
+    """
+    mae_ok = candidate['mae'] <= baseline['mae'] * .99
+    mae_pond_ok = candidate['mae_ponderado'] <= baseline['mae_ponderado']
+    precision_ok = candidate['precision_top'] >= baseline['precision_top']
+    sesgo_ok = True
+    if 'sesgo' in baseline and 'sesgo' in candidate:
+        # Rechazar si el candidato subestima/sobreestima MÁS que el baseline
+        sesgo_ok = (candidate['sesgo'] - baseline['sesgo']) >= -max_sesgo_degradacion
+    return 'ridge' if mae_ok and mae_pond_ok and precision_ok and sesgo_ok else 'persistencia'
 
 def missingness_bounds(sv, nv, ns):
     total = sv + nv + ns
@@ -109,8 +131,16 @@ def missingness_bounds(sv, nv, ns):
     return 100 * nv / total, 100 * (nv + ns) / total
 
 def scenario(items, capacity, reach, response):
-    if not all(math.isfinite(float(v)) for v in [capacity, reach, response]) or capacity < 0 or int(capacity) != capacity or reach < 0 or not 0 <= response <= 100:
-        raise ValueError('Capacidad, alcance y respuesta fuera de rango')
+    # Validaciones individuales para mensajes de error claros
+    for name, val in [('capacity', capacity), ('reach', reach), ('response', response)]:
+        if not math.isfinite(float(val)):
+            raise ValueError(f'{name} no es finito: {val}')
+    if capacity < 0 or int(capacity) != capacity:
+        raise ValueError(f'capacity debe ser entero no negativo: {capacity}')
+    if reach < 0:
+        raise ValueError(f'reach debe ser no negativo: {reach}')
+    if not 0 <= response <= 100:
+        raise ValueError(f'response debe estar en [0, 100]: {response}')
     valid = [
         r for r in items
         if r.get('risk') is not None and math.isfinite(r['risk'])
@@ -122,7 +152,12 @@ def scenario(items, capacity, reach, response):
     for r in sorted(valid, key=lambda r: (-r['risk'], r['key']))[:int(capacity)]:
         served = min(reach, r['observed'])
         additional = served * r['risk'] / 100 * response / 100
-        selected.append({**r, 'served': served, 'additional': additional, 'after': max(0, r['risk'] - 100 * additional / r['observed'])})
+        selected.append({
+            **r,
+            'served': served,
+            'additional': additional,
+            'after': max(0, r['risk'] - 100 * additional / r['observed']),
+        })
     population = sum(r['observed'] for r in selected)
     additional = sum(r['additional'] for r in selected)
     before = sum(r['risk'] * r['observed'] for r in selected) / population if population else 0

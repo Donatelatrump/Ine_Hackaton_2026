@@ -30,67 +30,145 @@ for r in raw:
 for h in histories.values():
     h.sort(key=lambda r: r['ano'])
 
+# ---------------------------------------------------------------------------
+# Caché de examples() — evita recalcular make_features() en cada fold del CV
+# (bug #2 del análisis: sin caché _cv_temporal re-itera miles de municipios
+#  por cada alpha candidate × fold)
+# ---------------------------------------------------------------------------
+_examples_cache: dict = {}
+
 def examples(target, ns_limit=10):
+    cache_key = (target, ns_limit)
+    if cache_key in _examples_cache:
+        return _examples_cache[cache_key]
     output = []
-    for key, h in sorted(histories.items()):
+    for mun_key, h in sorted(histories.items()):
         feat = make_features(h, target, ns_limit)
         observed = next((r for r in h if r['ano'] == target), None)
         if feat is not None and observed and valid_rate(observed, ns_limit):
             assert feat['source_year'] < target and feat['same_year'] < target
-            output.append(dict(key=key, year=target, feature=feat, y=observed['abstencion_pct'],
-                weight=observed['sv'] + observed['nv'], state=observed['entidad_ine']))
+            output.append(dict(
+                key=mun_key, year=target, feature=feat,
+                y=observed['abstencion_pct'],
+                weight=observed['sv'] + observed['nv'],
+                state=observed['entidad_ine'],
+            ))
+    _examples_cache[cache_key] = output
     return output
 
 # ---------------------------------------------------------------------------
-# Búsqueda temporal de alpha (mejora #5 del análisis):
-# Se prueban alphas candidatos en ventanas de entrenamiento anteriores al
-# corte. Se elige el que minimiza el MAE promedio en validación temporal,
-# NUNCA usando datos del año objetivo ni posterior.
+# stable_catalog_states — versión O(estados × años) en vez de O(n²)
+# (bug #7: la versión anterior filtraba raw tres veces anidado por estado+año)
+# ---------------------------------------------------------------------------
+def stable_catalog_states(target):
+    by_state_year: dict = defaultdict(set)
+    for r in raw:
+        if r['ano'] <= target:
+            by_state_year[(r['entidad_ine'], r['ano'])].add(r['clave_municipio_ine'])
+    states = sorted({r['entidad_ine'] for r in raw})
+    years = sorted({ano for (_, ano) in by_state_year})
+    if not years:
+        return []
+    base_year = years[0]
+    return [
+        s for s in states
+        if all(by_state_year[(s, y)] == by_state_year[(s, base_year)] for y in years)
+    ]
+
+# ---------------------------------------------------------------------------
+# Validación temporal conjunta: busca el mejor alpha Y blend_weight en folds
+# temporales, usando el caché de examples() para evitar trabajo redundante.
+# (mejora #5 + fix del bug #6: blend_weight ahora se optimiza, no está fijo)
+#
+# Retorna (best_alpha, best_blend_weight).
+# NUNCA usa datos del año objetivo ni posteriores.
 # ---------------------------------------------------------------------------
 ALPHA_CANDIDATES = [0.1, 1, 5, 10, 50, 100, 500]
+BLEND_CANDIDATES = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5]
 
-def _cv_alpha(training_years, ns_limit=10):
-    """Validación temporal cruzada: entrena en i años, evalúa en el i+1-ésimo."""
+def _cv_temporal(training_years, ns_limit=10):
+    """Validación temporal cruzada: elige alpha y blend_weight conjuntamente."""
     if len(training_years) < 2:
-        return 10  # fallback al valor anterior si no hay suficientes cortes
-    alpha_errors = {a: [] for a in ALPHA_CANDIDATES}
+        return 10, 0.25  # fallback conservador sin datos suficientes
+
+    # Construir folds una sola vez (examples() usa caché)
+    folds = []
     for fold_idx in range(1, len(training_years)):
         val_year = training_years[fold_idx]
         train_years = training_years[:fold_idx]
         fold_train = [r for y in train_years for r in examples(y, ns_limit)]
         fold_val = examples(val_year, ns_limit)
-        if not fold_train or not fold_val:
-            continue
+        if fold_train and fold_val:
+            folds.append((fold_train, fold_val))
+
+    if not folds:
+        return 10, 0.25
+
+    # --- Paso 1: buscar mejor alpha ---
+    # Guardamos las predicciones ridge por fold para reutilizarlas en paso 2
+    alpha_fold_preds: dict = {a: [] for a in ALPHA_CANDIDATES}
+    alpha_errors: dict = {a: [] for a in ALPHA_CANDIDATES}
+
+    for fold_train, fold_val in folds:
         X_tr = np.asarray([r['feature']['x'] for r in fold_train])
         y_tr = np.asarray([r['y'] - r['feature']['baseline'] for r in fold_train])
         X_val = np.asarray([r['feature']['x'] for r in fold_val])
         y_val = np.asarray([r['y'] for r in fold_val])
         base_val = np.asarray([r['feature']['baseline'] for r in fold_val])
+        # Pesos proporcionales al tamaño del fold para no sesgar hacia folds pequeños
+        fold_weight = len(fold_val)
         for a in ALPHA_CANDIDATES:
             pipe = make_pipeline(StandardScaler(), Ridge(alpha=a))
             pipe.fit(X_tr, y_tr)
-            pred = np.clip(base_val + pipe.predict(X_val), 0, 100)
-            alpha_errors[a].append(float(np.mean(np.abs(pred - y_val))))
-    # Elige el alpha con menor MAE promedio en los folds de validación temporal
-    scored = {a: np.mean(errs) for a, errs in alpha_errors.items() if errs}
-    if not scored:
-        return 10
-    best = min(scored, key=scored.__getitem__)
-    print(f'  [alpha CV] scores: { {a: f"{v:.3f}" for a, v in sorted(scored.items())} } → alpha={best}', flush=True)
-    return best
+            ridge_pred = np.clip(base_val + pipe.predict(X_val), 0, 100)
+            mae = float(np.mean(np.abs(ridge_pred - y_val)))
+            alpha_errors[a].append((mae, fold_weight))
+            alpha_fold_preds[a].append((ridge_pred, base_val, y_val))
+
+    # MAE ponderado por tamaño de fold (fix bug #9: antes era promedio simple)
+    scored_alpha = {
+        a: sum(mae * w for mae, w in pairs) / sum(w for _, w in pairs)
+        for a, pairs in alpha_errors.items() if pairs
+    }
+    best_alpha = min(scored_alpha, key=scored_alpha.__getitem__)
+
+    # --- Paso 2: buscar mejor blend_weight con el alpha elegido ---
+    blend_errors: dict = {w: [] for w in BLEND_CANDIDATES}
+    for ridge_pred, base_val, y_val in alpha_fold_preds[best_alpha]:
+        fold_weight = len(y_val)
+        for w in BLEND_CANDIDATES:
+            blended = np.clip((1 - w) * ridge_pred + w * base_val, 0, 100)
+            mae = float(np.mean(np.abs(blended - y_val)))
+            blend_errors[w].append((mae, fold_weight))
+
+    scored_blend = {
+        w: sum(mae * wt for mae, wt in pairs) / sum(wt for _, wt in pairs)
+        for w, pairs in blend_errors.items() if pairs
+    }
+    best_blend = min(scored_blend, key=scored_blend.__getitem__)
+
+    print(
+        f'  [CV] alpha: { {a: f"{v:.3f}" for a, v in sorted(scored_alpha.items())} } → {best_alpha}\n'
+        f'  [CV] blend: { {w: f"{v:.3f}" for w, v in sorted(scored_blend.items())} } → {best_blend}',
+        flush=True
+    )
+    return best_alpha, best_blend
 
 def fit(before, ns_limit=10):
+    """Entrena el modelo final sobre todos los años disponibles antes de `before`.
+
+    Retorna (model, training, best_alpha, best_blend_weight).
+    """
     available_years = sorted(y for y in [2015, 2018, 2021, 2024] if y < before)
     training = [r for year in available_years for r in examples(year, ns_limit)]
     assert training and all(r['year'] < before for r in training)
-    # Búsqueda temporal de alpha solo si hay al menos dos cortes disponibles
-    best_alpha = _cv_alpha(available_years, ns_limit)
+    best_alpha, best_blend = _cv_temporal(available_years, ns_limit)
     model = make_pipeline(StandardScaler(), Ridge(alpha=best_alpha))
     model.fit(
         np.asarray([r['feature']['x'] for r in training]),
         np.asarray([r['y'] - r['feature']['baseline'] for r in training])
     )
-    return model, training, best_alpha
+    return model, training, best_alpha, best_blend
 
 def predict(model, records):
     result = (
@@ -99,17 +177,16 @@ def predict(model, records):
     )
     return np.clip(result, 0, 100).tolist()
 
-def blend_predict(model, records, blend_weight=0.25):
+def blend_predict(model, records, blend_weight):
     """Mezcla conservadora: (1-w)*Ridge + w*referencia.
 
     Reduce el sesgo de subestimación cuando Ridge corrige demasiado.
-    blend_weight=0 es Ridge puro; blend_weight=1 es referencia pura.
-    El peso debe elegirse con datos ANTERIORES al objetivo, no después.
+    blend_weight=0 → Ridge puro; blend_weight=1 → referencia pura.
+    El peso se elige con validación temporal, nunca mirando el año objetivo.
     """
     ridge_pred = np.asarray(predict(model, records))
     baseline = np.asarray([r['feature']['baseline'] for r in records])
-    blended = (1 - blend_weight) * ridge_pred + blend_weight * baseline
-    return np.clip(blended, 0, 100).tolist()
+    return np.clip((1 - blend_weight) * ridge_pred + blend_weight * baseline, 0, 100).tolist()
 
 def metrics(records, pred, k=50):
     return metricas(
@@ -117,16 +194,8 @@ def metrics(records, pred, k=50):
         [r['weight'] for r in records], [r['key'] for r in records], k
     )
 
-def stable_catalog_states(target):
-    states = sorted({r['entidad_ine'] for r in raw})
-    years = sorted({r['ano'] for r in raw if r['ano'] <= target})
-    return [s for s in states if all(
-        {r['clave_municipio_ine'] for r in raw if r['ano'] == y and r['entidad_ine'] == s} ==
-        {r['clave_municipio_ine'] for r in raw if r['ano'] == years[0] and r['entidad_ine'] == s}
-        for y in years)]
-
 def bootstrap_difference(records, pred):
-    groups = defaultdict(list)
+    groups: dict = defaultdict(list)
     for r, p in zip(records, pred):
         groups[r['state']].append(abs(r['y'] - r['feature']['baseline']) - abs(r['y'] - p))
     states = sorted(groups)
@@ -145,33 +214,32 @@ def bootstrap_difference(records, pred):
     }
 
 # ---------------------------------------------------------------------------
-# Evaluación por corte temporal (blend comparativo incluido)
+# Evaluación por corte temporal
 # ---------------------------------------------------------------------------
-# blend_weight=0.25 se elige con criterio conservador sobre 2021; si en 2021
-# la mezcla no mejora a Ridge, se documenta pero no se impone.
-BLEND_WEIGHT = 0.25
-
 checks = {}
 predictions = []
 state_metrics = []
 alpha_log = {}
+blend_log = {}
 
 for target in [2021, 2024]:
-    model, training, best_alpha = fit(target)
+    model, training, best_alpha, best_blend = fit(target)
     test = examples(target)
     pred = predict(model, test)
-    pred_blend = blend_predict(model, test, BLEND_WEIGHT)
+    pred_blend = blend_predict(model, test, best_blend)
     base = [r['feature']['baseline'] for r in test]
     checks[str(target)] = {
         'entrenamiento_anos': sorted({r['year'] for r in training}),
         'n_train': len(training),
         'alpha_elegido': best_alpha,
+        'blend_weight_elegido': best_blend,
         'persistencia': metrics(test, base),
         'ridge': metrics(test, pred),
         'blend_conservador': metrics(test, pred_blend),
         'bootstrap': bootstrap_difference(test, pred),
     }
     alpha_log[str(target)] = best_alpha
+    blend_log[str(target)] = best_blend
     stable = stable_catalog_states(target)
     indexes = [i for i, r in enumerate(test) if r['state'] in stable]
     check_records = [test[i] for i in indexes]
@@ -183,10 +251,16 @@ for target in [2021, 2024]:
     }
     for r, p, pb, b in zip(test, pred, pred_blend, base):
         predictions.append({
-            'ano': target, 'clave_municipio_ine': r['key'], 'entidad_ine': r['state'],
-            'observado': r['y'], 'persistencia': b, 'ridge': p, 'blend': pb,
+            'ano': target,
+            'clave_municipio_ine': r['key'],
+            'entidad_ine': r['state'],
+            'observado': r['y'],
+            'persistencia': b,
+            'ridge': p,
+            'blend': pb,
             'ultimo_ano_predictor': r['feature']['source_year'],
-            'ano_mismo_tipo': r['feature']['same_year'], 'peso_observado': r['weight'],
+            'ano_mismo_tipo': r['feature']['same_year'],
+            'peso_observado': r['weight'],
         })
     for state in sorted({r['state'] for r in test}):
         ix = [i for i, r in enumerate(test) if r['state'] == state]
@@ -199,36 +273,45 @@ for target in [2021, 2024]:
     m_ridge = checks[str(target)]['ridge']
     m_blend = checks[str(target)]['blend_conservador']
     print(
-        f'{target}: n={len(test)}, alpha={best_alpha}, '
+        f'{target}: n={len(test)}, alpha={best_alpha}, blend_w={best_blend}, '
         f'MAE base={m_base["mae"]:.3f} (sesgo={m_base["sesgo"]:+.2f}), '
         f'Ridge={m_ridge["mae"]:.3f} (sesgo={m_ridge["sesgo"]:+.2f}), '
         f'Blend={m_blend["mae"]:.3f} (sesgo={m_blend["sesgo"]:+.2f})',
         flush=True
     )
 
-# Selección del modelo base: Ridge vs persistencia evaluado en 2021
+# ---------------------------------------------------------------------------
+# Selección del modelo final
+# ---------------------------------------------------------------------------
+# Paso 1: ¿Ridge supera a persistencia en 2021?
 selected = choose_model(checks['2021']['persistencia'], checks['2021']['ridge'])
-# Selección del método final: si el blend mejora a Ridge en 2021, usar blend
+# Paso 2: ¿Blend supera a Ridge en 2021? (evaluado con misma regla, antes de ver 2024)
 blend_vs_ridge_2021 = choose_model(checks['2021']['ridge'], checks['2021']['blend_conservador'])
-# blend_conservador se acepta si supera a Ridge con la misma regla de selección
 selected_final = 'blend' if selected == 'ridge' and blend_vs_ridge_2021 == 'ridge' else selected
 
-errors = [abs(r['observado'] - r[selected_final if selected_final != 'blend' else 'ridge'])
-          for r in predictions if r['ano'] == 2021]
+# ---------------------------------------------------------------------------
+# error90: calculado sobre el método SELECCIONADO (fix bug #4)
+# Antes se usaba siempre 'ridge' aunque selected_final fuera 'blend'
+# ---------------------------------------------------------------------------
+errors = [
+    abs(r['observado'] - r[selected_final])
+    for r in predictions if r['ano'] == 2021
+]
 error90 = float(np.quantile(errors, .9))
 
 sensitivities = []
 for limit in [5, 10, 20]:
-    model_s, _, alpha_s = fit(2021, limit)
+    model_s, _, alpha_s, blend_s = fit(2021, limit)
     test_s = examples(2021, limit)
     sensitivities.append({
-        'ns_max_pct': limit, 'alpha': alpha_s,
+        'ns_max_pct': limit, 'alpha': alpha_s, 'blend_weight': blend_s,
         'persistencia': metrics(test_s, [r['feature']['baseline'] for r in test_s]),
         'ridge': metrics(test_s, predict(model_s, test_s)),
+        'blend': metrics(test_s, blend_predict(model_s, test_s, blend_s)),
     })
 
 # Modelo final para proyección 2027
-final_model, final_training, final_alpha = fit(2027)
+final_model, final_training, final_alpha, final_blend = fit(2027)
 final_stable_states = set(stable_catalog_states(2024))
 rows = []
 for key, h in sorted(histories.items()):
@@ -242,8 +325,7 @@ for key, h in sorted(histories.items()):
     if feat:
         baseline = feat['baseline']
         ridge = predict(final_model, [{'feature': feat}])[0]
-        blend = blend_predict(final_model, [{'feature': feat}], BLEND_WEIGHT)[0]
-        # El método final puede ser ridge, blend o persistencia
+        blend = blend_predict(final_model, [{'feature': feat}], final_blend)[0]
         if selected_final == 'blend':
             estimate = blend
         elif selected_final == 'ridge':
@@ -271,16 +353,17 @@ for key, h in sorted(histories.items()):
     rows.append({
         'key': key, 'state': latest['entidad_ine'], 'state_name': latest['entidad_nombre'],
         'name': latest['municipio_nombre_cartografia'] or latest['municipio_nombre'],
-        'ln': latest['ln'], 'risk': estimate, 'baseline': baseline, 'ridge': ridge,
-        'blend': blend, 'method': selected_final,
+        'ln': latest['ln'], 'risk': estimate, 'baseline': baseline,
+        'ridge': ridge, 'blend': blend, 'method': selected_final,
         'range_low': max(0, estimate - error90) if estimate is not None else None,
         'range_high': min(100, estimate + error90) if estimate is not None else None,
-        'latest_ns': latest['no_especificados_pct'], 'latest_ns_low': ns_bounds[0],
-        'latest_ns_high': ns_bounds[1], 'stable_catalog_state': state_stable,
-        'flags': flags,
+        'latest_ns': latest['no_especificados_pct'],
+        'latest_ns_low': ns_bounds[0], 'latest_ns_high': ns_bounds[1],
+        'stable_catalog_state': state_stable, 'flags': flags,
         'contributions': contributions if selected_final in ('ridge', 'blend') else [],
         'history': [
-            {'year': r['ano'], 'risk': r['abstencion_pct'], 'ns': r['no_especificados_pct'], 'ln': r['ln']}
+            {'year': r['ano'], 'risk': r['abstencion_pct'],
+             'ns': r['no_especificados_pct'], 'ln': r['ln']}
             for r in h
         ],
     })
@@ -298,13 +381,18 @@ metadata = {
     'tipo_eleccion': 'intermedia', 'datos_hasta': 2024,
     'selected_model': selected_final,
     'alpha_final': final_alpha,
+    'blend_weight_final': final_blend,
     'alpha_por_corte': alpha_log,
-    'blend_weight': BLEND_WEIGHT,
-    'selection_rule': '2021: MAE al menos 1% menor, MAE ponderado y precisión top50 no peores.',
+    'blend_weight_por_corte': blend_log,
+    'selection_rule': (
+        '2021: MAE al menos 1% menor, MAE ponderado y precisión top50 no peores, '
+        'sesgo no degradado más de 3 pp respecto al baseline.'
+    ),
     'selection_caveat': (
-        '2021 se usa para seleccionar; no es una evaluación independiente posterior a selección. '
+        '2021 se usa para seleccionar; no es evaluación independiente posterior a selección. '
         '2024 es comprobación adicional presidencial, no valida 2027. '
-        'Blend evaluado con misma regla antes de ver 2024.'
+        'Alpha y blend_weight elegidos con CV temporal sobre 2021; '
+        'blend_weight evaluado antes de ver resultados de 2024.'
     ),
     'feature_names': FEATURE_NAMES,
     'ns_limit_pct': 10,
@@ -312,11 +400,12 @@ metadata = {
     'sensitivities': sensitivities,
     'risk_thresholds': {
         'low': low, 'high': high,
-        'definition': 'Tercios relativos de estimaciones válidas; no probabilidades de caer en abstención.',
+        'definition': 'Tercios relativos de estimaciones válidas; no probabilidades.',
     },
     'historical_error_p90_pp': error90,
+    'error90_method': selected_final,
     'range_definition': (
-        'Estimación ± percentil 90 del error absoluto retrospectivo 2021. '
+        f'Estimación ± percentil 90 del error absoluto de {selected_final} en 2021. '
         'Rango ilustrativo; no intervalo probabilístico calibrado para 2027.'
     ),
     'n_municipios': len(rows), 'n_estimables': len(valid),
@@ -363,12 +452,14 @@ def save_csv(name, data):
 
 save_csv('backtest_predicciones.csv', predictions)
 save_csv('metricas_entidad.csv', state_metrics)
+# El CSV de proyección incluye 'blend' y el campo 'method' para que los
+# consumidores sepan qué columna es la estimación final (fix bug #18)
 save_csv('proyeccion_exploratoria_2027.csv', [
     {k: v for k, v in r.items() if k not in ['history', 'flags', 'contributions']}
     for r in rows
 ])
 print(
-    f'Seleccion: {selected_final} (alpha={final_alpha}). '
+    f'Seleccion: {selected_final} (alpha={final_alpha}, blend_w={final_blend}). '
     f'Estimables: {len(valid)}/{len(rows)}. Rango historico ±{error90:.2f} pp.',
     flush=True
 )

@@ -18,6 +18,10 @@ def row(year, rate, ns=0, key='01001'):
                 ln_edad_mayor_120=0)
 
 class CoreTests(unittest.TestCase):
+
+    # ------------------------------------------------------------------
+    # make_features
+    # ------------------------------------------------------------------
     def test_target_and_future_cannot_change_features(self):
         history = [row(2009, 40), row(2012, 30), row(2015, 50), row(2018, 35)]
         result = api().make_features(history, 2021)
@@ -46,36 +50,30 @@ class CoreTests(unittest.TestCase):
         self.assertEqual(len(result['x']), len(m.FEATURE_NAMES))
 
     def test_interaction_features_are_zero_for_presidential(self):
-        """Para elecciones presidenciales (not intermedia) las interacciones deben ser 0."""
+        """Para elecciones presidenciales las interacciones deben ser 0."""
         m = api()
-        # 2024 es presidencial (2024 % 6 = 4, no es 5), necesitamos historial con 2018 (presidencial)
-        # y un año intermedio del mismo tipo (2018 % 6 = 4 → presidencial)
         history = [row(2015, 40), row(2018, 50)]  # 2018%6=4 → presidencial
-        result = m.make_features(history, 2024)  # 2024%6=4 → presidencial
+        result = m.make_features(history, 2024)   # 2024%6=4 → presidencial
         self.assertIsNotNone(result)
-        # indice 10 y 11 son las interacciones (baseline*0 y latest*0)
         self.assertEqual(result['x'][10], 0.0)
         self.assertEqual(result['x'][11], 0.0)
 
     def test_interaction_features_nonzero_for_intermedia(self):
-        """Para elecciones intermedias las interacciones deben reflejar la abstención base."""
+        """Para elecciones intermedias las interacciones reflejan la abstención base."""
         m = api()
-        # 2021 % 6 = 3... en realidad is_intermedia usa year%6==5, buscar un año que sea 5
-        # 2015 % 6 = 3, 2021 % 6 = 3. Revisemos: is_intermedia(year) = year%6==5
-        # years: 2003%6=3, 2009%6=3... Necesitamos year%6==5: 2017, 2023, etc.
-        # Pero en los datos reales se usa 2021 como intermedia. Verificamos el comportamiento
-        # directamente con is_intermedia.
         is_int = m.is_intermedia
         history = [row(2015, 40), row(2018, 50)]
         target = 2021
         result = m.make_features(history, target)
         if result is not None:
             if is_int(target):
-                # interacciones deben ser != 0 (baseline y latest no nulos)
                 self.assertNotEqual(result['x'][10], 0.0)
             else:
                 self.assertEqual(result['x'][10], 0.0)
 
+    # ------------------------------------------------------------------
+    # metricas
+    # ------------------------------------------------------------------
     def test_weighted_error_and_top_selection_are_hand_checked(self):
         m = api().metricas([0, 100], [10, 80], [9, 1], ['a', 'b'], k=1)
         self.assertEqual(m['mae'], 15)
@@ -88,7 +86,7 @@ class CoreTests(unittest.TestCase):
         """metricas debe incluir el campo sesgo (bias promedio pred - real)."""
         m = api().metricas([0, 100], [10, 80], [9, 1], ['a', 'b'], k=1)
         self.assertIn('sesgo', m)
-        # pred=[10,80], real=[0,100] → sesgo = ((10-0)+(80-100))/2 = (10-20)/2 = -5
+        # pred=[10,80], real=[0,100] → sesgo = ((10-0)+(80-100))/2 = -5
         self.assertAlmostEqual(m['sesgo'], -5.0)
 
     def test_sesgo_positive_when_model_overestimates(self):
@@ -96,6 +94,15 @@ class CoreTests(unittest.TestCase):
         m = api().metricas([40, 50], [50, 60], [1, 1], ['a', 'b'])
         self.assertGreater(m['sesgo'], 0)
 
+    def test_metricas_accepts_mixed_key_types_as_strings(self):
+        """metricas no debe fallar con claves de tipo mixto (se convierten a str)."""
+        # No debe lanzar TypeError aunque las claves sean enteros
+        m = api().metricas([10, 20], [11, 19], [1, 1], [1001, 1002])
+        self.assertIn('precision_top', m)
+
+    # ------------------------------------------------------------------
+    # choose_model — incluyendo cota de sesgo (fix bug #5)
+    # ------------------------------------------------------------------
     def test_better_error_but_worse_priority_keeps_baseline(self):
         b = dict(mae=10, mae_ponderado=10, precision_top=.8)
         c = dict(mae=8, mae_ponderado=9, precision_top=.7)
@@ -106,12 +113,52 @@ class CoreTests(unittest.TestCase):
         c = dict(mae=8, mae_ponderado=9, precision_top=.8)
         self.assertEqual(api().choose_model(b, c), 'ridge')
 
+    def test_choose_model_without_sesgo_is_backward_compatible(self):
+        """Si los dicts no tienen 'sesgo', choose_model funciona como antes."""
+        b = dict(mae=10, mae_ponderado=10, precision_top=.8)
+        c = dict(mae=8, mae_ponderado=9, precision_top=.8)
+        self.assertEqual(api().choose_model(b, c), 'ridge')
+
+    def test_choose_model_rejects_candidate_with_large_sesgo_degradation(self):
+        """Rechaza el candidato si su sesgo es mucho peor que el baseline."""
+        # baseline sesgo = -1 (leve subestimación)
+        # candidate sesgo = -8 (subestima mucho más → degradación = 7 pp > umbral de 3)
+        b = dict(mae=10, mae_ponderado=10, precision_top=.8, sesgo=-1.0)
+        c = dict(mae=8, mae_ponderado=9, precision_top=.8, sesgo=-8.0)
+        self.assertEqual(api().choose_model(b, c), 'persistencia')
+
+    def test_choose_model_accepts_candidate_within_sesgo_tolerance(self):
+        """Acepta el candidato si la degradación de sesgo está dentro del umbral."""
+        b = dict(mae=10, mae_ponderado=10, precision_top=.8, sesgo=-1.0)
+        c = dict(mae=8, mae_ponderado=9, precision_top=.8, sesgo=-3.5)
+        # degradación = -3.5 - (-1.0) = -2.5, dentro del umbral de -3.0
+        self.assertEqual(api().choose_model(b, c), 'ridge')
+
+    def test_choose_model_custom_sesgo_threshold(self):
+        """El umbral de sesgo es configurable."""
+        b = dict(mae=10, mae_ponderado=10, precision_top=.8, sesgo=-1.0)
+        c = dict(mae=8, mae_ponderado=9, precision_top=.8, sesgo=-3.5)
+        # Con umbral estricto de 1.0, -2.5 de degradación lo rechaza
+        self.assertEqual(api().choose_model(b, c, max_sesgo_degradacion=1.0), 'persistencia')
+        # Con umbral holgado de 5.0, lo acepta
+        self.assertEqual(api().choose_model(b, c, max_sesgo_degradacion=5.0), 'ridge')
+
+    # ------------------------------------------------------------------
+    # missingness_bounds
+    # ------------------------------------------------------------------
     def test_non_specified_bounds_are_not_forecast_intervals(self):
         self.assertEqual(api().missingness_bounds(60, 30, 10), (30, 40))
         self.assertEqual(api().missingness_bounds(60, 40, 0), (40, 40))
 
+    # ------------------------------------------------------------------
+    # scenario — validaciones ahora individuales con mensajes claros
+    # ------------------------------------------------------------------
     def test_scenario_is_limited_by_capacity_electorate_and_response(self):
-        items = [dict(key='a', risk=60, observed=1000), dict(key='b', risk=None, observed=1000), dict(key='c', risk=50, observed=20)]
+        items = [
+            dict(key='a', risk=60, observed=1000),
+            dict(key='b', risk=None, observed=1000),
+            dict(key='c', risk=50, observed=20),
+        ]
         s = api().scenario(items, 1, 100, 25)
         self.assertEqual([x['key'] for x in s['selected']], ['a'])
         self.assertEqual(s['additional'], 15)
@@ -127,6 +174,21 @@ class CoreTests(unittest.TestCase):
     def test_non_finite_scenario_input_is_rejected(self):
         with self.assertRaises(ValueError):
             api().scenario([], 1, float('nan'), 25)
+
+    def test_scenario_rejects_fractional_capacity(self):
+        """capacity debe ser entero; 1.5 debe ser rechazado."""
+        with self.assertRaises(ValueError):
+            api().scenario([], 1.5, 100, 25)
+
+    def test_scenario_rejects_negative_reach(self):
+        """reach negativo debe ser rechazado."""
+        with self.assertRaises(ValueError):
+            api().scenario([], 1, -10, 25)
+
+    def test_scenario_rejects_response_above_100(self):
+        """response > 100 no tiene sentido y debe ser rechazado."""
+        with self.assertRaises(ValueError):
+            api().scenario([], 1, 100, 110)
 
 if __name__ == '__main__':
     unittest.main()
