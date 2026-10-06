@@ -1,0 +1,5 @@
+*.zip filter=lfs diff=lfs merge=lfs -text
+02_Prediccion_y_escenarios_de_riesgo/cartografia/*.geojson filter=lfs diff=lfs merge=lfs -text
+*.csv -text
+*.json -text
+*.txt -text

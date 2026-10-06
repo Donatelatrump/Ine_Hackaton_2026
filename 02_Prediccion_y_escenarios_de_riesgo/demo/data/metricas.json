@@ -1,0 +1,326 @@
+{
+  "titulo": "Atlas de decisión municipal",
+  "horizonte": 2027,
+  "tipo_eleccion": "intermedia",
+  "datos_hasta": 2024,
+  "selected_model": "ridge",
+  "selection_rule": "2021: MAE al menos 1% menor, MAE ponderado y precisión top50 no peores.",
+  "selection_caveat": "2021 se usa para seleccionar; no es una evaluación independiente posterior a selección. 2024 es comprobación adicional presidencial, no valida 2027.",
+  "alpha": 10,
+  "feature_names": [
+    "abstencion_mismo_tipo",
+    "abstencion_ultimo_proceso",
+    "diferencia_ultimo_mismo",
+    "log_lista_nominal",
+    "proporcion_18_29",
+    "proporcion_60_mas_sin_extremos",
+    "proporcion_urbana",
+    "ns_ultimo",
+    "ns_mismo_tipo",
+    "eleccion_intermedia"
+  ],
+  "ns_limit_pct": 10,
+  "checks": {
+    "2021": {
+      "entrenamiento_anos": [
+        2015,
+        2018
+      ],
+      "n_train": 3565,
+      "persistencia": {
+        "n": 1490,
+        "mae": 12.115857378526517,
+        "mae_ponderado": 8.052371822830299,
+        "precision_top": 0.32,
+        "top_k": 50,
+        "error_absoluto_p90": 28.474866619448573,
+        "diferencia_abstencion_top_pp": 11.999406111028575
+      },
+      "ridge": {
+        "n": 1490,
+        "mae": 9.21488341446979,
+        "mae_ponderado": 5.4892973840734625,
+        "precision_top": 0.38,
+        "top_k": 50,
+        "error_absoluto_p90": 21.04940607471191,
+        "diferencia_abstencion_top_pp": 8.620495205009084
+      },
+      "bootstrap": {
+        "mejora_mae_pp": 2.900973964056729,
+        "bootstrap_entidades_p025": 1.6494013010183597,
+        "bootstrap_entidades_p975": 4.254250551870746,
+        "advertencia": "Sensibilidad por conglomerados de entidad; no incorpora incertidumbre temporal de futuras elecciones."
+      },
+      "catalogo_estable": {
+        "entidades": [
+          "01",
+          "02",
+          "03",
+          "05",
+          "06",
+          "08",
+          "09",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "18",
+          "19",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32"
+        ],
+        "n": 1050,
+        "persistencia": {
+          "n": 1050,
+          "mae": 12.464605537849994,
+          "mae_ponderado": 7.895037270134867,
+          "precision_top": 0.2,
+          "top_k": 50,
+          "error_absoluto_p90": 29.35394065891311,
+          "diferencia_abstencion_top_pp": 16.630972259139817
+        },
+        "ridge": {
+          "n": 1050,
+          "mae": 9.274040546720858,
+          "mae_ponderado": 5.373521673928776,
+          "precision_top": 0.22,
+          "top_k": 50,
+          "error_absoluto_p90": 21.398445028826618,
+          "diferencia_abstencion_top_pp": 12.234817245873174
+        },
+        "nota": "Estabilidad de catálogo es proxy; no acredita estabilidad de límites."
+      }
+    },
+    "2024": {
+      "entrenamiento_anos": [
+        2015,
+        2018,
+        2021
+      ],
+      "n_train": 5055,
+      "persistencia": {
+        "n": 1476,
+        "mae": 5.6388622438776075,
+        "mae_ponderado": 3.541116630240434,
+        "precision_top": 0.54,
+        "top_k": 50,
+        "error_absoluto_p90": 11.513215756342628,
+        "diferencia_abstencion_top_pp": 4.499729644686941
+      },
+      "ridge": {
+        "n": 1476,
+        "mae": 8.584900977864253,
+        "mae_ponderado": 4.4914210017571,
+        "precision_top": 0.54,
+        "top_k": 50,
+        "error_absoluto_p90": 15.996735899090792,
+        "diferencia_abstencion_top_pp": 4.547147168636366
+      },
+      "bootstrap": {
+        "mejora_mae_pp": -2.946038733986645,
+        "bootstrap_entidades_p025": -4.187307701964719,
+        "bootstrap_entidades_p975": -1.9310147381728282,
+        "advertencia": "Sensibilidad por conglomerados de entidad; no incorpora incertidumbre temporal de futuras elecciones."
+      },
+      "catalogo_estable": {
+        "entidades": [
+          "01",
+          "03",
+          "05",
+          "06",
+          "08",
+          "09",
+          "10",
+          "11",
+          "13",
+          "14",
+          "15",
+          "16",
+          "18",
+          "19",
+          "21",
+          "22",
+          "23",
+          "24",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30",
+          "31",
+          "32"
+        ],
+        "n": 948,
+        "persistencia": {
+          "n": 948,
+          "mae": 4.683857497656117,
+          "mae_ponderado": 3.200875258511114,
+          "precision_top": 0.52,
+          "top_k": 50,
+          "error_absoluto_p90": 9.102011820517804,
+          "diferencia_abstencion_top_pp": 3.6215708019127306
+        },
+        "ridge": {
+          "n": 948,
+          "mae": 7.765188137110567,
+          "mae_ponderado": 4.098012303184714,
+          "precision_top": 0.58,
+          "top_k": 50,
+          "error_absoluto_p90": 14.82539946554878,
+          "diferencia_abstencion_top_pp": 2.4924551206873273
+        },
+        "nota": "Estabilidad de catálogo es proxy; no acredita estabilidad de límites."
+      }
+    }
+  },
+  "sensitivities": [
+    {
+      "ns_max_pct": 5,
+      "persistencia": {
+        "n": 1007,
+        "mae": 12.693974308458966,
+        "mae_ponderado": 8.536892368994648,
+        "precision_top": 0.4,
+        "top_k": 50,
+        "error_absoluto_p90": 29.878471075458453,
+        "diferencia_abstencion_top_pp": 11.75097573451847
+      },
+      "ridge": {
+        "n": 1007,
+        "mae": 9.861953427482655,
+        "mae_ponderado": 6.299261853185119,
+        "precision_top": 0.46,
+        "top_k": 50,
+        "error_absoluto_p90": 22.168118681825582,
+        "diferencia_abstencion_top_pp": 8.208638327164827
+      }
+    },
+    {
+      "ns_max_pct": 10,
+      "persistencia": {
+        "n": 1490,
+        "mae": 12.115857378526517,
+        "mae_ponderado": 8.052371822830299,
+        "precision_top": 0.32,
+        "top_k": 50,
+        "error_absoluto_p90": 28.474866619448573,
+        "diferencia_abstencion_top_pp": 11.999406111028575
+      },
+      "ridge": {
+        "n": 1490,
+        "mae": 9.21488341446979,
+        "mae_ponderado": 5.4892973840734625,
+        "precision_top": 0.38,
+        "top_k": 50,
+        "error_absoluto_p90": 21.04940607471191,
+        "diferencia_abstencion_top_pp": 8.620495205009084
+      }
+    },
+    {
+      "ns_max_pct": 20,
+      "persistencia": {
+        "n": 1960,
+        "mae": 12.198499342979629,
+        "mae_ponderado": 8.391053032545813,
+        "precision_top": 0.26,
+        "top_k": 50,
+        "error_absoluto_p90": 28.38134796178031,
+        "diferencia_abstencion_top_pp": 13.172649655773403
+      },
+      "ridge": {
+        "n": 1960,
+        "mae": 9.15776557212783,
+        "mae_ponderado": 5.5776394614941225,
+        "precision_top": 0.3,
+        "top_k": 50,
+        "error_absoluto_p90": 20.56067381924777,
+        "diferencia_abstencion_top_pp": 10.312512582590388
+      }
+    }
+  ],
+  "risk_thresholds": {
+    "low": 36.02392197293966,
+    "high": 45.73413176318817,
+    "definition": "Tercios relativos de estimaciones válidas; no probabilidades de caer en abstención."
+  },
+  "historical_error_p90_pp": 21.04940607471191,
+  "range_definition": "Estimación ± percentil 90 del error absoluto retrospectivo 2021. Rango ilustrativo; no intervalo probabilístico calibrado para 2027.",
+  "n_municipios": 2477,
+  "n_estimables": 1783,
+  "n_sin_estimacion": 694,
+  "train_final_years": [
+    2015,
+    2018,
+    2021,
+    2024
+  ],
+  "territorial_definition": "Claves INE, polígonos de referencia visual de mayo 2024. Límites históricos sin armonizar.",
+  "scenario_definition": "Participación adicional hipotética = alcance × abstención estimada/100 × respuesta supuesta/100. Alcance limitado por LN histórica 2024; no es una población proyectada a 2027.",
+  "sources": [
+    {
+      "label": "CCPC",
+      "url": "https://ine.mx/transparencia/datos-abiertos/visualizacion-datos/conteos-censales-participacion/"
+    },
+    {
+      "label": "Cartografía INE",
+      "url": "https://pautas.ine.mx/transparencia/mapas/index_2025.html"
+    }
+  ],
+  "coefficients_standardized": [
+    {
+      "feature": "abstencion_mismo_tipo",
+      "coefficient": -3.628757860657629
+    },
+    {
+      "feature": "abstencion_ultimo_proceso",
+      "coefficient": 1.1466230188081812
+    },
+    {
+      "feature": "diferencia_ultimo_mismo",
+      "coefficient": 4.145092207769975
+    },
+    {
+      "feature": "log_lista_nominal",
+      "coefficient": 0.1805026030609183
+    },
+    {
+      "feature": "proporcion_18_29",
+      "coefficient": -0.9705406985744574
+    },
+    {
+      "feature": "proporcion_60_mas_sin_extremos",
+      "coefficient": -0.5102086853734183
+    },
+    {
+      "feature": "proporcion_urbana",
+      "coefficient": 0.06210640479986641
+    },
+    {
+      "feature": "ns_ultimo",
+      "coefficient": -0.44431058433974663
+    },
+    {
+      "feature": "ns_mismo_tipo",
+      "coefficient": 1.0129602790516996
+    },
+    {
+      "feature": "eleccion_intermedia",
+      "coefficient": 2.0254122878409175
+    }
+  ],
+  "ridge_intercept": -3.161905559727422,
+  "input_sha256": "f570ab633f03386cfeb208b8a1d96c8865ab4889d9beb03cd6bc686133829c2a"
+}

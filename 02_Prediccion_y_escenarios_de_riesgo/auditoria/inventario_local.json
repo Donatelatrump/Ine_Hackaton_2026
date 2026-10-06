@@ -1,0 +1,1275 @@
+{
+  "fecha_utc": "2026-10-06T01:45:07.869104+00:00",
+  "alcance": "Integridad de ZIP, inventario, cabeceras CSV y PDF. No auditor?a completa de filas ni validaci?n territorial.",
+  "zips": [
+    {
+      "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009.zip",
+      "sha256": "e626e9528a91206c23fc8f96987e1a297db285e7cbc0fa1e37a18ed473ebf61c",
+      "bytes_zip": 40203573,
+      "bytes_descomprimidos": 587030170,
+      "integridad_crc": "correcta",
+      "archivo_corrupto": null,
+      "csv": [
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_ags.csv",
+          "bytes_descomprimidos": 5552712,
+          "crc32": "5a08e452"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_bc.csv",
+          "bytes_descomprimidos": 13522857,
+          "crc32": "b44d8cb1"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_bcs.csv",
+          "bytes_descomprimidos": 3405505,
+          "crc32": "9cc150e7"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_camp.csv",
+          "bytes_descomprimidos": 3885548,
+          "crc32": "6350b0b2"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_cdmx.csv",
+          "bytes_descomprimidos": 60120753,
+          "crc32": "6793b0ef"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_chih.csv",
+          "bytes_descomprimidos": 23341673,
+          "crc32": "a251299f"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_chis.csv",
+          "bytes_descomprimidos": 17457216,
+          "crc32": "6857e537"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_coah.csv",
+          "bytes_descomprimidos": 12723149,
+          "crc32": "2644b7bd"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_col.csv",
+          "bytes_descomprimidos": 2727737,
+          "crc32": "9b5a03e1"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_dgo.csv",
+          "bytes_descomprimidos": 10910185,
+          "crc32": "402e3d58"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_gro.csv",
+          "bytes_descomprimidos": 24962049,
+          "crc32": "66338e3b"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_gto.csv",
+          "bytes_descomprimidos": 28434184,
+          "crc32": "78e3f470"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_hgo.csv",
+          "bytes_descomprimidos": 15237001,
+          "crc32": "dcc16446"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_jal.csv",
+          "bytes_descomprimidos": 31658665,
+          "crc32": "7d96df3d"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_mex.csv",
+          "bytes_descomprimidos": 57763411,
+          "crc32": "4a312548"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_mich.csv",
+          "bytes_descomprimidos": 24563802,
+          "crc32": "5a61d3d5"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_mor.csv",
+          "bytes_descomprimidos": 7900341,
+          "crc32": "52dcc3e9"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_nay.csv",
+          "bytes_descomprimidos": 7195553,
+          "crc32": "7820a0ae"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_nl.csv",
+          "bytes_descomprimidos": 19881277,
+          "crc32": "78cafd02"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_oax.csv",
+          "bytes_descomprimidos": 24988980,
+          "crc32": "bcc3af59"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_pue.csv",
+          "bytes_descomprimidos": 23482782,
+          "crc32": "452b7c27"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_qro.csv",
+          "bytes_descomprimidos": 6933201,
+          "crc32": "18195153"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_qroo.csv",
+          "bytes_descomprimidos": 5913683,
+          "crc32": "af64458f"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_sin.csv",
+          "bytes_descomprimidos": 26897255,
+          "crc32": "a37a1aaa"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_slp.csv",
+          "bytes_descomprimidos": 17525628,
+          "crc32": "2558e6df"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_son.csv",
+          "bytes_descomprimidos": 11234323,
+          "crc32": "d289ab64"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_tab.csv",
+          "bytes_descomprimidos": 9379003,
+          "crc32": "53143f3b"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_tamps.csv",
+          "bytes_descomprimidos": 16268337,
+          "crc32": "b5f0e914"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_tlax.csv",
+          "bytes_descomprimidos": 5514562,
+          "crc32": "c6276fa3"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_ver.csv",
+          "bytes_descomprimidos": 43897367,
+          "crc32": "146452a8"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_yuc.csv",
+          "bytes_descomprimidos": 8898302,
+          "crc32": "dab69eb8"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2009/datosabiertos_deceyec_conteoscensales2009_zac.csv",
+          "bytes_descomprimidos": 14850572,
+          "crc32": "242958dd"
+        }
+      ],
+      "esquemas": [
+        {
+          "columnas": [
+            "AELEC",
+            "FELECCION",
+            "EDOCVE",
+            "EDONOM",
+            "MPIOCVE",
+            "MPIONOM",
+            "SECCION",
+            "TIPOSEC",
+            "DEF",
+            "DEL",
+            "SEXO",
+            "EDAD",
+            "LN",
+            "SV",
+            "NV",
+            "NS"
+          ],
+          "cantidad_archivos": 32
+        }
+      ],
+      "diccionarios": [
+        "DatosAbiertos_DECEyEC_ConteosCensales2009/01_descripcioncampos_conteoscensales2009.txt"
+      ]
+    },
+    {
+      "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012.zip",
+      "sha256": "5999f86e21154138b904723cb5d55ebde9e108ac72872f2ff5695d9eb8fde9cd",
+      "bytes_zip": 39515896,
+      "bytes_descomprimidos": 580117253,
+      "integridad_crc": "correcta",
+      "archivo_corrupto": null,
+      "csv": [
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_ags.csv",
+          "bytes_descomprimidos": 5533362,
+          "crc32": "c3d98c6a"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_bc.csv",
+          "bytes_descomprimidos": 14959132,
+          "crc32": "489f3091"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_bcs.csv",
+          "bytes_descomprimidos": 3542315,
+          "crc32": "18aaeae6"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_camp.csv",
+          "bytes_descomprimidos": 3790656,
+          "crc32": "c5eb8214"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_cdmx.csv",
+          "bytes_descomprimidos": 58378861,
+          "crc32": "6f80bd87"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_chih.csv",
+          "bytes_descomprimidos": 22075356,
+          "crc32": "9ace8ac2"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_chis.csv",
+          "bytes_descomprimidos": 17693368,
+          "crc32": "9d174a1e"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_coah.csv",
+          "bytes_descomprimidos": 12812395,
+          "crc32": "034926d4"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_col.csv",
+          "bytes_descomprimidos": 2798815,
+          "crc32": "73c1e2d1"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_dgo.csv",
+          "bytes_descomprimidos": 10600855,
+          "crc32": "48340d29"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_gro.csv",
+          "bytes_descomprimidos": 23825833,
+          "crc32": "22372984"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_gto.csv",
+          "bytes_descomprimidos": 27810449,
+          "crc32": "9e6b260e"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_hgo.csv",
+          "bytes_descomprimidos": 14780796,
+          "crc32": "68c4776e"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_jal.csv",
+          "bytes_descomprimidos": 31819429,
+          "crc32": "408027ec"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_mex.csv",
+          "bytes_descomprimidos": 58243334,
+          "crc32": "e0c5e889"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_mich.csv",
+          "bytes_descomprimidos": 23242397,
+          "crc32": "bd482323"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_mor.csv",
+          "bytes_descomprimidos": 7826003,
+          "crc32": "67eecc17"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_nay.csv",
+          "bytes_descomprimidos": 7226884,
+          "crc32": "bab64a9c"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_nl.csv",
+          "bytes_descomprimidos": 21146117,
+          "crc32": "2c9fd380"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_oax.csv",
+          "bytes_descomprimidos": 24615948,
+          "crc32": "a633ce4b"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_pue.csv",
+          "bytes_descomprimidos": 23220049,
+          "crc32": "d59bedb7"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_qro.csv",
+          "bytes_descomprimidos": 7249014,
+          "crc32": "6a3fc387"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_qroo.csv",
+          "bytes_descomprimidos": 6745282,
+          "crc32": "f90b1fbc"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_sin.csv",
+          "bytes_descomprimidos": 24850324,
+          "crc32": "48cc9c75"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_slp.csv",
+          "bytes_descomprimidos": 17075704,
+          "crc32": "48cedc00"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_son.csv",
+          "bytes_descomprimidos": 10824363,
+          "crc32": "eca7d5ad"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_tab.csv",
+          "bytes_descomprimidos": 9175188,
+          "crc32": "b9db2605"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_tamps.csv",
+          "bytes_descomprimidos": 15970255,
+          "crc32": "1840c85f"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_tlax.csv",
+          "bytes_descomprimidos": 5524362,
+          "crc32": "cbbf2b1b"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_ver.csv",
+          "bytes_descomprimidos": 43561162,
+          "crc32": "32773eaf"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_yuc.csv",
+          "bytes_descomprimidos": 8763247,
+          "crc32": "1747d55b"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2012/datosabiertos_deceyec_conteoscensales2012_zac.csv",
+          "bytes_descomprimidos": 14433441,
+          "crc32": "88596f2e"
+        }
+      ],
+      "esquemas": [
+        {
+          "columnas": [
+            "AELEC",
+            "FELECCION",
+            "EDOCVE",
+            "EDONOM",
+            "MPIOCVE",
+            "MPIONOM",
+            "SECCION",
+            "TIPOSEC",
+            "DEF",
+            "DEL",
+            "SEXO",
+            "EDAD",
+            "LN",
+            "SV",
+            "NV",
+            "NS"
+          ],
+          "cantidad_archivos": 32
+        }
+      ],
+      "diccionarios": [
+        "DatosAbiertos_DECEyEC_ConteosCensales2012/01_descripcioncampos_conteoscensales2012.txt"
+      ]
+    },
+    {
+      "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015.zip",
+      "sha256": "7435ac54a3a6aebf5d9c9466a064b320b64bf5ff8b4d8ae787bad898497341da",
+      "bytes_zip": 42594136,
+      "bytes_descomprimidos": 613223117,
+      "integridad_crc": "correcta",
+      "archivo_corrupto": null,
+      "csv": [
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_ags.csv",
+          "bytes_descomprimidos": 5782338,
+          "crc32": "d561e1ad"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_bc.csv",
+          "bytes_descomprimidos": 16568141,
+          "crc32": "2cc31aca"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_bcs.csv",
+          "bytes_descomprimidos": 4116283,
+          "crc32": "33f1fdab"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_camp.csv",
+          "bytes_descomprimidos": 4153327,
+          "crc32": "6a07935e"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_cdmx.csv",
+          "bytes_descomprimidos": 59121908,
+          "crc32": "56af5f4e"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_chih.csv",
+          "bytes_descomprimidos": 24799573,
+          "crc32": "c15ee054"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_chis.csv",
+          "bytes_descomprimidos": 18502088,
+          "crc32": "8c2874fe"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_coah.csv",
+          "bytes_descomprimidos": 13558885,
+          "crc32": "a3d173e2"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_col.csv",
+          "bytes_descomprimidos": 2996838,
+          "crc32": "12ae3516"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_dgo.csv",
+          "bytes_descomprimidos": 11041628,
+          "crc32": "42397d2c"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_gro.csv",
+          "bytes_descomprimidos": 25130335,
+          "crc32": "9fae28e0"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_gto.csv",
+          "bytes_descomprimidos": 29630013,
+          "crc32": "e126330c"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_hgo.csv",
+          "bytes_descomprimidos": 15849613,
+          "crc32": "1e11f5f2"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_jal.csv",
+          "bytes_descomprimidos": 33397660,
+          "crc32": "9c4010e9"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_mex.csv",
+          "bytes_descomprimidos": 60570306,
+          "crc32": "bbcad961"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_mich.csv",
+          "bytes_descomprimidos": 24449930,
+          "crc32": "ac5d0985"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_mor.csv",
+          "bytes_descomprimidos": 7975480,
+          "crc32": "05ec2a56"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_nay.csv",
+          "bytes_descomprimidos": 7723884,
+          "crc32": "e400eb84"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_nl.csv",
+          "bytes_descomprimidos": 23575951,
+          "crc32": "0ec9dd84"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_oax.csv",
+          "bytes_descomprimidos": 25110927,
+          "crc32": "4fbb12bf"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_pue.csv",
+          "bytes_descomprimidos": 24375630,
+          "crc32": "3abb46b7"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_qro.csv",
+          "bytes_descomprimidos": 7820600,
+          "crc32": "8027d507"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_qroo.csv",
+          "bytes_descomprimidos": 7718329,
+          "crc32": "f0136ab5"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_sin.csv",
+          "bytes_descomprimidos": 27338518,
+          "crc32": "4fa3490d"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_slp.csv",
+          "bytes_descomprimidos": 17927476,
+          "crc32": "9b511a15"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_son.csv",
+          "bytes_descomprimidos": 12330295,
+          "crc32": "1b077b1d"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_tab.csv",
+          "bytes_descomprimidos": 9504011,
+          "crc32": "6801d500"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_tamps.csv",
+          "bytes_descomprimidos": 17562091,
+          "crc32": "56fd84c2"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_tlax.csv",
+          "bytes_descomprimidos": 5618306,
+          "crc32": "70c2fb83"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_ver.csv",
+          "bytes_descomprimidos": 44914418,
+          "crc32": "e6626bba"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_yuc.csv",
+          "bytes_descomprimidos": 9240512,
+          "crc32": "c291c08f"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2015/datosabiertos_deceyec_conteoscensales2015_zac.csv",
+          "bytes_descomprimidos": 14815266,
+          "crc32": "a7455a8f"
+        }
+      ],
+      "esquemas": [
+        {
+          "columnas": [
+            "AELEC",
+            "FELECCION",
+            "EDOCVE",
+            "EDONOM",
+            "MPIOCVE",
+            "MPIONOM",
+            "SECCION",
+            "TIPOSEC",
+            "DEF",
+            "DEL",
+            "SEXO",
+            "EDAD",
+            "LN",
+            "SV",
+            "NV",
+            "NS"
+          ],
+          "cantidad_archivos": 32
+        }
+      ],
+      "diccionarios": [
+        "DatosAbiertos_DECEyEC_ConteosCensales2015/01_descripcioncampos_conteoscensales2015.txt"
+      ]
+    },
+    {
+      "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018.zip",
+      "sha256": "b20981a0aea1ac773e7bc0b54784bba7619346585ba3996744ad22458279dd8b",
+      "bytes_zip": 43389665,
+      "bytes_descomprimidos": 623270421,
+      "integridad_crc": "correcta",
+      "archivo_corrupto": null,
+      "csv": [
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_ags.csv",
+          "bytes_descomprimidos": 5891067,
+          "crc32": "d4b9052a"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_bc.csv",
+          "bytes_descomprimidos": 17071740,
+          "crc32": "ade53c54"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_bcs.csv",
+          "bytes_descomprimidos": 4240393,
+          "crc32": "5dcf5c56"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_camp.csv",
+          "bytes_descomprimidos": 4222192,
+          "crc32": "83d9073e"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_cdmx.csv",
+          "bytes_descomprimidos": 59706449,
+          "crc32": "bcd98047"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_chih.csv",
+          "bytes_descomprimidos": 25385054,
+          "crc32": "32fa6b22"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_chis.csv",
+          "bytes_descomprimidos": 18857168,
+          "crc32": "addc9ad6"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_coah.csv",
+          "bytes_descomprimidos": 13809327,
+          "crc32": "2fbde75d"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_col.csv",
+          "bytes_descomprimidos": 3040596,
+          "crc32": "2f8472cf"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_dgo.csv",
+          "bytes_descomprimidos": 11267678,
+          "crc32": "f0204634"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_gro.csv",
+          "bytes_descomprimidos": 25529015,
+          "crc32": "aa37c95f"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_gto.csv",
+          "bytes_descomprimidos": 29838917,
+          "crc32": "45c6caa3"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_hgo.csv",
+          "bytes_descomprimidos": 16103446,
+          "crc32": "8fc7cd86"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_jal.csv",
+          "bytes_descomprimidos": 33814778,
+          "crc32": "f9eb8563"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_mex.csv",
+          "bytes_descomprimidos": 61626427,
+          "crc32": "37e510ad"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_mich.csv",
+          "bytes_descomprimidos": 24749266,
+          "crc32": "032ca784"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_mor.csv",
+          "bytes_descomprimidos": 8064265,
+          "crc32": "2d1272dd"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_nay.csv",
+          "bytes_descomprimidos": 7848473,
+          "crc32": "b48757d9"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_nl.csv",
+          "bytes_descomprimidos": 24229057,
+          "crc32": "1b8b6455"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_oax.csv",
+          "bytes_descomprimidos": 25490278,
+          "crc32": "d1825661"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_pue.csv",
+          "bytes_descomprimidos": 24853542,
+          "crc32": "3572a90b"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_qro.csv",
+          "bytes_descomprimidos": 7972360,
+          "crc32": "b4d189fb"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_qroo.csv",
+          "bytes_descomprimidos": 7977788,
+          "crc32": "57b6026c"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_sin.csv",
+          "bytes_descomprimidos": 27799396,
+          "crc32": "3a36dcbe"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_slp.csv",
+          "bytes_descomprimidos": 18207670,
+          "crc32": "e3e9781e"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_son.csv",
+          "bytes_descomprimidos": 12588534,
+          "crc32": "8f19632e"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_tab.csv",
+          "bytes_descomprimidos": 9602443,
+          "crc32": "e8d0da5b"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_tamps.csv",
+          "bytes_descomprimidos": 17956570,
+          "crc32": "07dcfaba"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_tlax.csv",
+          "bytes_descomprimidos": 5714172,
+          "crc32": "ba6d3d0d"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_ver.csv",
+          "bytes_descomprimidos": 45416526,
+          "crc32": "6e4af226"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_yuc.csv",
+          "bytes_descomprimidos": 9333974,
+          "crc32": "088d7e45"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2018/datosabiertos_deceyec_conteoscensales2018_zac.csv",
+          "bytes_descomprimidos": 15059303,
+          "crc32": "c6e50673"
+        }
+      ],
+      "esquemas": [
+        {
+          "columnas": [
+            "AELEC",
+            "FELECCION",
+            "EDOCVE",
+            "EDONOM",
+            "MPIOCVE",
+            "MPIONOM",
+            "SECCION",
+            "TIPOSEC",
+            "DEF",
+            "DEL",
+            "SEXO",
+            "EDAD",
+            "LN",
+            "SV",
+            "NV",
+            "NS"
+          ],
+          "cantidad_archivos": 32
+        }
+      ],
+      "diccionarios": [
+        "DatosAbiertos_DECEyEC_ConteosCensales2018/01_descripcioncampos_conteoscensales2018.txt"
+      ]
+    },
+    {
+      "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021.zip",
+      "sha256": "29bdfaaa33be5151c2ae8c8e406d8a27976006d11e6cbe201ac05cc04def4849",
+      "bytes_zip": 44357326,
+      "bytes_descomprimidos": 635485658,
+      "integridad_crc": "correcta",
+      "archivo_corrupto": null,
+      "csv": [
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_ags.csv",
+          "bytes_descomprimidos": 6141176,
+          "crc32": "929d7e90"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_bc.csv",
+          "bytes_descomprimidos": 17942152,
+          "crc32": "bebf7f8e"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_bcs.csv",
+          "bytes_descomprimidos": 4315920,
+          "crc32": "c5a4c4f8"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_camp.csv",
+          "bytes_descomprimidos": 4311047,
+          "crc32": "583f98e3"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_cdmx.csv",
+          "bytes_descomprimidos": 60047509,
+          "crc32": "a3920dd4"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_chih.csv",
+          "bytes_descomprimidos": 25889625,
+          "crc32": "8ab9ea9b"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_chis.csv",
+          "bytes_descomprimidos": 19449413,
+          "crc32": "8dbd78ff"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_coah.csv",
+          "bytes_descomprimidos": 14092891,
+          "crc32": "a4164f5b"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_col.csv",
+          "bytes_descomprimidos": 3069130,
+          "crc32": "3855787f"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_dgo.csv",
+          "bytes_descomprimidos": 11206621,
+          "crc32": "1733cdea"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_gro.csv",
+          "bytes_descomprimidos": 25248823,
+          "crc32": "93e01258"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_gto.csv",
+          "bytes_descomprimidos": 30196421,
+          "crc32": "ab04dd3d"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_hgo.csv",
+          "bytes_descomprimidos": 16209187,
+          "crc32": "6fcd593c"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_jal.csv",
+          "bytes_descomprimidos": 34535885,
+          "crc32": "764c3a65"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_mex.csv",
+          "bytes_descomprimidos": 62980968,
+          "crc32": "a6fc53f2"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_mich.csv",
+          "bytes_descomprimidos": 25147879,
+          "crc32": "f2cc02a3"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_mor.csv",
+          "bytes_descomprimidos": 8204297,
+          "crc32": "43fc35cf"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_nay.csv",
+          "bytes_descomprimidos": 8036274,
+          "crc32": "dc1120cd"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_nl.csv",
+          "bytes_descomprimidos": 25860975,
+          "crc32": "48f91472"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_oax.csv",
+          "bytes_descomprimidos": 26001336,
+          "crc32": "c392b291"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_pue.csv",
+          "bytes_descomprimidos": 25363589,
+          "crc32": "fe32c149"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_qro.csv",
+          "bytes_descomprimidos": 8355483,
+          "crc32": "0e0ed1c9"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_qroo.csv",
+          "bytes_descomprimidos": 8848146,
+          "crc32": "4180a5f1"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_sin.csv",
+          "bytes_descomprimidos": 28257746,
+          "crc32": "eb08525f"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_slp.csv",
+          "bytes_descomprimidos": 18315276,
+          "crc32": "499a589e"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_son.csv",
+          "bytes_descomprimidos": 12768871,
+          "crc32": "13cb2786"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_tab.csv",
+          "bytes_descomprimidos": 9804013,
+          "crc32": "5f03b2d2"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_tamps.csv",
+          "bytes_descomprimidos": 18284819,
+          "crc32": "9906a9ac"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_tlax.csv",
+          "bytes_descomprimidos": 5769747,
+          "crc32": "0c29bdda"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_ver.csv",
+          "bytes_descomprimidos": 46423403,
+          "crc32": "7622d8d8"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_yuc.csv",
+          "bytes_descomprimidos": 9523298,
+          "crc32": "6b4a6d23"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2021/datosabiertos_deceyec_conteoscensales2021_zac.csv",
+          "bytes_descomprimidos": 14881181,
+          "crc32": "8a07e7d1"
+        }
+      ],
+      "esquemas": [
+        {
+          "columnas": [
+            "AELEC",
+            "FELECCION",
+            "EDOCVE",
+            "EDONOM",
+            "MPIOCVE",
+            "MPIONOM",
+            "SECCION",
+            "TIPOSEC",
+            "DEF",
+            "DEL",
+            "SEXO",
+            "EDAD",
+            "LN",
+            "SV",
+            "NV",
+            "NS"
+          ],
+          "cantidad_archivos": 32
+        }
+      ],
+      "diccionarios": [
+        "DatosAbiertos_DECEyEC_ConteosCensales2021/01_descripcioncampos_conteoscensales2021.txt"
+      ]
+    },
+    {
+      "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024.zip",
+      "sha256": "c0de34d04e782ad99579b83591a6e3e6c8d1e20f4914d4845743bd79d2bd28b2",
+      "bytes_zip": 82419841,
+      "bytes_descomprimidos": 688046232,
+      "integridad_crc": "correcta",
+      "archivo_corrupto": null,
+      "csv": [
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_ags.csv",
+          "bytes_descomprimidos": 6892228,
+          "crc32": "782ffe07"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_bc.csv",
+          "bytes_descomprimidos": 19970589,
+          "crc32": "7c91a47d"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_bcs.csv",
+          "bytes_descomprimidos": 4943002,
+          "crc32": "5c0d8b2a"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_camp.csv",
+          "bytes_descomprimidos": 4690759,
+          "crc32": "9b596d56"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_cdmx.csv",
+          "bytes_descomprimidos": 63091165,
+          "crc32": "ca187436"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_chih.csv",
+          "bytes_descomprimidos": 27844434,
+          "crc32": "160f3b8c"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_chis.csv",
+          "bytes_descomprimidos": 21909602,
+          "crc32": "70bb8dec"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_coah.csv",
+          "bytes_descomprimidos": 15648663,
+          "crc32": "5eeb9124"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_col.csv",
+          "bytes_descomprimidos": 3436311,
+          "crc32": "df7f5e0c"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_dgo.csv",
+          "bytes_descomprimidos": 11985347,
+          "crc32": "1ad9398d"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_gro.csv",
+          "bytes_descomprimidos": 26936056,
+          "crc32": "bf31bb75"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_gto.csv",
+          "bytes_descomprimidos": 32490308,
+          "crc32": "9c69e500"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_hgo.csv",
+          "bytes_descomprimidos": 17727112,
+          "crc32": "dfe186e0"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_jal.csv",
+          "bytes_descomprimidos": 37965120,
+          "crc32": "89b35d33"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_mex.csv",
+          "bytes_descomprimidos": 68310064,
+          "crc32": "756cf146"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_mich.csv",
+          "bytes_descomprimidos": 26854055,
+          "crc32": "debc4f9d"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_mor.csv",
+          "bytes_descomprimidos": 8870475,
+          "crc32": "1f367db0"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_nay.csv",
+          "bytes_descomprimidos": 8773939,
+          "crc32": "b9041354"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_nl.csv",
+          "bytes_descomprimidos": 28002087,
+          "crc32": "c750c2be"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_oax.csv",
+          "bytes_descomprimidos": 27906407,
+          "crc32": "87158b0e"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_pue.csv",
+          "bytes_descomprimidos": 27861640,
+          "crc32": "616fd085"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_qro.csv",
+          "bytes_descomprimidos": 9415936,
+          "crc32": "21dfb6a8"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_qroo.csv",
+          "bytes_descomprimidos": 9874344,
+          "crc32": "03896667"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_sin.csv",
+          "bytes_descomprimidos": 30456190,
+          "crc32": "b86860be"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_slp.csv",
+          "bytes_descomprimidos": 19725525,
+          "crc32": "e27f90aa"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_son.csv",
+          "bytes_descomprimidos": 13951509,
+          "crc32": "bccd7e2c"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_tab.csv",
+          "bytes_descomprimidos": 10692727,
+          "crc32": "f76271d3"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_tam.csv",
+          "bytes_descomprimidos": 20039821,
+          "crc32": "031b2db1"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_tlax.csv",
+          "bytes_descomprimidos": 6257886,
+          "crc32": "19be31eb"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_ver.csv",
+          "bytes_descomprimidos": 49243799,
+          "crc32": "79309727"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_yuc.csv",
+          "bytes_descomprimidos": 10366709,
+          "crc32": "f53f450e"
+        },
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales2024/datosabiertos_deceyec_conteoscensales2024_zac.csv",
+          "bytes_descomprimidos": 15909921,
+          "crc32": "420abb69"
+        }
+      ],
+      "esquemas": [
+        {
+          "columnas": [
+            "AELEC",
+            "FELECCION",
+            "EDOCVE",
+            "EDONOM",
+            "MPIOCVE",
+            "MPIONOM",
+            "SECCION",
+            "TIPOSEC",
+            "DEF",
+            "DEL",
+            "SEXO",
+            "EDAD",
+            "LN",
+            "SV",
+            "NV",
+            "NS"
+          ],
+          "cantidad_archivos": 32
+        }
+      ],
+      "diccionarios": [
+        "DatosAbiertos_DECEyEC_ConteosCensales2024/01_descripcioncampos_conteoscensales2024.txt"
+      ]
+    },
+    {
+      "archivo": "DatosAbiertos_DECEyEC_ConteosCensales_PrisionPreventiva2024.zip",
+      "sha256": "5e91c5ae79d6b8e3521ae81e8064ed4a35098dd43e20425723e26f46bb6851ba",
+      "bytes_zip": 7454,
+      "bytes_descomprimidos": 600794,
+      "integridad_crc": "correcta",
+      "archivo_corrupto": null,
+      "csv": [
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales_PrisionPreventiva2024/datosabiertos_deceyec_conteoscensales_prisionpreventiva2024.csv",
+          "bytes_descomprimidos": 599998,
+          "crc32": "9110666f"
+        }
+      ],
+      "esquemas": [
+        {
+          "columnas": [
+            "AELEC",
+            "ESTADO",
+            "EDONOM",
+            "DEF",
+            "SEXO"
+          ],
+          "cantidad_archivos": 1
+        }
+      ],
+      "diccionarios": [
+        "DatosAbiertos_DECEyEC_ConteosCensales_PrisionPreventiva2024/01_descripcioncampos_conteoscensales_prisionpreventiva2024.txt"
+      ]
+    },
+    {
+      "archivo": "DatosAbiertos_DECEyEC_ConteosCensales_VotoAnticipado2024.zip",
+      "sha256": "1e496a2fc1e23c9658fda649796edc1923727eccee8f285b47c01ba9f15aa25d",
+      "bytes_zip": 16203,
+      "bytes_descomprimidos": 153028,
+      "integridad_crc": "correcta",
+      "archivo_corrupto": null,
+      "csv": [
+        {
+          "archivo": "DatosAbiertos_DECEyEC_ConteosCensales_VotoAnticipado2024/datosabiertos_deceyec_conteoscensales_votoanticipado2024.csv",
+          "bytes_descomprimidos": 152057,
+          "crc32": "44bf6424"
+        }
+      ],
+      "esquemas": [
+        {
+          "columnas": [
+            "AELEC",
+            "EDOCVE",
+            "EDONOM",
+            "MPIOCVE",
+            "MPIONOM",
+            "DEF",
+            "DEL",
+            "SEXO"
+          ],
+          "cantidad_archivos": 1
+        }
+      ],
+      "diccionarios": [
+        "DatosAbiertos_DECEyEC_ConteosCensales_VotoAnticipado2024/01_descripcioncampos_conteoscensales_votoanticipado2024.txt"
+      ]
+    }
+  ],
+  "pdfs": [
+    {
+      "archivo": "documentos_oficiales\\Carta-de-cesion-de-derechos_Hackaton-1.pdf",
+      "bytes": 594539,
+      "cabecera_pdf": true,
+      "sha256": "0ab4c50ab39d6a8b27651d4e1056079afdc8a3d389f04bc37b02e259f3b9a14c",
+      "estado": "aportado_por_usuario"
+    },
+    {
+      "archivo": "documentos_oficiales\\Carta-declaratoria-de-decir-la-verdad_Hackaton.pdf",
+      "bytes": 620381,
+      "cabecera_pdf": true,
+      "sha256": "66be02557f5cabb3b2bdbf12da8a4410ecfabdc7ee5af278794b18c7e7d3bfbe",
+      "estado": "aportado_por_usuario"
+    },
+    {
+      "archivo": "documentos_oficiales\\Convocatoria_Hackaton-1.pdf",
+      "bytes": 1018991,
+      "cabecera_pdf": true,
+      "sha256": "9df0f6aa9ee916d5b9c6e1b670bdcd0aec80427337f101ed0b80b5f4f44fa55e",
+      "estado": "aportado_por_usuario"
+    },
+    {
+      "archivo": "documentos_oficiales\\Manual-Conteos-Censales-2009-2024.pdf",
+      "bytes": 2624288,
+      "cabecera_pdf": true,
+      "sha256": "90bd0e45e28a4f231ad468e3c797eb262f5c1363e53fc089bd69d6d764e5c4cd",
+      "estado": "aportado_por_usuario"
+    }
+  ]
+}

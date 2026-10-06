@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "checks": [
+    "cobertura",
+    "filtros",
+    "detalle",
+    "respuesta_cero",
+    "capacidad",
+    "exportacion",
+    "seleccion_vacia",
+    "entrada_invalida",
+    "metricas",
+    "mapa",
+    "movil"
+  ],
+  "page_errors": []
+}

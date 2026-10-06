@@ -1,0 +1,13 @@
+{
+  "version": 2024,
+  "fuente_pagina": "https://pautas.ine.mx/transparencia/mapas/index_2025.html",
+  "fuente_zip": "https://pautas.ine.mx/transparencia/mapas/cob_2024/MUNICIPIO.zip",
+  "fecha_descarga_utc": "2026-10-06T02:00:32.329765+00:00",
+  "sha256": "23a29f6be6e415aa0b707b6b26dfc29d042e3408c99da9d58e41b92940f27c2f",
+  "municipios": 2477,
+  "fecha_creacion_metadatos": "20240509",
+  "crs_original": "PROJCS[\"North_America_Lambert_Conformal_Conic\",GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Lambert_Conformal_Conic\"],PARAMETER[\"False_Easting\",0.0],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Central_Meridian\",-102.0],PARAMETER[\"Standard_Parallel_1\",17.5],PARAMETER[\"Standard_Parallel_2\",29.5],PARAMETER[\"Latitude_Of_Origin\",12.0],UNIT[\"Meter\",1.0]]",
+  "crs_geojson": "WGS84 EPSG:4326, longitud/latitud",
+  "advertencia": "Capa de referencia visual. No acredita identidad exacta con el corte CCPC de mayo 2023. La coincidencia de claves no demuestra estabilidad de límites históricos.",
+  "capa_alternativa": "MUNICIPIO_ine_portal_2023.zip tiene metadatos 20220620; conservada solamente como fuente alternativa, no seleccionada."
+}

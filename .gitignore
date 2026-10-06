@@ -1,0 +1,8 @@
+# Dependencias reinstalables; incluidas en el ZIP completo de entrega.
+.task_packages/
+__pycache__/
+*.py[cod]
+*.zip.part
+.env
+.env.*
+!.env.example

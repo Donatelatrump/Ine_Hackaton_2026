@@ -1,0 +1,12 @@
+{
+  "fuente_pagina": "https://pautas.ine.mx/transparencia/mapas/index_2024.html",
+  "fuente_zip": "https://pautas.ine.mx/transparencia/mapas/cob_2023/MUNICIPIO.zip",
+  "fecha_descarga_utc": "2026-10-06T01:59:17.312488+00:00",
+  "sha256": "9d1f1365ca7e603fd89d7947587cd5c0bb5ba6285f3dc5d1731fe544ea48e725",
+  "municipios": 2469,
+  "fecha_creacion_metadatos": "20230609",
+  "crs_original": "PROJCS[\"Lambert_Conformal_Conic\",GEOGCS[\"GCS_WGS_1984\",DATUM[\"D_WGS_1984\",SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.0174532925199433]],PROJECTION[\"Lambert_Conformal_Conic\"],PARAMETER[\"false_easting\",0.0],PARAMETER[\"false_northing\",0.0],PARAMETER[\"central_meridian\",-102.0],PARAMETER[\"standard_parallel_1\",17.5],PARAMETER[\"standard_parallel_2\",29.5],PARAMETER[\"latitude_of_origin\",12.0],UNIT[\"Meter\",1.0]]",
+  "crs_geojson": "WGS84 EPSG:4326, longitud/latitud",
+  "advertencia": "Metadatos de junio 2023; no acredita identidad exacta con el corte CCPC de mayo 2023. La coincidencia de claves no demuestra estabilidad de límites históricos.",
+  "capa_alternativa": "MUNICIPIO_ine_portal_2023.zip tiene metadatos 20220620; conservada solamente como fuente alternativa, no seleccionada."
+}

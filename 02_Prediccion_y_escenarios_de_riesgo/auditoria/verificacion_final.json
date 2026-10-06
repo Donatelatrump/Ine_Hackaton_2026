@@ -1,0 +1,24 @@
+{
+  "filas_originales": 54872712,
+  "registros_municipio_ano": 14779,
+  "claves_municipales": 2477,
+  "municipios_con_seis_anos": 2455,
+  "municipios_con_historia_incompleta": 22,
+  "claves_con_nombres_historicos_distintos": 79,
+  "registros_sin_observaciones": 73,
+  "registros_ns_mayor_10pct": 1891,
+  "filas_edad_mayor_120": 371,
+  "ln_edad_mayor_120": 373,
+  "registros_municipales_con_edad_mayor_120": 310,
+  "edades_min_max": [
+    18,
+    140
+  ],
+  "verificacion_independiente": "CSV Aguascalientes 2024 completo; LN/SV/NV/NS coinciden por municipio.",
+  "hashes_originales_sin_cambios": true,
+  "cobertura_claves_cartografia_pct": 100,
+  "cartografia_metadatos": "20240509",
+  "limites_historicos_armonizados": false,
+  "def_vacio_o_no_numerico": 44154,
+  "del_vacio_o_no_numerico": 65066
+}

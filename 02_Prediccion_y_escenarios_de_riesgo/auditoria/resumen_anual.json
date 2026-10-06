@@ -1,0 +1,80 @@
+[
+  {
+    "ano": 2009,
+    "archivos": 32,
+    "filas": 8706843,
+    "municipios": 2458,
+    "entidades": 32,
+    "LN": 77481831,
+    "SV": 33316974,
+    "NV": 42298963,
+    "NS": 1865894,
+    "duplicados_exactos_extra": 0,
+    "claves_repetidas_extra": 0
+  },
+  {
+    "ano": 2012,
+    "archivos": 32,
+    "filas": 8604456,
+    "municipios": 2455,
+    "entidades": 32,
+    "LN": 76490962,
+    "SV": 47383154,
+    "NV": 28939159,
+    "NS": 168649,
+    "duplicados_exactos_extra": 0,
+    "claves_repetidas_extra": 0
+  },
+  {
+    "ano": 2015,
+    "archivos": 32,
+    "filas": 9106059,
+    "municipios": 2458,
+    "entidades": 32,
+    "LN": 83563462,
+    "SV": 36926612,
+    "NV": 41517874,
+    "NS": 5118976,
+    "duplicados_exactos_extra": 0,
+    "claves_repetidas_extra": 0
+  },
+  {
+    "ano": 2018,
+    "archivos": 32,
+    "filas": 9251122,
+    "municipios": 2463,
+    "entidades": 32,
+    "LN": 89123997,
+    "SV": 51784399,
+    "NV": 31249856,
+    "NS": 6089742,
+    "duplicados_exactos_extra": 0,
+    "claves_repetidas_extra": 0
+  },
+  {
+    "ano": 2021,
+    "archivos": 32,
+    "filas": 9430502,
+    "municipios": 2468,
+    "entidades": 32,
+    "LN": 93532133,
+    "SV": 46389189,
+    "NV": 43099624,
+    "NS": 4043320,
+    "duplicados_exactos_extra": 0,
+    "claves_repetidas_extra": 0
+  },
+  {
+    "ano": 2024,
+    "archivos": 32,
+    "filas": 9773730,
+    "municipios": 2477,
+    "entidades": 32,
+    "LN": 98330348,
+    "SV": 54899228,
+    "NV": 37105466,
+    "NS": 6325654,
+    "duplicados_exactos_extra": 0,
+    "claves_repetidas_extra": 0
+  }
+]

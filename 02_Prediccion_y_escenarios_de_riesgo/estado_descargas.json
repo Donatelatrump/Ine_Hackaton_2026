@@ -1,0 +1,30 @@
+[
+  {
+    "nombre": "Convocatoria_oficial.pdf",
+    "url": "https://ine.mx/wp-content/uploads/2026/09/Convocatoria_Hackaton-1.pdf",
+    "fecha_utc": "2026-10-06T01:37:07.700797+00:00",
+    "estado": "fallido",
+    "error": "<urlopen error [WinError 10013] Intento de acceso a un socket no permitido por sus permisos de acceso>"
+  },
+  {
+    "nombre": "Carta_de_cesion_de_derechos.pdf",
+    "url": "https://ine.mx/wp-content/uploads/2026/09/Carta-de-cesion-de-derechos_Hackaton-1.pdf",
+    "fecha_utc": "2026-10-06T01:37:07.802416+00:00",
+    "estado": "fallido",
+    "error": "<urlopen error [WinError 10013] Intento de acceso a un socket no permitido por sus permisos de acceso>"
+  },
+  {
+    "nombre": "Carta_declaratoria_de_decir_verdad.pdf",
+    "url": "https://ine.mx/wp-content/uploads/2026/09/Carta-declaratoria-de-decir-la-verdad_Hackaton.pdf",
+    "fecha_utc": "2026-10-06T01:37:07.847289+00:00",
+    "estado": "fallido",
+    "error": "<urlopen error [WinError 10013] Intento de acceso a un socket no permitido por sus permisos de acceso>"
+  },
+  {
+    "nombre": "Manual_CCPC_2009_2024.pdf",
+    "url": "https://ine.mx/wp-content/uploads/2025/06/Manual-Conteos-Censales-2009-2024.pdf",
+    "fecha_utc": "2026-10-06T01:37:07.878866+00:00",
+    "estado": "fallido",
+    "error": "<urlopen error [WinError 10013] Intento de acceso a un socket no permitido por sus permisos de acceso>"
+  }
+]
