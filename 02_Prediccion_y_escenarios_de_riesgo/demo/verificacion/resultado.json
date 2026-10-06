@@ -19,6 +19,11 @@
     "lentes",
     "entidades",
     "fichas_y_exclusiones",
+    "plan_sugerido",
+    "frontera",
+    "perfil_ccpc",
+    "capacidad_humana",
+    "confianza_minima",
     "apertura_file"
   ],
   "page_errors": []

@@ -67,7 +67,25 @@ with sync_playwright() as p:
     assert page.evaluate('plan.selected[0].risk-plan.selected[0].baseline>=plan.selected[1].risk-plan.selected[1].baseline')
     assert page.locator('#entity-table tr').count()>0
     page.locator('#ranking button').first.click()
-    assert 'Ficha preventiva' in page.locator('#detail-content').inner_text()
+    assert '¿Por qué está aquí?' in page.locator('#detail-content').inner_text()
+    assert 'Acción sugerida' in page.locator('#detail-content').inner_text()
+    assert 'Perfil CCPC observado 2024' in page.locator('#detail-content').inner_text()
+    assert page.locator('#plan-summary strong').count()>=8
+    assert page.locator('#frontier-summary').inner_text().strip() not in ('','—')
+    assert page.locator('#frontier-table > div').count()==3
+    assert page.locator('#perfil-nacional tr').count()>=8
+    page.locator('#capacity-mode').select_option('personas')
+    page.locator('#persons').fill('100000')
+    page.locator('#reach').fill('1000')
+    page.locator('#response').fill('25')
+    assert page.evaluate('plan.selected.length')>0 and page.evaluate('plan.served<=100000+1e-6')
+    page.locator('#capacity-mode').select_option('municipios')
+    page.locator('#capacity').fill('50')
+    page.locator('#response').fill('5')
+    page.locator('#min-confidence').select_option('media')
+    media=int(page.locator('#selected').inner_text())
+    page.locator('#min-confidence').select_option('todas')
+    assert int(page.locator('#selected').inner_text())>=media
     page.evaluate("detail(records.find(r=>r.risk===null).key)")
     assert 'supera' in page.locator('#detail-content').inner_text() or 'sin' in page.locator('#detail-content').inner_text().lower()
     page.locator('#lens').select_option('tasa')
@@ -94,6 +112,6 @@ with sync_playwright() as p:
     offline.locator('#map-mode').select_option('intervencion')
     assert offline.locator('#map canvas').count()>0
     assert not errors,errors
-    (OUT/'resultado.json').write_text(json.dumps({'passed':True,'checks':['cobertura','filtros','detalle','respuesta_cero','capacidad','exportacion_denominador','seleccion_vacia','entrada_invalida','metricas','mapa','movil','capas_escenario','delta','estabilidad','metodos','lentes','entidades','fichas_y_exclusiones','apertura_file'],'page_errors':errors},indent=2),encoding='utf-8')
+    (OUT/'resultado.json').write_text(json.dumps({'passed':True,'checks':['cobertura','filtros','detalle','respuesta_cero','capacidad','exportacion_denominador','seleccion_vacia','entrada_invalida','metricas','mapa','movil','capas_escenario','delta','estabilidad','metodos','lentes','entidades','fichas_y_exclusiones','plan_sugerido','frontera','perfil_ccpc','capacidad_humana','confianza_minima','apertura_file'],'page_errors':errors},indent=2),encoding='utf-8')
     browser.close()
-print('19 verificaciones de navegador correctas, incluida apertura file://')
+print('24 verificaciones de navegador correctas, incluida apertura file://')

@@ -1,6 +1,6 @@
 {
   "pages": 12,
-  "pdf_sha256": "a84eb0c2257c7ddbaebf6ba25a33c5a4a60b9a1b4dc74fd6ac5f8aa7479ce871",
+  "pdf_sha256": "d8f5526b2f08f28bab9192a8c9446b7216d2ed015e037e8e680851472c9dc379",
   "checks": [
     {
       "page": 1,
@@ -34,12 +34,12 @@
     },
     {
       "page": 7,
-      "text_chars": 2031,
+      "text_chars": 2319,
       "bounds_ok": true
     },
     {
       "page": 8,
-      "text_chars": 1955,
+      "text_chars": 2417,
       "bounds_ok": true
     },
     {
@@ -54,7 +54,7 @@
     },
     {
       "page": 11,
-      "text_chars": 2131,
+      "text_chars": 2441,
       "bounds_ok": true
     },
     {

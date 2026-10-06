@@ -42,3 +42,31 @@ test('inversión informa requisito, cero respuesta e imposibilidad',()=>{
  assert.equal(api().inverseScenario(r,100,0,{low:30,high:50}).required_reach,null);
  assert.equal(api().inverseScenario(r,100,50,{low:30,high:50}).feasible_response,false);
 });
+test('confianza de prioridad agrupa los seis resultados observables',()=>{
+ assert.equal(api().confidenceTier(6,6).tier,'alta');
+ assert.equal(api().confidenceTier(5,6).tier,'alta');
+ assert.equal(api().confidenceTier(4,6).tier,'media');
+ assert.equal(api().confidenceTier(3,6).tier,'media');
+ assert.equal(api().confidenceTier(2,6).tier,'baja');
+ assert.equal(api().confidenceTier(0,6).tier,'baja');
+ assert.equal(api().confidenceTier(0,0).tier,'sin_datos');
+});
+test('capacidad humana no excede el presupuesto de personas alcanzadas',()=>{
+ const rows=[{key:'a',risk:70,observed:1000},{key:'b',risk:60,observed:1000},{key:'c',risk:50,observed:1000}];
+ const r=api().planByBudget(rows,2500,1000,100);
+ assert.equal(r.served,2500);assert.equal(r.selected.length,3);
+ assert.equal(r.selected[2].served,500);
+ const small=api().planByBudget(rows,100,1000,100);
+ assert.equal(small.served,100);assert.equal(small.selected.length,1);
+});
+test('frontera separa nucleo robusto, zona de revision y fuera',()=>{
+ const rows=[
+  {key:'n',risk:90,baseline:90,observed:100,variants:{persistencia_5:90,ridge_5:88,persistencia_10:90,ridge_10:88,persistencia_20:90,ridge_20:88}},
+  {key:'f',risk:80,baseline:80,observed:100,variants:{persistencia_5:80,ridge_5:89,persistencia_10:80,ridge_10:89,persistencia_20:80,ridge_20:89}},
+  {key:'g',risk:85,baseline:85,observed:100,variants:{persistencia_5:85,ridge_5:60,persistencia_10:85,ridge_10:60,persistencia_20:85,ridge_20:60}},
+  {key:'x',risk:10,baseline:10,observed:100,variants:{persistencia_5:10,ridge_5:10,persistencia_10:10,ridge_10:10,persistencia_20:10,ridge_20:10}}];
+ const fr=api().decisionFrontier(rows,2,'tasa');
+ assert.deepEqual(fr.nucleo,['n']);assert.deepEqual(fr.frontera,['f','g']);assert.deepEqual(fr.fuera,['x']);
+ assert.equal(fr.estabilidad.g.robust,false);
+ assert.equal(fr.estabilidad.n.members.ridge_5,true);assert.equal(fr.estabilidad.f.members.persistencia_5,undefined);
+});

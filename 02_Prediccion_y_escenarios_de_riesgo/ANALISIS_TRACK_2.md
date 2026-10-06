@@ -1,6 +1,6 @@
 # Track 2 — requisitos, trabajo realizado y análisis de la propuesta
 
-**Actualización:** diagnóstico inicial conservado. Capas, apertura directa, fichas, reporte y presentación se implementaron: [CORRECCIONES_Y_ESTADO.md](CORRECCIONES_Y_ESTADO.md). Escenario ahora con SV+NV 2024; nuevas métricas posteriores. Registro, firmas, envío y validación institucional pendientes. La actualización prevalece sobre las tablas siguientes.
+**Actualización:** diagnóstico inicial conservado. Capas, apertura directa, fichas, reporte y presentación se implementaron: [CORRECCIONES_Y_ESTADO.md](CORRECCIONES_Y_ESTADO.md). Escenario ahora con SV+NV 2024; nuevas métricas posteriores. Después se añadieron la ficha «¿Por qué este municipio?», la confianza de prioridad (frecuencia entre seis variantes), el perfil CCPC como capa explicativa separada, el Modo Director (capacidad territorial o humana) y la frontera de decisión: [plan de mejoras](../docs/superpowers/plans/2026-10-05-ficha-perfil-y-frontera.md). Registro, firmas, envío y validación institucional pendientes. La actualización prevalece sobre las tablas siguientes.
 
 **Proyecto:** Umbral, atlas de decisión municipal.
 **Corte de este documento:** 5 de octubre de 2026.
@@ -207,7 +207,7 @@ No se propone sumar algoritmos complejos como sustituto de estos pendientes. Cam
 - [Especificación vigente](../docs/superpowers/specs/2026-10-05-atlas-decision-design.md).
 - [Explicación general del proyecto](../EXPLICACION_DEL_PROYECTO.md).
 
-Última verificación de implementación: 15 pruebas Python, 9 Node y 19 comprobaciones de navegador (incluida apertura file://), más integridad de artefactos. Estas pruebas verifican comportamiento y consistencia del software, no precisión prospectiva ni eficacia de una intervención.
+Última verificación de implementación: 15 pruebas Python, 12 Node y 24 comprobaciones de navegador (incluida apertura file://), más integridad de artefactos. Estas pruebas verifican comportamiento y consistencia del software, no precisión prospectiva ni eficacia de una intervención.
 
 ## 13. Texto para solicitar una evaluación externa
 

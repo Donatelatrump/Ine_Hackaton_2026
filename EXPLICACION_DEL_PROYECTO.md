@@ -20,7 +20,7 @@ Este enfoque evita que la propuesta dependa únicamente de un mapa atractivo o d
 4. Se obtuvieron polígonos oficiales INE con cobertura de las 2,477 claves municipales. Se preservó la geometría original y se creó una copia simplificada para la visualización.
 5. Se implementaron una referencia de persistencia y un modelo Ridge regularizado. Se compararon retrospectivamente en 2021 y 2024, sin usar datos del objetivo ni posteriores para construir características de cada corte.
 6. Se generó una proyección exploratoria para la elección intermedia de 2027. Hay 1,783 municipios con estimación y 694 sin estimación. La ausencia permanece visible; nunca se convierte en riesgo cero.
-7. Se construyó la demo local **Umbral**, con mapa, filtros, búsqueda, ficha histórica, semáforo relativo, selección por capacidad, escenario hipotético y exportación CSV.
+7. Se construyó la demo local **Umbral**, con mapa, filtros, búsqueda, ficha histórica, semáforo relativo, selección por capacidad, escenario hipotético y exportación CSV. Se añadieron después la ficha «¿Por qué este municipio?», la confianza de prioridad, el perfil CCPC como capa explicativa separada, el Modo Director con capacidad territorial o humana y la frontera de decisión (núcleo robusto, zona de revisión y fuera).
 8. Se incorporaron documentación reproducible, pruebas automatizadas, comprobaciones de navegador y revisión independiente.
 
 ## Cómo se hizo
@@ -98,7 +98,7 @@ Estos cálculos suponen que las personas alcanzadas presentan la tasa de abstenc
 
 Python procesa y evalúa los datos; el núcleo puro separa características, métricas y escenarios. La demo utiliza HTML, CSS, JavaScript y Leaflet 1.9.4 local. Datos, geometría y librerías se sirven desde la computadora, sin teselas ni llamadas remotas necesarias para su funcionamiento. Los enlaces a fuentes oficiales requieren internet cuando se abren.
 
-Se comprobaron 15 pruebas Python, 9 pruebas Node y 19 comprobaciones de navegador Edge: cobertura, filtros, detalle, respuesta cero, capacidad, exportación con denominador, selección vacía, entrada inválida, métricas, mapa, móvil, capas Base/Intervención/Δ, estabilidad entre variantes, métodos, lentes, resumen por entidad, fichas y exclusiones, y apertura file://. Además se verificaron claves únicas, cobertura geométrica, valores finitos, rangos, SHA256 del insumo y correspondencia de datos entre modelo y demo. Se inspeccionaron capturas de escritorio y móvil.
+Se comprobaron 15 pruebas Python, 12 pruebas Node y 24 comprobaciones de navegador Edge: cobertura, filtros, detalle, respuesta cero, capacidad, exportación con denominador, selección vacía, entrada inválida, métricas, mapa, móvil, capas Base/Intervención/Δ, estabilidad entre variantes, métodos, lentes, resumen por entidad, fichas y exclusiones, plan sugerido, frontera de decisión, perfil CCPC, capacidad humana, confianza mínima y apertura file://. Además se verificaron claves únicas, cobertura geométrica, valores finitos, rangos, SHA256 del insumo y correspondencia de datos entre modelo y demo. Se inspeccionaron capturas de escritorio y móvil.
 
 La revisión independiente no encontró problemas críticos ni importantes. Detectó que una entrada inválida podía conservar resultados anteriores en pantalla; se añadió una comprobación que reprodujo el fallo y se corrigió vaciando cifras y ocultando el mapa mientras la entrada es inválida.
 

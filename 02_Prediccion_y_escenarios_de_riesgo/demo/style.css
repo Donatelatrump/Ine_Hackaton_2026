@@ -3,3 +3,19 @@
 @media(max-width:1150px){.scenario-panel{flex-direction:column;align-items:flex-start}.scenario-values{width:100%;justify-content:space-between}.brand-sub{display:none}.stats article{padding:14px}.stats article>span{min-height:25px}}
 .map-options{display:flex;gap:15px;align-items:center;padding:0 20px 15px;flex-wrap:wrap}.map-options select{width:auto;max-width:100%}.map-options label{margin:0}.prevention{font-size:12px;line-height:1.5}.prevention dt{font-weight:600;margin-top:10px}.prevention dd{margin:3px 0;color:var(--muted)}#ranking td small{display:block;font-size:10px;color:var(--muted);margin-top:5px}#detail-content details{font-size:12px}.legend{font-size:10px}.stats small{display:block}.evidence table{min-width:570px}
 @media(max-width:780px){main{padding:25px 5%}.top{padding:14px 5%}.top-end{display:none}.intro{align-items:flex-start}.intro-card{display:none}h1{letter-spacing:-1px}.workspace,.lower{grid-template-columns:1fr}.controls{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}.controls .panel-heading,.controls .check,.controls .hint,.controls .divider,.controls .primary{grid-column:1/-1}.controls label:not(.check),.controls input,.controls select{grid-column:1/-1}.stats{gap:8px}.stats article{padding:12px}.stats strong{font-size:25px}.stats small{font-size:9px}#map{height:350px}.map-heading{padding:16px}.map-heading h2{font-size:16px}.legend{gap:11px;padding:12px 15px}.lower{gap:18px}.evidence{padding:20px}.detail{min-width:0}footer{flex-direction:column;gap:8px}.scenario-values{gap:10px}.scenario-values strong{font-size:25px}}
+
+.hidden{display:none!important}
+.plan{padding:22px 24px}
+.plan-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.plan-grid>div,.frontier-grid>div{background:#f5f8f6;border-radius:9px;padding:12px}
+.plan-grid span,.frontier-grid span{font-size:10px;color:var(--muted);display:block}
+.plan-grid strong{display:block;font-size:20px;margin-top:5px;letter-spacing:-.5px}
+.frontier{padding:22px 24px}
+.frontier>p{font-size:12px}
+.frontier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
+.frontier-grid strong{display:block;font-size:22px;margin-top:5px}
+.frontier-grid small{font-size:10px;color:var(--muted)}
+.why{padding-left:16px;font-size:11px;color:var(--muted);line-height:1.7}
+.why li{margin:4px 0}
+.detail-risk .tier{font-size:13px;margin-left:8px;vertical-align:middle}
+@media(max-width:780px){.plan-grid,.frontier-grid{grid-template-columns:1fr 1fr}.plan-grid strong,.frontier-grid strong{font-size:17px}}

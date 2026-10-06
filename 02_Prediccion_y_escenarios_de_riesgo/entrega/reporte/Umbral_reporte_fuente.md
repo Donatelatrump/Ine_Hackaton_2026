@@ -128,8 +128,8 @@ Se combinan persistencia y Ridge con límites NS de 5, 10 y 20%. Los entrenamien
 ### Cómo usar la estabilidad
 Entrar en seis de seis variantes define un núcleo robusto respecto a esas alternativas, no a todos los modelos posibles. Tres de seis indica dependencia de decisiones metodológicas. Cero de seis puede reflejar calidad insuficiente y no necesariamente baja tasa. La frecuencia no es probabilidad, confianza calibrada ni garantía de permanecer prioritario en 2027.
 
-### Incertidumbre histórica y territorial
-El rango técnico estimación ±21.05 pp conserva el p90 retrospectivo de Ridge en 2021, truncado a [0,100]. Es ilustrativo y amplio; no garantiza cobertura prospectiva de 90%. Se da mayor saliencia a estabilidad de selección y calidad. El catálogo territorial es un indicador separado: no acredita límites históricos equivalentes.
+### Incertidumbre de prioridad, no de intervalo
+La interfaz responde a la pregunta operativa «si solo puedo intervenir N municipios, ¿puedo confiar en que este esté entre ellos?». Para ello comunica la frecuencia con que un municipio entra en la selección entre las seis variantes (dos métodos × NS 5/10/20) y el acuerdo de puesto entre referencia y Ridge. No es probabilidad calibrada. El rango histórico ±21.05 pp (p90 retrospectivo de Ridge 2021, truncado a [0,100]) se conserva solo en una nota técnica colapsada: es error histórico, no intervalo prospectivo. El catálogo territorial es un indicador separado: no acredita límites históricos equivalentes.
 
 ### Revisión de lentes
 Tasa, volumen estimado sobre observados y deterioro respecto del último proceso del mismo tipo responden objetivos distintos. La concordancia entre listas ayuda a detectar municipios sensibles al criterio. La revisión debe registrar qué objetivo se eligió y por qué: una lista estable bajo tasa puede cambiar al priorizar volumen o deterioro.
@@ -150,6 +150,9 @@ Para bajar a un umbral t, se requiere H = O × (a-t)/100 cuando a>t. Con r posit
 
 ### Comparación y recursos
 Base, Con intervención y cambio permiten inspeccionar el mismo conjunto y umbrales. Personas alcanzadas son una unidad de recurso, no costo monetario ni electores adicionales garantizados. El plan exportado debe registrar supuestos y factibilidad. El escenario no estima efectos causales, movilización individual ni cambios en el tamaño del electorado.
+
+### Capacidad territorial o humana
+El Modo Director admite dos restricciones equivalentes: municipios o personas alcanzables. En modo humano, la selección añade municipios por prioridad hasta agotar el presupuesto, con alcance limitado por la base observable. La ficha «¿Por qué este municipio?» explica posición, confianza, razones y robustez; el perfil CCPC es capa explicativa posterior; y la frontera de decisión separa núcleo robusto, zona de revisión y fuera.
 
 ## Página 9: Fichas ligadas a condiciones observables
 
@@ -201,6 +204,9 @@ Los controles de software pueden verificar fórmulas, filtros, respuesta cero, e
 
 ### Responsabilidad y seguimiento
 El área usuaria confirma responsables y alcance; el equipo técnico conserva versión de insumos, parámetros y plan exportado. Se recomienda revisar incidencias, cambios territoriales y fuentes antes de cada uso. No se utiliza información personal ni se prescribe persuasión partidista. La finalidad es educación cívica neutral y planeación revisable con información agregada.
+
+### Modo Director y frontera de decisión
+El Modo Director fija capacidad (territorial o humana), criterio y confianza mínima, y resume el plan. La frontera de decisión separa el núcleo robusto (6/6 variantes), la zona de revisión (1/6–5/6) y los que quedan fuera; sobre la frontera se propone un piloto aleatorio.
 
 ## Página 12: Fuentes, archivos y cierre administrativo
 

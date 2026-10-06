@@ -32,8 +32,22 @@ Estas cifras usan umbral del entrenamiento, no tercio de la prueba. La comparaci
 
 **Corrección documental:** MAE ponderado original ya usaba SV+NV del objetivo; menciones previas a LN eran incorrectas. Se corrige narración sin alterar cifras. El escenario original sí usaba LN y se alinea ahora con SV+NV.
 
+## Mejoras de decisión aplicadas (5 de octubre de 2026)
+
+El modelo permanece congelado (alpha=10, cortes y selección originales). Se añadieron capas de explicación y decisión, sin reentrenar:
+
+| Mejora | Implementación y límites |
+|---|---|
+| Ficha «¿Por qué este municipio?» | Posición de prioridad, riesgo, confianza, estimación, razones (comparable, último proceso, jóvenes, urbano, NS, acuerdo de métodos), robustez 6/6, acción, hipótesis y forma de evaluarla |
+| Confianza de prioridad | Frecuencia con que el municipio entra en la selección entre las seis variantes (2 métodos × NS 5/10/20). No es probabilidad. El rango ±21.05 pp se mueve a una nota técnica |
+| Perfil CCPC separado | Abstención observada por edad, sexo y tipo de sección (2021 y 2024), calculada directo de los ZIP. Capa explicativa posterior: no alimenta a Ridge, referencia ni prioridad; no implica causalidad |
+| Modo Director | Capacidad territorial (municipios) o humana (personas alcanzables), confianza mínima, plan sugerido y descarga |
+| Frontera de decisión | Núcleo robusto 6/6, zona de revisión 1/6–5/6 y fuera. El piloto aleatorio se propone dentro de la frontera |
+
+Verificación vigente: 15 pruebas Python, 12 Node y 24 comprobaciones de navegador (incluida apertura `file://`), más integridad de artefactos. Detalle en `docs/superpowers/plans/2026-10-05-ficha-perfil-y-frontera.md`.
+
 ## Pendientes humanos
 
 Confirmar registro, elegibilidad y composición paritaria según convocatoria, sin inferir por nombres. Completar/firmar cartas por todos los integrantes. Revisar documentos: PPTX verificado estructuralmente, PDF gemelo revisado visualmente; no motor PowerPoint disponible. Enviar por medio/plazo oficiales: no se envió correo ni se hizo público GitHub. El paquete técnico se conserva como respaldo previo a estas correcciones; la entrega vigente es el repositorio, que incluye el código y la demo corregida. Para reconstruir el ZIP actualizado: `python empaquetar_proyecto.py`. Validar responsables, recursos, límites históricos y piloto antes de aplicación institucional.
 
-Los documentos anteriores conservan el diagnóstico inicial. Esta actualización y el reporte prevalecen para funcionalidad y escenario actuales.
+El reporte se regeneró (12 páginas) con la incertidumbre de prioridad, la capacidad territorial o humana y las nuevas capas. La presentación conserva la versión previa: no describe todavía la ficha de decisión, el perfil CCPC ni la frontera. Esta actualización y la demo prevalecen para funcionalidad y escenario actuales.

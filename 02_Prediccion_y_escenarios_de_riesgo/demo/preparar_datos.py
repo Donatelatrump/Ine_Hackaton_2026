@@ -9,7 +9,7 @@ TRACK=DEMO.parent
 def main():
     (DEMO/'data').mkdir(exist_ok=True)
     (DEMO/'vendor').mkdir(exist_ok=True)
-    for name in ['resultados.json','metricas.json','evaluacion_adicional.json']:
+    for name in ['resultados.json','metricas.json','evaluacion_adicional.json','perfil_demografico.json']:
         shutil.copyfile(TRACK/'modelado/salidas'/name,DEMO/'data'/name)
     source=TRACK/'cartografia/municipios_ine_2024.geojson'
     geo=json.loads(source.read_text(encoding='utf-8'))
@@ -22,10 +22,13 @@ def main():
     output.write_text(json.dumps({'type':'FeatureCollection','features':features},ensure_ascii=False,separators=(',',':')),encoding='utf-8')
     (DEMO/'data/geometria_metadatos.json').write_text(json.dumps({'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'features':len(features),'tolerance_degrees':.006,'purpose':'Solo visualización; no armonización histórica ni cálculo territorial','bytes':output.stat().st_size},ensure_ascii=False,indent=2),encoding='utf-8')
     for name in ['leaflet.js','leaflet.css']:
-        url='https://unpkg.com/leaflet@1.9.4/dist/'+name
-        urllib.request.urlretrieve(url,DEMO/'vendor'/name)
-    urllib.request.urlretrieve('https://unpkg.com/leaflet@1.9.4/LICENSE',DEMO/'vendor/LICENSE')
+        target=DEMO/'vendor'/name
+        if not target.exists():
+            urllib.request.urlretrieve('https://unpkg.com/leaflet@1.9.4/dist/'+name,target)
+    if not (DEMO/'vendor/LICENSE').exists():
+        urllib.request.urlretrieve('https://unpkg.com/leaflet@1.9.4/LICENSE',DEMO/'vendor/LICENSE')
     data=json.loads((DEMO/'data/resultados.json').read_text(encoding='utf-8'))
-    (DEMO/'data/datos_embebidos.js').write_text('window.UMBRAL_DATA='+json.dumps(data,ensure_ascii=True,allow_nan=False,separators=(',',':'))+';\nwindow.UMBRAL_GEO='+json.dumps({'type':'FeatureCollection','features':features},ensure_ascii=True,separators=(',',':'))+';\n',encoding='utf-8')
+    perfil=json.loads((DEMO/'data/perfil_demografico.json').read_text(encoding='utf-8'))
+    (DEMO/'data/datos_embebidos.js').write_text('window.UMBRAL_DATA='+json.dumps(data,ensure_ascii=True,allow_nan=False,separators=(',',':'))+';\nwindow.UMBRAL_PERFIL='+json.dumps(perfil,ensure_ascii=True,allow_nan=False,separators=(',',':'))+';\nwindow.UMBRAL_GEO='+json.dumps({'type':'FeatureCollection','features':features},ensure_ascii=True,separators=(',',':'))+';\n',encoding='utf-8')
     print(json.dumps({'features':len(features),'geometry_bytes':output.stat().st_size,'sample_properties':features[0]['properties']},ensure_ascii=True))
 if __name__=='__main__':main()
