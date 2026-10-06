@@ -19,6 +19,6 @@ Características: tasas del último proceso y último del mismo tipo, diferencia
 
 Se ajusta StandardScaler y Ridge únicamente con entrenamiento previo al corte. Ridge estima un ajuste residual a la referencia del mismo tipo, alpha fijo 10; salida truncada a [0,100]. Etiquetas de entrenamiento 2015/2018 para 2021 y 2015/2018/2021 para 2024. El ajuste final para 2027 incorpora etiquetas hasta 2024. MAE ponderado utiliza SV+NV del objetivo histórico; el top50 se compara dentro de la misma cohorte elegible para ambos métodos.
 
-El bootstrap agrupa por entidad (500 réplicas, semilla 123) como sensibilidad espacial. No incluye incertidumbre temporal ni establece confianza para próximas elecciones. Sensibilidades NS y catálogos son análisis adicionales, sin reajustar alpha ni la regla elegida.
+El bootstrap agrupa por entidad (500 réplicas, semilla 123) como sensibilidad espacial. No incluye incertidumbre temporal ni establece estabilidad para próximas elecciones. Sensibilidades NS y catálogos son análisis adicionales, sin reajustar alpha ni la regla elegida.
 
 API de referencia: [Ridge](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html), [StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html). Versiones fijadas en requirements; código y archivos auditables disponibles localmente. Interpretación y límites en `RESULTADOS.md`.

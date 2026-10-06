@@ -149,9 +149,9 @@ Abre con **doble clic** en `demo/index.html` (datos incrustados; sin servidor, s
 
 - Mapa nacional, semáforo relativo (tercios), estado gris con motivo.
 - **Capas Base / Con intervención / Δ** con umbrales base fijos.
-- **Ficha "¿por qué este municipio?"**: posición de prioridad, riesgo, confianza, razones verificables, robustez 6/6, acción, hipótesis y cómo evaluarla.
+- **Ficha "¿por qué este municipio?"**: posición de prioridad, riesgo, estabilidad, razones verificables, robustez 6/6, acción, hipótesis y cómo evaluarla.
 - **Perfil CCPC observado** por edad, sexo y tipo de sección, como capa explicativa **separada del modelo**.
-- **Modo Director**: capacidad territorial (municipios) o humana (personas alcanzables), criterio y confianza mínima; plan sugerido y descarga CSV.
+- **Modo Director**: capacidad territorial (municipios) o humana (personas alcanzables), criterio y estabilidad mínima; plan sugerido y descarga CSV.
 - **Frontera de decisión**: núcleo robusto, zona de revisión y fuera; piloto aleatorio propuesto.
 - Vista por entidad y exportación con supuestos.
 
@@ -228,13 +228,14 @@ Proyecto **metodológicamente serio y bien auditado**, que responde una pregunta
 
 **Pendiente (humano/institucional):**
 
-1. Regenerar la **presentación** con ficha, perfil CCPC, Modo Director y frontera.
-2. Confirmar **registro, elegibilidad y composición paritaria** según convocatoria.
-3. **Firmar** las cartas de cesión y de decir verdad por todas las personas integrantes.
-4. **Enviar** por el medio y plazo oficiales.
-5. **Armonizar** límites históricos o justificar la cohorte.
-6. **Validar** responsables, recursos y diseño de piloto con el área usuaria.
-7. Confirmar con la organización el criterio de **"cuartilla"**.
+1. Confirmar **registro, elegibilidad y composición paritaria** según convocatoria.
+2. **Firmar** las cartas de cesión y de decir verdad por todas las personas integrantes.
+3. **Enviar** por el medio y plazo oficiales.
+4. **Armonizar** límites históricos o justificar la cohorte.
+5. **Validar** responsables, recursos y diseño de piloto con el área usuaria.
+6. Confirmar con la organización el criterio de **"cuartilla"**.
+
+La presentación se regeneró el 6 de octubre con ficha, perfil descriptivo, capacidad territorial o humana, frontera y caso 23008. Ver [caso completo](02_Prediccion_y_escenarios_de_riesgo/entrega/CASO_MUNICIPAL.md) y [guion](02_Prediccion_y_escenarios_de_riesgo/entrega/GUION_PRESENTACION.md).
 
 ---
 

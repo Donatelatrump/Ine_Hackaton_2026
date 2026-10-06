@@ -32,4 +32,6 @@ git lfs pull
 
 ## Estado
 
-Modelo y demo exploratorios, pruebas e integridad verificadas. Ridge mejora en el corte 2021 y pierde frente a la referencia en 2024. La proyección 2027 no constituye predicción prospectiva validada ni demuestra efectos causales. Los entregables formales del concurso y armonización territorial histórica siguen pendientes.
+Modelo y demo exploratorios, pruebas e integridad verificadas. Ridge mejora en el corte 2021 y pierde frente a la referencia en 2024. La proyección 2027 no constituye predicción prospectiva validada ni demuestra efectos causales. Reporte PDF de 14 páginas, presentación de 10 diapositivas, demo y base están disponibles. Registro, firmas, envío y armonización territorial histórica siguen pendientes.
+
+La documentación vigente del track 2 está en [ANALISIS_TRACK_2.md](02_Prediccion_y_escenarios_de_riesgo/ANALISIS_TRACK_2.md). Incluye [caso municipal](02_Prediccion_y_escenarios_de_riesgo/entrega/CASO_MUNICIPAL.md) y [guion de presentación](02_Prediccion_y_escenarios_de_riesgo/entrega/GUION_PRESENTACION.md).

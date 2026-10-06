@@ -2,6 +2,8 @@
 
 `Umbral_presentacion.pptx`: diez diapositivas con textos y tabla editables.
 
+Actualización: 6 de octubre de 2026. Incluye ficha de decisión, estabilidad de selección, frontera y caso 23008. SOLIDARIDAD es el nombre del catálogo histórico. El resultado adverso de 2024 y los supuestos del escenario permanecen explícitos. Ver [guion](../GUION_PRESENTACION.md) y [caso completo](../CASO_MUNICIPAL.md).
+
 `Umbral_presentacion.pdf`: exportación de la misma composición con ReportLab. No es una conversión del PPTX mediante PowerPoint.
 
 `generar_presentacion.py`: fuente reproducible. Ejecutar con Python y python-pptx, reportlab y pymupdf instalados. Busca dependencias locales en `.packages` y en `../reporte/.packages`.

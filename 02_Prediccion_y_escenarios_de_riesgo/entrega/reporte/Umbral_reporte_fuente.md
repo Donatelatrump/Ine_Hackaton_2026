@@ -1,11 +1,11 @@
 # Umbral: reporte metodológico y preventivo
-Versión técnica para revisión | 5 de octubre de 2026
+Versión técnica para revisión | 6 de octubre de 2026
 Estructura de 14 páginas (8 secciones)
 
 ## Página 1: Resumen ejecutivo
 
 ### Reporte metodológico y preventivo · Reto 2
-Tecnocalidos. Integrantes: Martin Isai Nuñez Villeda y Cesar Donnet Hernandez Gastelum. Versión técnica para revisión, 5 de octubre de 2026. Horizonte exploratorio: elección intermedia de 2027. Cobertura: México por municipio, claves INE. Datos históricos ordinarios 2009-2024. Presupuesto de 15 páginas; este documento usa 14.
+Tecnocalidos. Integrantes: Martin Isai Nuñez Villeda y Cesar Donnet Hernandez Gastelum. Versión técnica para revisión, 6 de octubre de 2026. Horizonte exploratorio: elección intermedia de 2027. Cobertura: México por municipio, claves INE. Datos históricos ordinarios 2009-2024. Presupuesto de 15 páginas; este documento usa 14.
 
 ### Resumen ejecutivo
 Umbral apoya una decisión acotada: con capacidad para atender N municipios, ¿cuáles revisar primero, con qué respaldo y qué puede hacerse después? El método compara una referencia sencilla (última elección del mismo tipo) con un ajuste Ridge regularizado, con calidad de datos visible y análisis posteriores congelados. Hallazgo principal: Ridge mejora el error en 2021 y empeora frente a la referencia en 2024; no se declara ganador. La propuesta preventiva son fichas revisables con acción, responsable, cobertura y medición, más un piloto aleatorio propuesto alrededor del corte de capacidad. El alcance de uso es la deliberación institucional; no es asignación automática de recursos.
@@ -22,7 +22,7 @@ Si un área de educación cívica dispone de capacidad para atender N municipios
 La prioridad principal es la tasa de abstención estimada, no el número absoluto ni el deterioro. El prototipo permite elegir entre tres lentes que responden preguntas distintas: tasa (proporción estimada), volumen sobre la población observable (cuántas abstenciones) y deterioro frente a la última elección del mismo tipo. Cambiar el lente cambia la lista; la elección responde al objetivo institucional declarado, no a un valor universal.
 
 ### Persona usuaria y flujo de uso
-La persona usuaria es un área de educación cívica o planeación territorial que define territorio y capacidad. Flujo en cuatro pasos: 1) definir territorio, capacidad y criterio; 2) revisar mapa y lista priorizada; 3) inspeccionar calidad, confianza y antecedentes; 4) descargar el plan con supuestos y escenario.
+La persona usuaria es un área de educación cívica o planeación territorial que define territorio y capacidad. Flujo en cuatro pasos: 1) definir territorio, capacidad y criterio; 2) revisar mapa y lista priorizada; 3) inspeccionar calidad, estabilidad y antecedentes; 4) descargar el plan con supuestos y escenario.
 
 ## Página 3: De conteos a una base comparable
 
@@ -46,7 +46,7 @@ Variables del predictor en modelado/core.py: Abstención del mismo tipo, Abstenc
 Sexo, escolaridad y variables externas no verificadas no forman parte del predictor. Sexo existe en la fuente y se usa solo en la capa explicativa posterior (sección de prevención); el modelo conserva variables agregadas verificables para reducir sobreajuste y fuga. La representación etaria es agregada; no se infieren características individuales.
 
 ### Trazabilidad
-Cada cifra proviene de archivos citados en el pie de tabla o en el texto: datos_preparados/municipios_historico_con_calidad.csv, modelado/salidas/metricas.json, evaluacion_adicional.json y perfil_demografico.json. El diccionario de datos y las tablas largas viven en el CSV/XLSX y el repositorio, no en este PDF.
+Cada cifra proviene de archivos citados en el pie de tabla o en el texto: datos_preparados/municipios_historico_con_calidad.csv, modelado/salidas/metricas.json, evaluacion_adicional.json y perfil_demografico.json. El diccionario de datos y las tablas largas viven en la base CSV y el repositorio, no en este PDF.
 
 ## Página 5: Referencia simple y ajuste regularizado
 
@@ -57,7 +57,7 @@ Predice la abstención de la última elección del mismo tipo: 2015 para 2021, 2
 Ridge estima el residual respecto de la referencia con diez características agregadas: abstención del mismo tipo, abstención del último proceso, su diferencia, logaritmo de LN, proporción 18-29, proporción 60+ sin edades extremas, proporción urbana, NS de ambos antecedentes y tipo de elección. StandardScaler y Ridge se ajustan solo con entrenamiento anterior a cada corte; alpha=10 se fijó antes de ver métricas; la predicción se trunca a [0,100].
 
 ### Flujo simple
-Antecedentes observados con calidad verificada → Referencia del mismo tipo → Ajuste Ridge del residual → Estimación 2027 → Semáforo relativo, confianza y decisión con capacidad.
+Antecedentes observados con calidad verificada → Referencia del mismo tipo → Ajuste Ridge del residual → Estimación 2027 → Semáforo relativo, estabilidad y decisión con capacidad.
 
 ## Página 6: Construcción, cortes y regla de selección
 
@@ -84,7 +84,7 @@ Se definieron después del experimento original y antes de calcularlas: Spearman
 ## Página 8: Estabilidad, incertidumbre y límites
 
 ### Estabilidad del top N
-Se combinan dos métodos × umbrales NS 5/10/20 para seis variantes. En seis de seis, un municipio forma parte del núcleo robusto; entre una y cinco, de la zona de revisión; cero, queda fuera. La frecuencia es descriptiva, no probabilidad calibrada. Fuente: modelado/salidas/metricas.json.
+Se combinan dos métodos × umbrales NS 5/10/20 para seis variantes. En seis de seis, un municipio forma parte del núcleo robusto; entre una y cinco, de la zona de revisión; cero, queda fuera. La frecuencia es descriptiva, no probabilidad calibrada. Las variantes comparten datos y pueden equivocarse juntas. En capacidad humana se usa N municipal equivalente, sin recalcular el presupuesto por variante; filtro mínimo con N previo al filtro y ficha/frontera con N final. Fuente: demo/decision.js y demo/aplicacion.js.
 
 ### Incertidumbre de prioridad, no de intervalo
 La interfaz responde «si solo puedo intervenir N municipios, ¿puedo confiar en que este esté entre ellos?» comunicando esa frecuencia y el acuerdo de puesto entre referencia y Ridge. El rango ±21.05 pp (P90 retrospectivo de Ridge 2021, truncado a [0,100]) se conserva solo como error histórico, no como intervalo prospectivo.
@@ -92,12 +92,12 @@ La interfaz responde «si solo puedo intervenir N municipios, ¿puedo confiar en
 ### Error por tamaño y límites
 El P90 del error por denominador observable previo (<10 mil, 10-100 mil, ≥100 mil) describe heterogeneidad por escala, no un intervalo para 2027. Límites: seis ocasiones electorales y tres intermedias; 2024 es presidencial y no valida 2027; sin causalidad; selección por calidad que puede excluir zonas con necesidad alta.
 
-## Página 9: Clasificación territorial y confianza
+## Página 9: Clasificación territorial y estabilidad
 
 ### Tercios relativos
 Bajo, medio y alto son tercios de las estimaciones nacionales válidas. Alto es el tercio superior de tasas estimadas; no es probabilidad calibrada de deterioro. Gris significa información insuficiente para estimar, se muestra con motivo de exclusión y nunca recibe riesgo cero.
 
-### Eje de confianza
+### Eje de estabilidad
 La calidad (NS), la estabilidad entre seis variantes y el acuerdo entre métodos se informan como dimensión separada del color, en la lista y en la ficha. Los umbrales base permanecen fijos al comparar escenarios para que el color no se redefina entre ellos.
 
 ### Sensibilidad de umbrales
@@ -116,7 +116,7 @@ Las personas alcanzadas presentan la tasa estimada; la respuesta es hipótesis d
 (FIGURE_TRIPLE)
 
 ### Escenario invertido y ejemplo
-Para bajar de nivel, H = O × (tasa − umbral)/100 con tasa > umbral, y el alcance requerido = H / (tasa × respuesta). Si excede O o el alcance, el objetivo es inviable. Ejemplo trabajado con capacidad de 50 municipios: el efecto local por municipio es visible, mientras el efecto agregado es pequeño.
+Para bajar de nivel, H = O × (tasa − umbral)/100 con tasa > umbral, y el alcance requerido = H / ((tasa/100) × (respuesta/100)). Si excede O o el alcance, el objetivo es inviable. Ejemplo trabajado con capacidad de 50 municipios: el efecto local por municipio es visible, mientras el efecto agregado es pequeño.
 
 ## Página 11: Tipologías observables y línea de acción
 
@@ -134,8 +134,8 @@ La reducción de barreras informativas podría favorecer la participación; es u
 ### Ficha tipo
 Cada recomendación registra: condición observable, acción, responsable propuesto, cobertura, condiciones de aplicación, recurso (personas y horas), medición y mecanismo hipotético.
 
-### Ejemplo completo
-Municipio con proporción joven ≥25% y tasa en el tercio alto con calidad suficiente. Acción: talleres sobre requisitos y procedimiento electoral en espacios educativos y comunitarios. Responsable propuesto: área de educación cívica y enlace local, por validar. Cobertura: población alcanzada registrada; atención voluntaria y abierta. Condiciones: verificar espacios y acceso; no asumir desinterés por edad ni seleccionar por afinidad. Recurso: personas alcanzadas y horas de facilitación, sin costos inventados. Medición: alcance y cambio de conocimiento agregado. Hipótesis: brecha informativa; el modelo no demuestra el mecanismo.
+### Caso 23008: SOLIDARIDAD (catálogo histórico)
+Con filtros nacionales, catálogo constante, tasa, Ridge y capacidad 50, ocupa el puesto 1; referencia, el 3. Estimación 62.11%; antecedente 2021: 66.30%; NS 2021/2024: 9.60%/2.28%. Estabilidad 4/6, elegible 4/6: queda en zona de revisión por NS 2021 >5%. Perfil joven 28.26% y urbano 91.02% de LN. Acción propuesta: talleres abiertos sobre requisitos y procedimiento. Responsable: educación cívica y junta local, por validar. Alcance supuesto 1,000, respuesta 25% y SV+NV 2024 de 255,362: H=155.27 hipotéticos, 62.11% a 62.05%; sigue alto. Validar sedes y capacidad; registrar alcance, horas y conocimiento previo/posterior. Efecto sobre participación requiere piloto aleatorio con protocolo y potencia previos. Caso ampliado: entrega/CASO_MUNICIPAL.md.
 
 ### El resto, en el CSV
 La ficha completa de cada municipio seleccionado se exporta en el plan CSV; este PDF incluye un ejemplo representativo.
@@ -143,7 +143,7 @@ La ficha completa de cada municipio seleccionado se exporta en el plan CSV; este
 ## Página 13: Priorización de recursos y diseño de evaluación
 
 ### Priorización de recursos
-El plan ordena por capacidad, con el criterio elegido y la confianza mínima declarada. Comunica núcleo robusto y zona de revisión para no tratar la frontera como certeza. En modo de capacidad humana, el presupuesto se expresa en personas alcanzables y se agota por prioridad.
+El plan ordena por capacidad, con el criterio elegido y la estabilidad mínima declarada. Comunica núcleo robusto y zona de revisión para no tratar la frontera como certeza. En modo de capacidad humana, el presupuesto se expresa en personas alcanzables y se agota por prioridad.
 
 ### Diseño de evaluación propuesto
 Aleatorizar atención inmediata o diferida entre municipios cercanos al corte de capacidad, con balance por entidad, tamaño, calidad y contexto; indicadores de cobertura y comprensión; y regla de análisis fijada antes de observar resultados. La cercanía del score no acredita equivalencia ni causalidad.

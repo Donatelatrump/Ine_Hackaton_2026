@@ -38,10 +38,10 @@ El modelo permanece congelado (alpha=10, cortes y selección originales). Se añ
 
 | Mejora | Implementación y límites |
 |---|---|
-| Ficha «¿Por qué este municipio?» | Posición de prioridad, riesgo, confianza, estimación, razones (comparable, último proceso, jóvenes, urbano, NS, acuerdo de métodos), robustez 6/6, acción, hipótesis y forma de evaluarla |
-| Confianza de prioridad | Frecuencia con que el municipio entra en la selección entre las seis variantes (2 métodos × NS 5/10/20). No es probabilidad. El rango ±21.05 pp se mueve a una nota técnica |
+| Ficha «¿Por qué este municipio?» | Posición de prioridad, riesgo, estabilidad, estimación, razones (comparable, último proceso, jóvenes, urbano, NS, acuerdo de métodos), robustez 6/6, acción, hipótesis y forma de evaluarla |
+| Estabilidad de prioridad | Frecuencia con que el municipio entra en la selección entre las seis variantes (2 métodos × NS 5/10/20). No es probabilidad. El rango ±21.05 pp se mueve a una nota técnica |
 | Perfil CCPC separado | Abstención observada por edad, sexo y tipo de sección (2021 y 2024), calculada directo de los ZIP. Capa explicativa posterior: no alimenta a Ridge, referencia ni prioridad; no implica causalidad |
-| Modo Director | Capacidad territorial (municipios) o humana (personas alcanzables), confianza mínima, plan sugerido y descarga |
+| Modo Director | Capacidad territorial (municipios) o humana (personas alcanzables), estabilidad mínima, plan sugerido y descarga |
 | Frontera de decisión | Núcleo robusto 6/6, zona de revisión 1/6–5/6 y fuera. El piloto aleatorio se propone dentro de la frontera |
 
 Verificación vigente: 15 pruebas Python, 12 Node y 24 comprobaciones de navegador (incluida apertura `file://`), más integridad de artefactos. Detalle en `docs/superpowers/plans/2026-10-05-ficha-perfil-y-frontera.md`.
@@ -50,4 +50,12 @@ Verificación vigente: 15 pruebas Python, 12 Node y 24 comprobaciones de navegad
 
 Confirmar registro, elegibilidad y composición paritaria según convocatoria, sin inferir por nombres. Completar/firmar cartas por todos los integrantes. Revisar documentos: PPTX verificado estructuralmente, PDF gemelo revisado visualmente; no motor PowerPoint disponible. Enviar por medio/plazo oficiales: no se envió correo ni se hizo público GitHub. El paquete técnico se conserva como respaldo previo a estas correcciones; la entrega vigente es el repositorio, que incluye el código y la demo corregida. Para reconstruir el ZIP actualizado: `python empaquetar_proyecto.py`. Validar responsables, recursos, límites históricos y piloto antes de aplicación institucional.
 
-El reporte se reestructuró a 14 páginas y 8 secciones (portada, problema, datos, modelo, evidencia, semáforo, escenarios, prevención, viabilidad) con la incertidumbre de prioridad, la capacidad territorial o humana y las nuevas capas. La presentación conserva la versión previa: no describe todavía la ficha de decisión, el perfil CCPC ni la frontera. Esta actualización y la demo prevalecen para funcionalidad y escenario actuales.
+El reporte se reestructuró a 14 páginas y 8 secciones (portada, problema, datos, modelo, evidencia, semáforo, escenarios, prevención, viabilidad) con la incertidumbre de prioridad, la capacidad territorial o humana y las nuevas capas. La presentación se actualizó el 6 de octubre: ficha de decisión, perfil descriptivo, estabilidad, frontera y caso 23008. Reporte, presentación y documentación comparten denominadores y límites.
+
+## Unificación de entrega (6 de octubre de 2026)
+
+Actualización posterior de la página: recorrido capacidad → prioridades → intervención; controles y evidencia técnica desplegables; ficha con datos observados, estimación exploratoria y escenario separados; reducción en puntos porcentuales; contador y consulta de municipios sin estimación. Sin estimación deja de mostrar puesto cero o zona de revisión y no participa en ranking ni simulación. Ver `demo/README.md` para el flujo actual y `demo/verificacion/resultado.json` para la verificación vigente. Las métricas y el modelo permanecen congelados.
+
+Se reemplazó el diagnóstico desactualizado por el análisis vigente, se corrigieron referencias residuales a LN en el escenario y se actualizó la presentación a diez diapositivas con ficha, frontera y caso municipal. «Estabilidad de selección» reemplaza «confianza» en textos visibles: no acredita probabilidad de acierto y las variantes pueden equivocarse juntas. Identificadores internos y columna CSV `confianza_prioridad` permanecen compatibles.
+
+Caso y cifras reproducibles: [CASO_MUNICIPAL.md](entrega/CASO_MUNICIPAL.md). Discurso y recorrido: [GUION_PRESENTACION.md](entrega/GUION_PRESENTACION.md). Modelo, alpha, cortes y métricas originales sin cambios. Planes históricos conservados como registros, no como estado vigente. Verificación de esta actualización: `entrega/verificacion_unificacion.json`.

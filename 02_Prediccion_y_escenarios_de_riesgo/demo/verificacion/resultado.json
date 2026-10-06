@@ -24,7 +24,11 @@
     "perfil_ccpc",
     "capacidad_humana",
     "confianza_minima",
-    "apertura_file"
+    "apertura_file",
+    "sin_estimacion_sin_puesto",
+    "consulta_exclusiones",
+    "evidencia_desplegable",
+    "ficha_fuera_del_filtro"
   ],
   "page_errors": []
 }

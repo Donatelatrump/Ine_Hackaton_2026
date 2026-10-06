@@ -1,0 +1,60 @@
+{
+  "source": "demo/data/resultados.json",
+  "configuration": {
+    "state": null,
+    "search": "",
+    "stable_catalog": true,
+    "method": "ridge",
+    "lens": "tasa",
+    "capacity": 50,
+    "minimum_stability": "todas",
+    "reach": 1000,
+    "response": 25
+  },
+  "municipality": {
+    "key": "23008",
+    "historic_name": "SOLIDARIDAD",
+    "state": "QUINTANA ROO",
+    "risk": 62.10680555303519,
+    "baseline": 66.30007476545353,
+    "observed_2024": 255362,
+    "ln_2024": 261323,
+    "ns_2021": 9.596944048351016,
+    "ns_2024": 2.281085093925908,
+    "profile": {
+      "young_pct": 28.257749987563283,
+      "older_pct": 6.8773127508868335,
+      "urban_pct": 91.01877752819308,
+      "size_bin": "100000_mas"
+    }
+  },
+  "position_ridge": 1,
+  "position_reference": 3,
+  "stability": {
+    "count": 4,
+    "eligible": 4,
+    "frequency": 0.6666666666666666,
+    "robust": false,
+    "members": {
+      "persistencia_10": true,
+      "ridge_10": true,
+      "persistencia_20": true,
+      "ridge_20": true
+    },
+    "confidence": {
+      "tier": "media",
+      "label": "Media",
+      "frequency": 0.6666666666666666,
+      "count": 4,
+      "total": 6
+    }
+  },
+  "scenario": {
+    "served": 1000,
+    "additional_hypothetical": 155.26701388258797,
+    "before": 62.10680555303519,
+    "after": 62.04600284398584,
+    "reduction_pp": 0.060802709049347925
+  },
+  "caveat": "Nombre del catálogo histórico. Frecuencia entre variantes correlacionadas, no probabilidad. Respuesta hipotética, sin efecto causal demostrado."
+}

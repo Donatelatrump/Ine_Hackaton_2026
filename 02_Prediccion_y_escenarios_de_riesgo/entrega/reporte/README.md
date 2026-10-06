@@ -1,10 +1,10 @@
 # Reporte Umbral - Tecnocalidos
 
-Versión técnica para revisión del track 2, 5 de octubre de 2026. El PDF tiene 14 páginas en 8 secciones (portada y resumen ejecutivo, problema, datos y variables, modelo, evidencia y límites, semáforo, escenarios, prevención y priorización, viabilidad). No acredita registro, firmas ni envío oficial.
+Versión técnica para revisión del track 2, 6 de octubre de 2026. El PDF tiene 14 páginas: portada y ocho secciones numeradas (problema, datos y variables, modelo, evidencia y límites, semáforo, escenarios, prevención y priorización, viabilidad). Incluye el caso municipal 23008 con cifras reproducibles y propuestas operativas por validar. No acredita registro, firmas ni envío oficial.
 
 ## Criterio de cuartilla
 
-La convocatoria pide **10 a 15 cuartillas** para el Reto 2 y **no define la unidad**. En este trabajo se interpreta **1 cuartilla = 1 página carta de PDF (una cara)**, coherente con el uso habitual del término. Se recomienda confirmarlo con la organización; por eso el reporte usa 14 de las 15 permitidas y deja el diccionario de datos y las tablas largas en el CSV/XLSX y el repositorio.
+La convocatoria local pide **10 a 15 cuartillas** para el Reto 2 y **no define la unidad**. En este trabajo se interpreta **1 cuartilla = 1 página carta de PDF (una cara)**. El reporte usa 14 páginas y deja el diccionario de datos y las tablas largas en la base CSV y el repositorio.
 
 ## Archivos
 

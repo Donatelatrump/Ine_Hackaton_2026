@@ -1,3 +1,5 @@
+> Documento de planteamiento inicial. Para implementación, cifras y entrega vigentes consultar [ANALISIS_TRACK_2.md](ANALISIS_TRACK_2.md). Las alternativas de diseño siguientes no son resultados del modelo.
+
 # Propuesta de proyecto: Atlas de riesgo de abstención
 
 Fecha: 2026-10-05. Estado: modelo comparado temporalmente y demo local implementada. Auditoría completa: 54,872,712 filas originales y 14,779 registros municipales; cartografía de 2,477 claves, límites históricos sin armonizar. Véanse [resultados actuales](modelado/RESULTADOS.md) y [demo](demo/README.md).
@@ -113,7 +115,7 @@ El tablero abre, todos sus valores se rastrean a datos y transformaciones, el mo
 
 ## Estado real de las descargas
 
-**Actualización:** los archivos fueron aportados manualmente y ya están disponibles. El inventario actual está en `auditoria/inventario_local.json`; las bases aún requieren auditoría completa y agregación municipal. La cartografía continúa pendiente. Los párrafos siguientes describen el intento de descarga previo, no la disponibilidad actual.
+**Actualización:** los archivos fueron aportados manualmente y ya están disponibles. El inventario actual está en `auditoria/inventario_local.json`; la auditoría, la agregación municipal y la cartografía visual están disponibles. Sigue pendiente armonizar límites históricos. Los párrafos siguientes describen el intento de descarga previo, no la disponibilidad actual.
 
 La lectura de páginas mediante búsqueda web funciona. La descarga binaria desde PowerShell/curl falló tanto en ine.mx como en portal.ine.mx. El descargador Python confirmó WinError 10013: acceso a un socket no permitido por los permisos del entorno. La herramienta de navegador no tiene superficies conectadas. Por ello, no hay PDF ni bases locales descargadas; `estado_descargas.json` registra los cuatro fallos.
 

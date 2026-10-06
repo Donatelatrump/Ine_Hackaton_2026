@@ -13,8 +13,10 @@ with sync_playwright() as p:
     page.goto('http://127.0.0.1:8765')
     page.wait_for_function("document.getElementById('status').textContent.startsWith('Datos locales cargados')",timeout=60000)
     assert page.locator('#eligible').inner_text()=='1,144'
+    page.locator('#settings summary').click()
     page.locator('#stable').uncheck()
     assert page.locator('#eligible').inner_text()=='1,783'
+    assert page.locator('#missing-count').inner_text()=='694'
     page.locator('#state').select_option('01')
     page.locator('#search').fill('01001')
     assert page.locator('#eligible').inner_text()=='1'
@@ -44,7 +46,10 @@ with sync_playwright() as p:
     page.locator('#capacity').fill('50')
     page.locator('#response').fill('5')
     page.locator('#stable').check()
+    assert not page.locator('.technical-details').evaluate('e=>e.open')
+    page.locator('.technical-details > summary').click()
     assert '8.58' in page.locator('#metrics').inner_text()
+    page.locator('.technical-details > summary').click()
     page.locator('#response').fill('100')
     page.locator('#reach').fill('1000000')
     key=page.evaluate('plan.selected[0].key')
@@ -69,9 +74,9 @@ with sync_playwright() as p:
     page.locator('#ranking button').first.click()
     assert '¿Por qué está aquí?' in page.locator('#detail-content').inner_text()
     assert 'Acción sugerida' in page.locator('#detail-content').inner_text()
-    assert 'Perfil CCPC observado 2024' in page.locator('#detail-content').inner_text()
+    assert 'Perfil CCPC observado 2024' in page.locator('#detail-content').text_content()
     assert page.locator('#plan-summary strong').count()>=8
-    assert page.locator('#frontier-summary').inner_text().strip() not in ('','—')
+    assert page.locator('#frontier-summary').text_content().strip() not in ('','—')
     assert page.locator('#frontier-table > div').count()==3
     assert page.locator('#perfil-nacional tr').count()>=8
     page.locator('#capacity-mode').select_option('personas')
@@ -88,6 +93,22 @@ with sync_playwright() as p:
     assert int(page.locator('#selected').inner_text())>=media
     page.evaluate("detail(records.find(r=>r.risk===null).key)")
     assert 'supera' in page.locator('#detail-content').inner_text() or 'sin' in page.locator('#detail-content').inner_text().lower()
+    assert 'Prioridad 0' not in page.locator('#detail-state').inner_text(), 'Un municipio sin estimación no tiene puesto cero'
+    assert 'No significa riesgo bajo' in page.locator('#detail-content').inner_text()
+    assert 'Zona de revisión' not in page.locator('#detail-content').inner_text(), 'Sin datos no equivale a frontera predictiva'
+    page.locator('#sin-estimacion details > summary').click()
+    missing_key=page.locator('.missing-row').first.get_attribute('data-key')
+    page.locator('.missing-row').first.click()
+    assert missing_key in page.locator('#detail-state').inner_text()
+    assert 'Sin prioridad predictiva' in page.locator('#detail-state').inner_text()
+    assert page.evaluate('!plan.selected.some(r=>r.key===activeKey)')
+    page.locator('#sin-estimacion details > summary').click()
+    page.evaluate("detail('23008')")
+    page.locator('#state').select_option('01')
+    assert 'Prioridad 0' not in page.locator('#detail-state').inner_text()
+    assert 'Fuera del filtro actual' in page.locator('#detail-state').inner_text()
+    assert 'coinciden dentro' not in page.locator('#detail-content').inner_text()
+    page.locator('#state').select_option('')
     page.locator('#lens').select_option('tasa')
     page.locator('#response').fill('25')
     page.locator('#reach').fill('10000')
@@ -113,6 +134,6 @@ with sync_playwright() as p:
     offline.locator('#map-mode').select_option('intervencion')
     assert offline.locator('#map canvas').count()>0
     assert not errors,errors
-    (OUT/'resultado.json').write_text(json.dumps({'passed':True,'checks':['cobertura','filtros','detalle','respuesta_cero','capacidad','exportacion_denominador','seleccion_vacia','entrada_invalida','metricas','mapa','movil','capas_escenario','delta','estabilidad','metodos','lentes','entidades','fichas_y_exclusiones','plan_sugerido','frontera','perfil_ccpc','capacidad_humana','confianza_minima','apertura_file'],'page_errors':errors},indent=2),encoding='utf-8')
+    (OUT/'resultado.json').write_text(json.dumps({'passed':True,'checks':['cobertura','filtros','detalle','respuesta_cero','capacidad','exportacion_denominador','seleccion_vacia','entrada_invalida','metricas','mapa','movil','capas_escenario','delta','estabilidad','metodos','lentes','entidades','fichas_y_exclusiones','plan_sugerido','frontera','perfil_ccpc','capacidad_humana','confianza_minima','apertura_file','sin_estimacion_sin_puesto','consulta_exclusiones','evidencia_desplegable','ficha_fuera_del_filtro'],'page_errors':errors},indent=2),encoding='utf-8')
     browser.close()
-print('24 verificaciones de navegador correctas, incluida apertura file://')
+print('28 verificaciones de navegador correctas, incluida apertura file:// y municipios sin estimación')
