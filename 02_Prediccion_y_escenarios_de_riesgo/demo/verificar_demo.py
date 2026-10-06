@@ -13,6 +13,20 @@ with sync_playwright() as p:
     page.goto('http://127.0.0.1:8765')
     page.wait_for_function("document.getElementById('status').textContent.startsWith('Datos locales cargados')",timeout=60000)
     assert page.locator('#eligible').inner_text()=='1,144'
+    assert page.locator('#explore-entry').is_visible()
+    page.locator('#plan-entry').click()
+    assert page.locator('#planning-settings').evaluate('e=>e.open')
+    assert '50 municipios' in page.locator('#scenario-assumptions').inner_text()
+    assert page.locator('#documents a').count()>=5
+    assert 'Pendiente de corrección' in page.locator('#report-status').inner_text()
+    page.locator('#planning-settings summary').click()
+    assert 'Filtro activo' in page.locator('#filter-summary').inner_text()
+    assert not page.locator('#planning-settings').evaluate('e=>e.open')
+    page.locator('#show-all').click()
+    assert page.locator('#eligible').inner_text()=='1,783'
+    assert not page.locator('#show-all').is_visible()
+    page.locator('a[href="#planning-settings"]').first.click()
+    assert page.locator('#planning-settings').evaluate('e=>e.open')
     page.locator('#settings summary').click()
     page.locator('#stable').uncheck()
     assert page.locator('#eligible').inner_text()=='1,783'
@@ -29,16 +43,32 @@ with sync_playwright() as p:
     page.locator('#capacity').fill('2')
     page.locator('#response').fill('25')
     assert page.locator('#selected').inner_text()=='2'
+    assert '2 municipios' in page.locator('#scenario-assumptions').inner_text()
+    assert '25%' in page.locator('#scenario-assumptions').inner_text()
+    page.locator('#confidence').check()
+    page.locator('[data-scenario-map="cambio"]').click()
+    assert page.locator('#map-mode').input_value()=='cambio'
+    assert not page.locator('#confidence').is_checked()
+    page.locator('[data-scenario-map="base"]').click()
     with page.expect_download() as d:page.locator('#export').click()
     d.value.save_as(OUT/'plan.csv')
     rows=list(csv.DictReader((OUT/'plan.csv').open(encoding='utf-8-sig',newline='')))
-    assert len(rows)==2 and all(float(r['respuesta_supuesta_pct'])==25 for r in rows)
-    assert all(float(r['alcance_limitado'])<=float(r['observados_sv_nv_2024']) for r in rows)
-    assert all(abs(float(r['escenario_pct'])-(float(r['estimacion_2027_pct'])-100*float(r['adicional_hipotetica'])/float(r['observados_sv_nv_2024'])))<1e-8 for r in rows)
+    assert len(rows)==2 and all(float(r['Respuesta supuesta (%)'])==25 for r in rows)
+    assert all(float(r['Personas alcanzadas (supuesto)'])<=float(r['Base observable 2024 (SV+NV)']) for r in rows)
+    assert all(abs(float(r['No votarían (con acción, %)'])-(float(r['No votarían (estimado 2027, %)'])-100*float(r['Personas adicionales que votarían (supuesto)'])/float(r['Base observable 2024 (SV+NV)'])))<0.011 for r in rows)
+    assert all(r['Entidad']==r['Entidad'].title() and r['Municipio']==r['Municipio'].title() for r in rows), 'Nombres en formato título'
+    assert [int(r['Puesto']) for r in rows]==[1,2], 'Puesto consecutivo desde 1'
+    with page.expect_download() as d:page.locator('#export').click()
+    d.value.save_as(OUT/'leeme.csv')
+    doc=list(csv.reader((OUT/'leeme.csv').open(encoding='utf-8-sig',newline='')))
+    assert doc[0]==['Sección','Elemento','Detalle'], 'Encabezado del leeme'
+    sec={r[0] for r in doc[1:]}
+    assert {'Documento','Filtros aplicados','Simulación','Resumen del plan','Diccionario de columnas','Limitaciones'}<=sec, 'Secciones del leeme completas'
     page.locator('#search').fill('noexiste123')
     assert page.locator('#selected').inner_text()=='0' and page.locator('#export').is_disabled()
     page.locator('#search').fill('')
     page.locator('#reach').fill('-1')
+    assert 'Corrige' in page.locator('#scenario-assumptions').inner_text()
     assert page.locator('#export').is_disabled()
     assert page.locator('#selected').inner_text()=='—'
     assert page.locator('#map').evaluate("e=>getComputedStyle(e).visibility")=='hidden'
@@ -59,17 +89,32 @@ with sync_playwright() as p:
     assert baseline_color!=scenario_color
     assert page.locator('#after').inner_text()=='0.00%'
     page.locator('#map-mode').select_option('cambio')
-    assert 'reducción' in page.locator('#map-caption').inner_text()
+    assert 'reducción' in page.locator('#map-caption').inner_text().lower()
+    assert '60%' in page.locator('.map-guide').inner_text()
     page.locator('#confidence').check()
     assert '6/6' in page.locator('#confidence-note').inner_text()
+    assert '6 de 6' in page.locator('#map-caption').inner_text()
+    assert 'nunca entran' in page.locator('.map-guide').inner_text()
     page.locator('#confidence').uncheck()
     page.locator('#method').select_option('baseline')
     assert page.evaluate('byKey.get(plan.selected[0].key).risk===byKey.get(plan.selected[0].key).baseline')
     page.locator('#method').select_option('ridge')
-    page.locator('#lens').select_option('volumen')
+    page.locator('.lens-card[data-lens="volumen"]').click()
+    assert page.locator('.lens-card[data-lens="volumen"]').get_attribute('aria-checked')=='true'
+    assert page.locator('.lens-card[data-lens="tasa"]').get_attribute('aria-checked')=='false'
+    assert page.locator('#lens').input_value()=='volumen'
     assert page.evaluate('plan.selected[0].risk*plan.selected[0].observed>=plan.selected[1].risk*plan.selected[1].observed')
-    page.locator('#lens').select_option('deterioro')
+    page.locator('.lens-card[data-lens="deterioro"]').click()
+    assert page.locator('#lens').input_value()=='deterioro'
     assert page.evaluate('plan.selected[0].risk-plan.selected[0].baseline>=plan.selected[1].risk-plan.selected[1].baseline')
+    page.locator('.lens-card[data-lens="tasa"]').click()
+    assert page.locator('#lens').input_value()=='tasa'
+    page.evaluate("document.querySelector('.lens-card[data-lens=\"volumen\"]').focus()")
+    page.keyboard.press('Enter')
+    assert page.locator('#lens').input_value()=='volumen', 'Enter en tarjeta debe cambiar el criterio'
+    page.locator('.lens-card[data-lens="tasa"]').click()
+    assert page.locator('#lens').input_value()=='tasa'
+    assert page.evaluate("document.querySelector('.lens-card[data-lens=\"tasa\"]').tabIndex==0&&document.querySelector('.lens-card[data-lens=\"volumen\"]').tabIndex==-1"), 'Roving tabindex en las tarjetas'
     assert page.locator('#entity-table tr').count()>0
     page.locator('#ranking button').first.click()
     assert '¿Por qué está aquí?' in page.locator('#detail-content').inner_text()
@@ -109,7 +154,6 @@ with sync_playwright() as p:
     assert 'Fuera del filtro actual' in page.locator('#detail-state').inner_text()
     assert 'coinciden dentro' not in page.locator('#detail-content').inner_text()
     page.locator('#state').select_option('')
-    page.locator('#lens').select_option('tasa')
     page.locator('#response').fill('25')
     page.locator('#reach').fill('10000')
     page.locator('#map-mode').select_option('base')
