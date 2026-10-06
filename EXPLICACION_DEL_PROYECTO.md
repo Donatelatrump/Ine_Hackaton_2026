@@ -150,3 +150,5 @@ La oportunidad competitiva es presentar una herramienta que haga explícitos su 
 ## Alcance del ZIP
 
 El ZIP contiene todos los archivos existentes del proyecto al empaquetar, incluidas las tres carpetas de tracks, originales, dependencias, evidencias y este documento. Se excluye únicamente el propio ZIP de salida y su archivo temporal de construcción para evitar incluirlo dentro de sí mismo. El manifiesto describe los restantes archivos y se incluye también en el paquete; no se calcula un hash del manifiesto dentro de sí mismo.
+
+**Estado del paquete:** el `Ine_Hackaton_completo.zip` conservado es un respaldo generado el 5 de octubre de 2026 a las 20:42, anterior a las correcciones del track 2. No incluye la demo corregida (capas Base/Intervención/Δ, fichas, vista por entidad, apertura `file://`), la carpeta `entrega/` ni los análisis posteriores. La entrega técnica vigente es este repositorio; para reconstruir un ZIP actualizado se ejecuta `empaquetar_proyecto.py`.

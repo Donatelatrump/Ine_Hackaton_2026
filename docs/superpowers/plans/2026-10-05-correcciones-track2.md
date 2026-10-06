@@ -22,7 +22,7 @@ Datos incrustados en JS para apertura file:// sin fetch, sin dependencias remota
 - [x] Extensión de análisis y generación de datos, sin alterar experimento original.
 - [x] Demo corregida con capas, fichas, vista entidad, exportación y file://.
 - [x] Reporte PDF 10–15 páginas y presentación ≤10 diapositivas, revisados visualmente (trabajos documentales independientes en paralelo).
-- [x] Comando de cifras, documentación vigente, paquete y verificación real.
+- [x] Comando de cifras, documentación vigente y verificación real. Paquete: no se regeneró el ZIP previo por decisión del usuario (ver abajo).
 - [x] Revisión independiente final, corregir hallazgos, commit/push y entrega.
 
 Los requisitos humanos faltantes se solicitan mientras se avanza: nombre/equipo, registro y firmas. No son autorización para inventar identidad, firmar, registrar o enviar por correo.
@@ -35,3 +35,4 @@ Los requisitos humanos faltantes se solicitan mientras se avanza: nombre/equipo,
 - Documentos: reporte de 12 páginas y presentación de 10 diapositivas generados y revisados por render local; PPTX verificado estructuralmente, pendiente de motor PowerPoint.
 - Revisión independiente final: sin hallazgos críticos ni importantes en código. Se corrigió documentación obsoleta: `ANALISIS_TRACK_2.md` y `EXPLICACION_DEL_PROYECTO.md` citaban «11 pruebas Python, 5 Node y 11 comprobaciones de navegador»; se actualizó a los conteos vigentes (15/9/19).
 - Límites que permanecen explícitos: sin armonización histórica de límites, sin validación institucional, sin causalidad, y registro/firmas/envío pendientes de las personas participantes.
+- Paquete: por decisión del usuario no se regeneró `Ine_Hackaton_completo.zip` (634 MB) ni su manifiesto. Se documentó en `README.md` y `EXPLICACION_DEL_PROYECTO.md` que es un respaldo anterior a las correcciones y que el repositorio es la entrega técnica vigente. Para reconstruirlo: `python empaquetar_proyecto.py`.

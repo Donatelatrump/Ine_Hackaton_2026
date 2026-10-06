@@ -34,6 +34,6 @@ Estas cifras usan umbral del entrenamiento, no tercio de la prueba. La comparaci
 
 ## Pendientes humanos
 
-Confirmar registro, elegibilidad y composición paritaria según convocatoria, sin inferir por nombres. Completar/firmar cartas por todos los integrantes. Revisar documentos: PPTX verificado estructuralmente, PDF gemelo revisado visualmente; no motor PowerPoint disponible. Enviar por medio/plazo oficiales: no se envió correo ni se hizo público GitHub. El paquete incluye código para revisión sin GitHub. Validar responsables, recursos, límites históricos y piloto antes de aplicación institucional.
+Confirmar registro, elegibilidad y composición paritaria según convocatoria, sin inferir por nombres. Completar/firmar cartas por todos los integrantes. Revisar documentos: PPTX verificado estructuralmente, PDF gemelo revisado visualmente; no motor PowerPoint disponible. Enviar por medio/plazo oficiales: no se envió correo ni se hizo público GitHub. El paquete técnico se conserva como respaldo previo a estas correcciones; la entrega vigente es el repositorio, que incluye el código y la demo corregida. Para reconstruir el ZIP actualizado: `python empaquetar_proyecto.py`. Validar responsables, recursos, límites históricos y piloto antes de aplicación institucional.
 
 Los documentos anteriores conservan el diagnóstico inicial. Esta actualización y el reporte prevalecen para funcionalidad y escenario actuales.
