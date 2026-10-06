@@ -31,3 +31,9 @@ Proyección 2027 exploratoria; 2024 adverso visible. SV+NV 2024 define tasas y l
 Pruebas del navegador: instalar `playwright==1.63.0` en `.task_packages` y ejecutar `python 02_Prediccion_y_escenarios_de_riesgo/demo/verificar_demo.py` con servidor activo. Usa Edge instalado en su ruta estándar de Windows; capturas y resultado se guardan en `verificacion/`. Son 28 comprobaciones, incluida apertura `file://`. Node prueba escenario, estabilidad, capacidad humana y frontera sin navegador (12 pruebas). Leaflet: 1.9.4, licencia incluida en `vendor/LICENSE`. Datos de la demo: `resultados.json`, `evaluacion_adicional.json`, `perfil_demografico.json` y geometría simplificada, todo incrustado en `data/datos_embebidos.js`.
 
 Entrega unificada el 6 de octubre de 2026: [caso municipal](../entrega/CASO_MUNICIPAL.md) y [guion de presentación](../entrega/GUION_PRESENTACION.md). Estabilidad de selección es frecuencia descriptiva; las variantes comparten datos y pueden equivocarse juntas.
+
+### Vista por estados
+
+El mapa nacional muestra las 32 entidades. Al pulsar un estado se abren sus municipios; al pulsar un municipio se acerca y resalta. El clic derecho vuelve un nivel y Vista nacional regresa directamente a México. Los resúmenes estatales respetan los filtros y ponderan las tasas por SV+NV 2024 de municipios con estimación; los faltantes no cuentan como cero. La frecuencia de selección está disponible en la vista municipal.
+
+`data/estados.js` conserva la cartografía local. Para regenerarla: instalar Shapely y ejecutar `python data/generar_estados.py` desde la carpeta demo. Los límites derivan de los municipios simplificados y son solo referencia visual.

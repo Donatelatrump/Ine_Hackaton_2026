@@ -5,7 +5,7 @@ const norm=v=>String(v).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerC
 const TIER={alta:'🟢 Alta',media:'🟡 Media',baja:'🔴 Baja',sin_datos:'⚪ Sin datos'};
 const GROUP_NAME={edad:{'18_29':'Jóvenes 18–29','30_59':'Adultos 30–59','60_mas':'Personas 60+'},sexo:{hombres:'Hombres',mujeres:'Mujeres',no_binario:'No binario'},seccion:{urbana:'Urbana',mixta:'Mixta',rural:'Rural'}};
 let records,metadata,perfil,geo,map,layer,filtered=[],view=[],plan,thresholds,stability={},frontier={nucleo:[],frontera:[],fuera:[]},activeKey=null,selectedMap=new Map(),byKey,viewCache={},normCache=new Map();
-const colors={bajo:'#8bbbad',medio:'#e8b451',alto:'#bd5472',sin_datos:'#cdd6d2'};
+const colors={bajo:'#8bbbad',medio:'#e8b451',alto:'#bd5472',sin_datos:'#8997ab'};
 function quantile(values,q){const s=values.slice().sort((a,b)=>a-b),p=(s.length-1)*q,i=Math.floor(p);return s[i]+(s[Math.min(i+1,s.length-1)]-s[i])*(p-i);}
 function norm2(v){let x=normCache.get(v);if(x===undefined){x=norm(v);if(normCache.size>6000)normCache.clear();normCache.set(v,x);}return x;}
 function matches(r){return (!$('state').value||r.state===$('state').value)&&(!$('stable').checked||r.stable_catalog_state)&&norm2(r.name+' '+r.key).includes(norm2($('search').value.trim()));}
@@ -89,6 +89,7 @@ function detail(key){
   <details><summary>Ver elecciones anteriores y límites de la estimación</summary><div class="history">${r.history.map(h=>`<div><span>${h.year}</span><div class="bar-track"><i style="width:${Number.isFinite(h.risk)?h.risk:0}%"></i></div><b>${pct(h.risk)}</b></div>`).join('')}</div><p>La prioridad se comunica con la frecuencia entre variantes (arriba). El rango técnico ${pct(r.range_low)}–${pct(r.range_high)} (±21.05 pp, p90 retrospectivo de Ridge 2021) se conserva solo aquí como referencia de error histórico; no es intervalo prospectivo.</p><p>${r.flags.map(esc).join('; ')||'Sin alertas adicionales'}</p></details>`;
 }
 function update(){
+ syncSearchablePickers();
  clearCaches();
  const capacityMode=$('capacity-mode').value,capacity=Number($('capacity').value),persons=Number($('persons').value);
  const reach=Number($('reach').value),response=Number($('response').value),lens=$('lens').value,method=$('method').value,minConf=$('min-confidence').value;
@@ -111,7 +112,7 @@ function update(){
  $('scenario-assumptions').textContent=n?`Comparas los mismos ${fmt.format(n)} municipios. Contacto supuesto: hasta ${fmt.format(reach)} personas por municipio (${fmt.format(plan.served)} en total, limitado por los registros disponibles${capacityMode==='personas'?' y tu capacidad total':''}). Respuesta supuesta: ${response}% de las personas contactadas que no votarían. Criterio: ${$('lens').selectedOptions[0].text}.`:'No hay municipios seleccionados. Ajusta la búsqueda, los filtros o la capacidad para comparar.';
  const topRate=Decision.rank(filtered,'tasa').slice(0,n),topVol=Decision.rank(filtered,'volumen').slice(0,n),topChange=Decision.rank(filtered,'deterioro').slice(0,n);
  $('agreement').textContent=`Solapamiento con la lista por tasa: volumen ${Decision.overlap(topRate,topVol)}/${topRate.length}; deterioro ${Decision.overlap(topRate,topChange)}/${topRate.length}.`;
- $('status').textContent='Datos locales cargados. Abre un municipio para consultar sus registros y la estimación para 2027.';
+ $('status').textContent='';
  $('eligible').textContent=fmt.format(filtered.filter(r=>Number.isFinite(r.risk)).length);$('coverage').textContent='De '+fmt.format(filtered.length)+' municipios que coinciden con tus filtros';
  $('filter-summary').textContent=$('stable').checked?'Filtro activo: solo estados cuyo listado de municipios no cambió. Esto excluye territorios aunque elijas Todo México.':'Se incluyen estados con y sin cambios en su listado municipal. Los límites históricos necesitan revisión.';
  $('show-all').hidden=!$('stable').checked;
@@ -127,17 +128,19 @@ function update(){
  $('frontier-table').innerHTML=[['Núcleo robusto (6/6)',nuc,'#1'],['Frontera de decisión (1/6–5/6)',fro,'depende'],['Fuera de la selección',frontier.fuera.length,'—']].map(([k,v,tag])=>`<div><span>${k}</span><strong>${fmt.format(v)}</strong><small>${tag}</small></div>`).join('');
  $('pilot-note').textContent=fro>0?`Si solo existen recursos para atender una fracción de la frontera (por ejemplo, 12 de ${fmt.format(fro)} municipios), una asignación aleatoria dentro de esa zona —con balance por entidad, tamaño, calidad y contexto— permitiría construir un piloto evaluable. La cercanía del score no acredita equivalencia.`:'Con la capacidad actual no hay una zona de frontera: la selección es estable bajo las variantes o el filtro la vació.';
  $('ranking').innerHTML=plan.selected.slice(0,25).map(r=>{const s=stability[r.key]||{count:0,eligible:0,confidence:Decision.confidenceTier(0,6)};const c=s.confidence||Decision.confidenceTier(s.count,6);return `<tr><td><button type="button" data-key="${r.key}" class="row-button">${esc(r.name)}</button><small>${esc(r.state_name)} · ${r.key}</small></td><td>${pct(r.risk)}<small>Simulación: ${pct(r.after)}</small></td><td>${s.count} de 6<small>comparaciones; no indica certeza</small></td><td>${pct(r.latest_ns)} sin información sobre el voto<small>Listado municipal ${r.stable_catalog_state?'sin cambios':'con cambios'}</small></td></tr>`;}).join('')||'<tr><td colspan="4">Sin municipios seleccionados con estos filtros.</td></tr>';
+ if(!$('state').value)$('confidence').checked=false;
  const mode=$('map-mode').value;
  const legend=$('confidence').checked?'<span><i style="background:#176b58"></i>Núcleo 6/6</span><span><i style="background:#ddb263"></i>Revisión</span>':mode==='cambio'?'<span><i style="background:#f6faf9;border:1px solid #ddd"></i>0 pp</span><span><i style="background:#9dccdf"></i>0–1 pp</span><span><i style="background:#4b94b8"></i>1–5 pp</span><span><i style="background:#135e87"></i>&gt;5 pp</span>':'<span><i class="low"></i>Menor abstención</span><span><i class="medium"></i>Intermedia</span><span><i class="high"></i>Mayor abstención</span>';
  document.querySelector('.legend').innerHTML=legend+'<span><i class="missing"></i>Sin estimación</span><span><i class="chosen"></i>Seleccionado</span><span>Atenuado: fuera del filtro</span>';
  $('map-caption').textContent=$('confidence').checked?'Veces que un municipio aparece entre los seleccionados: verde = 6 de 6 comparaciones; ámbar = menos de 6.':mode==='cambio'?'Reducción simulada: blanco = sin reducción; azul más oscuro = mayor reducción.':`Porcentaje de personas que ${mode==='intervencion'?'no votarían con la acción simulada':'podrían no votar en 2027'}. Menor abstención: menos de ${thresholds.low.toFixed(1)}%; mayor: desde ${thresholds.high.toFixed(1)}%.`;
  document.querySelector('.map-guide').textContent=$('confidence').checked?'Repetirse en las seis comparaciones no garantiza que la estimación sea correcta. Ámbar incluye municipios que nunca entran en la selección. Gris = sin estimación.':mode==='cambio'?'El cambio se expresa en puntos porcentuales: bajar de 60% a 58% equivale a 2 puntos. Solo los municipios incluidos en la simulación pueden mostrar una reducción. Gris = sin estimación.':'Los colores comparan la proporción de personas que podrían no votar. No califican a sus habitantes. Los límites entre colores se mantienen al simular una acción. Gris = información insuficiente.';
- const confOn=$('confidence').checked;layer.setStyle(f=>{const r=byKey.get(f.properties.key),s=selectedMap.get(r.key),visible=matches(r),after=s?s.after:r.risk,delta=s?r.risk-s.after:0;let color=colors[Decision.level(mode==='intervencion'?after:r.risk,thresholds)];if(mode==='cambio')color=!Number.isFinite(r.risk)?colors.sin_datos:delta>5?'#135e87':delta>1?'#4b94b8':delta>0?'#9dccdf':'#f6faf9';if(confOn&&Number.isFinite(r.risk)&&visible)color=stability[r.key]?.robust?'#176b58':'#ddb263';return {color:s?'#173c34':'#ffffff',weight:s?1.7:.3,fillColor:color,fillOpacity:visible?.85:.08,opacity:visible?1:.15};});
+ const confOn=$('confidence').checked;layer.setStyle(f=>{const r=byKey.get(f.properties.key),s=selectedMap.get(r.key),visible=matches(r),after=s?s.after:r.risk,delta=s?r.risk-s.after:0;let color=colors[Decision.level(mode==='intervencion'?after:r.risk,thresholds)];if(mode==='cambio')color=!Number.isFinite(r.risk)?colors.sin_datos:delta>5?'#135e87':delta>1?'#4b94b8':delta>0?'#9dccdf':'#f6faf9';if(confOn&&Number.isFinite(r.risk)&&visible)color=stability[r.key]?.robust?'#176b58':'#ddb263';return {color:s?'#173c34':'#ffffff',weight:s?1.7:.3,fillColor:color,fillOpacity:visible?.85:!Number.isFinite(r.risk)?.6:.25,opacity:visible?1:.65};});
  $('confidence-note').textContent=$('confidence').checked?'Vista estabilidad: verde = seleccionado en 6/6 variantes; ámbar = revisión; gris = sin estimación. Frecuencia descriptiva; las variantes pueden equivocarse juntas.':'Vista riesgo/cambio. La estabilidad de selección se informa como dimensión separada en lista y ficha.';
  const groups=new Map();for(const r of filtered){let g=groups.get(r.state);if(!g)groups.set(r.state,g=[]);g.push(r);}
  const selByState=new Map();for(const r of plan.selected){let g=selByState.get(r.state);if(!g)selByState.set(r.state,g=[]);g.push(r);}
  const states=[...groups.keys()].sort();
  $('entity-table').innerHTML=states.map(state=>{const all=groups.get(state),valid=all.filter(r=>Number.isFinite(r.risk)),sel=selByState.get(state)||[],obs=valid.reduce((a,r)=>a+r.observed,0),before=obs?valid.reduce((a,r)=>a+r.risk*r.observed,0)/obs:null,add=sel.reduce((a,r)=>a+r.additional,0);return `<tr><td>${esc(all[0].state_name)}</td><td>${valid.length}/${all.length}</td><td>${sel.length}</td><td>${pct(before)}</td><td>${pct(obs?before-100*add/obs:null)}</td><td>${fmt.format(sel.reduce((a,r)=>a+r.served,0))}</td></tr>`;}).join('');
+ updateGeography();
  if(activeKey)detail(activeKey);
 }
 function exportPlan(){
@@ -171,12 +174,15 @@ function load(){
  if(!window.UMBRAL_DATA||!window.UMBRAL_GEO)throw Error('Faltan datos incrustados');records=window.UMBRAL_DATA.municipios;metadata=window.UMBRAL_DATA.metadata;perfil=window.UMBRAL_PERFIL;geo=window.UMBRAL_GEO;
  const states=new Map(records.map(r=>[r.state,r.state_name]));for(const [key,name] of [...states].sort())$('state').add(new Option(name,key));
  map=L.map('map',{preferCanvas:true,attributionControl:true,zoomSnap:.25}).setView([23.7,-102.5],5);map.attributionControl.addAttribution('INE · mayo 2024 simplificado, límites no armonizados');
- layer=L.geoJSON(geo,{onEachFeature:(f,l)=>{const r=records.find(r=>r.key===f.properties.key),node=document.createElement('span');node.textContent=r.name+' · '+r.key;l.bindTooltip(node);l.on('click',()=>{detail(r.key);$('detail').scrollIntoView({behavior:smooth(),block:'start'});});}}).addTo(map);
+ map.createPane('municipal-geography');
+ layer=L.geoJSON(geo,{renderer:L.canvas({pane:'municipal-geography'}),onEachFeature:(f,l)=>{const r=records.find(r=>r.key===f.properties.key),node=document.createElement('span');node.textContent=r.name+' · '+r.key;l.bindTooltip(node);l.on('click',()=>{focusMunicipality(r.key,l);});}}).addTo(map);
+ initGeography();
+ initSearchablePickers();
  $('show-all').onclick=()=>{$('stable').checked=false;update();};
  document.querySelectorAll('a[href="#planning-settings"]').forEach(a=>a.addEventListener('click',()=>{$('planning-settings').open=true;}));
  document.querySelectorAll('[data-scenario-map]').forEach(a=>a.addEventListener('click',()=>{$('map-mode').value=a.dataset.scenarioMap;$('confidence').checked=false;update();}));
- $('reset-map').onclick=()=>map.fitBounds(layer.getBounds(),{padding:[12,12]});
- for(const id of ['state','search','stable','capacity','persons','capacity-mode','min-confidence','reach','response','method','lens','map-mode','confidence'])$(id).addEventListener('input',update);
+ $('reset-map').onclick=returnToMexico;
+ for(const id of ['state','search','stable','capacity','persons','capacity-mode','min-confidence','reach','response','method','lens','map-mode','confidence'])$(id).addEventListener('input',()=>{if(id==='state'||id==='search'){geographyFocusKey=null;geographyHistory.length=0;}update();});
  $('state').addEventListener('change',()=>{const layers=layer.getLayers().filter(l=>!$('state').value||byKey.get(l.feature.properties.key).state===$('state').value);if(layers.length)map.fitBounds(L.featureGroup(layers).getBounds(),{padding:[12,12]});});
  $('ranking').addEventListener('click',e=>{const b=e.target.closest('button[data-key]');if(b){detail(b.dataset.key);if(window.innerWidth<=1050)$('detail').scrollIntoView({behavior:smooth(),block:'start'});}});$('export').onclick=exportPlan;
  $('missing-list').addEventListener('click',e=>{const b=e.target.closest('button[data-key]');if(b){detail(b.dataset.key);$('detail').scrollIntoView({behavior:smooth(),block:'start'});}});
