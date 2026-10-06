@@ -22,11 +22,11 @@ Abrir http://127.0.0.1:8765. La demo preparada funciona con recursos locales y n
 
 ## Datos y archivos grandes
 
-El repositorio conserva las tres carpetas de tracks, fuentes originales, bases procesadas, código, demo, pruebas y documentación. Los ZIP y la cartografía original se almacenan mediante Git LFS. Después de clonar con Git LFS instalado:
+El trabajo activo se limita al track 2 en `02_Prediccion_y_escenarios_de_riesgo/`: bases procesadas, código, demo, pruebas y documentación. Se retiraron las carpetas de los tracks 1 y 3. Los ZIP y la cartografía original ya no están en esta versión; `git lfs pull` no los recupera en el estado actual. La demo conserva su cartografía preparada en `demo/data/`.
 
-```powershell
-git lfs pull
-```
+## Trabajo en equipo
+
+Consultar [CONTRIBUTING.md](CONTRIBUTING.md) para las responsabilidades, archivos compartidos, pruebas y flujo de pull requests. `main` es la versión integrada; las ramas `algoritmo`, `web`, `datos` y `entrega` separan las áreas de trabajo.
 
 `Ine_Hackaton_completo.zip` es un respaldo completo **anterior a las correcciones del track 2** (generado el 5 de octubre de 2026 a las 20:42): incluye las dependencias locales y el manifiesto de sus archivos, pero **no** contiene la demo corregida, la carpeta `entrega/` ni los análisis posteriores. La entrega técnica vigente es este repositorio. Las dependencias instaladas y cachés quedan fuera del historial Git; para reproducir el análisis se reinstalan según `modelado/requirements.txt` dentro del track 2. El script `empaquetar_proyecto.py` regenera el ZIP y el manifiesto desde el estado actual y excluye los metadatos internos `.git`.
 
