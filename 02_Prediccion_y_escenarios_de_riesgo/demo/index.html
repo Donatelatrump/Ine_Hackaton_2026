@@ -17,7 +17,32 @@
    <label for="capacity-mode">Tengo capacidad para atender</label><select id="capacity-mode"><option value="municipios">Municipios</option><option value="personas">Personas</option></select>
    <label for="capacity" id="capacity-label">Municipios por atender <output id="capacity-out">50</output></label><input id="capacity" type="range" min="0" max="200" value="50">
    <label for="persons" id="persons-label">Total de personas que puedes alcanzar <output id="persons-out">100,000</output></label><input id="persons" type="number" min="0" max="100000000" step="1000" value="100000"><p class="hint">En modo personas, el alcance por municipio del paso 3 determina cuántos municipios caben.</p>
-   <label for="lens">¿Qué quieres priorizar?</label><select id="lens"><option value="tasa">Mayor porcentaje de personas que no votarían</option><option value="volumen">Mayor cantidad de personas que no votarían</option><option value="deterioro">Mayor aumento de abstención frente a 2021</option></select><p class="hint">La proporción, el número de personas y el aumento responden a objetivos diferentes. La cantidad se calcula usando los registros de 2024.</p>
+    <div class="lens-section">
+     <span class="lens-title-label" id="lens-title">¿Qué criterio quieres priorizar?</span>
+     <div class="lens-cards" id="lens-cards" role="radiogroup" aria-labelledby="lens-title">
+      <button type="button" class="lens-card active" data-lens="tasa" role="radio" aria-checked="true">
+       <div class="lens-card-header"><span class="lens-badge">Porcentaje (%)</span><span class="lens-icon">🎯</span></div>
+       <strong>Mayor porcentaje</strong>
+       <small>Enfoca esfuerzos en comunidades donde la abstención relativa es más crítica.</small>
+      </button>
+      <button type="button" class="lens-card" data-lens="volumen" role="radio" aria-checked="false">
+       <div class="lens-card-header"><span class="lens-badge">Personas (N)</span><span class="lens-icon">👥</span></div>
+       <strong>Mayor volumen</strong>
+       <small>Prioriza grandes urbes donde se concentra la mayor masa de votos potenciales.</small>
+      </button>
+      <button type="button" class="lens-card" data-lens="deterioro" role="radio" aria-checked="false">
+       <div class="lens-card-header"><span class="lens-badge">Tendencia (Δ)</span><span class="lens-icon">📉</span></div>
+       <strong>Mayor deterioro</strong>
+       <small>Identifica municipios donde la participación cayó más drásticamente frente a 2021.</small>
+      </button>
+     </div>
+     <select id="lens" class="sr-only" aria-hidden="true">
+      <option value="tasa" selected>Mayor porcentaje de personas que no votarían</option>
+      <option value="volumen">Mayor cantidad de personas que no votarían</option>
+      <option value="deterioro">Mayor aumento de abstención frente a 2021</option>
+     </select>
+     <p class="hint">La proporción, el número de personas y el aumento responden a objetivos diferentes. La cantidad se calcula usando los registros de 2024.</p>
+    </div>
    </details>
    <details class="settings" id="settings"><summary>Opciones avanzadas de datos</summary>
     <label for="method">Método de estimación</label><select id="method"><option value="ridge">Estimación con datos históricos (Ridge)</option><option value="baseline">Referencia: elección de 2021</option></select>

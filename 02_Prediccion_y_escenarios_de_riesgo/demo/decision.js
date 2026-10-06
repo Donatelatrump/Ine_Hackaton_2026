@@ -44,8 +44,8 @@
   for(const v of Object.values(result)){v.frequency=v.count/variants.length;v.robust=v.count===variants.length;v.confidence=confidenceTier(v.count,variants.length);}
   return result;
  }
- function decisionFrontier(items,capacity,lens){
-  const estabilidad=selectionStability(items,capacity,lens);
+ function decisionFrontier(items,capacity,lens,precomputed){
+  const estabilidad=precomputed||selectionStability(items,capacity,lens);
   const nucleo=[],frontera=[],fuera=[];
   for(const r of items){const s=estabilidad[r.key];if(!s)continue;
    if(s.count>=variants.length)nucleo.push(r.key);else if(s.count>0)frontera.push(r.key);else fuera.push(r.key);}

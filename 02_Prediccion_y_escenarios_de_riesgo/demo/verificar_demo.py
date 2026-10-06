@@ -53,9 +53,17 @@ with sync_playwright() as p:
     with page.expect_download() as d:page.locator('#export').click()
     d.value.save_as(OUT/'plan.csv')
     rows=list(csv.DictReader((OUT/'plan.csv').open(encoding='utf-8-sig',newline='')))
-    assert len(rows)==2 and all(float(r['respuesta_supuesta_pct'])==25 for r in rows)
-    assert all(float(r['alcance_limitado'])<=float(r['observados_sv_nv_2024']) for r in rows)
-    assert all(abs(float(r['escenario_pct'])-(float(r['estimacion_2027_pct'])-100*float(r['adicional_hipotetica'])/float(r['observados_sv_nv_2024'])))<1e-8 for r in rows)
+    assert len(rows)==2 and all(float(r['Respuesta supuesta (%)'])==25 for r in rows)
+    assert all(float(r['Personas alcanzadas (supuesto)'])<=float(r['Base observable 2024 (SV+NV)']) for r in rows)
+    assert all(abs(float(r['No votarían (con acción, %)'])-(float(r['No votarían (estimado 2027, %)'])-100*float(r['Personas adicionales que votarían (supuesto)'])/float(r['Base observable 2024 (SV+NV)'])))<0.011 for r in rows)
+    assert all(r['Entidad']==r['Entidad'].title() and r['Municipio']==r['Municipio'].title() for r in rows), 'Nombres en formato título'
+    assert [int(r['Puesto']) for r in rows]==[1,2], 'Puesto consecutivo desde 1'
+    with page.expect_download() as d:page.locator('#export').click()
+    d.value.save_as(OUT/'leeme.csv')
+    doc=list(csv.reader((OUT/'leeme.csv').open(encoding='utf-8-sig',newline='')))
+    assert doc[0]==['Sección','Elemento','Detalle'], 'Encabezado del leeme'
+    sec={r[0] for r in doc[1:]}
+    assert {'Documento','Filtros aplicados','Simulación','Resumen del plan','Diccionario de columnas','Limitaciones'}<=sec, 'Secciones del leeme completas'
     page.locator('#search').fill('noexiste123')
     assert page.locator('#selected').inner_text()=='0' and page.locator('#export').is_disabled()
     page.locator('#search').fill('')
@@ -91,10 +99,22 @@ with sync_playwright() as p:
     page.locator('#method').select_option('baseline')
     assert page.evaluate('byKey.get(plan.selected[0].key).risk===byKey.get(plan.selected[0].key).baseline')
     page.locator('#method').select_option('ridge')
-    page.locator('#lens').select_option('volumen')
+    page.locator('.lens-card[data-lens="volumen"]').click()
+    assert page.locator('.lens-card[data-lens="volumen"]').get_attribute('aria-checked')=='true'
+    assert page.locator('.lens-card[data-lens="tasa"]').get_attribute('aria-checked')=='false'
+    assert page.locator('#lens').input_value()=='volumen'
     assert page.evaluate('plan.selected[0].risk*plan.selected[0].observed>=plan.selected[1].risk*plan.selected[1].observed')
-    page.locator('#lens').select_option('deterioro')
+    page.locator('.lens-card[data-lens="deterioro"]').click()
+    assert page.locator('#lens').input_value()=='deterioro'
     assert page.evaluate('plan.selected[0].risk-plan.selected[0].baseline>=plan.selected[1].risk-plan.selected[1].baseline')
+    page.locator('.lens-card[data-lens="tasa"]').click()
+    assert page.locator('#lens').input_value()=='tasa'
+    page.evaluate("document.querySelector('.lens-card[data-lens=\"volumen\"]').focus()")
+    page.keyboard.press('Enter')
+    assert page.locator('#lens').input_value()=='volumen', 'Enter en tarjeta debe cambiar el criterio'
+    page.locator('.lens-card[data-lens="tasa"]').click()
+    assert page.locator('#lens').input_value()=='tasa'
+    assert page.evaluate("document.querySelector('.lens-card[data-lens=\"tasa\"]').tabIndex==0&&document.querySelector('.lens-card[data-lens=\"volumen\"]').tabIndex==-1"), 'Roving tabindex en las tarjetas'
     assert page.locator('#entity-table tr').count()>0
     page.locator('#ranking button').first.click()
     assert '¿Por qué está aquí?' in page.locator('#detail-content').inner_text()
@@ -134,7 +154,6 @@ with sync_playwright() as p:
     assert 'Fuera del filtro actual' in page.locator('#detail-state').inner_text()
     assert 'coinciden dentro' not in page.locator('#detail-content').inner_text()
     page.locator('#state').select_option('')
-    page.locator('#lens').select_option('tasa')
     page.locator('#response').fill('25')
     page.locator('#reach').fill('10000')
     page.locator('#map-mode').select_option('base')
