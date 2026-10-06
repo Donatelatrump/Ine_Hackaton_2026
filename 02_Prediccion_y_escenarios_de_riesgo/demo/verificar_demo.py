@@ -94,6 +94,7 @@ with sync_playwright() as p:
     page.locator('#map-mode').select_option('base')
     page.locator('#ranking button').first.click()
     assert page.locator('#map canvas').count()>0
+    page.locator('.map-panel').screenshot(path=str(OUT/'mapa_base.png'))
     page.screenshot(path=str(OUT/'escritorio.png'),full_page=True)
     page.locator('#map-mode').select_option('intervencion')
     page.locator('.map-panel').screenshot(path=str(OUT/'mapa_intervencion.png'))

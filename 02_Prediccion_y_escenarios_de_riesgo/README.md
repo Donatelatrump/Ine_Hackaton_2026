@@ -1,6 +1,6 @@
 # Track 2: Predicción y escenarios de riesgo de abstención
 
-**Tecnocalidos, versión corregida:** [estado](CORRECCIONES_Y_ESTADO.md), [reporte 12 páginas](entrega/reporte/Umbral_reporte_metodologico_preventivo.pdf), [presentación 10 diapositivas](entrega/presentacion/Umbral_presentacion.pptx). Demo abre con doble clic y compara Base/Intervención/Δ. Registro, firmas y envío no acreditados.
+**Tecnocalidos, versión corregida:** [estado](CORRECCIONES_Y_ESTADO.md), [reporte 14 páginas](entrega/reporte/Umbral_reporte_metodologico_preventivo.pdf), [presentación 10 diapositivas](entrega/presentacion/Umbral_presentacion.pptx). Demo abre con doble clic y compara Base/Intervención/Δ. Registro, firmas y envío no acreditados.
 
 [Documento para analizar requisitos, decisiones, resultados y pendientes](ANALISIS_TRACK_2.md).
 

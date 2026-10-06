@@ -31,6 +31,6 @@ Selección por criterio editable (tasa, volumen sobre observados o variación), 
 
 ## Para competir
 
-El diferencial defendible es una decisión revisable, con calidad, referencia simple, resultados adversos visibles y restricciones de capacidad. Reporte de 12 páginas y presentación de 10 diapositivas disponibles en `entrega/`. Faltan revisión territorial/institucional, armonización o justificación de límites, confirmación de registro y firmas/envío oficiales. No se garantiza ganar ni se presenta como sistema validado para asignación definitiva de recursos.
+El diferencial defendible es una decisión revisable, con calidad, referencia simple, resultados adversos visibles y restricciones de capacidad. Reporte de 14 páginas (8 secciones) y presentación de 10 diapositivas disponibles en `entrega/`. Faltan revisión territorial/institucional, armonización o justificación de límites, confirmación de registro y firmas/envío oficiales. No se garantiza ganar ni se presenta como sistema validado para asignación definitiva de recursos.
 
 Evidencia íntegra: `salidas/metricas.json`, `salidas/backtest_predicciones.csv`, `salidas/metricas_entidad.csv`, `salidas/proyeccion_exploratoria_2027.csv`. Fuentes: [CCPC INE](https://ine.mx/transparencia/datos-abiertos/visualizacion-datos/conteos-censales-participacion/) y [cartografía INE](https://pautas.ine.mx/transparencia/mapas/index_2025.html).

@@ -4,7 +4,7 @@
 
 | Recomendación | Implementación y límites |
 |---|---|
-| Mínimos técnicos | Reporte PDF 12 páginas; PPTX/PDF 10 diapositivas; mapa y CSV. Cartas oficiales sin firmas; registro/envío no acreditados |
+| Mínimos técnicos | Reporte PDF 14 páginas (8 secciones); PPTX/PDF 10 diapositivas; mapa y CSV. Cartas oficiales sin firmas; registro/envío no acreditados |
 | Núcleo robusto | Dos métodos × NS 5/10/20, topN por filtro/lente. 6/6 indica estabilidad entre variantes, no probabilidad; elegibilidad aparte |
 | Error por tamaño | MAE y P90 por SV+NV previo: <10 mil, 10–100 mil, ≥100 mil; retrospectivos, no intervalos futuros |
 | Semáforo | Spearman, precisión/recobrado rojo con umbral del entrenamiento congelado; tercio alto real del test como comparación separada |
@@ -50,4 +50,4 @@ Verificación vigente: 15 pruebas Python, 12 Node y 24 comprobaciones de navegad
 
 Confirmar registro, elegibilidad y composición paritaria según convocatoria, sin inferir por nombres. Completar/firmar cartas por todos los integrantes. Revisar documentos: PPTX verificado estructuralmente, PDF gemelo revisado visualmente; no motor PowerPoint disponible. Enviar por medio/plazo oficiales: no se envió correo ni se hizo público GitHub. El paquete técnico se conserva como respaldo previo a estas correcciones; la entrega vigente es el repositorio, que incluye el código y la demo corregida. Para reconstruir el ZIP actualizado: `python empaquetar_proyecto.py`. Validar responsables, recursos, límites históricos y piloto antes de aplicación institucional.
 
-El reporte se regeneró (12 páginas) con la incertidumbre de prioridad, la capacidad territorial o humana y las nuevas capas. La presentación conserva la versión previa: no describe todavía la ficha de decisión, el perfil CCPC ni la frontera. Esta actualización y la demo prevalecen para funcionalidad y escenario actuales.
+El reporte se reestructuró a 14 páginas y 8 secciones (portada, problema, datos, modelo, evidencia, semáforo, escenarios, prevención, viabilidad) con la incertidumbre de prioridad, la capacidad territorial o humana y las nuevas capas. La presentación conserva la versión previa: no describe todavía la ficha de decisión, el perfil CCPC ni la frontera. Esta actualización y la demo prevalecen para funcionalidad y escenario actuales.

@@ -1,65 +1,76 @@
 {
-  "pages": 12,
-  "pdf_sha256": "d8f5526b2f08f28bab9192a8c9446b7216d2ed015e037e8e680851472c9dc379",
+  "pages": 14,
+  "structure": "8 secciones",
+  "pdf_sha256": "916978b1d5bacc26db527b298c8e19e41b4cefa44c6270014a08a46f05214e49",
   "checks": [
     {
       "page": 1,
-      "text_chars": 1878,
+      "text_chars": 1397,
       "bounds_ok": true
     },
     {
       "page": 2,
-      "text_chars": 2029,
+      "text_chars": 1169,
       "bounds_ok": true
     },
     {
       "page": 3,
-      "text_chars": 1970,
+      "text_chars": 1629,
       "bounds_ok": true
     },
     {
       "page": 4,
-      "text_chars": 1932,
+      "text_chars": 1518,
       "bounds_ok": true
     },
     {
       "page": 5,
-      "text_chars": 1785,
+      "text_chars": 1049,
       "bounds_ok": true
     },
     {
       "page": 6,
-      "text_chars": 2013,
+      "text_chars": 973,
       "bounds_ok": true
     },
     {
       "page": 7,
-      "text_chars": 2319,
+      "text_chars": 955,
       "bounds_ok": true
     },
     {
       "page": 8,
-      "text_chars": 2417,
+      "text_chars": 1158,
       "bounds_ok": true
     },
     {
       "page": 9,
-      "text_chars": 2770,
+      "text_chars": 1100,
       "bounds_ok": true
     },
     {
       "page": 10,
-      "text_chars": 2284,
+      "text_chars": 1220,
       "bounds_ok": true
     },
     {
       "page": 11,
-      "text_chars": 2441,
+      "text_chars": 1073,
       "bounds_ok": true
     },
     {
       "page": 12,
-      "text_chars": 2366,
+      "text_chars": 1095,
+      "bounds_ok": true
+    },
+    {
+      "page": 13,
+      "text_chars": 973,
+      "bounds_ok": true
+    },
+    {
+      "page": 14,
+      "text_chars": 1517,
       "bounds_ok": true
     }
   ]
