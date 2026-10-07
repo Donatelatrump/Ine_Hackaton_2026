@@ -91,7 +91,7 @@ Se suman conteos antes de calcular porcentajes; **NS nunca se trata como abstenc
 
 ### 4.4 Variables del predictor (10)
 
-Abstención del mismo tipo, abstención del último proceso, su diferencia, logaritmo de LN, proporción 18–29, proporción 60+ sin edades extremas, proporción urbana, NS de ambos antecedentes y tipo de elección. **Omitidas:** sexo, escolaridad y variables externas no verificadas (sexo se usa solo en la capa explicativa posterior).
+Abstención del mismo tipo, abstención del último proceso, su diferencia, logaritmo de LN, proporción 18–29, proporción 60+ sin edades extremas, proporción urbana, NS de ambos antecedentes, tipo de elección e interacciones entre elección intermedia y tasas históricas. **Omitidas:** sexo, escolaridad y variables externas no verificadas (sexo se usa solo en la capa explicativa posterior).
 
 ### 4.5 Límites de los datos
 
@@ -102,7 +102,7 @@ Una **clave municipal constante no prueba límites ni población constantes**. N
 ## 5. Modelo
 
 - **Referencia:** última elección del **mismo tipo** (2015 para 2021, 2018 para 2024, 2021 para 2027). Si no hay antecedente válido, no se sustituye por otro tipo.
-- **Ridge sobre el residual** de la referencia: StandardScaler + Ridge, **alpha=10 fijado antes de ver métricas**, salida truncada a [0,100].
+- **Ridge sobre el residual** de la referencia: StandardScaler + Ridge, alpha seleccionado con validación temporal expansiva, salida truncada a [0,100]. Se añadió Ridge ponderado por SV+NV como challenger experimental.
 - **Cortes (sin fuga temporal):** evaluación 2021 con etiquetas 2015/2018; 2024 con 2015/2018/2021; proyección 2027 con 2015/2018/2021/2024. Cada ejemplo usa solo características anteriores a su año objetivo.
 - **Regla de selección** fijada en 2021: adoptar Ridge solo si mejora el MAE ≥1% y no empeora MAE ponderado ni precisión top50.
 - **2021 es selección, no prueba independiente.** El corte 2024 no se usó para reajustar alpha.
@@ -114,11 +114,13 @@ Una **clave municipal constante no prueba límites ni población constantes**. N
 | Corte | Método | n | MAE pp | MAE pond. pp | Top 50 |
 |---|---|---:|---:|---:|---:|
 | 2021 | Referencia | 1,490 | 12.12 | 8.05 | 16/50 |
-| 2021 | Ridge | 1,490 | **9.21** | **5.49** | **19/50** |
+| 2021 | Ridge temporal | 1,490 | **9.10** | **5.47** | **22/50** |
+| 2021 | Ridge ponderado | 1,490 | 9.19 | 5.57 | 17/50 |
 | 2024 | Referencia | 1,476 | **5.64** | **3.54** | 27/50 |
-| 2024 | Ridge | 1,476 | 8.58 | 4.49 | 27/50 |
+| 2024 | Ridge temporal | 1,476 | 7.85 | 4.31 | 26/50 |
+| 2024 | Ridge ponderado | 1,476 | 7.82 | 3.71 | 17/50 |
 
-**Lectura honesta:** Ridge mejora ~**23.9%** el MAE en 2021, pero recupera solo 19/50 y **pierde en 2024** (**+52.2%** de MAE). No hay ganador universal; se conserva como método exploratorio con la referencia visible.
+**Lectura honesta:** Ridge mejora ~**24.9%** el MAE en 2021, recupera 22/50 y **pierde en 2024**. Ridge ponderado no mejora el MAE municipal frente a Ridge. La regla fijada en 2021 selecciona Ridge para la demo exploratoria, con la referencia siempre disponible. No hay ganador universal ni validación prospectiva para 2027.
 
 **Sensibilidad (cohortes distintas, no resultados comparables):** 2021 con NS ≤5% → 1,007 municipios (MAE 12.69 referencia / 9.86 Ridge); con NS ≤20% → 1,960 (12.20 / 9.16). Catálogo de claves constante: 2021 = 1,050; 2024 = 948; el filtro deja **1,144** estimaciones actuales.
 
@@ -139,7 +141,7 @@ El umbral rojo se aprende en entrenamiento y se congela por corte (47.814% en 20
 
 **Error por tamaño (P90, 2024 Ridge):** <10 mil → 18.08 pp; 10–100 mil → 14.05 pp; ≥100 mil → 6.74 pp. Describe heterogeneidad, **no** es intervalo prospectivo.
 
-**Estabilidad en seis variantes** (2 métodos × NS 5/10/20): un municipio es **núcleo robusto** si entra en 6/6; **zona de revisión** si entra en 1–5; **fuera** si 0. La incertidumbre del ranking sustituye al rango ±21.05 pp (que queda solo como error histórico).
+**Estabilidad en seis variantes** (2 métodos × NS 5/10/20): un municipio es **núcleo robusto** si entra en 6/6; **zona de revisión** si entra en 1–5; **fuera** si 0. La incertidumbre de ranking se muestra junto al error histórico, que no es intervalo prospectivo.
 
 ---
 

@@ -120,8 +120,8 @@ def choose_model(baseline, candidate, max_sesgo_degradacion=3.0):
     precision_ok = candidate['precision_top'] >= baseline['precision_top']
     sesgo_ok = True
     if 'sesgo' in baseline and 'sesgo' in candidate:
-        # Rechazar si el candidato subestima/sobreestima MÁS que el baseline
-        sesgo_ok = (candidate['sesgo'] - baseline['sesgo']) >= -max_sesgo_degradacion
+        # Rechazar solo si aumenta la magnitud del sesgo más que el margen.
+        sesgo_ok = abs(candidate['sesgo']) <= abs(baseline['sesgo']) + max_sesgo_degradacion
     return 'ridge' if mae_ok and mae_pond_ok and precision_ok and sesgo_ok else 'persistencia'
 
 def missingness_bounds(sv, nv, ns):

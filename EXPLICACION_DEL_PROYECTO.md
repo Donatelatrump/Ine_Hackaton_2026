@@ -64,15 +64,17 @@ La regla de selección se fijó para 2021: adoptar Ridge si mejora MAE al menos 
 | Corte | Método | Municipios | MAE, pp | MAE ponderado, pp | Aciertos top50 |
 |---|---|---:|---:|---:|---:|
 | 2021 | Referencia del mismo tipo | 1,490 | 12.12 | 8.05 | 16/50 |
-| 2021 | Ridge | 1,490 | 9.21 | 5.49 | 19/50 |
+| 2021 | Ridge temporal | 1,490 | 9.10 | 5.47 | 22/50 |
+| 2021 | Ridge ponderado (experimental) | 1,490 | 9.19 | 5.57 | 17/50 |
 | 2024 | Referencia del mismo tipo | 1,476 | 5.64 | 3.54 | 27/50 |
-| 2024 | Ridge | 1,476 | 8.58 | 4.49 | 27/50 |
+| 2024 | Ridge temporal | 1,476 | 7.85 | 4.31 | 26/50 |
+| 2024 | Ridge ponderado (experimental) | 1,476 | 7.82 | 3.71 | 17/50 |
 
-Ridge cumple la regla de 2021 y reduce su MAE aproximadamente 23.9%, pero pierde frente a la referencia en 2024. Se conserva ese resultado adverso en la demo y documentación. No hay evidencia de una mejora consistentemente transferible.
+Ridge cumple la regla de 2021 y reduce su MAE aproximadamente 24.9%, pero pierde frente a la referencia en 2024. Se conserva ese resultado adverso en la demo y documentación. No hay evidencia de una mejora consistentemente transferible.
 
 2021 fue usado para seleccionar; no es evaluación independiente posterior a selección. 2024 es presidencial y no valida 2027. Existen seis ocasiones electorales nacionales, solo tres intermedias; millones de filas no equivalen a millones de muestras temporales independientes.
 
-El rango ilustrativo de 2027 usa ±21.05 puntos porcentuales, tomado del percentil 90 del error absoluto retrospectivo de Ridge en 2021. No es un intervalo probabilístico calibrado ni garantiza cobertura futura de 90%. El semáforo clasifica en tercios relativos de las estimaciones nacionales, sin representar probabilidades de un evento.
+El rango ilustrativo de 2027 usa el percentil 90 del error absoluto retrospectivo del método seleccionado (persistencia en esta versión), tomado de 2021. No es un intervalo probabilístico calibrado ni garantiza cobertura futura de 90%. El semáforo clasifica en tercios relativos de las estimaciones nacionales, sin representar probabilidades de un evento.
 
 ### Cartografía y comparabilidad
 

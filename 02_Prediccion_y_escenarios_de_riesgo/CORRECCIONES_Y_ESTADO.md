@@ -34,12 +34,12 @@ Estas cifras usan umbral del entrenamiento, no tercio de la prueba. La comparaci
 
 ## Mejoras de decisión aplicadas (5 de octubre de 2026)
 
-El modelo permanece congelado (alpha=10, cortes y selección originales). Se añadieron capas de explicación y decisión, sin reentrenar:
+Se actualizó el modelo para seleccionar alpha con validación temporal expansiva y se añadió un Ridge ponderado por SV+NV como challenger experimental. La regla de selección compara la magnitud absoluta del sesgo (se corrigió la comparación firmada); con los resultados regenerados, Ridge se selecciona para la vista inicial exploratoria, mientras 2024 conserva su resultado adverso. Se añadieron capas de explicación y decisión:
 
 | Mejora | Implementación y límites |
 |---|---|
 | Ficha «¿Por qué este municipio?» | Posición de prioridad, riesgo, estabilidad, estimación, razones (comparable, último proceso, jóvenes, urbano, NS, acuerdo de métodos), robustez 6/6, acción, hipótesis y forma de evaluarla |
-| Estabilidad de prioridad | Frecuencia con que el municipio entra en la selección entre las seis variantes (2 métodos × NS 5/10/20). No es probabilidad. El rango ±21.05 pp se mueve a una nota técnica |
+| Estabilidad de prioridad | Frecuencia con que el municipio entra en la selección entre las seis variantes (2 métodos × NS 5/10/20). No es probabilidad. El rango histórico P90 se mueve a una nota técnica |
 | Perfil CCPC separado | Abstención observada por edad, sexo y tipo de sección (2021 y 2024), calculada directo de los ZIP. Capa explicativa posterior: no alimenta a Ridge, referencia ni prioridad; no implica causalidad |
 | Modo Director | Capacidad territorial (municipios) o humana (personas alcanzables), estabilidad mínima, plan sugerido y descarga |
 | Frontera de decisión | Núcleo robusto 6/6, zona de revisión 1/6–5/6 y fuera. El piloto aleatorio se propone dentro de la frontera |

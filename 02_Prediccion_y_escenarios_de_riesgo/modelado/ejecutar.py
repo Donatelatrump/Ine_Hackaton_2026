@@ -177,6 +177,46 @@ def predict(model, records):
     )
     return np.clip(result, 0, 100).tolist()
 
+def fit_population_weighted(before, ns_limit=10):
+    """Fit a separate Ridge challenger weighted by observed SV+NV counts."""
+    years = sorted(y for y in [2015, 2018, 2021, 2024] if y < before)
+    training = [r for year in years for r in examples(year, ns_limit)]
+    folds = []
+    for fold_idx in range(1, len(years)):
+        fold_train = [r for y in years[:fold_idx] for r in examples(y, ns_limit)]
+        fold_val = examples(years[fold_idx], ns_limit)
+        if fold_train and fold_val:
+            folds.append((fold_train, fold_val))
+    # Optimize alpha against the same population-weighted MAE later reported.
+    scored = {}
+    for candidate in ALPHA_CANDIDATES:
+        total_error = total_weight = 0.0
+        for fold_train, fold_val in folds:
+            pipe = make_pipeline(StandardScaler(), Ridge(alpha=candidate))
+            pipe.fit(
+                np.asarray([r['feature']['x'] for r in fold_train]),
+                np.asarray([r['y'] - r['feature']['baseline'] for r in fold_train]),
+                ridge__sample_weight=np.asarray([r['weight'] for r in fold_train]),
+            )
+            predictions = np.clip(
+                np.asarray([r['feature']['baseline'] for r in fold_val])
+                + pipe.predict(np.asarray([r['feature']['x'] for r in fold_val])),
+                0, 100,
+            )
+            weights = np.asarray([r['weight'] for r in fold_val])
+            observed = np.asarray([r['y'] for r in fold_val])
+            total_error += float(np.sum(np.abs(predictions - observed) * weights))
+            total_weight += float(np.sum(weights))
+        scored[candidate] = total_error / total_weight if total_weight else float('inf')
+    alpha = min(scored, key=scored.__getitem__) if folds else 10
+    model = make_pipeline(StandardScaler(), Ridge(alpha=alpha))
+    model.fit(
+        np.asarray([r['feature']['x'] for r in training]),
+        np.asarray([r['y'] - r['feature']['baseline'] for r in training]),
+        ridge__sample_weight=np.asarray([r['weight'] for r in training]),
+    )
+    return model, training, alpha
+
 def blend_predict(model, records, blend_weight):
     """Mezcla conservadora: (1-w)*Ridge + w*referencia.
 
@@ -227,6 +267,8 @@ for target in [2021, 2024]:
     test = examples(target)
     pred = predict(model, test)
     pred_blend = blend_predict(model, test, best_blend)
+    weighted_model, _, weighted_alpha = fit_population_weighted(target)
+    pred_weighted = predict(weighted_model, test)
     base = [r['feature']['baseline'] for r in test]
     checks[str(target)] = {
         'entrenamiento_anos': sorted({r['year'] for r in training}),
@@ -236,6 +278,8 @@ for target in [2021, 2024]:
         'persistencia': metrics(test, base),
         'ridge': metrics(test, pred),
         'blend_conservador': metrics(test, pred_blend),
+        'ridge_ponderado_por_conteo': metrics(test, pred_weighted),
+        'alpha_ridge_ponderado': weighted_alpha,
         'bootstrap': bootstrap_difference(test, pred),
     }
     alpha_log[str(target)] = best_alpha
@@ -249,7 +293,7 @@ for target in [2021, 2024]:
         'ridge': metrics(check_records, [pred[i] for i in indexes]),
         'nota': 'Estabilidad de catálogo es proxy; no acredita estabilidad de límites.',
     }
-    for r, p, pb, b in zip(test, pred, pred_blend, base):
+    for r, p, pb, pw, b in zip(test, pred, pred_blend, pred_weighted, base):
         predictions.append({
             'ano': target,
             'clave_municipio_ine': r['key'],
@@ -258,13 +302,14 @@ for target in [2021, 2024]:
             'persistencia': b,
             'ridge': p,
             'blend': pb,
+            'ridge_ponderado_por_conteo': pw,
             'ultimo_ano_predictor': r['feature']['source_year'],
             'ano_mismo_tipo': r['feature']['same_year'],
             'peso_observado': r['weight'],
         })
     for state in sorted({r['state'] for r in test}):
         ix = [i for i, r in enumerate(test) if r['state'] == state]
-        for name, values in [('persistencia', base), ('ridge', pred), ('blend', pred_blend)]:
+        for name, values in [('persistencia', base), ('ridge', pred), ('blend', pred_blend), ('ridge_ponderado_por_conteo', pred_weighted)]:
             state_metrics.append({
                 'ano': target, 'entidad_ine': state, 'metodo': name,
                 **metrics([test[i] for i in ix], [values[i] for i in ix], min(10, len(ix))),
@@ -312,6 +357,7 @@ for limit in [5, 10, 20]:
 
 # Modelo final para proyección 2027
 final_model, final_training, final_alpha, final_blend = fit(2027)
+final_weighted_model, final_weighted_training, final_weighted_alpha = fit_population_weighted(2027)
 final_stable_states = set(stable_catalog_states(2024))
 rows = []
 for key, h in sorted(histories.items()):
@@ -321,11 +367,13 @@ for key, h in sorted(histories.items()):
     baseline = None
     ridge = None
     blend = None
+    weighted = None
     contributions = []
     if feat:
         baseline = feat['baseline']
         ridge = predict(final_model, [{'feature': feat}])[0]
         blend = blend_predict(final_model, [{'feature': feat}], final_blend)[0]
+        weighted = predict(final_weighted_model, [{'feature': feat}])[0]
         if selected_final == 'blend':
             estimate = blend
         elif selected_final == 'ridge':
@@ -355,6 +403,7 @@ for key, h in sorted(histories.items()):
         'name': latest['municipio_nombre_cartografia'] or latest['municipio_nombre'],
         'ln': latest['ln'], 'risk': estimate, 'baseline': baseline,
         'ridge': ridge, 'blend': blend, 'method': selected_final,
+        'ridge_ponderado_por_conteo': weighted,
         'range_low': max(0, estimate - error90) if estimate is not None else None,
         'range_high': min(100, estimate + error90) if estimate is not None else None,
         'latest_ns': latest['no_especificados_pct'],
@@ -382,6 +431,11 @@ metadata = {
     'selected_model': selected_final,
     'alpha_final': final_alpha,
     'blend_weight_final': final_blend,
+    'alpha_ridge_ponderado_final': final_weighted_alpha,
+    'weighted_model_definition': (
+        'Ridge residual separado; sample_weight=SV+NV del objetivo histórico. '
+        'Challenger experimental, no seleccionado automáticamente.'
+    ),
     'alpha_por_corte': alpha_log,
     'blend_weight_por_corte': blend_log,
     'selection_rule': (

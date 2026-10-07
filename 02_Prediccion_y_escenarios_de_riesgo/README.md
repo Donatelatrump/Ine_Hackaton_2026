@@ -4,7 +4,7 @@
 
 [Documento para analizar requisitos, decisiones, resultados y pendientes](ANALISIS_TRACK_2.md).
 
-**Prototipo ejecutable:** [Umbral](demo/README.md), con mapa nacional, filtros de calidad, priorización por capacidad y exportación de escenarios. [Resultados reales del modelo](modelado/RESULTADOS.md) y [reproducción](modelado/METODOLOGIA.md). Ridge mejora en 2021 y pierde frente a la referencia en 2024: la proyección 2027 se conserva explícitamente como exploratoria.
+**Prototipo ejecutable:** [Umbral](demo/README.md), con mapa nacional, filtros de calidad, priorización por capacidad y exportación de escenarios. [Resultados reales del modelo](modelado/RESULTADOS.md) y [reproducción](modelado/METODOLOGIA.md). Ridge mejora en 2021 y pierde frente a la referencia en 2024; el challenger ponderado no mejora el MAE municipal. Ridge queda seleccionado por la regla retrospectiva de 2021 y la proyección 2027 sigue siendo exploratoria.
 
 Analítica predictiva para anticipar abstención territorial y priorizar recursos: modelar riesgo con tendencias y variables agregadas, comparar escenarios con/sin intervención, comunicar riesgo y recomendar prevención. Sin datos personales.
 

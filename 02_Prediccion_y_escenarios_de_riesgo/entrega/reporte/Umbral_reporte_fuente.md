@@ -54,7 +54,7 @@ Cada cifra proviene de archivos citados en el pie de tabla o en el texto: datos_
 Predice la abstención de la última elección del mismo tipo: 2015 para 2021, 2018 para 2024 y 2021 para 2027. Si no existe antecedente válido, no se sustituye por otro tipo electoral. Es interpretable y constituye la exigencia mínima que la complejidad debe superar.
 
 ### Ajuste Ridge
-Ridge estima el residual respecto de la referencia con diez características agregadas: abstención del mismo tipo, abstención del último proceso, su diferencia, logaritmo de LN, proporción 18-29, proporción 60+ sin edades extremas, proporción urbana, NS de ambos antecedentes y tipo de elección. StandardScaler y Ridge se ajustan solo con entrenamiento anterior a cada corte; alpha=10 se fijó antes de ver métricas; la predicción se trunca a [0,100].
+Ridge estima el residual respecto de la referencia con doce características agregadas, incluidas interacciones entre el tipo intermedio y las tasas históricas. StandardScaler y Ridge se ajustan solo con entrenamiento anterior a cada corte; alpha se selecciona mediante validación temporal expansiva; la predicción se limita a [0,100]. Se compara además un Ridge ponderado por SV+NV, experimental y evaluado en cortes retrospectivos.
 
 ### Flujo simple
 Antecedentes observados con calidad verificada → Referencia del mismo tipo → Ajuste Ridge del residual → Estimación 2027 → Semáforo relativo, estabilidad y decisión con capacidad.
@@ -65,7 +65,7 @@ Antecedentes observados con calidad verificada → Referencia del mismo tipo →
 Para evaluar 2021 se entrena con etiquetas 2015 y 2018; para 2024, con 2015, 2018 y 2021. La proyección 2027 incorpora 2015, 2018, 2021 y 2024. Cada ejemplo usa características anteriores a su año objetivo. Hay seis procesos y solo tres intermedias: el volumen de registros no crea más ocasiones electorales.
 
 ### Regla de selección
-Fijada para 2021: adoptar Ridge solo si mejora el MAE al menos 1% y no empeora el MAE ponderado ni la precisión top50. Ridge cumple esa regla en 2021. El corte 2024 se conserva como comprobación y no se usó para reajustar alpha ni para ocultar el deterioro.
+Fijada para 2021: adoptar Ridge solo si mejora el MAE al menos 1%, no empeora el MAE ponderado ni la precisión top50 y no aumenta la magnitud del sesgo más de 3 pp. Ridge cumple esa regla en 2021. El corte 2024 se conserva como comprobación y documenta transferencia desfavorable.
 
 ### 2021 es selección, no prueba
 2021 se usó para elegir; no es una prueba independiente posterior a la selección. Los análisis posteriores (rango, tamaño, estabilidad) tampoco reajustan el modelo: describen su comportamiento con parámetros congelados.
@@ -87,7 +87,7 @@ Se definieron después del experimento original y antes de calcularlas: Spearman
 Se combinan dos métodos × umbrales NS 5/10/20 para seis variantes. En seis de seis, un municipio forma parte del núcleo robusto; entre una y cinco, de la zona de revisión; cero, queda fuera. La frecuencia es descriptiva, no probabilidad calibrada. Las variantes comparten datos y pueden equivocarse juntas. En capacidad humana se usa N municipal equivalente, sin recalcular el presupuesto por variante; filtro mínimo con N previo al filtro y ficha/frontera con N final. Fuente: demo/decision.js y demo/aplicacion.js.
 
 ### Incertidumbre de prioridad, no de intervalo
-La interfaz responde «si solo puedo intervenir N municipios, ¿puedo confiar en que este esté entre ellos?» comunicando esa frecuencia y el acuerdo de puesto entre referencia y Ridge. El rango ±21.05 pp (P90 retrospectivo de Ridge 2021, truncado a [0,100]) se conserva solo como error histórico, no como intervalo prospectivo.
+La interfaz responde «si solo puedo intervenir N municipios, ¿puedo confiar en que este esté entre ellos?» comunicando esa frecuencia y el acuerdo de puesto entre referencia y Ridge. El rango ±20.61 pp (P90 retrospectivo de Ridge 2021, truncado a [0,100]) se conserva solo como error histórico, no como intervalo prospectivo.
 
 ### Error por tamaño y límites
 El P90 del error por denominador observable previo (<10 mil, 10-100 mil, ≥100 mil) describe heterogeneidad por escala, no un intervalo para 2027. Límites: seis ocasiones electorales y tres intermedias; 2024 es presidencial y no valida 2027; sin causalidad; selección por calidad que puede excluir zonas con necesidad alta.

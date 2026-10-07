@@ -29,13 +29,15 @@ Referencia: última elección del mismo tipo. Ridge ajusta un residual con diez 
 | Corte | Método | Municipios | MAE (pp) | MAE ponderado (pp) | Aciertos top50 |
 |---|---|---:|---:|---:|---:|
 | 2021 | Referencia | 1,490 | 12.12 | 8.05 | 16/50 |
-| 2021 | Ridge | 1,490 | 9.21 | 5.49 | 19/50 |
+| 2021 | Ridge temporal | 1,490 | 9.10 | 5.47 | 22/50 |
+| 2021 | Ridge ponderado (experimental) | 1,490 | 9.19 | 5.57 | 17/50 |
 | 2024 | Referencia | 1,476 | 5.64 | 3.54 | 27/50 |
-| 2024 | Ridge | 1,476 | 8.58 | 4.49 | 27/50 |
+| 2024 | Ridge temporal | 1,476 | 7.85 | 4.31 | 26/50 |
+| 2024 | Ridge ponderado (experimental) | 1,476 | 7.82 | 3.71 | 17/50 |
 
 Ridge mejora aproximadamente 23.9% en 2021 y empeora 52.2% en 2024. No muestra superioridad consistente. 2021 fue selección, no prueba independiente posterior; 2024 es presidencial y no valida directamente 2027. Millones de filas no compensan seis ocasiones electorales y tres intermedias. Las métricas adicionales son análisis posteriores, no nueva validación independiente.
 
-El top50 se compara dentro de cada cohorte evaluable. La exclusión por calidad puede apartar territorios con necesidad alta; falta validar representatividad y comparabilidad territorial. El rango ±21.05 pp es error histórico ilustrativo, no intervalo probabilístico prospectivo.
+El top50 se compara dentro de cada cohorte evaluable. La exclusión por calidad puede apartar territorios con necesidad alta; falta validar representatividad y comparabilidad territorial. El rango se calcula con el método seleccionado y es error histórico ilustrativo, no intervalo probabilístico prospectivo. Ridge se selecciona por la regla retrospectiva de 2021; 2024 documenta una transferencia desfavorable.
 
 ## Semáforo y estabilidad
 

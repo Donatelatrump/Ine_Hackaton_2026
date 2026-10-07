@@ -7,11 +7,13 @@ La propuesta ahora responde una decisión concreta: con capacidad para atender N
 | Corte | Método | Municipios evaluados | MAE (pp) | MAE ponderado (pp) | Aciertos top 50 |
 |---|---|---:|---:|---:|---:|
 | 2021 | Última elección del mismo tipo | 1,490 | 12.12 | 8.05 | 16/50 |
-| 2021 | Ridge, alpha=10 | 1,490 | 9.21 | 5.49 | 19/50 |
+| 2021 | Ridge, alpha elegido temporalmente | 1,490 | 9.10 | 5.47 | 22/50 |
+| 2021 | Ridge ponderado por SV+NV (experimental) | 1,490 | 9.19 | 5.57 | 17/50 |
 | 2024 | Última elección del mismo tipo | 1,476 | 5.64 | 3.54 | 27/50 |
-| 2024 | Ridge, alpha=10 | 1,476 | 8.58 | 4.49 | 27/50 |
+| 2024 | Ridge, alpha elegido temporalmente | 1,476 | 7.85 | 4.31 | 26/50 |
+| 2024 | Ridge ponderado por SV+NV (experimental) | 1,476 | 7.82 | 3.71 | 17/50 |
 
-Ridge satisface la regla fijada para 2021: MAE al menos 1% menor y métricas ponderada/top50 no peores. Reduce el MAE 23.9% en ese corte, pero solo recupera 19 de los 50 municipios con mayor abstención observada. En 2024 pierde frente a la referencia. No se ajustaron parámetros para ocultar ese resultado: la mejora no es consistentemente transferible.
+Ridge satisface la regla fijada para 2021: MAE al menos 1% menor, MAE ponderado y top50 no peores, y magnitud de sesgo dentro del margen de 3 pp. Reduce el MAE 24.9% en ese corte, pero solo recupera 22 de los 50 municipios con mayor abstención observada. En 2024 pierde frente a la referencia. El challenger ponderado tampoco mejora el MAE municipal frente a la referencia. Por la regla preregistrada, Ridge queda como método inicial exploratorio; la mejora no es consistentemente transferible.
 
 2021 se usa para seleccionar, no constituye evaluación independiente posterior a selección. 2024 es presidencial; no valida una futura elección intermedia. Hay seis ocasiones electorales nacionales y solo tres intermedias, aunque las fuentes sumen millones de filas. La proyección 2027 es exploratoria, útil para revisión, sin afirmar precisión futura.
 
@@ -23,7 +25,7 @@ En 2021, al exigir NS ≤5%, se evalúan 1,007 municipios: MAE referencia 12.69/
 
 En entidades con catálogos de claves constantes, el corte 2021 comprende 1,050 municipios y 2024 comprende 948. Se mantiene la ventaja de MAE en 2021 y la pérdida en 2024. El filtro por catálogo deja 1,144 estimaciones actuales; es un proxy conservador y no prueba que los límites municipales sean idénticos. Falta armonizar límites históricos para sustentar comparabilidad territorial más fuerte.
 
-El rango mostrado en 2027 es estimación ±21.05 pp, percentil 90 del error absoluto de Ridge en 2021, truncado a [0,100]. Es ilustrativo y amplio; no es intervalo probabilístico calibrado ni garantiza cobertura del 90% en 2027. El semáforo divide estimaciones válidas en tercios nacionales, no representa probabilidades de un evento.
+El rango mostrado en 2027 usa el percentil 90 del error absoluto de Ridge en 2021 (20.61 pp en la salida actual), truncado a [0,100]. Es ilustrativo; no es intervalo probabilístico calibrado ni garantiza cobertura del 90% en 2027. El semáforo divide estimaciones válidas en tercios nacionales, no representa probabilidades de un evento. El método seleccionado se guarda en `metricas.json` y la demo inicia con ese método.
 
 ## Escenario operativo
 
