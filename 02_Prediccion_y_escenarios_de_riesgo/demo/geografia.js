@@ -57,10 +57,10 @@ const mapTextSelectors = ["#map-caption", ".map-guide", ".legend", "#confidence-
 function reserveGeographyTextSpace() {
  if(!municipalMapText) return;
  const stateText = [
-  municipalMapText[0]+' Promedio estatal ponderado por SV+NV 2024 de municipios con estimación en el filtro.',
-  municipalMapText[1]+' La cobertura puede ser parcial; los municipios sin estimación no cuentan como cero. Límites estatales derivados de cartografía municipal simplificada, solo para referencia visual.',
+  municipalMapText[0]+' Promedio de municipios con datos por estado.',
+  municipalMapText[1],
   municipalMapText[2].replace('Seleccionado</span>', 'Con municipios seleccionados</span>'),
-  'Abre un estado para consultar la frecuencia de selección de sus municipios.'
+  'La selección del plan se compara entre seis variantes; repetirse no garantiza acierto.'
  ];
  mapTextSelectors.forEach((selector,i)=>{
   const element = document.querySelector(selector), clone = element.cloneNode(false);
@@ -96,7 +96,12 @@ function initGeography() {
  let resizeFrame;
  window.addEventListener('resize', ()=>{
   cancelAnimationFrame(resizeFrame);
-  resizeFrame = requestAnimationFrame(reserveGeographyTextSpace);
+  resizeFrame = requestAnimationFrame(()=>{
+   reserveGeographyTextSpace();
+   map.invalidateSize();
+   const polygon=geographyFocusKey?layer.getLayers().find(p=>p.feature.properties.key===geographyFocusKey):$('state').value?stateLayer.getLayers().find(p=>p.feature.properties.state===$('state').value):null;
+   map.fitBounds(polygon?polygon.getBounds():layer.getBounds(),{padding:[12,12],maxZoom:geographyFocusKey?10:undefined,animate:false});
+  });
  });
 }
 function updateGeography(dataChanged = true) {
@@ -113,12 +118,12 @@ function updateGeography(dataChanged = true) {
   mapTextSelectors.forEach((selector,i)=>{document.querySelector(selector).innerHTML=municipalMapText[i];});
  }
  const statesOn = !$('state').value;
- $('map-title').textContent = 'Explora los Estados';
+ $('map-title').textContent = statesOn?'Explora los estados':'Explora los municipios';
  $('map').setAttribute('aria-label', statesOn?'Mapa de los estados de México':'Mapa de municipios de México');
  map.getPane('state-geography').style.visibility = statesOn?'visible':'hidden';
  map.getPane('municipal-geography').style.visibility = statesOn?'hidden':'visible';
  if(!statesOn){
-  $('confidence').disabled = false;
+  $('confidence').disabled = !simulationActive();
   return;
  }
  // La frecuencia de selección corresponde a municipios, no a entidades.
@@ -134,7 +139,7 @@ function updateGeography(dataChanged = true) {
   const weight = Number.isFinite(r.observed)&&r.observed>0?r.observed:0;
   g.population += weight;
   g.weighted += r.risk*weight;
-  const s = selectedMap.get(r.key);
+  const s = simulationActive()?selectedMap.get(r.key):null;
   if(s){g.selected++;g.additional += s.additional;}
  }
  const mode = $('map-mode').value;
@@ -154,8 +159,7 @@ function updateGeography(dataChanged = true) {
  });
  stateGeographyDirty = false;
  }
- $('map-caption').textContent += ' Promedio estatal ponderado por SV+NV 2024 de municipios con estimación en el filtro.';
- document.querySelector('.map-guide').textContent += ' La cobertura puede ser parcial; los municipios sin estimación no cuentan como cero. Límites estatales derivados de cartografía municipal simplificada, solo para referencia visual.';
+ $('map-caption').textContent += ' Promedio de municipios con datos por estado.';
  document.querySelector('.legend').innerHTML = document.querySelector('.legend').innerHTML.replace('Seleccionado</span>', 'Con municipios seleccionados</span>');
- $('confidence-note').textContent = 'Abre un estado para consultar la frecuencia de selección de sus municipios.';
+ $('confidence-note').textContent = 'La selección del plan se compara entre seis variantes; repetirse no garantiza acierto.';
 }

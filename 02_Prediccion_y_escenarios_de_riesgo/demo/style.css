@@ -114,3 +114,78 @@ button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,s
 .picker-empty{font-size:12px;margin:6px;padding:8px}
 .controls.panel{overflow:visible}
 #status:empty{display:none}
+/* Jerarquía de consulta: lectura cómoda y detalles a demanda. */
+body{font-size:16px}
+label:not(.check),input[type=number],input[type=search],select,.check,.ghost,.primary{font-size:14px}
+.hint,.stats small,.map-heading p,.map-guide,.legend,.settings summary,.planning-settings summary,.picker-options [role=option],.table-note{font-size:14px;line-height:1.6}
+.eyebrow{font-size:12px;letter-spacing:1.1px}
+.intro-card strong{font-size:32px}
+.intro-card>span:not(.eyebrow),.intro-card a,.intro .intro-limit{font-size:14px}
+.journey small{font-size:13px}
+.stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+.stats article>span{font-size:14px}
+.stats strong{font-size:28px}
+.analysis>.lower{grid-template-columns:1fr;gap:14px}
+.detail{width:100%}
+.detail h2{font-size:25px}
+#detail-content h3{font-size:17px}
+#detail-content>.fact-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+#detail-content>.fact-cards>div{padding:16px;background:#edf3ef;border-radius:10px}
+.fact-cards strong{font-size:30px}
+.fact-cards small,.fact-cards span{font-size:14px;line-height:1.6}
+.detail-limit{padding:12px 14px;background:#fff7e7;border-radius:8px}
+.detail details{border-top:1px solid var(--line);padding-top:12px;margin-top:12px}
+.detail summary,.detail p,#detail-content p,.detail .why{font-size:15px;line-height:1.6}
+.ranking>summary{padding:18px 22px;font-size:16px;line-height:1.6}
+.ranking .badge{margin-left:8px;font-size:13px;font-weight:400;white-space:normal}
+.ranking td,.ranking th,.ranking td small,.row-button{font-size:14px;line-height:1.6}
+.ranking .row-button{min-height:36px;text-decoration:underline;text-underline-offset:3px}
+.ranking .table-wrap{max-height:400px}
+.missing-panel>summary,.documents>summary{font-size:17px;line-height:1.5}
+.missing-panel p,.missing-panel summary,.missing-row span,.missing-row small,.missing-row strong{font-size:14px;line-height:1.6}
+.intervention-grid{grid-template-columns:minmax(280px,360px) minmax(0,1fr);align-items:start}
+.scenario-controls,.intervention-grid>div{min-width:0}
+.simulation-empty{padding:24px;background:#edf3ef;border-radius:12px}
+.simulation-empty h3{margin:0;font-size:20px}
+.simulation-empty p{margin-bottom:0;font-size:15px}
+.simulation-count{font-size:15px;color:var(--ink);margin-top:0}
+.result-details{margin:14px 0}
+.result-details summary,.evidence-note summary,.plan summary,.lens-title-label{font-size:14px;line-height:1.6}
+.evidence-note p,.scenario-panel p,.scenario-panel .hint,.scenario-assumptions,.plan .hint{font-size:14px;line-height:1.6}
+.scenario-panel{padding:0;display:block}
+.scenario-panel h2{font-size:22px}
+.intervention .scenario-values.comparison{margin-top:20px}
+.comparison span,.comparison small,.scenario-outcomes span,.scenario-outcomes small,.lens-card small{font-size:14px;line-height:1.5}
+.comparison strong{font-size:25px}
+.lens-card strong{font-size:15px}
+.planning-settings .lens-badge{font-size:12px}
+.plan{padding:18px 0}
+.plan-grid span,.plan-grid strong{font-size:14px}
+.documents{padding:20px 24px}
+summary:focus-visible{outline:3px solid var(--teal);outline-offset:4px}
+@media(max-width:1050px){.intervention-grid{grid-template-columns:1fr}.scenario-controls{border-right:0;padding-right:0}.simulation-empty{margin-top:14px}}
+@media(max-width:780px){
+ .controls{display:block}
+ .journey{grid-template-columns:1fr;gap:6px}
+ .journey a{align-items:center;padding:10px 12px}
+ .journey span{font-size:14px}
+ .stats article{padding:12px}
+ .stats article>span,.stats small{font-size:13px}
+ .stats strong{font-size:27px}
+ .map-options{display:block}
+ .map-options select{width:100%;margin:8px 0}
+ .map-heading{align-items:flex-start}
+ .legend{font-size:13px;gap:10px}
+ .detail{padding:18px}
+ #detail-content>.fact-cards{grid-template-columns:1fr}
+ .ranking>summary{padding:16px 18px}
+ .ranking .badge{display:block;width:fit-content;margin:6px 0 0}
+ .ranking th,.ranking td{padding:10px;font-size:14px}
+ .missing-panel{padding:18px}
+ .intervention{padding:20px}
+ .intervention .scenario-values.comparison{grid-template-columns:1fr}
+ .comparison strong{font-size:28px}
+ .scenario-values{width:100%;min-width:0}
+}
+.map-reading{padding:0 20px 18px;font-size:14px;line-height:1.6}
+.comparison strong.small-change{font-size:19px;letter-spacing:0}

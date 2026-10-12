@@ -1,6 +1,10 @@
 {
   "passed": true,
   "checks": [
+    "initial_exploration",
+    "grouped_simulation_controls",
+    "progressive_evidence",
+    "mobile_detail_priority",
     "local_file",
     "initial_no_action",
     "sms_sources",

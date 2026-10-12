@@ -20,6 +20,7 @@ function preventive(r){
 let rankCache={};
 function rankUnder(key,method){const ck=method+'|'+$('lens').value;let hit=rankCache[ck];if(!hit){hit=Decision.rank(filtered.map(x=>({...x,risk:x[method]})),$('lens').value);rankCache[ck]=hit;}return hit.findIndex(x=>x.key===key)+1;}
 function clearCaches(){normCache.clear();rankCache={};}
+const simulationActive=()=>$('action').value!=='ninguna'&&$('reach').value.trim()!==''&&$('reach').checkValidity();
 const smooth=()=>matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';
 function perfilCell(key,year,dim,group){try{return perfil.municipios[key][String(year)][dim][group];}catch(e){return null;}}
 function perfilRow(key,dim,group,minN=500){
@@ -55,7 +56,7 @@ function detail(key){
  const inv=$('action').value==='personalizada'?Decision.inverseScenario(r,chosen?.served||0,Number($('response').value),thresholds):{reason:'La inversión de respuesta solo aplica al escenario personalizado. El efecto del estudio seleccionado permanece fijo; no se ajusta para cambiar el color.'};
  const p=preventive(r);
  const refRank=rankUnder(key,'baseline'),ridgeRank=rankUnder(key,'ridge'),capacityNow=plan.selected.length;
- $('detail-name').textContent=r.name;$('detail-state').textContent=r.state_name+' · Clave INE '+r.key+' · Prioridad '+pos+' de '+total;
+ $('detail-name').textContent=r.name;$('detail-state').textContent=r.state_name+' · Clave INE '+r.key+(simulationActive()?' · Prioridad '+pos+' de '+total:'');
  const last=r.history.length?r.history[r.history.length-1]:null;
  const reasons=[];
  if(Number.isFinite(r.baseline))reasons.push(`Abstención en la elección comparable (2021): <strong>${pct(r.baseline)}</strong>`);
@@ -63,7 +64,7 @@ function detail(key){
  if(Number.isFinite(r.profile.urban_pct))reasons.push(`Personas registradas en zonas urbanas: ${pct(r.profile.urban_pct)}`);
  if(Number.isFinite(r.latest_ns))reasons.push(`Registros de 2024 sin información sobre si votaron: <strong>${pct(r.latest_ns)}</strong>`);
  const bothHigh=capacityNow>0&&refRank<=capacityNow&&ridgeRank<=capacityNow;
- reasons.push(`La referencia de 2021 (puesto ${refRank||'—'}) y la estimación con datos históricos (puesto ${ridgeRank||'—'}): ${bothHigh?'coinciden dentro de la capacidad actual':(refRank<=capacityNow||ridgeRank<=capacityNow)?'solo uno entra en la selección con la capacidad actual':'ninguno entra en la selección con la capacidad actual'}`);
+ if(simulationActive())reasons.push(`La referencia de 2021 (puesto ${refRank||'—'}) y la estimación con datos históricos (puesto ${ridgeRank||'—'}): ${bothHigh?'coinciden dentro de la capacidad actual':(refRank<=capacityNow||ridgeRank<=capacityNow)?'solo uno entra en la selección con la capacidad actual':'ninguno entra en la selección con la capacidad actual'}`);
  const mem=s.members||{},any=(vs)=>vs.some(v=>mem[v]);
  const robustez=[
   ['Ridge (alguna variante)',any(['ridge_5','ridge_10','ridge_20'])],
@@ -77,17 +78,17 @@ function detail(key){
  $('detail-content').innerHTML=`<h3>¿Qué ocurrió en elecciones anteriores?</h3><div class="fact-cards">
   <div><span>Dato observado · ${last?last.year:'sin antecedente'}</span><strong>${last?pct(last.risk):'Sin dato'}</strong><small>${last&&Number.isFinite(last.risk)?"Aproximadamente "+Math.round(last.risk)+" de cada 100 personas no votaron":"Sin dato disponible"}</small></div>
   </div><h3>¿Qué se estima para 2027?</h3><div class="fact-cards"><div><span>Estimación exploratoria · 2027</span><strong>${pct(r.risk)}</strong><small>Aproximadamente ${Math.round(r.risk)} de cada 100 personas podrían no votar. Es una estimación.</small></div>
-  <div><span>Simulación · según los valores del paso 3</span><strong>${chosen?pct(chosen.after):'Sin asignación'}</strong><small>${chosen?fmt.format(chosen.served)+' personas alcanzadas (supuesto)':'Fuera del plan actual'}</small></div></div>
-  <details><summary>¿Por qué está aquí?</summary><ul class="why">${reasons.map(x=>`<li>${x}</li>`).join('')}</ul><p>Estos antecedentes ayudan a ordenar la revisión. No demuestran por qué una persona decide no votar.</p></details>
-  <h3>Acción del simulador</h3><p>${esc(plan.action.label)}. ${esc(plan.action.unit)}. ${plan.action.source?`<a href="${esc(plan.action.source)}" target="_blank" rel="noopener noreferrer">Fuente original ↗</a>`:"Sin coeficiente externo."}</p><h3>Recomendación preventiva por validar</h3><p><strong>Acción sugerida: ${esc(p.type)}.</strong> ${esc(p.action)}.</p><p class="hint">Propuesta por validar con la comunidad. ${esc(p.mechanism)}.</p>
-  <h3>¿Qué debemos comprobar antes de aplicarla?</h3><p>Este municipio aparece entre los seleccionados en <strong>${s.count} de las 6 formas de comparar los datos</strong>. ${s.robust?'Seleccionado en todas las variantes.':s.count>0?'La selección depende del método o de la calidad.':'No entra en las variantes con la capacidad actual.'} Tiene datos suficientes para ${s.eligible} de esas 6 comparaciones. Repetirse no garantiza un resultado correcto: los métodos comparten datos y pueden equivocarse juntos.</p>
+  ${simulationActive()?`<div><span>Con la acción del paso 3</span><strong>${chosen?pct(chosen.after):'Sin asignación'}</strong><small>${chosen?fmt.format(chosen.served)+' personas alcanzadas (supuesto)':'Fuera del plan actual'}</small></div>`:''}</div><p class="detail-limit">La cifra de 2027 es exploratoria. No sabemos todavía qué tan precisa será; 2024 y 2027 son elecciones de distinto tipo.</p>
+  <details><summary>Antecedentes y calidad de los datos</summary><ul class="why">${reasons.map(x=>`<li>${x}</li>`).join('')}</ul><p>Estos antecedentes ayudan a ordenar la revisión. No demuestran por qué una persona decide no votar.</p></details>
+  ${simulationActive()?`<details><summary>Acción elegida y revisión del plan</summary><h3>Acción del simulador</h3><p>${esc(plan.action.label)}. ${esc(plan.action.unit)}. ${plan.action.source?`<a href="${esc(plan.action.source)}" target="_blank" rel="noopener noreferrer">Fuente original ↗</a>`:"Sin coeficiente externo."}</p>`:''}<details><summary>Qué actividad podría explorarse en este municipio</summary><h3>Recomendación preventiva por validar</h3><p><strong>Acción sugerida: ${esc(p.type)}.</strong> ${esc(p.action)}.</p><p class="hint">Propuesta por validar con la comunidad. ${esc(p.mechanism)}.</p>
+  </details>${simulationActive()?`<h3>¿Qué debemos comprobar antes de aplicarla?</h3><p>Este municipio aparece entre los seleccionados en <strong>${s.count} de las 6 formas de comparar los datos</strong>. ${s.robust?'Seleccionado en todas las variantes.':s.count>0?'La selección depende del método o de la calidad.':'No entra en las variantes con la capacidad actual.'} Tiene datos suficientes para ${s.eligible} de esas 6 comparaciones. Repetirse no garantiza un resultado correcto: los métodos comparten datos y pueden equivocarse juntos.</p>
   ${r.exclusion_reasons.length?`<div class="evidence-note">${r.exclusion_reasons.map(esc).join('<br>')}</div>`:''}
-  <p>${esc(p.conditions)}.</p>
+  <p>${esc(p.conditions)}.</p></details>`:''}
   <details><summary>Consultar el perfil observado por grupos</summary>${profile||'<p>Sin perfil desagregado disponible.</p>'}</details>
   <details><summary>Responsable, cobertura, recurso y evaluación</summary><dl class="prevention">${Object.entries({Responsable:p.responsible,Cobertura:p.coverage,Recurso:p.resource,'Cómo evaluarla':p.measurement}).map(([k,v])=>`<dt>${k}</dt><dd>${esc(v)}</dd>`).join('')}</dl></details>
-  <details><summary>Avanzado: qué haría falta para cambiar de color</summary><p>${req}</p></details>
-  <details><summary>Cómo cambia la selección entre variantes</summary><ul class="why">${robustez}</ul><p>Frecuencia de selección ${s.count}/6. En modo personas se usa un número equivalente de municipios; no se recalcula el presupuesto humano por variante.</p></details>
-  <details><summary>Ver elecciones anteriores y límites de la estimación</summary><div class="history">${r.history.map(h=>`<div><span>${h.year}</span><div class="bar-track"><i style="width:${Number.isFinite(h.risk)?h.risk:0}%"></i></div><b>${pct(h.risk)}</b></div>`).join('')}</div><p>La prioridad se comunica con la frecuencia entre variantes (arriba). El rango técnico ${pct(r.range_low)}–${pct(r.range_high)} (±21.05 pp, p90 retrospectivo de Ridge 2021) se conserva solo aquí como referencia de error histórico; no es intervalo prospectivo.</p><p>${r.flags.map(esc).join('; ')||'Sin alertas adicionales'}</p></details>`;
+  ${simulationActive()?`<details><summary>Avanzado: qué haría falta para cambiar de color</summary><p>${req}</p></details>`:''}
+  ${simulationActive()?`<details><summary>Cómo cambia la selección entre variantes</summary><ul class="why">${robustez}</ul><p>Frecuencia de selección ${s.count}/6. Se usa un número equivalente de municipios; no se recalcula el presupuesto humano por variante.</p></details>`:''}
+  <details><summary>Ver elecciones anteriores y límites de la estimación</summary><div class="history">${r.history.map(h=>`<div><span>${h.year}</span><div class="bar-track"><i style="width:${Number.isFinite(h.risk)?h.risk:0}%"></i></div><b>${pct(h.risk)}</b></div>`).join('')}</div><p>${simulationActive()?'La prioridad se comunica con la frecuencia entre variantes. ':''}El rango técnico ${pct(r.range_low)}–${pct(r.range_high)} (±21.05 pp, p90 retrospectivo de Ridge 2021) se conserva solo aquí como referencia de error histórico; no es intervalo prospectivo.</p><p>${r.flags.map(esc).join('; ')||'Sin alertas adicionales'}</p></details>`;
 }
 function simulationMunicipalities(){
  const previous=$('simulation-municipality').value;
@@ -105,8 +106,18 @@ function applySimulationScope(){
  geographyFocusKey=null;geographyHistory.length=0;
  update();
 }
+function syncSimulationTerritory(){
+ const state=$('state').value;
+ const exact=state?records.find(r=>r.state===state&&(r.key===$('search').value||r.name===$('search').value)):null;
+ if(state&&$('simulation-state').value!==state){$('simulation-state').value=state;simulationMunicipalities();}
+ $('simulation-scope').value=exact?'municipio':state?'estado':'pais';
+ if(exact)$('simulation-municipality').value=exact.key;
+ $('simulation-state-wrap').hidden=!state;
+ $('simulation-municipality-wrap').hidden=!exact;
+}
 function update(){
  syncSearchablePickers();
+ syncSimulationTerritory();
  clearCaches();
  const capacityMode=$('capacity-mode').value,capacity=Number($('capacity').value),persons=Number($('persons').value);
  const reach=Number($('reach').value),response=Number($('response').value),lens=$('lens').value,method=$('method').value,minConf=$('min-confidence').value;
@@ -115,12 +126,22 @@ function update(){
  $('persons').classList.toggle('hidden',capacityMode!=='personas');$('persons-label').classList.toggle('hidden',capacityMode!=='personas');
  view=viewCache[method]||(viewCache[method]=records.map(r=>({...r,risk:r[method]})));byKey=new Map(view.map(r=>[r.key,r]));filtered=view.filter(matches);if($('simulation-scope').value==='municipio')filtered=filtered.filter(r=>r.key===$('simulation-municipality').value);
  const rates=view.map(r=>r.risk).filter(Number.isFinite);thresholds={low:quantile(rates,1/3),high:quantile(rates,2/3)};
- const action=Decision.interventions[$('action').value];
+ const action=Decision.interventions[$('action').value],simOn=action.id!=='ninguna';
+ const budgetValid=$('reach').value.trim()!==''&&$('reach').checkValidity()&&(capacityMode!=='personas'||($('persons').value.trim()!==''&&$('persons').checkValidity()));
+ const hasResults=simOn&&budgetValid;
+ $('reach').setAttribute('aria-invalid',simOn&&!budgetValid?'true':'false');
+ $('simulation-inputs').hidden=!simOn;$('simulation-results').hidden=!hasResults;
+ $('simulation-empty').hidden=hasResults;$('simulation-prompt').hidden=hasResults;
+ $('simulation-prompt').textContent=simOn&&!budgetValid?'Introduce un número entero de personas entre 0 y 100,000,000 para calcular el escenario.':'Elige una acción para configurar la cobertura y comparar los resultados.';
+ $('simulation-empty').querySelector('h3').textContent=simOn&&!budgetValid?'Revisa la cobertura':'¿Qué podría cambiar?';
+ $('simulation-empty').querySelector('p').textContent=simOn&&!budgetValid?'Los resultados están pendientes hasta corregir el número de personas. Puedes seguir consultando el mapa y las fichas.':'Los resultados aparecerán al elegir una acción. Puedes seguir consultando municipios sin configurar este paso.';
+ $('simulation-map-controls').hidden=!hasResults;
+ $('confidence-note').hidden=!hasResults;
+ if(!hasResults){$('map-mode').value='base';$('confidence').checked=false;}
+ for(const option of $('map-mode').options)option.disabled=!hasResults&&option.value!=='base';
  renderActionEvidence(action);
- const select=pool=>Decision.planIntervention(pool,{capacity:1,budget:reach,reach,response,lens,action:action.id,distribution:$('distribution').value});
+ const select=pool=>Decision.planIntervention(pool,{capacity:1,budget:budgetValid?reach:0,reach:budgetValid?reach:0,response,lens,action:action.id,distribution:$('distribution').value});
  try{
-  if($('reach').value.trim()===''||!$('reach').checkValidity())throw Error('Alcance inválido');
-  if(capacityMode==='personas'&&($('persons').value.trim()===''||!$('persons').checkValidity()))throw Error('Personas inválidas');
   let pool=filtered;
   if(minConf!=='todas'){const probe=select(pool),stab0=Decision.selectionStability(filtered,probe.selected.length,lens);const min=minConf==='alta'?5/6:3/6;pool=filtered.filter(r=>{const s=stab0[r.key];return s&&s.frequency>=min;});}
   plan=select(pool);
@@ -132,7 +153,7 @@ function update(){
  const scope=$('simulation-scope').value,scopeName=scope==='pais'?'México: municipios con estimación incluidos':scope==='estado'?$('simulation-state').selectedOptions[0]?.text:$('simulation-municipality').selectedOptions[0]?.text;
  const universe=view.filter(r=>scope==='pais'||(r.state===$('simulation-state').value&&(scope!=='municipio'||r.key===$('simulation-municipality').value)));
  $('scope-coverage').textContent=`Cobertura de datos: ${territory.municipalities} de ${universe.length} municipios del territorio con estimación incluidos. ${filtered.filter(r=>!Number.isFinite(r.risk)).length} sin estimación dentro del filtro; ${universe.length-filtered.length} fuera de los filtros activos. El promedio no representa los territorios excluidos.`;
- $('distribution-help').textContent=plan.distribution==='proporcional'?'Reparte el total entre municipios elegibles según SV+NV 2024, con personas enteras y redondeo por mayor resto. No garantiza que esta distribución maximice el impacto.':'Asigna el total primero al municipio mejor clasificado y después al siguiente hasta agotar cobertura. Puede concentrar toda la acción en un municipio. Es una regla de planeación, no una campaña distribuida nacionalmente.';
+ $('distribution-help').textContent=plan.distribution==='proporcional'?'Reparte según las personas con registro de voto en 2024. El redondeo por mayor resto conserva el total de personas; no garantiza mayor impacto.':'Atiende primero al municipio con mayor prioridad y después al siguiente. Puede concentrar toda la cobertura en uno solo; no garantiza mayor impacto.';
  $('scenario-assumptions').textContent=`Territorio: ${scopeName}. ${territory.municipalities} municipios con estimación, ${n} atendidos. Cobertura total: ${fmt.format(plan.served)} de ${fmt.format(reach)} personas previstas, Distribución: ${plan.distribution==='proporcional'?'proporcional a SV+NV 2024':'focalizada por prioridad'}. Acción: ${action.label}. ${action.id==='personalizada'?`Respuesta supuesta: ${response}%.`:`Efecto de referencia: ${action.effect_pp} pp (${action.estimand}).`} Base territorial observable: ${fmt.format(territory.population)} personas. Excluye municipios sin estimación y territorios fuera del filtro de catálogo activo. Transferencia hipotética a México.`;
  $('effect-range').textContent=plan.additional_low!==null?`Rango trasladado del estudio: ${plan.additional_low.toFixed(2)}–${plan.additional_high.toFixed(2)} votos adicionales; reducción territorial ${territory.population?(100*plan.additional_low/territory.population).toFixed(5):'0'}–${territory.population?(100*plan.additional_high/territory.population).toFixed(5):'0'} pp. No es un intervalo validado para México.`:action.id==='ninguna'?'Sin acción: la estimación base se conserva.':action.id==='personalizada'?'Sin intervalo de evidencia: efecto supuesto por el usuario.':action.uncertainty;
 
@@ -140,34 +161,44 @@ function update(){
  $('agreement').textContent=`Solapamiento con la lista por tasa: volumen ${Decision.overlap(topRate,topVol)}/${topRate.length}; deterioro ${Decision.overlap(topRate,topChange)}/${topRate.length}.`;
  $('status').textContent='';
  $('eligible').textContent=fmt.format(filtered.filter(r=>Number.isFinite(r.risk)).length);$('coverage').textContent='De '+fmt.format(filtered.length)+' municipios que coinciden con tus filtros';
- $('filter-summary').textContent=$('stable').checked?'Filtro activo: solo estados cuyo listado de municipios no cambió. Esto excluye territorios aunque elijas Todo México.':'Se incluyen estados con y sin cambios en su listado municipal. Los límites históricos necesitan revisión.';
+ const territoryCount=view.filter(r=>(!$('state').value||r.state===$('state').value)&&norm2(r.name+' '+r.key).includes(norm2($('search').value.trim()))).length;
+ $('filter-summary').textContent=$('stable').checked?`${fmt.format(filtered.length)} de ${fmt.format(territoryCount)} municipios incluidos. Filtro activo: solo estados cuyo listado municipal no cambió.`:`${fmt.format(filtered.length)} municipios incluidos. Se incluyen estados con y sin cambios en su listado municipal.`;
  $('show-all').hidden=!$('stable').checked;
  const missing=filtered.filter(r=>!Number.isFinite(r.risk));$('missing-count').textContent=fmt.format(missing.length);
  $('missing-list').innerHTML=missing.slice(0,12).map(r=>`<button class="missing-row" type="button" data-key="${r.key}"><strong>${esc(r.name)}</strong><span>${esc(r.state_name)} · ${r.key}</span><small>${esc(r.exclusion_reasons[0]||'Revisar antecedentes y calidad')}</small></button>`).join('')||'<p>No hay municipios sin estimación en este filtro.</p>';
- $('selected').textContent=n;$('additional').textContent='≈ '+plan.additional.toFixed(2);$('served').textContent=fmt.format(plan.served)+' · '+action.unit;
- $('before').textContent=territory.population?territory.before.toFixed(5)+'%':'Sin estimación';$('after').textContent=territory.population?territory.after.toFixed(5)+'%':'Sin estimación';$('export').disabled=!n;$('list-count').textContent=n+' seleccionados';
- $('reduction').textContent=territory.population?(territory.before-territory.after).toFixed(5)+' pp':'Sin estimación';
+ $('selected').textContent=n;$('additional').textContent='≈ '+(plan.additional>0&&plan.additional<1?plan.additional.toFixed(2):fmt.format(plan.additional));$('served').textContent=fmt.format(plan.served)+' · '+action.unit;
+ $('before').textContent=territory.population?territory.before.toFixed(2)+'%':'Sin estimación';$('after').textContent=territory.population?territory.after.toFixed(2)+'%':'Sin estimación';$('export').disabled=!n||!hasResults;$('list-count').textContent=fmt.format(filtered.filter(r=>Number.isFinite(r.risk)).length)+' con estimación';
+ const change=territory.before-territory.after,smallChange=change>0&&change<.01;
+ $('reduction').textContent=territory.population?(smallChange?'Menos de 0.01':change.toFixed(2)):'Sin estimación';
+ $('reduction').classList.toggle('small-change',smallChange);
+ $('rounding-note').hidden=!(change>0&&territory.before.toFixed(2)===territory.after.toFixed(2));
+ $('rounding-note').textContent='El cambio es pequeño: ambas tasas se ven iguales al redondear a dos decimales. Consulta las cifras completas en los supuestos del cálculo.';
+ $('precise-results').textContent=territory.population?`Cifras completas: sin acción ${territory.before.toFixed(5)}%; con acción ${territory.after.toFixed(5)}%; reducción ${change.toFixed(5)} puntos porcentuales.`:'Sin población con estimación para comparar.';
  const robust=plan.selected.filter(r=>stability[r.key]&&stability[r.key].robust).length,review=n-robust,entityCount=new Set(plan.selected.map(r=>r.state)).size;
  $('plan-summary').innerHTML=[['Municipios',fmt.format(n)],['Entidades',fmt.format(entityCount)],['Base observable SV+NV 2024',fmt.format(plan.reference_population)],['Prioridad núcleo robusto',fmt.format(robust)],['Requieren revisión',fmt.format(review)],['Personas alcanzadas (supuesto)',fmt.format(plan.served)],['Base de municipios atendidos',n?pct(plan.before):'—'],['Escenario de municipios atendidos',n?pct(plan.after):'—']].map(([k,v])=>`<div><span>${k}</span><strong>${v}</strong></div>`).join('');
  const nuc=frontier.nucleo.length,fro=frontier.frontera.length;
  $('frontier-summary').innerHTML=`<strong>Núcleo robusto:</strong> ${fmt.format(nuc)} municipios entran en la selección bajo las 6/6 variantes. <strong>Frontera de decisión:</strong> ${fmt.format(fro)} cambian según método, calidad o criterio. <strong>Fuera:</strong> ${fmt.format(frontier.fuera.length)} nunca entran con esta capacidad.`;
  $('frontier-table').innerHTML=[['Núcleo robusto (6/6)',nuc,'#1'],['Frontera de decisión (1/6–5/6)',fro,'depende'],['Fuera de la selección',frontier.fuera.length,'—']].map(([k,v,tag])=>`<div><span>${k}</span><strong>${fmt.format(v)}</strong><small>${tag}</small></div>`).join('');
  $('pilot-note').textContent=fro>0?`Si solo existen recursos para atender una fracción de la frontera (por ejemplo, 12 de ${fmt.format(fro)} municipios), una asignación aleatoria dentro de esa zona —con balance por entidad, tamaño, calidad y contexto— permitiría construir un piloto evaluable. La cercanía del score no acredita equivalencia.`:'Con la capacidad actual no hay una zona de frontera: la selección es estable bajo las variantes o el filtro la vació.';
- $('ranking').innerHTML=plan.selected.slice(0,25).map(r=>{const s=stability[r.key]||{count:0,eligible:0,confidence:Decision.confidenceTier(0,6)};const c=s.confidence||Decision.confidenceTier(s.count,6);return `<tr><td><button type="button" data-key="${r.key}" class="row-button">${esc(r.name)}</button><small>${esc(r.state_name)} · ${r.key}</small></td><td>${pct(r.risk)}<small>Simulación: ${pct(r.after)}</small></td><td>${s.count} de 6<small>comparaciones; no indica certeza</small></td><td>${pct(r.latest_ns)} sin información sobre el voto<small>Listado municipal ${r.stable_catalog_state?'sin cambios':'con cambios'}</small></td></tr>`;}).join('')||'<tr><td colspan="4">Sin municipios seleccionados con estos filtros.</td></tr>';
+ $('ranking').innerHTML=Decision.rank(filtered,'tasa').slice(0,25).map(r=>`<tr><td><button type="button" data-key="${r.key}" class="row-button">${esc(r.name)}</button><small>${esc(r.state_name)} · ${r.key}</small></td><td>${pct(r.risk)}</td></tr>`).join('')||'<tr><td colspan="2">No hay municipios con estimación en esta búsqueda. Puedes consultar los municipios grises en el mapa.</td></tr>';
  if(!$('state').value)$('confidence').checked=false;
  const mode=$('map-mode').value;
  const legend=$('confidence').checked?'<span><i style="background:#176b58"></i>Núcleo 6/6</span><span><i style="background:#ddb263"></i>Revisión</span>':mode==='cambio'?'<span><i style="background:#f6faf9;border:1px solid #ddd"></i>0 pp</span><span><i style="background:#9dccdf"></i>0–1 pp</span><span><i style="background:#4b94b8"></i>1–5 pp</span><span><i style="background:#135e87"></i>&gt;5 pp</span>':'<span><i class="low"></i>Menor abstención</span><span><i class="medium"></i>Intermedia</span><span><i class="high"></i>Mayor abstención</span>';
- document.querySelector('.legend').innerHTML=legend+'<span><i class="missing"></i>Sin estimación</span><span><i class="chosen"></i>Seleccionado</span><span>Atenuado: fuera del filtro</span>';
- $('map-caption').textContent=$('confidence').checked?'Veces que un municipio aparece entre los seleccionados: verde = 6 de 6 comparaciones; ámbar = menos de 6.':mode==='cambio'?'Reducción simulada: blanco = sin reducción; azul más oscuro = mayor reducción.':`Porcentaje de personas que ${mode==='intervencion'?'no votarían con la acción simulada':'podrían no votar en 2027'}. Menor abstención: menos de ${thresholds.low.toFixed(1)}%; mayor: desde ${thresholds.high.toFixed(1)}%.`;
- document.querySelector('.map-guide').textContent=$('confidence').checked?'Repetirse en las seis comparaciones no garantiza que la estimación sea correcta. Ámbar incluye municipios que nunca entran en la selección. Gris = sin estimación.':mode==='cambio'?'El cambio se expresa en puntos porcentuales: bajar de 60% a 58% equivale a 2 puntos. Solo los municipios incluidos en la simulación pueden mostrar una reducción. Gris = sin estimación.':'Los colores comparan la proporción de personas que podrían no votar. No califican a sus habitantes. Los límites entre colores se mantienen al simular una acción. Gris = información insuficiente.';
- const confOn=$('confidence').checked;layer.setStyle(f=>{const r=byKey.get(f.properties.key),s=selectedMap.get(r.key),visible=matches(r),after=s?s.after:r.risk,delta=s?r.risk-s.after:0;let color=colors[Decision.level(mode==='intervencion'?after:r.risk,thresholds)];if(mode==='cambio')color=!Number.isFinite(r.risk)?colors.sin_datos:delta>5?'#135e87':delta>1?'#4b94b8':delta>0?'#9dccdf':'#f6faf9';if(confOn&&Number.isFinite(r.risk)&&visible)color=stability[r.key]?.robust?'#176b58':'#ddb263';return {color:s?'#173c34':'#ffffff',weight:s?1.7:.3,fillColor:color,fillOpacity:visible?.85:!Number.isFinite(r.risk)?.6:.25,opacity:visible?1:.65};});
+ document.querySelector('.legend').innerHTML=legend+'<span><i class="missing"></i>Sin estimación</span>'+(hasResults?'<span><i class="chosen"></i>Seleccionado</span>':'')+'<span>Atenuado: fuera del filtro</span>';
+ $('map-caption').textContent=$('confidence').checked?'Veces que un municipio aparece entre los seleccionados: verde = 6 de 6 comparaciones; ámbar = menos de 6.':mode==='cambio'?'Reducción simulada: blanco = sin reducción; azul más oscuro = mayor reducción.':`Porcentaje de personas que ${mode==='intervencion'?'no votarían con la acción elegida':'podrían no votar en 2027'}.`;
+ document.querySelector('.map-guide').textContent=$('confidence').checked?'Repetirse en las seis comparaciones no garantiza que la estimación sea correcta. Ámbar incluye municipios que nunca entran en la selección. Gris = sin estimación.':mode==='cambio'?'El cambio se expresa en puntos porcentuales: bajar de 60% a 58% equivale a 2 puntos. Solo los municipios incluidos en la simulación pueden mostrar una reducción. Gris = sin estimación.':'Los colores comparan la abstención estimada. Gris: datos insuficientes. Atenuado: fuera de tu filtro.';
+ $('map-reading-text').textContent=`Menor abstención: menos de ${thresholds.low.toFixed(1)}%; mayor: desde ${thresholds.high.toFixed(1)}%. Los límites de color se mantienen al cambiar de escenario. El promedio estatal se pondera por las personas con registro de voto en 2024 (SV+NV); los municipios sin estimación quedan fuera y no cuentan como cero. La cobertura puede ser parcial. La cartografía está simplificada y sirve como referencia visual. Los colores no califican a los habitantes.`;
+ const confOn=$('confidence').checked;layer.setStyle(f=>{const r=byKey.get(f.properties.key),s=hasResults?selectedMap.get(r.key):null,visible=matches(r),after=s?s.after:r.risk,delta=s?r.risk-s.after:0;let color=colors[Decision.level(mode==='intervencion'?after:r.risk,thresholds)];if(mode==='cambio')color=!Number.isFinite(r.risk)?colors.sin_datos:delta>5?'#135e87':delta>1?'#4b94b8':delta>0?'#9dccdf':'#f6faf9';if(confOn&&Number.isFinite(r.risk)&&visible)color=stability[r.key]?.robust?'#176b58':'#ddb263';return {color:s?'#173c34':'#ffffff',weight:s?1.7:.3,fillColor:color,fillOpacity:visible?.85:!Number.isFinite(r.risk)?.6:.25,opacity:visible?1:.65};});
  $('confidence-note').textContent=$('confidence').checked?'Vista estabilidad: verde = seleccionado en 6/6 variantes; ámbar = revisión; gris = sin estimación. Frecuencia descriptiva; las variantes pueden equivocarse juntas.':'Vista riesgo/cambio. La estabilidad de selección se informa como dimensión separada en lista y ficha.';
  const groups=new Map();for(const r of filtered){let g=groups.get(r.state);if(!g)groups.set(r.state,g=[]);g.push(r);}
  const selByState=new Map();for(const r of plan.selected){let g=selByState.get(r.state);if(!g)selByState.set(r.state,g=[]);g.push(r);}
  const states=[...groups.keys()].sort();
  $('entity-table').innerHTML=states.map(state=>{const all=groups.get(state),valid=all.filter(r=>Number.isFinite(r.risk)),sel=selByState.get(state)||[],obs=valid.reduce((a,r)=>a+r.observed,0),before=obs?valid.reduce((a,r)=>a+r.risk*r.observed,0)/obs:null,add=sel.reduce((a,r)=>a+r.additional,0);return `<tr><td>${esc(all[0].state_name)}</td><td>${valid.length}/${all.length}</td><td>${sel.length}</td><td>${pct(before)}</td><td>${pct(obs?before-100*add/obs:null)}</td><td>${fmt.format(sel.reduce((a,r)=>a+r.served,0))}</td></tr>`;}).join('');
  updateGeography();
+ if(activeKey&&!filtered.some(r=>r.key===activeKey))activeKey=null;
+ if(!activeKey&&filtered.length===1)activeKey=filtered[0].key;
  if(activeKey)detail(activeKey);
+ else{$('detail-name').textContent='Selecciona un municipio';$('detail-state').textContent='Elige tu estado y municipio o abre uno en el mapa para consultar sus datos.';$('detail-content').innerHTML='';}
 }
 function exportPlan(){
  const LENS_LABEL={tasa:'Mayor porcentaje',volumen:'Mayor volumen',deterioro:'Mayor deterioro'},METHOD_LABEL={ridge:'Estimación con datos históricos (Ridge)',baseline:'Referencia: elección de 2021'};
@@ -202,8 +233,10 @@ function renderActionEvidence(a){
  $('custom-response').hidden=a.id!=='personalizada';
  $('response').disabled=a.id!=='personalizada';
  $('reach-label').textContent=a.estimand==='ITT'?'¿A cuántas personas planeas enviar el SMS en total?':a.estimand==='ATT'?'¿Con cuántas personas completarías la llamada en total?':'Personas que alcanzarías en total';
- $('coverage-help').textContent=a.estimand==='ITT'?'Introduce tu capacidad de envío a personas distintas, no el número de mensajes ni de lectores. El estudio mide asignación al envío (ITT); no se multiplica otra vez por una tasa de lectura.':a.estimand==='ATT'?'Cuenta contactos efectivos en los que se completa la conversación sobre el plan de votación, no intentos de llamada.':'La cobertura es un supuesto de capacidad. En estado o país se distribuye entre municipios por el criterio de prioridad. No se deduce de los datos CCPC.';
- $('action-evidence').innerHTML=a.source?`<strong>${a.effect_pp} pp de aumento de participación · ${esc(a.estimand)}</strong><p>${esc(a.country)} · ${esc(a.election)}. ${esc(a.population)}</p><p>${esc(a.uncertainty)} ${esc(a.limits)}</p><p><a href="${esc(a.source)}" target="_blank" rel="noopener noreferrer">${esc(a.citation)}</a> ${esc(a.locator)}.${a.fulltext?` <a href="${esc(a.fulltext)}" target="_blank" rel="noopener noreferrer">Texto completo ↗</a>`:''}</p><p>Transferencia hipotética a México; no calibrada con CCPC. Un punto porcentual no es una respuesta porcentual entre abstencionistas.</p>`:`<strong>${esc(a.label)}</strong><p>${esc(a.limits)}</p>`;
+ $('coverage-help').textContent=a.estimand==='ITT'?'Cuenta personas distintas a quienes enviarías el SMS, no mensajes ni lectores.':a.estimand==='ATT'?'Cuenta conversaciones completadas sobre el plan de votación, no intentos de llamada.':'Introduce tu capacidad total de contacto. Es un supuesto proporcionado por ti.';
+ if($('action-evidence').dataset.action===a.id)return;
+ $('action-evidence').dataset.action=a.id;
+ $('action-evidence').innerHTML=a.source?`<strong>${a.effect_pp} puntos porcentuales de aumento en el estudio</strong><p>Aplicación hipotética a México; requiere revisar si la población y el contexto son comparables.</p><details><summary>Consultar estudio, fuente y límites</summary><p>${esc(a.country)} · ${esc(a.election)}. ${esc(a.population)}</p><p>Efecto: ${a.effect_pp} pp · Estimador: ${esc(a.estimand)}. ${esc(a.unit)}</p><p>${esc(a.uncertainty)} ${esc(a.limits)}</p><p><a href="${esc(a.source)}" target="_blank" rel="noopener noreferrer">${esc(a.citation)}</a> ${esc(a.locator)}.${a.fulltext?` <a href="${esc(a.fulltext)}" target="_blank" rel="noopener noreferrer">Texto completo ↗</a>`:''}</p><p>Transferencia hipotética a México; no calibrada con CCPC. Un punto porcentual no es una respuesta porcentual entre abstencionistas.</p></details>`:`<strong>${esc(a.label)}</strong><p>${esc(a.limits)}</p>`;
 }
 function load(){
  for(const a of Object.values(Decision.interventions))$('action').add(new Option(a.label,a.id));
@@ -222,6 +255,7 @@ function load(){
  $('show-all').onclick=()=>{$('stable').checked=false;update();};
  document.querySelectorAll('a[href="#planning-settings"]').forEach(a=>a.addEventListener('click',()=>{$('planning-settings').open=true;}));
  document.querySelectorAll('[data-scenario-map]').forEach(a=>a.addEventListener('click',()=>{$('map-mode').value=a.dataset.scenarioMap;$('confidence').checked=false;update();}));
+ document.querySelectorAll('a[href="#sin-estimacion"]').forEach(a=>a.addEventListener('click',()=>{$('sin-estimacion').open=true;}));
  $('reset-map').onclick=returnToMexico;
  for(const id of ['state','search','stable','capacity','persons','capacity-mode','min-confidence','reach','response','action','distribution','method','lens','map-mode','confidence'])$(id).addEventListener('input',()=>{if(id==='state'||id==='search'){geographyFocusKey=null;geographyHistory.length=0;$('simulation-scope').value=$('state').value?'estado':'pais';if($('state').value){$('simulation-state').value=$('state').value;simulationMunicipalities();const exact=records.find(r=>r.state===$('state').value&&(r.key===$('search').value||r.name===$('search').value));if(exact){$('simulation-scope').value='municipio';$('simulation-municipality').value=exact.key;}}$('simulation-state-wrap').hidden=$('simulation-scope').value==='pais';$('simulation-municipality-wrap').hidden=$('simulation-scope').value!=='municipio';}update();});
  $('state').addEventListener('change',()=>{const layers=layer.getLayers().filter(l=>!$('state').value||byKey.get(l.feature.properties.key).state===$('state').value);if(layers.length)map.fitBounds(L.featureGroup(layers).getBounds(),{padding:[12,12]});});
@@ -235,6 +269,6 @@ function load(){
  $('size-errors').innerHTML=Object.entries(ad.error_by_size).flatMap(([cut,bins])=>Object.entries(bins).map(([size,m])=>`<tr><td>${esc(cut)}</td><td>${esc(size)}</td><td>${m.n}</td><td>${m.mae.toFixed(2)} pp</td><td>${m.p90_abs_error_pp.toFixed(2)} pp</td></tr>`)).join('');
  $('method-note').textContent='Al probar el modelo con elecciones pasadas, funcionó mejor que usar la elección anterior comparable en 2021, pero peor en 2024. Por eso, la cifra de 2027 sirve para explorar y requiere revisión. Una simulación no demuestra que una actividad vaya a aumentar el voto.';
  $('methodology').innerHTML='<p>MAE ponderado usa SV+NV del objetivo histórico. El umbral rojo de evaluación se aprende del entrenamiento y se congela por corte; precisión y recobrado usan ese mismo umbral. La última columna compara rojos predichos contra el tercio alto observado del test, solo retrospectivamente. Los umbrales de la demo 2027 son tercios de estimaciones base y quedan fijos entre sus tres modos.</p><p>Bandas por tamaño: SV+NV del último antecedente, bins &lt;10 mil, 10–100 mil y ≥100 mil. P90 de error retrospectivo no es intervalo futuro. Estabilidad de prioridad: frecuencia entre persistencia/Ridge × NS 5/10/20 (seis variantes). No es probabilidad calibrada. La incertidumbre de ranking se informa con esta frecuencia y no con el rango ±21.05 pp, que se conserva solo como error histórico.</p><p>2021 se usa para seleccionar, no es prueba independiente posterior. 2024 es presidencial, no valida 2027. Solo seis ocasiones, tres intermedias. NS y límites históricos restringen inferencia.</p>';
- update();map.fitBounds(layer.getBounds(),{padding:[12,12]});detail(plan.selected[0]?.key||records[0].key);
+ update();map.fitBounds(layer.getBounds(),{padding:[12,12]});
 }
 try{load();}catch(e){$('effect-range').textContent='';$('status').textContent='Faltan recursos locales o hubo un error de carga. Revisa que la carpeta demo esté completa.';console.error(e);}
