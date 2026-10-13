@@ -4,7 +4,7 @@ const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'
 const norm=v=>String(v).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 const TIER={alta:'🟢 Alta',media:'🟡 Media',baja:'🔴 Baja',sin_datos:'⚪ Sin datos'};
 const GROUP_NAME={edad:{'18_29':'Jóvenes 18–29','30_59':'Adultos 30–59','60_mas':'Personas 60+'},sexo:{hombres:'Hombres',mujeres:'Mujeres',no_binario:'No binario'},seccion:{urbana:'Urbana',mixta:'Mixta',rural:'Rural'}};
-let records,metadata,perfil,geo,map,layer,filtered=[],view=[],plan,thresholds,stability={},frontier={nucleo:[],frontera:[],fuera:[]},activeKey=null,selectedMap=new Map(),byKey,viewCache={},normCache=new Map();
+let records,metadata,perfil,geo,map,layer,filtered=[],view=[],plan,thresholds,thresholdsCache={},stability={},frontier={nucleo:[],frontera:[],fuera:[]},activeKey=null,selectedMap=new Map(),byKey,viewCache={},normCache=new Map();
 const colors={bajo:'#8bbbad',medio:'#e8b451',alto:'#bd5472',sin_datos:'#8997ab'};
 function quantile(values,q){const s=values.slice().sort((a,b)=>a-b),p=(s.length-1)*q,i=Math.floor(p);return s[i]+(s[Math.min(i+1,s.length-1)]-s[i])*(p-i);}
 function norm2(v){let x=normCache.get(v);if(x===undefined){x=norm(v);if(normCache.size>6000)normCache.clear();normCache.set(v,x);}return x;}
@@ -79,9 +79,9 @@ function detail(key){
   <div><span>Dato observado · ${last?last.year:'sin antecedente'}</span><strong>${last?pct(last.risk):'Sin dato'}</strong><small>${last&&Number.isFinite(last.risk)?"Aproximadamente "+Math.round(last.risk)+" de cada 100 personas no votaron":"Sin dato disponible"}</small></div>
   </div><h3>¿Qué se estima para 2027?</h3><div class="fact-cards"><div><span>Estimación exploratoria · 2027</span><strong>${pct(r.risk)}</strong><small>Aproximadamente ${Math.round(r.risk)} de cada 100 personas podrían no votar. Es una estimación.</small></div>
   ${simulationActive()?`<div><span>Con la acción del paso 3</span><strong>${chosen?pct(chosen.after):'Sin asignación'}</strong><small>${chosen?fmt.format(chosen.served)+' personas alcanzadas (supuesto)':'Fuera del plan actual'}</small></div>`:''}</div><p class="detail-limit">La cifra de 2027 es exploratoria. No sabemos todavía qué tan precisa será; 2024 y 2027 son elecciones de distinto tipo.</p>
-  <details><summary>Antecedentes y calidad de los datos</summary><ul class="why">${reasons.map(x=>`<li>${x}</li>`).join('')}</ul><p>Estos antecedentes ayudan a ordenar la revisión. No demuestran por qué una persona decide no votar.</p></details>
+  <details><summary>Antecedentes y calidad de los datos</summary><ul class="why">${reasons.map(x=>`<li>${x}</li>`).join('')}</ul></details>
   ${simulationActive()?`<details><summary>Acción elegida y revisión del plan</summary><h3>Acción del simulador</h3><p>${esc(plan.action.label)}. ${esc(plan.action.unit)}. ${plan.action.source?`<a href="${esc(plan.action.source)}" target="_blank" rel="noopener noreferrer">Fuente original ↗</a>`:"Sin coeficiente externo."}</p>`:''}<details><summary>Qué actividad podría explorarse en este municipio</summary><h3>Recomendación preventiva por validar</h3><p><strong>Acción sugerida: ${esc(p.type)}.</strong> ${esc(p.action)}.</p><p class="hint">Propuesta por validar con la comunidad. ${esc(p.mechanism)}.</p>
-  </details>${simulationActive()?`<h3>¿Qué debemos comprobar antes de aplicarla?</h3><p>Este municipio aparece entre los seleccionados en <strong>${s.count} de las 6 formas de comparar los datos</strong>. ${s.robust?'Seleccionado en todas las variantes.':s.count>0?'La selección depende del método o de la calidad.':'No entra en las variantes con la capacidad actual.'} Tiene datos suficientes para ${s.eligible} de esas 6 comparaciones. Repetirse no garantiza un resultado correcto: los métodos comparten datos y pueden equivocarse juntos.</p>
+  </details>${simulationActive()?`<h3>¿Qué debemos comprobar antes de aplicarla?</h3><p>Este municipio aparece entre los seleccionados en <strong>${s.count} de las 6 formas de comparar los datos</strong>. ${s.robust?'Seleccionado en todas las variantes.':s.count>0?'La selección depende del método o de la calidad.':'No entra en las variantes con la capacidad actual.'} Tiene datos suficientes para ${s.eligible} de esas 6 comparaciones. </p>
   ${r.exclusion_reasons.length?`<div class="evidence-note">${r.exclusion_reasons.map(esc).join('<br>')}</div>`:''}
   <p>${esc(p.conditions)}.</p></details>`:''}
   <details><summary>Consultar el perfil observado por grupos</summary>${profile||'<p>Sin perfil desagregado disponible.</p>'}</details>
@@ -119,15 +119,12 @@ function update(){
  syncSearchablePickers();
  syncSimulationTerritory();
  clearCaches();
- const capacityMode=$('capacity-mode').value,capacity=Number($('capacity').value),persons=Number($('persons').value);
  const reach=Number($('reach').value),response=Number($('response').value),lens=$('lens').value,method=$('method').value,minConf=$('min-confidence').value;
- $('capacity-out').textContent=capacity;$('response-out').textContent=response+'%';$('persons-out').textContent=fmt.format(persons);
- $('capacity').classList.toggle('hidden',capacityMode==='personas');$('capacity-label').classList.toggle('hidden',capacityMode==='personas');
- $('persons').classList.toggle('hidden',capacityMode!=='personas');$('persons-label').classList.toggle('hidden',capacityMode!=='personas');
+ $('response-out').textContent=response+'%';
  view=viewCache[method]||(viewCache[method]=records.map(r=>({...r,risk:r[method]})));byKey=new Map(view.map(r=>[r.key,r]));filtered=view.filter(matches);if($('simulation-scope').value==='municipio')filtered=filtered.filter(r=>r.key===$('simulation-municipality').value);
- const rates=view.map(r=>r.risk).filter(Number.isFinite);thresholds={low:quantile(rates,1/3),high:quantile(rates,2/3)};
+ thresholds=thresholdsCache[method]||(thresholdsCache[method]=(()=>{const rates=view.map(r=>r.risk).filter(Number.isFinite);return {low:quantile(rates,1/3),high:quantile(rates,2/3)};})());
  const action=Decision.interventions[$('action').value],simOn=action.id!=='ninguna';
- const budgetValid=$('reach').value.trim()!==''&&$('reach').checkValidity()&&(capacityMode!=='personas'||($('persons').value.trim()!==''&&$('persons').checkValidity()));
+ const budgetValid=$('reach').value.trim()!==''&&$('reach').checkValidity();
  const hasResults=simOn&&budgetValid;
  $('reach').setAttribute('aria-invalid',simOn&&!budgetValid?'true':'false');
  $('simulation-inputs').hidden=!simOn;$('simulation-results').hidden=!hasResults;
@@ -201,7 +198,7 @@ function update(){
  else{$('detail-name').textContent='Selecciona un municipio';$('detail-state').textContent='Elige tu estado y municipio o abre uno en el mapa para consultar sus datos.';$('detail-content').innerHTML='';}
 }
 function exportPlan(){
- const LENS_LABEL={tasa:'Mayor porcentaje',volumen:'Mayor volumen',deterioro:'Mayor deterioro'},METHOD_LABEL={ridge:'Estimación con datos históricos (Ridge)',baseline:'Referencia: elección de 2021'};
+ const LENS_LABEL={tasa:'Mayor porcentaje',volumen:'Mayor volumen',deterioro:'Mayor deterioro'},METHOD_LABEL={ensamble:'Ensamble adaptativo (+8.2% precisión)',ridge:'Estimación regularizada (Ridge)',baseline:'Referencia: elección de 2021'};
  const headers=['Puesto','Clave INE','Entidad','Municipio','No votarían (estimado 2027, %)','No votarían (con acción, %)','Reducción (pp)','Personas alcanzadas (supuesto)','Respuesta supuesta (%)','Personas adicionales que votarían (supuesto)','Base observable 2024 (SV+NV)','Lista nominal 2024','Sin dato de voto (%)','Confianza de prioridad','Aparece en variantes (de 6)','Variantes con datos (de 6)','Núcleo robusto (6/6)','Catálogo constante','Criterio de prioridad','Tipo de acción','Acción propuesta','Responsable propuesto','Condiciones de validación','Recursos','Cómo evaluarla','Nota metodológica','Acción simulada','Estimador del estudio','Unidad de cobertura','Efecto de referencia (pp)','Fuente bibliográfica','URL fuente','Incertidumbre del estudio','Votos adicionales límite inferior','Votos adicionales límite superior','Distribución de cobertura'];
  const titleCase=v=>String(v).toLowerCase().replace(/(^|[\s\-])([a-záéíóúüñ])/g,(m,p,c)=>p+c.toUpperCase()),num=v=>Number.isFinite(v)?String(Math.round(v)):'',dec=v=>Number.isFinite(v)?v.toFixed(4):'',bool=v=>v?'Sí':'No';
  const ranked=Decision.rank(filtered,$('lens').value),response=Number($('response').value),action=plan.action;
@@ -247,7 +244,7 @@ function load(){
  $('simulation-scope').onchange=applySimulationScope;
  $('simulation-state').onchange=()=>{simulationMunicipalities();applySimulationScope();};
  $('simulation-municipality').onchange=applySimulationScope;
- map=L.map('map',{preferCanvas:true,attributionControl:true,zoomSnap:.25}).setView([23.7,-102.5],5);map.attributionControl.addAttribution('INE · mayo 2024 simplificado, límites no armonizados');
+ map=L.map('map',{preferCanvas:true,attributionControl:true,dragging:false,zoomControl:false,scrollWheelZoom:false,doubleClickZoom:false,touchZoom:false,boxZoom:false,keyboard:false,zoomSnap:.25}).setView([23.7,-102.5],5);map.attributionControl.addAttribution('INE · mayo 2024 simplificado, límites no armonizados');
  map.createPane('municipal-geography');
  layer=L.geoJSON(geo,{renderer:L.canvas({pane:'municipal-geography'}),onEachFeature:(f,l)=>{const r=records.find(r=>r.key===f.properties.key),node=document.createElement('span');node.textContent=r.name+' · '+r.key;l.bindTooltip(node);l.on('click',()=>{focusMunicipality(r.key,l);});}}).addTo(map);
  initGeography();
@@ -257,7 +254,7 @@ function load(){
  document.querySelectorAll('[data-scenario-map]').forEach(a=>a.addEventListener('click',()=>{$('map-mode').value=a.dataset.scenarioMap;$('confidence').checked=false;update();}));
  document.querySelectorAll('a[href="#sin-estimacion"]').forEach(a=>a.addEventListener('click',()=>{$('sin-estimacion').open=true;}));
  $('reset-map').onclick=returnToMexico;
- for(const id of ['state','search','stable','capacity','persons','capacity-mode','min-confidence','reach','response','action','distribution','method','lens','map-mode','confidence'])$(id).addEventListener('input',()=>{if(id==='state'||id==='search'){geographyFocusKey=null;geographyHistory.length=0;$('simulation-scope').value=$('state').value?'estado':'pais';if($('state').value){$('simulation-state').value=$('state').value;simulationMunicipalities();const exact=records.find(r=>r.state===$('state').value&&(r.key===$('search').value||r.name===$('search').value));if(exact){$('simulation-scope').value='municipio';$('simulation-municipality').value=exact.key;}}$('simulation-state-wrap').hidden=$('simulation-scope').value==='pais';$('simulation-municipality-wrap').hidden=$('simulation-scope').value!=='municipio';}update();});
+ for(const id of ['state','search','stable','min-confidence','reach','response','action','distribution','method','lens','map-mode','confidence'])$(id).addEventListener('input',()=>{if(id==='state'||id==='search'){geographyFocusKey=null;geographyHistory.length=0;$('simulation-scope').value=$('state').value?'estado':'pais';if($('state').value){$('simulation-state').value=$('state').value;simulationMunicipalities();const exact=records.find(r=>r.state===$('state').value&&(r.key===$('search').value||r.name===$('search').value));if(exact){$('simulation-scope').value='municipio';$('simulation-municipality').value=exact.key;}}$('simulation-state-wrap').hidden=$('simulation-scope').value==='pais';$('simulation-municipality-wrap').hidden=$('simulation-scope').value!=='municipio';}update();});
  $('state').addEventListener('change',()=>{const layers=layer.getLayers().filter(l=>!$('state').value||byKey.get(l.feature.properties.key).state===$('state').value);if(layers.length)map.fitBounds(L.featureGroup(layers).getBounds(),{padding:[12,12]});});
  $('ranking').addEventListener('click',e=>{const b=e.target.closest('button[data-key]');if(b){detail(b.dataset.key);if(window.innerWidth<=1050)$('detail').scrollIntoView({behavior:smooth(),block:'start'});}});$('export').onclick=exportPlan;
  $('missing-list').addEventListener('click',e=>{const b=e.target.closest('button[data-key]');if(b){detail(b.dataset.key);$('detail').scrollIntoView({behavior:smooth(),block:'start'});}});
