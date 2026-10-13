@@ -12,7 +12,7 @@ Las tasas territoriales principales se muestran con dos decimales. Un efecto pos
 
 La evidencia completa, el resumen del plan, la frontera y los documentos están en desplegables; el resultado adverso de 2024 permanece visible en el resumen de evidencia.
 
-**Sin estimación:** municipio gris con antecedentes insuficientes, tasa no calculable o NS sobre el 10% en algún antecedente requerido. No significa abstención cero ni riesgo bajo. No recibe puesto predictivo ni intervención simulada. La ficha muestra su causa y propone revisar datos; el contador y listado respetan el filtro actual. Son 694 en el universo nacional; el filtro inicial de catálogo deja 478. Estas exclusiones pueden apartar territorios con necesidad alta.
+**Sin estimación:** municipio gris con antecedentes insuficientes, tasa no calculable o NS sobre el 10% en algún antecedente requerido. No significa abstención cero ni riesgo bajo. No recibe puesto predictivo ni intervención simulada. La ficha muestra su causa y propone revisar datos; el contador y listado respetan el filtro actual. Son 694 en el universo nacional; el filtro inicial de catálogo deja 478. Estas exclusiones pueden apartar territorios con necesidad alta. Los municipios grises también pueden aparecer por estar en otro estado o por no coincidir con la búsqueda actual; no se cancelan, solo no se fuerzan a primera vista.
 
 En capacidad por personas, la estabilidad y la frontera comparan top N entre variantes, con N igual al número de municipios del plan. No recalculan el presupuesto humano para cada variante. El filtro mínimo usa N previo al filtro; ficha y frontera usan N final.
 

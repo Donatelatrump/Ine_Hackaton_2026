@@ -34,6 +34,7 @@ function paintMunicipalityFocus() {
   const other = geographyFocusKey && key !== geographyFocusKey;
   const outsideState = $('state').value && byKey.get(key).state !== $('state').value;
   polygon.setStyle({...base, ...(other||outsideState?{fillColor:'#a8b4b0',fillOpacity:.22,color:'#d7dfdb',weight:.3,opacity:.3}:{}),
+   ...(other&&!outsideState?{fillOpacity:1,opacity:1}:{}),
    ...(key===geographyFocusKey?{fillOpacity:.95,opacity:1,color:'#10685f',weight:2.5}:{})});
  });
 }
@@ -158,8 +159,7 @@ function updateGeography(dataChanged = true) {
   polygon.setTooltipContent(node);
  });
  stateGeographyDirty = false;
- }
- $('map-caption').textContent += ' Promedio de municipios con datos por estado.';
+ }  $('map-caption').textContent += ' Promedio de municipios con estimación por estado.';
  document.querySelector('.legend').innerHTML = document.querySelector('.legend').innerHTML.replace('Seleccionado</span>', 'Con municipios seleccionados</span>');
  $('confidence-note').textContent = 'La selección del plan se compara entre seis variantes; repetirse no garantiza acierto.';
 }
