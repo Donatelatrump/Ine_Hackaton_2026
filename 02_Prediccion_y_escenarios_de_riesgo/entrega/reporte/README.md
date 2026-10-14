@@ -1,4 +1,4 @@
-# Reporte Umbral - Tecnocalidos
+# Reporte Umbral - aguas.exe
 
 Versión técnica para revisión del track 2, 6 de octubre de 2026. El PDF tiene 14 páginas: portada y ocho secciones numeradas (problema, datos y variables, modelo, evidencia y límites, semáforo, escenarios, prevención y priorización, viabilidad). Incluye el caso municipal 23008 con cifras reproducibles y propuestas operativas por validar. No acredita registro, firmas ni envío oficial.
 

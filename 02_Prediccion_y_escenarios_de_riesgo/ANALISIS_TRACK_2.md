@@ -1,6 +1,6 @@
 # Track 2: revisión vigente de Umbral
 
-Actualización: 6 de octubre de 2026. Equipo: Tecnocalidos.
+Actualización: 6 de octubre de 2026. Equipo: aguas.exe.
 
 ## Decisión y alcance
 

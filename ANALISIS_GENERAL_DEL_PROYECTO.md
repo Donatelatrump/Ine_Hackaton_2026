@@ -2,7 +2,7 @@
 
 **Proyecto:** Umbral, atlas de decisión municipal.
 **Concurso:** Hackathon INE 2026, Reto 2 (predicción y escenarios de riesgo de abstención).
-**Equipo:** Tecnocalidos — Martin Isai Nuñez Villeda y Cesar Donnet Hernandez Gastelum.
+**Equipo:** aguas.exe — Martin Isai Nuñez Villeda y Cesar Donnet Hernandez Gastelum.
 **Corte del documento:** 6 de octubre de 2026; actualizado con acciones citadas y distribución territorial.
 **Estado:** prototipo funcional y evaluación retrospectiva; entrega formal pendiente de actos humanos (registro, firmas, envío).
 

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f1e9">
+  <meta name="description" content="Recorrido visual por los tres módulos del Hackathon INE 2026.">
+  <title>Umbral / Recorrido por módulos</title>
+  <link rel="stylesheet" href="demo2.css">
+  <script defer src="demo2.js"></script>
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
+
+  <header class="site-header">
+    <a class="wordmark" href="#inicio" aria-label="Aguas.exe, inicio">
+      <span class="wordmark-symbol">a<span>.</span></span>
+      <span class="wordmark-copy"><strong>aguas.exe</strong><small>Hackathon INE · 2026</small></span>
+    </a>
+    <nav class="quick-nav" aria-label="Navegar módulos">
+      <a href="#modulo-1"><span>01</span> Perfiles</a>
+      <a href="#modulo-2"><span>02</span> Escenarios</a>
+      <a href="#modulo-3"><span>03</span> Comunicación</a>
+    </nav>
+    <a class="header-link" href="index.html">Abrir demo interactiva <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="inicio">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> Tres módulos · Un recorrido</p>
+        <h1 id="hero-title">De los datos<br> a <span>la decisión.</span></h1>
+        <p class="hero-lede">Una mirada en tres actos a la participación electoral: entender perfiles, explorar escenarios y comunicar con claridad.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#modulo-1">Comenzar recorrido <span aria-hidden="true">↓</span></a>
+          <span class="hero-note">Desliza. Cada módulo abre una perspectiva.</span>
+        </div>
+        <div class="hero-stats" aria-label="Resumen del recorrido">
+          <div><strong>03</strong><span>módulos</span></div>
+          <i aria-hidden="true"></i>
+          <div><strong>01</strong><span>demo funcional</span></div>
+          <i aria-hidden="true"></i>
+          <div><strong>MX</strong><span>escala municipal</span></div>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-label="Gráfico animado inspirado en participación cívica; no es el logotipo oficial del INE">
+        <div class="art-orbit orbit-one"></div>
+        <div class="art-orbit orbit-two"></div>
+        <div class="art-orbit orbit-three"></div>
+        <div class="art-spark spark-one">✳</div>
+        <div class="art-spark spark-two">✳</div>
+        <div class="art-card card-back"><span>PARTICIPACIÓN</span><b>una decisión<br>colectiva</b><i>2026 / MX</i></div>
+        <div class="art-seal"><span class="seal-overline">HACKATHON</span><strong>INE</strong><span class="seal-rule"></span><span class="seal-caption">INSTITUTO NACIONAL<br>ELECTORAL</span><span class="seal-check" aria-hidden="true">✓</span></div>
+        <div class="art-stamp">AGUAS<br><b>.EXE</b></div>
+        <p class="art-disclaimer">Motivo gráfico propio · no oficial</p>
+      </div>
+      <a class="hero-scroll" href="#modulo-1" aria-label="Bajar al módulo uno"><span></span> BAJAR PARA EXPLORAR</a>
+    </section>
+
+    <section class="journey-intro" aria-label="Cómo leer este recorrido">
+      <span class="journey-kicker">EL MAPA</span>
+      <p>Tres enfoques para un mismo reto. <strong>Solo el módulo 02 tiene una demo interactiva desarrollada en este repositorio.</strong></p>
+      <span class="journey-route" aria-hidden="true">01 <i></i> 02 <i></i> 03</span>
+    </section>
+
+    <section class="module module-one" id="modulo-1" aria-labelledby="module-one-title">
+      <div class="module-rail"><span>01</span><i></i><small>PERFILES</small></div>
+      <div class="module-content">
+        <div class="module-heading">
+          <div>
+            <p class="module-label">ACTO UNO <span>·</span> OBSERVAR</p>
+            <h2 id="module-one-title">¿Quiénes<br><em>participan?</em></h2>
+          </div>
+          <span class="module-sticker sticker-coral">PERSONAS<br>ANTES QUE<br>PROMEDIOS</span>
+        </div>
+        <div class="module-one-grid">
+          <p class="module-description">Leer la participación desde sus perfiles ayuda a formular mejores preguntas sobre quiénes se acercan a las urnas y dónde existen brechas.</p>
+          <div class="profile-board" aria-label="Gráfico conceptual de perfiles ciudadanos">
+            <div class="profile-tile tile-one"><span>01 / TERRITORIO</span><b>¿Dónde?</b><i class="tile-sun"></i></div>
+            <div class="profile-tile tile-two"><span>02 / CONTEXTO</span><b>¿Quiénes?</b><i class="tile-orbit"></i></div>
+            <div class="profile-tile tile-three"><span>03 / PREGUNTA</span><b>¿Qué falta?</b><i class="tile-dots">•••</i></div>
+            <div class="board-caption">PERFILES CIUDADANOS <span>●</span> VISTA CONCEPTUAL</div>
+          </div>
+        </div>
+        <div class="module-footer"><span class="status status-outline"><i></i> Línea conceptual</span><p>El track 1 está documentado como contexto; no tiene módulo funcional en este repositorio.</p></div>
+      </div>
+      <span class="module-back-number" aria-hidden="true">01</span>
+    </section>
+
+    <section class="module module-two" id="modulo-2" aria-labelledby="module-two-title">
+      <div class="module-rail"><span>02</span><i></i><small>ESCENARIOS</small></div>
+      <div class="module-content">
+        <div class="module-heading">
+          <div>
+            <p class="module-label">ACTO DOS <span>·</span> EXPLORAR</p>
+            <h2 id="module-two-title">Del mapa<br> <em>al escenario.</em></h2>
+          </div>
+          <span class="module-sticker sticker-lime">UMBRAL<br>DECISIÓN<br>MUNICIPAL</span>
+        </div>
+        <div class="module-two-grid">
+          <div class="module-two-copy">
+            <p class="module-description">Umbral reúne resultados municipales, calidad visible y escenarios hipotéticos para apoyar una revisión territorial con supuestos explícitos.</p>
+            <ul class="feature-list">
+              <li><span>01</span> Explora estimaciones por municipio</li>
+              <li><span>02</span> Compara Base · Intervención · Diferencia</li>
+              <li><span>03</span> Revisa fuentes, límites y supuestos</li>
+            </ul>
+            <a class="button button-lime" href="index.html">Entrar a Umbral <span aria-hidden="true">↗</span></a>
+            <p class="button-note">La demo abre con los datos locales del proyecto.</p>
+          </div>
+          <div class="scenario-visual" aria-label="Diagrama de un escenario territorial">
+            <div class="scenario-top"><span>ESCENARIO / 2027</span><span class="live-dot">EXPLORATORIO</span></div>
+            <div class="scenario-map">
+              <svg viewBox="0 0 440 330" role="img" aria-labelledby="map-title map-desc">
+                <title id="map-title">Mapa conceptual de territorios</title>
+                <desc id="map-desc">Formas abstractas conectadas para representar un análisis por municipio.</desc>
+                <path class="map-shape shape-a" d="M68 41 128 25 158 66 141 112 91 122 52 88Z"/><path class="map-shape shape-b" d="m161 71 53-32 43 34-12 56-57 17-40-34Z"/><path class="map-shape shape-c" d="m269 44 68 15 24 52-47 38-65-20-8-56Z"/><path class="map-shape shape-d" d="m67 139 74-20 39 46-25 61-72 4-34-41Z"/><path class="map-shape shape-e" d="m187 151 62-18 49 43-17 64-69 14-38-48Z"/><path class="map-shape shape-f" d="m315 156 54-8 27 51-34 52-58-14-18-48Z"/><path class="map-shape shape-g" d="m84 242 70-12 31 47-29 34-63-7-25-30Z"/><path class="map-shape shape-h" d="m203 258 76-14 41 40-31 29-69-2-37-25Z"/>
+                <path class="map-route" d="M102 83C164 52 193 116 233 94s71-13 105 55-62 62-110 95-94-11-128 41"/>
+                <circle class="map-node node-a" cx="102" cy="83" r="8"/><circle class="map-node node-b" cx="233" cy="94" r="8"/><circle class="map-node node-c" cx="338" cy="149" r="8"/><circle class="map-node node-d" cx="228" cy="244" r="8"/><circle class="map-node node-e" cx="100" cy="285" r="8"/>
+              </svg>
+              <span class="map-tag tag-top">MÉXICO</span><span class="map-tag tag-bottom">CLAVES INE · MUNICIPIO</span>
+            </div>
+            <div class="scenario-bottom"><div><small>LECTURA</small><strong>Territorio</strong></div><div><small>RESULTADO</small><strong>Supuesto visible</strong></div><span class="scenario-arrow">↗</span></div>
+          </div>
+        </div>
+        <div class="module-footer"><span class="status status-live"><i></i> Demo funcional</span><p>Proyección exploratoria; los escenarios no son resultados ni efectos causales comprobados.</p></div>
+      </div>
+      <span class="module-back-number" aria-hidden="true">02</span>
+    </section>
+
+    <section class="module module-three" id="modulo-3" aria-labelledby="module-three-title">
+      <div class="module-rail"><span>03</span><i></i><small>COMUNICACIÓN</small></div>
+      <div class="module-content">
+        <div class="module-heading">
+          <div>
+            <p class="module-label">ACTO TRES <span>·</span> COMPARTIR</p>
+            <h2 id="module-three-title">Hacer visible<br> <em>lo importante.</em></h2>
+          </div>
+          <span class="module-sticker sticker-blue">CLARO<br>ABIERTO<br>REVISABLE</span>
+        </div>
+        <div class="module-three-grid">
+          <p class="module-description">Una visualización responsable cuenta qué muestran los datos, qué se supone y qué todavía no sabemos. El diseño también hace visibles los límites.</p>
+          <div class="comms-stack" aria-label="Capas de comunicación de resultados">
+            <div class="comms-card comms-back"><span>03 / CONTEXTO</span><b>¿Qué significa?</b><i>+</i></div>
+            <div class="comms-card comms-mid"><span>02 / EVIDENCIA</span><b>¿Qué observamos?</b><i>↗</i></div>
+            <div class="comms-card comms-front"><span>01 / MENSAJE</span><b>¿Qué sigue?</b><i>●</i></div>
+            <div class="comms-note">DATOS <span>→</span> CONTEXTO <span>→</span> CONVERSACIÓN</div>
+          </div>
+        </div>
+        <div class="module-footer"><span class="status status-outline"><i></i> Línea conceptual</span><p>El track 3 está organizado como línea de trabajo; no tiene una aplicación independiente aquí.</p></div>
+      </div>
+      <span class="module-back-number" aria-hidden="true">03</span>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <div class="closing-mark" aria-hidden="true"><span>INE</span><i>✓</i></div>
+      <div><p class="eyebrow eyebrow-light">SIGUIENTE PASO</p><h2 id="closing-title">Explora el territorio.<br><em>Pregunta por los datos.</em></h2></div>
+      <a class="button button-paper" href="index.html">Abrir demo de Umbral <span aria-hidden="true">↗</span></a>
+      <span class="closing-orbit" aria-hidden="true"></span>
+    </section>
+  </main>
+
+  <footer class="site-footer"><a class="footer-brand" href="#inicio">aguas.exe <span>·</span> Hackathon INE 2026</a><span>Exploratorio · Datos agregados · Supuestos visibles</span><a href="#inicio">Volver arriba ↑</a></footer>
+</body>
+</html>

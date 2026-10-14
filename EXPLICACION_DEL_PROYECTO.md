@@ -1,6 +1,6 @@
 # Umbral: por qué, qué y cómo se desarrolló
 
-**Versión corregida Tecnocalidos:** [cambios y estado](02_Prediccion_y_escenarios_de_riesgo/CORRECCIONES_Y_ESTADO.md). Reporte 14 páginas (8 secciones), presentación 10 diapositivas, capas y fichas ya generados. Registro/firmas/envío no acreditados. Escenario actual sobre SV+NV 2024; nuevas métricas posteriores, sin retuning.
+**Versión corregida aguas.exe:** [cambios y estado](02_Prediccion_y_escenarios_de_riesgo/CORRECCIONES_Y_ESTADO.md). Reporte 14 páginas (8 secciones), presentación 10 diapositivas, capas y fichas ya generados. Registro/firmas/envío no acreditados. Escenario actual sobre SV+NV 2024; nuevas métricas posteriores, sin retuning.
 
 Fecha de documentación: 5 de octubre de 2026. Proyecto para el track 2 del Hackathon INE 2026: predicción y escenarios de riesgo de abstención. Alcance elegido: todo México por municipio.
 

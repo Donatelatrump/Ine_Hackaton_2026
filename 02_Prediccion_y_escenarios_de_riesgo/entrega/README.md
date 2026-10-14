@@ -1,6 +1,6 @@
 # Entrega técnica vigente
 
-Actualización: 6 de octubre de 2026. Umbral, equipo Tecnocalidos, track 2.
+Actualización: 6 de octubre de 2026. Umbral, equipo aguas.exe, track 2.
 
 - [Reporte PDF](reporte/Umbral_reporte_metodologico_preventivo.pdf): 14 páginas; editar `reporte/generar_reporte.py` para regenerar PDF y fuente Markdown.
 - [Presentación PPTX](presentacion/Umbral_presentacion.pptx) y [PDF](presentacion/Umbral_presentacion.pdf): diez diapositivas; editar `presentacion/generar_presentacion.py`.

@@ -1,4 +1,4 @@
-# Correcciones aplicadas — Tecnocalidos
+# Correcciones aplicadas — aguas.exe
 
 5 de octubre de 2026. Integrantes: Martin Isai Nuñez Villeda y Cesar Donnet Hernandez Gastelum.
 

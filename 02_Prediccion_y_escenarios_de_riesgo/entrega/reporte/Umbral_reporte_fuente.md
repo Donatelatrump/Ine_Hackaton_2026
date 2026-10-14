@@ -5,7 +5,7 @@ Estructura de 14 páginas (8 secciones)
 ## Página 1: Resumen ejecutivo
 
 ### Reporte metodológico y preventivo · Reto 2
-Tecnocalidos. Integrantes: Martin Isai Nuñez Villeda y Cesar Donnet Hernandez Gastelum. Versión técnica para revisión, 6 de octubre de 2026. Horizonte exploratorio: elección intermedia de 2027. Cobertura: México por municipio, claves INE. Datos históricos ordinarios 2009-2024. Presupuesto de 15 páginas; este documento usa 14.
+aguas.exe. Integrantes: Martin Isai Nuñez Villeda y Cesar Donnet Hernandez Gastelum. Versión técnica para revisión, 6 de octubre de 2026. Horizonte exploratorio: elección intermedia de 2027. Cobertura: México por municipio, claves INE. Datos históricos ordinarios 2009-2024. Presupuesto de 15 páginas; este documento usa 14.
 
 ### Resumen ejecutivo
 Umbral permite distribuir una cobertura total de personas en municipio, estado o país mediante prioridad o reparto proporcional. Compara una referencia sencilla (última elección del mismo tipo) con Ridge regularizado, con calidad visible y análisis congelados. Ridge mejora en 2021 y empeora en 2024: no se declara ganador. Los escenarios usan efectos publicados de SMS o llamada, como transferencia hipotética no validada a México, o respuesta personalizada sin respaldo causal. La comparación incluye todos los estimables filtrados. Propone fichas revisables y un piloto con protocolo previo; el uso es deliberación institucional.
@@ -75,9 +75,9 @@ Fijada para 2021: adoptar Ridge solo si mejora el MAE al menos 1% y no empeora e
 | Corte / método | n | MAE pp | Pond. pp | Top50 |
 |---|---|---|---|---|
 | 2021 / Referencia | 1490 | 12.116 | 8.052 | 16/50 |
-| 2021 / Ridge | 1490 | 9.215 | 5.489 | 19/50 |
+| 2021 / Ridge | 1490 | 8.897 | 5.298 | 21/50 |
 | 2024 / Referencia | 1476 | 5.639 | 3.541 | 27/50 |
-| 2024 / Ridge | 1476 | 8.585 | 4.491 | 27/50 |
+| 2024 / Ridge | 1476 | 8.958 | 5.110 | 21/50 |
 
 ### Lectura honesta
 En 2021 el MAE baja aproximadamente 23.9% y top50 pasa de 16 a 19 coincidencias; eso deja 31 municipios del top observado fuera de la lista Ridge. En 2024 el MAE sube aproximadamente 52.2%, el ponderado empeora y ambos métodos recuperan 27/50. No hay ganador universal: Ridge se conserva como alternativa exploratoria con la referencia visible.

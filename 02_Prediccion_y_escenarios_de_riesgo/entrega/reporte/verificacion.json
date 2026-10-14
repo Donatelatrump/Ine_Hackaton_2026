@@ -1,11 +1,11 @@
 {
   "pages": 14,
   "structure": "8 secciones",
-  "pdf_sha256": "01fe1718c2341574437ba4f726b1e7611f89f8670a23925d796a4205f24e9cde",
+  "pdf_sha256": "b5188b576d140bb1e8ea53b4282c120ebaa40ab6502cb74b13b1831c8eaf4dc5",
   "checks": [
     {
       "page": 1,
-      "text_chars": 1341,
+      "text_chars": 1338,
       "bounds_ok": true
     },
     {

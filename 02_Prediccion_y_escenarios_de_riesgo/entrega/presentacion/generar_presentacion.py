@@ -16,7 +16,7 @@ CALL='https://ine.mx/wp-content/uploads/2026/09/Convocatoria_Hackaton-1.pdf'
 slides=[('UMBRAL',
   [('Atlas de decisión municipal', 28),
    ('Revisión territorial con evidencia, capacidad y supuestos visibles', 22),
-   ('Tecnocalidos · Hackathon INE 2026 · Track 2', 18),
+   ('aguas.exe · Hackathon INE 2026 · Track 2', 18),
    ('Martin Isai Nuñez Villeda y Cesar Donnet Hernandez Gastelum', 17),
    ('Versión técnica · 6 de octubre de 2026', 17)],
   'Datos agregados CCPC 2009–2024. Prototipo para revisión institucional.'),
@@ -95,7 +95,7 @@ slides=[('UMBRAL',
     22),
    ('Evaluación antes de ampliar', 26),
    ('Predefinir indicadores y asignación del piloto. Conservar la referencia y publicar resultados favorables y adversos.', 22),
-   ('Equipo: Tecnocalidos. Firmas, registro y envío formal siguen pendientes.', 19)],
+   ('Equipo: aguas.exe. Firmas, registro y envío formal siguen pendientes.', 19)],
   '2024 es presidencial y no valida directamente 2027. No se promete superioridad predictiva o efectividad preventiva.')]
 
 TEMPLATE=HERE/'plantilla_base.pptx'

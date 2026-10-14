@@ -58,7 +58,7 @@ add = sum(min(1000, r['observed']) * r['risk'] / 100 * .05 for r in selected)
 
 print(json.dumps(
     {
-        'equipo': 'Tecnocalidos',
+        'equipo': 'aguas.exe',
         'cortes_originales': m['checks'],
         'cobertura': {k: m[k] for k in ['n_municipios', 'n_estimables', 'n_sin_estimacion']},
         'analisis_posterior': m.get('additional_evaluation'),
