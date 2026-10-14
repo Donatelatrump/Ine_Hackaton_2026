@@ -1,0 +1,29 @@
+/**
+Theme Name: Central Electoral Astra Hijo
+Author: DIU
+Author URI: https://ine.mx/
+Description: El tema Central Electoral Astra Hijo es una variante personalizada del tema Astra, dise�ada espec�ficamente para el portal Central Electoral. Este tema hijo hereda la funcionalidad flexible y moderna de Astra, a la vez que incorpora personalizaciones �nicas que reflejan la identidad visual y las necesidades espec�ficas del INE. Con un dise�o intuitivo y accesible, el tema est� optimizado para ofrecer una experiencia de usuario eficiente y segura para los empleados y colaboradores del INE. Incluye ajustes de estilo personalizados, integraci�n con sistemas de autenticaci�n interna, y una interfaz de usuario adaptada para una navegaci�n fluida y consistente en el entorno de trabajo del INE.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: CentralElectoral-astra-hijo
+Template: astra
+*/
+/*@import url("/wp-content/themes/astra-child");*//*!
+ * Bootstrap v4.0.0-alpha.6 (https://getbootstrap.com)
+ * Copyright 2011-2017 The Bootstrap Authors
+ * Copyright 2011-2017 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+
+
+/* Estilos para accesibilidad */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid red;
+    outline-offset: 2px;
+}

@@ -1,0 +1,15 @@
+document.addEventListener('DOMContentLoaded', function() {
+    // Busca todos los formularios de búsqueda de Elementor
+    var searchForms = document.querySelectorAll('form.elementor-search-form');
+    searchForms.forEach(function(searchForm) {
+        var searchInput = searchForm.querySelector('input[type="search"]');
+        if (searchInput) {
+            searchForm.addEventListener('submit', function(e) {
+                if (searchInput.value.trim() === '') {
+                    e.preventDefault(); // Bloquea el envío si está vacío
+                    searchInput.focus(); // Coloca el cursor en el input
+                }
+            });
+        }
+    });
+});

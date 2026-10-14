@@ -41,6 +41,11 @@ function paintMunicipalityFocus() {
 function focusMunicipality(key, polygon) {
  if(!$('state').value || byKey.get(key).state !== $('state').value) return;
  if(!geographyFocusKey) rememberGeographyView();
+ const municipality = byKey.get(key);
+ if($('search').value !== municipality.name){
+  $('search').value = municipality.name;
+  update();
+ }
  geographyFocusKey = key;
  paintMunicipalityFocus();
  detail(key);

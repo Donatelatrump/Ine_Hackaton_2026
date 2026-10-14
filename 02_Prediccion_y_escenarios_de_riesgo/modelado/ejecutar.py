@@ -12,7 +12,9 @@ import numpy as np
 from sklearn.linear_model import Ridge
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
-from core import FEATURE_NAMES, choose_model, make_features, metricas, missingness_bounds, valid_rate
+from core import (FEATURE_NAMES, FEATURE_NAMES_PROY, choose_model, make_features,
+                  make_features_proy, metricas, missingness_bounds, valid_rate)
+from conapo_loader import get_conapo_ggrupos, get_conapo_quinq1
 
 OUT = ROOT / 'modelado/salidas'
 OUT.mkdir(exist_ok=True)
@@ -148,8 +150,8 @@ def _cv_temporal(training_years, ns_limit=10):
     best_blend = min(scored_blend, key=scored_blend.__getitem__)
 
     print(
-        f'  [CV] alpha: { {a: f"{v:.3f}" for a, v in sorted(scored_alpha.items())} } → {best_alpha}\n'
-        f'  [CV] blend: { {w: f"{v:.3f}" for w, v in sorted(scored_blend.items())} } → {best_blend}',
+        f'  [CV] alpha: { {a: f"{v:.3f}" for a, v in sorted(scored_alpha.items())} } -> {best_alpha}\n'
+        f'  [CV] blend: { {w: f"{v:.3f}" for w, v in sorted(scored_blend.items())} } -> {best_blend}',
         flush=True
     )
     return best_alpha, best_blend
@@ -313,15 +315,27 @@ for limit in [5, 10, 20]:
 # Modelo final para proyección 2027
 final_model, final_training, final_alpha, final_blend = fit(2027)
 final_stable_states = set(stable_catalog_states(2024))
+
+# Cargar datos CONAPO para proyección demográfica 2027
+conapo_ggrupos = get_conapo_ggrupos()
+conapo_quinq1 = get_conapo_quinq1()
+
+# Preparar dict de demografía proyectada por municipio para 2027
+conapo_demog_2027 = {}
+for clave, datos in conapo_ggrupos.items():
+    if 2027 in datos and 2024 in datos:
+        conapo_demog_2027[clave] = {2024: datos[2024], 2027: datos[2027]}
+
 rows = []
 for key, h in sorted(histories.items()):
     latest = h[-1]
-    feat = make_features(h, 2027)
+    feat = make_features_proy(h, 2027, conapo_demog_2027)
     estimate = None
     baseline = None
     ridge = None
     blend = None
     contributions = []
+    demo_proy = None
     if feat:
         baseline = feat['baseline']
         ridge = predict(final_model, [{'feature': feat}])[0]
@@ -333,10 +347,13 @@ for key, h in sorted(histories.items()):
         else:
             estimate = baseline
         scaler, regressor = final_model.steps[0][1], final_model.steps[1][1]
+        # Usar FEATURE_NAMES + FEATURE_NAMES_PROY para contributions
+        all_features = FEATURE_NAMES + FEATURE_NAMES_PROY
         contributions = sorted(
-            zip(FEATURE_NAMES, (scaler.transform([feat['x']])[0] * regressor.coef_).tolist()),
+            zip(all_features, (scaler.transform([feat['x']])[0] * regressor.coef_).tolist()),
             key=lambda pair: -abs(pair[1])
         )[:3]
+        demo_proy = feat.get('demo_proy')
     ns_bounds = missingness_bounds(latest['sv'], latest['nv'], latest['ns'])
     flags = []
     if not feat:
@@ -361,6 +378,7 @@ for key, h in sorted(histories.items()):
         'latest_ns_low': ns_bounds[0], 'latest_ns_high': ns_bounds[1],
         'stable_catalog_state': state_stable, 'flags': flags,
         'contributions': contributions if selected_final in ('ridge', 'blend') else [],
+        'demo_proy': demo_proy,
         'history': [
             {'year': r['ano'], 'risk': r['abstencion_pct'],
              'ns': r['no_especificados_pct'], 'ln': r['ln']}
@@ -394,7 +412,7 @@ metadata = {
         'Alpha y blend_weight elegidos con CV temporal sobre 2021; '
         'blend_weight evaluado antes de ver resultados de 2024.'
     ),
-    'feature_names': FEATURE_NAMES,
+    'feature_names': FEATURE_NAMES + FEATURE_NAMES_PROY,
     'ns_limit_pct': 10,
     'checks': checks,
     'sensitivities': sensitivities,
@@ -422,10 +440,11 @@ metadata = {
     'sources': [
         {'label': 'CCPC', 'url': 'https://ine.mx/transparencia/datos-abiertos/visualizacion-datos/conteos-censales-participacion/'},
         {'label': 'Cartografía INE', 'url': 'https://pautas.ine.mx/transparencia/mapas/index_2025.html'},
+        {'label': 'CONAPO Proyecciones 2024-2027', 'url': 'https://www.gob.mx/conapo'},
     ],
     'coefficients_standardized': [
         {'feature': n, 'coefficient': float(c)}
-        for n, c in zip(FEATURE_NAMES, final_model.steps[1][1].coef_)
+        for n, c in zip(FEATURE_NAMES + FEATURE_NAMES_PROY, final_model.steps[1][1].coef_)
     ],
     'ridge_intercept': float(final_model.steps[1][1].intercept_),
     'input_sha256': hashlib.sha256(source.read_bytes()).hexdigest(),

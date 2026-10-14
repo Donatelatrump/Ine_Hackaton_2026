@@ -5,13 +5,13 @@
   "action": "sms_suecia",
   "coverage_total": 100000,
   "served": 100000,
-  "additional": 299.99999999999704,
+  "additional": 299.99999999999716,
   "municipalities": 1144,
   "territory": {
     "population": 63444238,
-    "before": 45.80614690994157,
-    "after": 45.80567405376194,
-    "additional": 299.99999999999704,
+    "before": 45.70471825069812,
+    "after": 45.704245394518495,
+    "additional": 299.99999999999716,
     "municipalities": 1144,
     "selected": 1144
   }

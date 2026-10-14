@@ -22,7 +22,7 @@ Abrir http://127.0.0.1:8765. La demo preparada funciona con recursos locales y n
 
 ## Datos y archivos grandes
 
-El trabajo activo se limita al track 2 en `02_Prediccion_y_escenarios_de_riesgo/`: bases procesadas, código, demo, pruebas y documentación. Se retiraron las carpetas de los tracks 1 y 3. Los ZIP y la cartografía original ya no están en esta versión; `git lfs pull` no los recupera en el estado actual. La demo conserva su cartografía preparada en `demo/data/`.
+El trabajo activo se limita al track 2 en `02_Prediccion_y_escenarios_de_riesgo/`: bases procesadas, código, demo, pruebas y documentación. Se retiraron las carpetas de los tracks 1 y 3. Los insumos cartográficos originales se excluyen de Git por tamaño; la demo conserva la capa preparada en `demo/data/`. La fuente y el cruce de claves de CONABIO/INEGI AGEM 2024 están documentados en [fuentes.json](02_Prediccion_y_escenarios_de_riesgo/fuentes.json) y [la guía de la demo](02_Prediccion_y_escenarios_de_riesgo/demo/README.md). `git lfs pull` no recupera los insumos originales en el estado actual.
 
 ## Trabajo en equipo
 

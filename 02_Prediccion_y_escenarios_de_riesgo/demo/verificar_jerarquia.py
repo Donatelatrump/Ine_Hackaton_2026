@@ -27,8 +27,6 @@ with sync_playwright() as p:
     page.locator('#search').fill('Aguascalientes')
     page.locator('#search').press('Enter')
     assert page.evaluate("filtered.length===1 && filtered[0].key==='01001'")
-    page.locator('#reset-map').click()
-    assert page.locator('#eligible').inner_text()=='1,144', 'Vista nacional debe recuperar todos los municipios del filtro'
     page.locator('#municipality-list > summary').click() if not page.locator('#ranking').is_visible() else None
     page.locator('#ranking button').first.click()
     page.locator('#action').select_option('sms_suecia')

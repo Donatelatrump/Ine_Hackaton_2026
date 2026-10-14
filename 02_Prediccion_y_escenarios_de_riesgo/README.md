@@ -18,7 +18,7 @@ Proyecto seleccionado: **todo México por municipio**. Consultar [PLANTEAMIENTO.
 
 Los archivos ya fueron aportados manualmente. Ver [revisión inicial](auditoria/REVISION_INICIAL.md) e [inventario local](auditoria/inventario_local.json). `estado_descargas.json` conserva los fallos históricos del descargador y no representa la disponibilidad actual.
 
-La base municipal y su documentación están en [datos_preparados](datos_preparados/README.md). El resultado de la auditoría completa está en [RESULTADOS.md](auditoria/RESULTADOS.md); los polígonos de referencia visual están en `cartografia/municipios_ine_2024.geojson`.
+La base municipal y su documentación están en [datos_preparados](datos_preparados/README.md). El resultado de la auditoría completa está en [RESULTADOS.md](auditoria/RESULTADOS.md). La demo dibuja la capa CONABIO/INEGI AGEM 2024: parte de 2,478 polígonos, los cruza por nombre normalizado y alias explícitos con las 2,477 claves de la base, y agrega Villa de Pozos a San Luis Potosí (24028), clave histórica que conserva la base. Los dos pares homónimos de Oaxaca se emparejan por orden de clave. El cruce de identificadores no armoniza límites históricos; la cita y el método están en [fuentes.json](fuentes.json) y [la guía de la demo](demo/README.md).
 
 Entrega unificada el 6 de octubre de 2026: [caso municipal](entrega/CASO_MUNICIPAL.md) y [guion de presentación](entrega/GUION_PRESENTACION.md). Estabilidad de selección es frecuencia descriptiva; las variantes comparten datos y pueden equivocarse juntas.
 

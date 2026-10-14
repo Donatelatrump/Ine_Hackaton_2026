@@ -9,6 +9,16 @@ FEATURE_NAMES = [
     'log_lista_nominal', 'proporcion_18_29', 'proporcion_60_mas_sin_extremos', 'proporcion_urbana',
     'ns_ultimo', 'ns_mismo_tipo', 'eleccion_intermedia',
     'interaccion_mismo_tipo_x_intermedia', 'interaccion_ultimo_x_intermedia',
+    # Competitividad electoral (proxy sin datos de partido):
+    # - ns_competitividad: inverso de NS% (menos NS = más claro/competitivo)
+    # - abst_centro_50: qué tan cerca está abstención de 50% (máxima competencia)
+    # - volatilidad_abst: cambio abstención entre últimas 2 elecciones mismo tipo
+    'ns_competitividad', 'abst_centro_50', 'volatilidad_abst_mismo_tipo',
+]
+
+# Features adicionales SOLO para proyección 2027 (usan CONAPO)
+FEATURE_NAMES_PROY = [
+    'prop_18_29_proy', 'prop_60_mas_proy', 'log_crecimiento_pob_proy',
 ]
 
 # Calendario electoral mexicano (referencia):
@@ -51,6 +61,29 @@ def make_features(history, target_year, ns_limit=10):
     if clean_den <= 0:
         return None
     intermedia = float(target_is_intermedia)
+
+    # --- Competitividad electoral (proxy sin datos de partido) ---
+    # ns_competitividad: inverso de NS% del último proceso (0-10 scale, más alto = más competitivo)
+    ns_ultimo = float(last['no_especificados_pct'])
+    ns_competitividad = max(0.0, 10.0 - ns_ultimo)  # 10 = NS=0%, 0 = NS=10%
+    
+    # abst_centro_50: distancia de abstención a 50% (máxima competencia teórica)
+    # 0 = abstención 50%, 50 = abstención 0% o 100%
+    abst_centro_50 = 50.0 - abs(latest - 50.0)
+    
+    # volatilidad_abst_mismo_tipo: cambio absoluto abstención entre últimas 2 mismo tipo
+    same_sorted = sorted(same, key=lambda r: int(r['ano']))
+    volatilidad_abst_mismo_tipo = 0.0
+    if len(same_sorted) >= 2:
+        ant_ultimo_val = same_sorted[-2].get('abstencion_pct')
+        if ant_ultimo_val is not None:
+            try:
+                ant_ultimo = float(ant_ultimo_val)
+                if math.isfinite(ant_ultimo):
+                    volatilidad_abst_mismo_tipo = abs(latest - ant_ultimo)
+            except (ValueError, TypeError):
+                pass
+
     x = [
         baseline,
         latest,
@@ -65,10 +98,120 @@ def make_features(history, target_year, ns_limit=10):
         # Interacciones: capturan comportamiento diferencial por tipo electoral
         baseline * intermedia,
         latest * intermedia,
+        # Competitividad
+        ns_competitividad,
+        abst_centro_50,
+        volatilidad_abst_mismo_tipo,
     ]
     if not all(math.isfinite(v) for v in x):
         return None
     return {'x': x, 'baseline': baseline, 'source_year': int(last['ano']), 'same_year': int(lag['ano'])}
+
+
+def make_features_proy(history, target_year, conapo_demog, ns_limit=10):
+    """Versión para proyección 2027 que usa demografía proyectada CONAPO.
+    
+    Para años históricos (2021, 2024) usa make_features normal.
+    Solo para target_year >= 2027 usa datos proyectados.
+    """
+    target_year = int(target_year)
+    previous = sorted(
+        (r for r in history if int(r['ano']) < target_year),
+        key=lambda r: int(r['ano'])
+    )
+    target_is_intermedia = is_intermedia(target_year)
+    same = [r for r in previous if is_intermedia(r['ano']) == target_is_intermedia]
+    if not previous or not same:
+        return None
+    last, lag = previous[-1], same[-1]
+    if not valid_rate(last, ns_limit) or not valid_rate(lag, ns_limit):
+        return None
+    
+    latest = float(last['abstencion_pct'])
+    baseline = float(lag['abstencion_pct'])
+    denominator = float(last['ln'])
+    extremes = float(last.get('ln_edad_mayor_120', 0))
+    clean_den = denominator - extremes
+    if clean_den <= 0:
+        return None
+    
+    intermedia = float(target_is_intermedia)
+    
+    # Features base (históricas)
+    prop_18_29_hist = float(last['ln_18_29']) / clean_den
+    prop_60_mas_hist = max(0, float(last['ln_60_mas']) - extremes) / clean_den
+    prop_urbana = float(last['ln_urbana']) / denominator
+    
+    # Competitividad (usando datos históricos del último proceso)
+    ns_ultimo = float(last['no_especificados_pct'])
+    ns_competitividad = max(0.0, 10.0 - ns_ultimo)
+    abst_centro_50 = 50.0 - abs(latest - 50.0)
+    
+    same_sorted = sorted(same, key=lambda r: int(r['ano']))
+    volatilidad_abst_mismo_tipo = 0.0
+    if len(same_sorted) >= 2:
+        ant_ultimo_val = same_sorted[-2].get('abstencion_pct')
+        if ant_ultimo_val is not None:
+            try:
+                ant_ultimo = float(ant_ultimo_val)
+                if math.isfinite(ant_ultimo):
+                    volatilidad_abst_mismo_tipo = abs(latest - ant_ultimo)
+            except (ValueError, TypeError):
+                pass
+    
+    # Features proyectadas (solo si target_year >= 2027 y hay datos CONAPO)
+    clave = last.get('clave_municipio_ine') or last.get('key')
+    prop_18_29_proy = prop_18_29_hist
+    prop_60_mas_proy = prop_60_mas_hist
+    log_crecimiento_pob_proy = 0.0
+    
+    if target_year >= 2027 and clave and conapo_demog and clave in conapo_demog:
+        proy = conapo_demog[clave]
+        if target_year in proy and 2024 in proy:
+            p = proy[target_year]
+            b = proy[2024]
+            pob_total_proy = p.get('POB_TOTAL', 0)
+            pob_total_base = b.get('POB_TOTAL', 0)
+            if pob_total_proy > 0:
+                prop_18_29_proy = p.get('POB_012_29', 0) / pob_total_proy
+                prop_60_mas_proy = p.get('POB_60_mm', 0) / pob_total_proy
+            if pob_total_base > 0 and pob_total_proy > 0:
+                log_crecimiento_pob_proy = math.log(pob_total_proy / pob_total_base)
+    
+    x = [
+        baseline,
+        latest,
+        latest - baseline,
+        math.log1p(denominator),
+        prop_18_29_proy,           # USA proyección 2027
+        prop_60_mas_proy,          # USA proyección 2027
+        prop_urbana,
+        float(last['no_especificados_pct']),
+        float(lag['no_especificados_pct']),
+        intermedia,
+        baseline * intermedia,
+        latest * intermedia,
+        # Competitividad
+        ns_competitividad,
+        abst_centro_50,
+        volatilidad_abst_mismo_tipo,
+    ]
+    if not all(math.isfinite(v) for v in x):
+        return None
+    return {
+        'x': x, 
+        'baseline': baseline, 
+        'source_year': int(last['ano']), 
+        'same_year': int(lag['ano']),
+        'demo_proy': {
+            'prop_18_29_proy': prop_18_29_proy,
+            'prop_60_mas_proy': prop_60_mas_proy,
+            'log_crecimiento_pob_proy': log_crecimiento_pob_proy,
+            'prop_18_29_hist': prop_18_29_hist,
+            'prop_60_mas_hist': prop_60_mas_hist,
+        }
+    }
+
 
 def quantile(values, q):
     if not values:

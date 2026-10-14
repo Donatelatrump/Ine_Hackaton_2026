@@ -18,7 +18,7 @@ Abstención observada (%) = 100 × NV / (SV + NV)
 NS (%) = 100 × NS / LN
 ```
 
-La regla principal exige NS ≤10% en el último antecedente y el del mismo tipo. Para evaluar, también exige objetivo observable con NS ≤10%. Hay 1,783 estimaciones y 694 municipios sin estimación sobre 2,477 claves. El filtro inicial de entidades con catálogo constante deja 1,144 estimaciones; no acredita límites constantes. La cartografía 2024 es referencia visual, sin armonización histórica.
+La regla principal exige NS ≤10% en el último antecedente y el del mismo tipo. Para evaluar, también exige objetivo observable con NS ≤10%. Hay 1,783 estimaciones y 694 municipios sin estimación sobre 2,477 claves. El filtro opcional de entidades con catálogo constante deja 1,144 estimaciones; no acredita límites constantes. La cartografía 2024 es referencia visual, sin armonización histórica.
 
 LN sigue siendo una variable de tamaño del predictor y denominador de NS y composición. **SV+NV del objetivo histórico pondera el MAE. SV+NV 2024 limita alcance, calcula la reducción y pondera el escenario.** NS queda fuera de ese escenario; no se proyecta el electorado de 2027.
 

@@ -12,7 +12,7 @@ Las tasas territoriales principales se muestran con dos decimales. Un efecto pos
 
 La evidencia completa, el resumen del plan, la frontera y los documentos están en desplegables; el resultado adverso de 2024 permanece visible en el resumen de evidencia.
 
-**Sin estimación:** municipio gris con antecedentes insuficientes, tasa no calculable o NS sobre el 10% en algún antecedente requerido. No significa abstención cero ni riesgo bajo. No recibe puesto predictivo ni intervención simulada. La ficha muestra su causa y propone revisar datos; el contador y listado respetan el filtro actual. Son 694 en el universo nacional; el filtro inicial de catálogo deja 478. Estas exclusiones pueden apartar territorios con necesidad alta. Los municipios grises también pueden aparecer por estar en otro estado o por no coincidir con la búsqueda actual; no se cancelan, solo no se fuerzan a primera vista.
+**Sin estimación:** municipio gris con antecedentes insuficientes, tasa no calculable o NS sobre el 10% en algún antecedente requerido. No significa abstención cero ni riesgo bajo. No recibe puesto predictivo ni intervención simulada. La ficha muestra su causa y propone revisar datos; el contador y listado respetan el filtro actual. Son 694 en el universo nacional; al activar el filtro de catálogo deja 478. Estas exclusiones pueden apartar territorios con necesidad alta. Los municipios grises también pueden aparecer por estar en otro estado o por no coincidir con la búsqueda actual; no se cancelan, solo no se fuerzan a primera vista.
 
 En capacidad por personas, la estabilidad y la frontera comparan top N entre variantes, con N igual al número de municipios del plan. No recalculan el presupuesto humano para cada variante. El filtro mínimo usa N previo al filtro; ficha y frontera usan N final.
 
@@ -28,7 +28,7 @@ Abrir http://127.0.0.1:8765 y mantener la terminal activa. Detener con Ctrl+C. E
 
 Seleccionar entidad, buscar por nombre/clave y revisar el filtro de catálogo constante. En el paso 3: seleccionar acción, cobertura, distribución, criterio de prioridad y repetición mínima; solo el modo personalizado usa respuesta supuesta. Mapa y plan se actualizan. Las filas y municipios abren la ficha explicativa y el perfil CCPC. Descargar plan exporta toda la selección con la fuente de la acción, incluso si la tabla solo muestra 25.
 
-La vista inicial conserva el filtro de entidades con catálogo constante: 1,144 estimaciones. Al desmarcarlo se muestran 1,783 estimaciones nacionales. Permanecen visibles los municipios sin estimación y los territorios fuera del filtro se atenúan. Cartografía simplificada exclusivamente para visualización, sin teselas ni librerías remotas. Los enlaces oficiales del pie requieren internet si se abren.
+La vista inicial incluye todos los estados y muestra 1,783 estimaciones nacionales. Al activar el filtro de catálogo municipal constante, quedan 1,144 estimaciones. Permanecen visibles los municipios sin estimación y los territorios fuera del filtro se atenúan. Cartografía simplificada exclusivamente para visualización, sin teselas ni librerías remotas. Los enlaces oficiales del pie requieren internet si se abren.
 
 Proyección 2027 exploratoria; 2024 adverso visible. SV+NV 2024 define tasas y limita alcance, NS fuera, no electorado proyectado. La **estabilidad de prioridad** es la frecuencia con que un municipio entra en la selección entre las seis variantes de método y calidad; no es probabilidad calibrada. El perfil CCPC por edad, sexo y tipo de sección es una **capa explicativa** calculada de los conteos crudos: no alimenta al modelo y no implica causalidad. El rango ±21.05 pp se conserva solo como error histórico.
 
@@ -56,7 +56,13 @@ Entrega unificada el 6 de octubre de 2026: [caso municipal](../entrega/CASO_MUNI
 
 El mapa nacional muestra las 32 entidades. Al pulsar un estado se abren sus municipios; al pulsar un municipio se acerca y resalta. El clic derecho vuelve un nivel y Vista nacional regresa directamente a México. Los resúmenes estatales respetan los filtros y ponderan las tasas por SV+NV 2024 de municipios con estimación; los faltantes no cuentan como cero. La frecuencia de selección está disponible en la vista municipal.
 
-`data/estados.js` conserva la cartografía local. Para regenerarla: instalar Shapely y ejecutar `python data/generar_estados.py` desde la carpeta demo. Los límites derivan de los municipios simplificados y son solo referencia visual.
+`data/estados.js` conserva la cartografía local. Se genera junto con la geometría municipal mediante `python process_conabio.py --tolerancia-municipios 0.002 --embebidos` desde la raíz del repositorio. Los límites estatales derivan de los municipios y son solo referencia visual.
+
+### Fuente cartográfica y cruce municipal
+
+La geometría procede de **CONABIO/INEGI, Áreas Geoestadísticas Municipales (AGEM) 2024, escala 1:250,000**, preparada para el Geoportal del SNIB. La fuente indica licencia **CC BY-NC 2.5 MX**; al redistribuirla se debe citar a INEGI y CONABIO. El archivo de metadatos original se conserva localmente en `cartografia/municipiosmx_conabio/municipiosmx.xml`; el resumen está en `data/cartografia_metadatos.json` y el inventario de fuentes en `../fuentes.json`.
+
+El shapefile trae 2,478 polígonos y la base de resultados 2,477 claves. El script cruza nombres normalizados y alias explícitos dentro de cada entidad; empareja por orden de clave los dos pares homónimos de Oaxaca. La base es anterior a Villa de Pozos: su polígono se une a San Luis Potosí (24028), de modo que la salida conserva 2,477 claves. Esta asociación sirve para mostrar resultados; no armoniza las fronteras entre cortes ni prueba continuidad histórica.
 
 ### Distribución y alcance de datos
 

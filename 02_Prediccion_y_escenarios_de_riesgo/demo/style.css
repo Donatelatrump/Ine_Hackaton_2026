@@ -362,8 +362,31 @@ p { color: var(--muted); line-height: 1.7; }
 /* --- Workspace Grid --- */
 .workspace {
   display: grid;
-  grid-template-columns: 290px minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
   gap: 22px;
+}
+
+/* Fila superior: controles (Paso 1) + Mapa lado a lado - SIN GAP para unificarlos visualmente */
+.workspace-top {
+  display: grid;
+  grid-template-columns: 290px minmax(0, 1fr);
+  gap: 0;
+  align-items: stretch;
+}
+.workspace-top > .controls { align-self: stretch; }
+.workspace-top > .map-panel { align-self: stretch; }
+
+/* Map panel fills its grid cell - NO hover animation (absorbed by Paso 1) */
+.map-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+#map {
+  flex: 1;
+  min-height: 420px;
+  background: #e4ede8;
+  transition: opacity .3s ease;
 }
 
 /* --- Panels (shared) --- */
@@ -376,6 +399,16 @@ p { color: var(--muted); line-height: 1.7; }
   transition: box-shadow var(--transition);
 }
 .panel:hover { box-shadow: var(--card-shadow-hover); }
+
+/* --- Analysis Panel (Paso 2) - matches intervention padding --- */
+.analysis.panel {
+  padding: 24px;
+  margin-top: 22px;
+  box-sizing: border-box;
+}
+.analysis .section-heading { margin-bottom: 8px; }
+.analysis .stats { margin-bottom: 20px; }
+.analysis .lower { margin: 26px 0 0; }
 
 /* --- Controls Panel (Step 1) --- */
 .controls {

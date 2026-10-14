@@ -7,3 +7,10 @@ __pycache__/
 .env
 .env.*
 !.env.example
+
+# Insumo CONABIO y salidas duplicadas de verificación; la demo conserva la capa optimizada.
+/02_Prediccion_y_escenarios_de_riesgo/cartografia/municipiosmx.zip
+/02_Prediccion_y_escenarios_de_riesgo/cartografia/municipiosmx_conabio/*
+!/02_Prediccion_y_escenarios_de_riesgo/cartografia/municipiosmx_conabio/municipiosmx.xml
+/02_Prediccion_y_escenarios_de_riesgo/demo/data/municipios_conabio.geojson
+/02_Prediccion_y_escenarios_de_riesgo/demo/data/estados_conabio.js

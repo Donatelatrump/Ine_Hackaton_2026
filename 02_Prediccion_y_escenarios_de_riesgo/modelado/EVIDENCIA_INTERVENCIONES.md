@@ -1,8 +1,8 @@
 # Evidencia sobre comunicación y participación electoral
 
-Fecha de consulta: 6 de octubre de 2026. Revisión inicial de artículos originales, tesis y fuentes institucionales. No es una revisión sistemática exhaustiva ni una calibración de efectos para México.
+Fecha de consulta: 13 de octubre de 2026. Revisión inicial de artículos originales, tesis y fuentes institucionales. No es una revisión sistemática exhaustiva ni una calibración de efectos para México.
 
-La búsqueda responde a la necesidad de fundamentar escenarios de intervención de Umbral. La revisión inicial no modificó la simulación. La actualización al final documenta el catálogo implementado con referencias externas; las cifras describen los estudios originales, no efectos validados para municipios mexicanos.
+La búsqueda responde a la necesidad de fundamentar escenarios de intervención de Umbral. La actualización del 13 de octubre incorpora **tres nuevas intervenciones basadas en evidencia documental mexicana** (IFE, INE Durango 2026, Tesis González 2024). Estas intervenciones usan **supuestos informados por evidencia**, no coeficientes experimentales validados para México. Las cifras describen los estudios originales, no efectos transferidos.
 
 ## Cómo interpretar los resultados
 
@@ -149,21 +149,24 @@ Ejemplo aritmético, sin validación de transferencia: un efecto de 0.9 pp aplic
 
 Faltan efectos locales por acción y edad, intervalos de incertidumbre completos para varios estudios y evaluación de equivalencia con la población mexicana. No hay base en esta revisión para establecer una tabla universal «jóvenes X%, adultos Y%, mayores Z%».
 
-## Catálogo implementado y verificación de fuentes — 6 de octubre de 2026
+## Catálogo implementado y verificación de fuentes — 13 de octubre de 2026
 
-Solo se incorporan tres referencias verificadas en publicaciones originales. «Sin intervención» es la opción inicial; «personalizada» conserva un supuesto del usuario, sin adjudicarle evidencia causal. No se asignó coeficiente a infografías o talleres ni una tabla general por edad.
+Se incorporan **seis referencias**: tres experimentales internacionales verificadas + tres basadas en evidencia documental mexicana (IFE, INE Durango 2026, Tesis González 2024). «Sin intervención» es la opción inicial; «personalizada» conserva un supuesto del usuario. **No se asignó coeficiente experimental a las intervenciones documentales mexicanas**; usan rangos supuestos informados por evidencia correlacional/cualitativa.
 
 | Acción / fuente original | Estimador y coeficiente | Incertidumbre y localización |
 |---|---|---|
 | SMS, Suecia: Lindgren, K.-O., Nyman, P. y Oskarsson, S. (2025), *Examining Voting Spillover Effects of Text Message Reminders*, British Journal of Political Science | ITT directo: +0.30 pp sobre personas asignadas | Intervalo publicado 0.13–0.48 pp; sección Results, figura 1. [DOI 10.1017/S0007123424000504](https://doi.org/10.1017/S0007123424000504) |
 | SMS, Estados Unidos: Haenschen, Mann y DeMora (2026), referencia 1 | ITT global: +0.25 pp sobre personas asignadas | IC 95% [0.0017, 0.0034] en proporción, convertido a 0.17–0.34 pp; introducción. [DOI 10.1007/s11109-026-10121-2](https://doi.org/10.1007/s11109-026-10121-2) |
 | Llamada con plan de votación: Nickerson y Rogers (2010), referencia 3 | ATT ajustado por contacto: +4.1 pp sobre contactos efectivos | Error estándar 1.7 pp; tabla 1, Implementation intentions. El ITT es 0.9 pp; no intercambiar denominadores. [Artículo](https://doi.org/10.1177/0956797609359326), [tabla en PDF](https://marketing.wharton.upenn.edu/wp-content/uploads/2016/10/nickerson20and20rogers_FINAL.pdf) |
+| **Campaña digital dirigida a jóvenes (redes sociales)** — Durango 2026 (INE), Tesis González (2024), IFE (1990s) | **Supuesto informado: +2.0 pp** (rango 0.5–5.0 pp) sobre jóvenes 18-29 alcanzados | **No es efecto experimental**. Rango especulativo basado en: (1) brecha participación por edad desde 20 años (Durango 2026); (2) voto juvenil "volátil, influido por info en redes" (González 2024 citando Hernández 2017); (3) factor "espacios digitales" identificado (Durango 2026). [Fuente Durango](https://centralelectoral.ine.mx/2026/09/24/presentan-en-durango-investigacion-sobre-participacion-politica-y-electoral-de-las-juventudes-en-mexico/) |
+| **Información institucional simplificada (cómo/dónde/cuándo votar)** — IFE (1997), INE 2023-24, Durango 2026 | **Supuesto informado: +1.5 pp** (rango 0.3–3.0 pp) sobre personas alcanzadas | **No es efecto experimental**. IFE evaluó campañas 1997; INE 2023-24 reporta alcance no efecto; Chong et al. (2015, México): info corrupción REDUJO participación. Efecto asume info PRÁCTICA (casilla, horario), no contenido político. [Evaluación INE](https://portal.ine.mx/evaluacion-la-campana-institucional/) |
+| **Fortalecimiento confianza institucional (largo plazo)** — Durango 2026, IFE (1991-1997), González (2024) | **No modelable para 2027** (efecto = 0 pp en simulación) | Factor estructural identificado en múltiples fuentes. Requiere intervención sostenida multi-año. Incluido solo para registro documental. [Fuente Durango](https://centralelectoral.ine.mx/2026/09/24/presentan-en-durango-investigacion-sobre-participacion-politica-y-electoral-de-las-juventudes-en-mexico/) |
 
 El experimento sueco corresponde a Parlamento Europeo 2019, muestra inicial 3,161,654 residentes de 18–75 años con un número móvil asociado, vinculados a registros de voto. No se suman efectos en convivientes. El estadounidense de SMS corresponde a intermedias de 2018 y una población específica, no a todo el electorado. El de llamada corresponde a electores de baja propensión en el registro demócrata de Pensilvania en 2008, no a sesiones abiertas en México. Estas diferencias se muestran en la página.
 
-Regla implementada: `H = min(E × efecto_pp / 100, E × abstención_base / 100)`; tasa posterior `A − 100 × H / O`, con `O = SV2024 + NV2024` y `E` limitado por O y capacidad. El segundo límite es una restricción del escenario: asume que los cubiertos presentan la tasa municipal y evita convertir más abstencionistas que los esperados entre ellos. No es una estimación adicional de los estudios. Los extremos de SMS usan la misma regla y se agregan con cobertura fija; no se reduce la incertidumbre artificialmente por número de municipios.
+**Regla implementada (todas las acciones):** `H = min(E × efecto_pp / 100, E × abstención_base / 100)`; tasa posterior `A − 100 × H / O`, con `O = SV2024 + NV2024` y `E` limitado por O y capacidad. El segundo límite es una restricción del escenario: asume que los cubiertos presentan la tasa municipal y evita convertir más abstencionistas que los esperados entre ellos. No es una estimación adicional de los estudios. Los extremos usan la misma regla y se agregan con cobertura fija; no se reduce la incertidumbre artificialmente por número de municipios.
 
-El rango trasladado no es un intervalo de impacto para México. No incorpora error del modelo, equivalencia poblacional, implementación, contexto ni transferencia. La llamada muestra el error estándar sin presentar un intervalo nuevo como publicado. Todas las citas, coeficientes, unidades y límites se incluyen en los CSV exportados. Modelo predictivo y salidas de Python permanecen separados de este catálogo de escenarios de la demo.
+**Las intervenciones documentales mexicanas (digital_juventud, info_institucional, confianza_institucional) NO tienen efectos experimentales validados.** Sus rangos son supuestos informados por evidencia correlacional/cualitativa. El rango trasladado no es un intervalo de impacto para México. No incorpora error del modelo, equivalencia poblacional, implementación, contexto ni transferencia. Todas las citas, coeficientes, unidades y límites se incluyen en los CSV exportados. Modelo predictivo y salidas de Python permanecen separados de este catálogo de escenarios de la demo.
 
 ## Distribución de cobertura y agregación territorial
 
