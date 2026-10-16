@@ -1,3 +1,25 @@
+## Organización actual del código
+
+Demo6 usa `demo/src/demo6/` y `demo/styles/demo6/` dentro del track. Consultar [arquitectura y comandos](../arquitectura/README.md). Las capturas y copias de depuración están en `demo/archivo/depuracion/`.
+
+---
+
+## Comparación de cuatro modelos ejecutada · 16 de octubre de 2026
+
+Se entrenaron y evaluaron Ridge, HistGradientBoosting, LightGBM y CatBoost con las mismas 15 variables históricas. Se seleccionó HistGradientBoosting: MAE medio 6.8360 pp frente a 9.0094 de Ridge (24.12% menos error). LightGBM obtuvo MAE 6.8304 pp; la diferencia menor que 0.05 pp activó el desempate por MAE ponderado, favorable a HistGradientBoosting. Ridge fue el más rápido. La selección es retrospectiva, sin validación futura de 2027.
+
+La versión vigente de demo6 incluye los cuatro métodos y usa HistGradientBoosting por defecto. La documentación anterior que sigue corresponde a la etapa previa al benchmark. Fuente actual: modelado/COMPARACION_4_MODELOS.md del track.
+
+---
+
+# Versión vigente: demo6
+
+16 de octubre de 2026. Abrir [demo6.html](demo6.html). Guía completa: [DEMO6.md](DEMO6.md). La documentación que sigue describe versiones anteriores; para cifras y parámetros actuales consultar [Metodología](../modelado/METODOLOGIA.md) y [Resultados](../modelado/RESULTADOS.md).
+
+Demo6 inicia con la referencia de 2021 según los metadatos guardados y permite comparar Ridge. Los rangos se calculan por método, no con un ±21.05 pp fijo. Conserva la consulta histórica y las islas, añade agregaciones ponderadas, gráfica, brecha estatal y CSV de la consulta. Demo5 continúa disponible.
+
+---
+
 # Umbral: demo local
 
 ## Recorrido de la página (8 de octubre)

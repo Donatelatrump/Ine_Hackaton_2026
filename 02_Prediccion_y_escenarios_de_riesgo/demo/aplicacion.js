@@ -23,15 +23,23 @@ function clearCaches(){normCache.clear();rankCache={};}
 const simulationActive=()=>$('action').value!=='ninguna'&&$('reach').value.trim()!==''&&$('reach').checkValidity();
 const smooth=()=>matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';
 function perfilCell(key,year,dim,group){try{return perfil.municipios[key][String(year)][dim][group];}catch(e){return null;}}
-function perfilRow(key,dim,group,minN=500){
- const cell=perfilCell(key,2024,dim,group),natNac=perfil.nacional['2024'][dim][group];
- const label=`${GROUP_NAME[dim]?GROUP_NAME[dim][group]||group:group}`;
- if(!cell||cell.abstencion_pct===null||cell.n<minN)return `<li>${esc(label)}: muestra insuficiente para inferir (n=${fmt.format(cell?cell.n:0)})</li>`;
- const diff=cell.abstencion_pct-natNac.abstencion_pct,sign=diff>=0?'+':'';
- return `<li>${esc(label)}: <strong>${cell.abstencion_pct.toFixed(1)}%</strong> de abstención observada (${sign}${diff.toFixed(1)} pp frente al patrón nacional; n=${fmt.format(cell.n)})</li>`;
+function perfilRow(key,dim,group,year=2024,minN=500){
+ const cell=perfilCell(key,year,dim,group);
+ if(!cell||cell.abstencion_pct===null)return `<li>${esc(dim=== 'edad' || dim === 'sexo' || dim === 'seccion' ? (GROUP_NAME[dim]?GROUP_NAME[dim][group]||group:group) : group)}: muestra insuficiente para inferir (n=0)</li>`;
+const yearStr=String(year);
+let natNac=null;
+try{natNac=perfil.nacional[yearStr]&&perfil.nacional[yearStr][dim]&&perfil.nacional[yearStr][dim][group];}catch(e){}
+const label=`${GROUP_NAME[dim]?GROUP_NAME[dim][group]||group:group}`;
+if(!natNac)return `<li>${esc(label)}: muestra insuficiente para inferir (n=${fmt.format(cell?cell.n:0)})</li>`;
+const diff=cell.abstencion_pct-natNac.abstencion_pct,sign=diff>=0?'+':'';
+return `<li>${esc(label)}: <strong>${cell.abstencion_pct.toFixed(1)}%</strong> de abstención observada (${sign}${diff.toFixed(1)} pp frente al patrón nacional; n=${fmt.format(cell.n)})</li>`;
 }
 function detail(key){
- activeKey=key;const r=byKey.get(key);
+activeKey=key;const r=byKey.get(key);
+ if(typeof demo5ModoHistorico!=='undefined' && demo5ModoHistorico && currentMapYear!==2027){
+  detailObserved(r,currentMapYear);
+  return;
+ }
  if(Number.isFinite(r.risk)&&!matches(r)){
   $('detail-name').textContent=r.name;
   $('detail-state').textContent=r.state_name+' · Clave INE '+r.key+' · Estimación disponible pero no coincide con el filtro actual';
@@ -53,16 +61,18 @@ function detail(key){
  const s=stability[key]||{count:0,eligible:0,frequency:0,robust:false,members:{}};
  const conf=s.confidence||Decision.confidenceTier(s.count,Decision.variants.length);
  const chosen=selectedMap.get(key);
- const inv=$('action').value==='personalizada'?Decision.inverseScenario(r,chosen?.served||0,Number($('response').value),thresholds):{reason:'La inversión de respuesta solo aplica al escenario personalizado. El efecto del estudio seleccionado permanece fijo; no se ajusta para cambiar el color.'};
- const p=preventive(r);
- const refRank=rankUnder(key,'baseline'),ridgeRank=rankUnder(key,'ridge'),capacityNow=plan.selected.length;
- $('detail-name').textContent=r.name;$('detail-state').textContent=r.state_name+' · Clave INE '+r.key+(simulationActive()?' · Prioridad '+pos+' de '+total:'');
+ const inv=$('action').value==='personalizada'?Decision.inverseScenario(r,chosen?.served||0,Number($('response').value),thresholds):{reason:'La inversión de respuesta solo aplica al escenario personalizado. El efecto del estudio seleccionado permanece fijo; no se ajusta para cambiar el color.'};  const p=preventive(r);
+  const refRank=rankUnder(key,'baseline'),ridgeRank=rankUnder(key,'ridge'),capacityNow=plan.selected.length;
+  const histDemo5 = typeof demo5ModoHistorico !== 'undefined' && demo5ModoHistorico && currentMapYear !== 2027;
+  const yearHist = histDemo5 ? currentMapYear : 2024;
+  $('detail-name').textContent=r.name; $('detail-state').textContent=r.state_name+' · Clave INE '+r.key+(simulationActive()?' · Prioridad '+pos+' de '+total:'')+(histDemo5?' · Datos de '+yearHist:'');
+ 
  const last=r.history.length?r.history[r.history.length-1]:null;
  const reasons=[];
  if(Number.isFinite(r.baseline))reasons.push(`Abstención en la elección comparable (2021): <strong>${pct(r.baseline)}</strong>`);
  if(last&&Number.isFinite(last.risk))reasons.push(`Último proceso (${last.year}): <strong>${pct(last.risk)}</strong>`);
  if(Number.isFinite(r.profile.urban_pct))reasons.push(`Personas registradas en zonas urbanas: ${pct(r.profile.urban_pct)}`);
- if(Number.isFinite(r.latest_ns))reasons.push(`Registros de 2024 sin información sobre si votaron: <strong>${pct(r.latest_ns)}</strong>`);
+ if(Number.isFinite(r.latest_ns))reasons.push(`Registros de ${yearHist} sin información sobre si votaron: <strong>${pct(r.latest_ns)}</strong>`);
  const bothHigh=capacityNow>0&&refRank<=capacityNow&&ridgeRank<=capacityNow;
  if(simulationActive())reasons.push(`La referencia de 2021 (puesto ${refRank||'—'}) y la estimación con datos históricos (puesto ${ridgeRank||'—'}): ${bothHigh?'coinciden dentro de la capacidad actual':(refRank<=capacityNow||ridgeRank<=capacityNow)?'solo uno entra en la selección con la capacidad actual':'ninguno entra en la selección con la capacidad actual'}`);
  const mem=s.members||{},any=(vs)=>vs.some(v=>mem[v]);
@@ -73,12 +83,13 @@ function detail(key){
   ['NS ≤10%',any(['ridge_10','persistencia_10'])],
   ['NS ≤20%',any(['ridge_20','persistencia_20'])],
  ].map(([label,ok])=>`<li>${label}: ${ok?'✅':'—'}</li>`).join('');
- const req=inv.reason?esc(inv.reason):`Para bajar un nivel, objetivo &lt; ${pct(inv.target+1e-6)}: alcance requerido ≈ ${inv.required_reach===null?'imposible con respuesta cero':fmt.format(inv.required_reach)} personas con respuesta ${$('response').value}%. ${inv.feasible_reach?'Cabe en la base observable.':'No cabe en la base observable con esa respuesta.'} Con el alcance actual, respuesta requerida ${pct(inv.required_response)} ${inv.feasible_response?'(≤100%).':'(no factible o sin alcance).'} Requisito algebraico hipotético.`;
- const profile=(perfil&&perfil.municipios[key])?`<h3>Perfil CCPC observado 2024 (capa explicativa)</h3><ul class="why">${['18_29','60_mas'].map(g=>perfilRow(key,'edad',g)).join('')}${perfilRow(key,'sexo','hombres')}${perfilRow(key,'sexo','mujeres')}${perfilRow(key,'seccion','urbana')}${perfilRow(key,'seccion','rural')}</ul><p class="table-note hint">Capa descriptiva posterior: no alimenta a Ridge ni a la prioridad. Las diferencias frente al promedio nacional no son efectos.</p>`:'';
- $('detail-content').innerHTML=`<h3>¿Qué ocurrió en elecciones anteriores?</h3><div class="fact-cards">
+ const req=inv.reason?esc(inv.reason):`Para bajar un nivel, objetivo &lt; ${pct(inv.target+1e-6)}: alcance requerido ≈ ${inv.required_reach===null?'imposible con respuesta cero':fmt.format(inv.required_reach)} personas con respuesta ${$('response').value}%. ${inv.feasible_reach?'Cabe en la base observable.':'No cabe en la base observable con esa respuesta.'} Con el alcance actual, respuesta requerida ${pct(inv.required_response)} ${inv.feasible_response?'(≤100%).':'(no factible o sin alcance).'} Requisito algebraico hipotético.`;  const profile=(perfil&&perfil.municipios[key])?`<h3>Perfil CCPC observado ${yearHist} (capa explicativa)</h3><ul class="why">${['18_29','60_mas'].map(g=>perfilRow(key,'edad',g,yearHist)).join('')}${perfilRow(key,'sexo','hombres',yearHist)}${perfilRow(key,'sexo','mujeres',yearHist)}${perfilRow(key,'seccion','urbana',yearHist)}${perfilRow(key,'seccion','rural',yearHist)}</ul><p class="table-note hint">Capa descriptiva posterior: no alimenta a Ridge ni a la prioridad. Las diferencias frente al promedio nacional no son efectos.</p>`:'';
+  const detailYear = histDemo5 ? yearHist : 2027;
+  const detailLimitText = histDemo5 ? `La cifra de ${yearHist} es observada. No es una proyección.` : `La cifra de 2027 es exploratoria. No sabemos todavía qué tan precisa será; 2024 y 2027 son elecciones de distinto tipo.`;
+ $('detail-content').innerHTML=`<div class="detail-comparison"><section><h3>¿Qué ocurrió en elecciones anteriores?</h3><div class="fact-cards">
   <div><span>Dato observado · ${last?last.year:'sin antecedente'}</span><strong>${last?pct(last.risk):'Sin dato'}</strong><small>${last&&Number.isFinite(last.risk)?"Aproximadamente "+Math.round(last.risk)+" de cada 100 personas no votaron":"Sin dato disponible"}</small></div>
-  </div><h3>¿Qué se estima para 2027?</h3><div class="fact-cards"><div><span>Estimación exploratoria · 2027</span><strong>${pct(r.risk)}</strong><small>Aproximadamente ${Math.round(r.risk)} de cada 100 personas podrían no votar. Es una estimación.</small></div>
-  ${simulationActive()?`<div><span>Con la acción del paso 3</span><strong>${chosen?pct(chosen.after):'Sin asignación'}</strong><small>${chosen?fmt.format(chosen.served)+' personas alcanzadas (supuesto)':'Fuera del plan actual'}</small></div>`:''}</div><p class="detail-limit">La cifra de 2027 es exploratoria. No sabemos todavía qué tan precisa será; 2024 y 2027 son elecciones de distinto tipo.</p>
+  </div></section><section><h3>¿Qué se estima para ${detailYear === 2027 ? '2027' : yearHist}?</h3><div class="fact-cards"><div><span>${histDemo5 ? 'Observado · ' + yearHist : 'Estimación exploratoria · 2027'}</span><strong>${histDemo5 ? pct(r.history.find(h=>h.year===yearHist)?.risk) : pct(r.risk)}</strong><small>${histDemo5 ? 'Abstención observada en ' + yearHist + '.' : 'Aproximadamente ' + Math.round(r.risk) + ' de cada 100 personas podrían no votar. Es una estimación.'}</small></div>
+  ${simulationActive()?`<div><span>Con la acción del paso 3</span><strong>${chosen?pct(chosen.after):'Sin asignación'}</strong><small>${chosen?fmt.format(chosen.served)+' personas alcanzadas (supuesto)':'Fuera del plan actual'}</small></div>`:''}</div></section></div><p class="detail-limit">${detailLimitText}</p>
   <details><summary>Antecedentes y calidad de los datos</summary><ul class="why">${reasons.map(x=>`<li>${x}</li>`).join('')}</ul></details>
   ${simulationActive()?`<details><summary>Acción elegida y revisión del plan</summary><h3>Acción del simulador</h3><p>${esc(plan.action.label)}. ${esc(plan.action.unit)}. ${plan.action.source?`<a href="${esc(plan.action.source)}" target="_blank" rel="noopener noreferrer">Fuente original ↗</a>`:"Sin coeficiente externo."}</p>`:''}<details><summary>Qué actividad podría explorarse en este municipio</summary><h3>Recomendación preventiva por validar</h3><p><strong>Acción sugerida: ${esc(p.type)}.</strong> ${esc(p.action)}.</p><p class="hint">Propuesta por validar con la comunidad. ${esc(p.mechanism)}.</p>
   </details>${simulationActive()?`<h3>¿Qué debemos comprobar antes de aplicarla?</h3><p>Este municipio aparece entre los seleccionados en <strong>${s.count} de las 6 formas de comparar los datos</strong>. ${s.robust?'Seleccionado en todas las variantes.':s.count>0?'La selección depende del método o de la calidad.':'No entra en las variantes con la capacidad actual.'} Tiene datos suficientes para ${s.eligible} de esas 6 comparaciones. </p>
@@ -89,6 +100,23 @@ function detail(key){
   ${simulationActive()?`<details><summary>Avanzado: qué haría falta para cambiar de color</summary><p>${req}</p></details>`:''}
   ${simulationActive()?`<details><summary>Cómo cambia la selección entre variantes</summary><ul class="why">${robustez}</ul><p>Frecuencia de selección ${s.count}/6. Se usa un número equivalente de municipios; no se recalcula el presupuesto humano por variante.</p></details>`:''}
   <details><summary>Ver elecciones anteriores y límites de la estimación</summary><div class="history">${r.history.map(h=>`<div><span>${h.year}</span><div class="bar-track"><i style="width:${Number.isFinite(h.risk)?h.risk:0}%"></i></div><b>${pct(h.risk)}</b></div>`).join('')}</div><p>${simulationActive()?'La prioridad se comunica con la frecuencia entre variantes. ':''}El rango técnico ${pct(r.range_low)}–${pct(r.range_high)} (±21.05 pp, p90 retrospectivo de Ridge 2021) se conserva solo aquí como referencia de error histórico; no es intervalo prospectivo.</p><p>${r.flags.map(esc).join('; ')||'Sin alertas adicionales'}</p></details>`;
+}
+function detailObserved(r,year){
+ const observed=r.history.find(h=>h.year===year);
+ const rate=observed?.risk;
+ $('detail-name').textContent=r.name;
+ $('detail-state').textContent=r.state_name+' · Clave INE '+r.key+' · Elección de '+year;
+ const groups=['edad','sexo','seccion'].flatMap(dim=>{
+  const available=perfil?.municipios?.[r.key]?.[String(year)]?.[dim];
+  return available ? Object.keys(available).map(group=>perfilRow(r.key,dim,group,year)) : [];
+ });
+ $('detail-content').innerHTML=`<h3>¿Cómo fue la abstención en ${year}?</h3>
+  <div class="fact-cards"><div><span>Abstención observada · ${year}</span><strong>${pct(rate)}</strong><small>${Number.isFinite(rate)?'Aproximadamente '+Math.round(rate)+' de cada 100 personas no votaron.':'No hay una tasa observada disponible para este municipio en el año seleccionado.'}</small></div>
+  ${Number.isFinite(rate)?`<div><span>Participación observada · ${year}</span><strong>${pct(100-rate)}</strong><small>Sobre las personas con información de voto (SV + NV).</small></div>`:''}</div>
+  <p class="detail-limit">Resultados históricos de ${year} a partir de los CCPC del INE.</p>
+  <details><summary>Calidad de los datos de ${year}</summary><p>Participación no especificada (NS): <strong>${pct(observed?.ns)}</strong>.</p><p>Una tasa histórica disponible se muestra aunque no haya evidencia suficiente para estimar 2027. Las claves y los límites municipales no están armonizados entre elecciones.</p></details>
+  <details><summary>Perfil observado por grupos en ${year}</summary>${groups.length?'<ul class="why">'+groups.join('')+'</ul>':'<p>No hay un perfil desagregado disponible para este año.</p>'}</details>
+  <details><summary>Comparar elecciones anteriores</summary><div class="history">${r.history.filter(h=>h.year<=year).map(h=>`<div><span>${h.year}</span><div class="bar-track"><i style="width:${Number.isFinite(h.risk)?h.risk:0}%"></i></div><b>${pct(h.risk)}</b></div>`).join('')}</div></details>`;
 }
 function simulationMunicipalities(){
  const previous=$('simulation-municipality').value;
@@ -115,8 +143,53 @@ function syncSimulationTerritory(){
  $('simulation-state-wrap').hidden=!state;
  $('simulation-municipality-wrap').hidden=!exact;
 }
-function update(){
+// Actualizar resultados de exploración sin repintar ni reencuadrar el mapa histórico.
+function updateExplorationAnalysis(){
  syncSearchablePickers();
+ syncSimulationTerritory();
+ clearCaches();
+ const method=$('method').value;
+ view=viewCache[method]||(viewCache[method]=records.map(r=>({...r,risk:r[method]})));
+ byKey=new Map(view.map(r=>[r.key,r]));
+ filtered=view.filter(matches);
+ thresholds=thresholdsCache[method]||(thresholdsCache[method]=(()=>{
+  const rates=view.map(r=>r.risk).filter(Number.isFinite);
+  return {low:quantile(rates,1/3),high:quantile(rates,2/3)};
+ })());
+ const observedMode=typeof demo5ModoHistorico!=='undefined' && demo5ModoHistorico && currentMapYear!==2027;
+ const rate=r=>observedMode?r.history.find(h=>h.year===currentMapYear)?.risk:r.risk;
+ const eligible=filtered.filter(r=>Number.isFinite(rate(r)));
+ const missing=filtered.filter(r=>!Number.isFinite(rate(r)));
+ $('analysis-eligible-label').textContent=observedMode?'Con dato observado en '+currentMapYear:'Con estimación en tu búsqueda';
+ $('analysis-missing-label').textContent=observedMode?'Sin dato observado en '+currentMapYear:'Sin estimación en tu búsqueda';
+ $('analysis-ranking-label').textContent=observedMode?'No votaron en '+currentMapYear:'Podrían no votar en 2027';
+ $('analysis-missing-title').textContent=observedMode?'Municipios sin dato observado en '+currentMapYear:'¿Por qué algunos municipios no tienen estimación?';
+ $('analysis-missing-note').textContent=observedMode?'El color gris indica que no hay una tasa observada disponible en el año seleccionado. Un dato ausente no equivale a 0% de abstención.':'El color gris indica que no hay evidencia histórica suficiente o la participación no especificada supera el 10%, según la regla de calidad metodológica.';
+ $('analysis-description').textContent=observedMode?'Consulta los resultados observados de '+currentMapYear+', la participación y la calidad de los datos del municipio seleccionado.':'Consulta la ficha del municipio, el ranking y la calidad de la estimación. Ridge se contrasta con la referencia de la elección previa; 2021 selecciona el método y 2024 revisa su transferencia.';
+ $('eligible').textContent=fmt.format(eligible.length);
+ $('coverage').textContent='De '+fmt.format(filtered.length)+' municipios que coinciden con tus filtros';
+ $('filter-summary').textContent=fmt.format(filtered.length)+' municipios incluidos.'+($('stable').checked?' Filtro activo: catálogo municipal constante.':'');
+ $('show-all').hidden=!$('stable').checked;
+ $('missing-count').textContent=fmt.format(missing.length);
+ $('list-count').textContent=fmt.format(eligible.length)+(observedMode?' con dato observado':' con estimación');
+ const ranked=observedMode?eligible.slice().sort((a,b)=>rate(b)-rate(a)||a.key.localeCompare(b.key)):Decision.rank(eligible,'tasa');
+ $('ranking').innerHTML=ranked.slice(0,25).map(r=>`<tr><td><button type="button" data-key="${r.key}" class="row-button">${esc(r.name)}</button><small>${esc(r.state_name)} · ${r.key}</small></td><td>${pct(rate(r))}</td></tr>`).join('')||'<tr><td colspan="2">No hay datos disponibles en esta búsqueda.</td></tr>';
+ $('missing-list').innerHTML=missing.slice(0,12).map(r=>`<button class="missing-row" type="button" data-key="${r.key}"><strong>${esc(r.name)}</strong><span>${esc(r.state_name)} · ${r.key}</span><small>${esc(observedMode?'Sin tasa observada para '+currentMapYear:r.exclusion_reasons[0]||'Revisar antecedentes y calidad')}</small></button>`).join('')||'<p>No hay municipios sin datos en este filtro.</p>';
+ if(activeKey&&!filtered.some(r=>r.key===activeKey))activeKey=null;
+ if(!activeKey&&filtered.length===1)activeKey=filtered[0].key;
+ if(activeKey)detail(activeKey);
+ else{
+  $('detail-name').textContent='Selecciona un municipio';
+  $('detail-state').textContent='Elige tu estado y municipio o abre uno en el mapa para consultar sus datos.';
+  $('detail-content').innerHTML='';
+ }
+}
+function update(){
+  if(typeof demo5ModoHistorico !== 'undefined' && demo5ModoHistorico && (demo5EstadoActivo || currentMapYear!==2027)){
+    updateExplorationAnalysis();
+    return;
+  }
+  syncSearchablePickers();
  syncSimulationTerritory();
  clearCaches();
  const reach=Number($('reach').value),response=Number($('response').value),lens=$('lens').value,method=$('method').value,minConf=$('min-confidence').value;
@@ -254,9 +327,17 @@ layer=L.geoJSON(geo,{renderer:L.canvas({pane:'municipal-geography'}),onEachFeatu
 document.querySelectorAll('[data-scenario-map]').forEach(a=>a.addEventListener('click',()=>{$('map-mode').value=a.dataset.scenarioMap;$('confidence').checked=false;update();}));
   document.querySelectorAll('a[href="#sin-estimacion"]').forEach(a=>a.addEventListener('click',()=>{$('sin-estimacion').open=true;}));
  for(const id of ['state','search','stable','min-confidence','reach','response','action','distribution','method','lens','map-mode','confidence'])$(id).addEventListener('input',()=>{if(id==='state'||id==='search'){geographyFocusKey=null;geographyHistory.length=0;$('simulation-scope').value=$('state').value?'estado':'pais';if($('state').value){$('simulation-state').value=$('state').value;simulationMunicipalities();const exact=records.find(r=>r.state===$('state').value&&(r.key===$('search').value||r.name===$('search').value));if(exact){$('simulation-scope').value='municipio';$('simulation-municipality').value=exact.key;}}$('simulation-state-wrap').hidden=$('simulation-scope').value==='pais';$('simulation-municipality-wrap').hidden=$('simulation-scope').value!=='municipio';}update();});
- $('state').addEventListener('change',()=>{const layers=layer.getLayers().filter(l=>!$('state').value||byKey.get(l.feature.properties.key).state===$('state').value);if(layers.length)map.fitBounds(L.featureGroup(layers).getBounds(),{padding:[12,12]});});
- $('ranking').addEventListener('click',e=>{const b=e.target.closest('button[data-key]');if(b){detail(b.dataset.key);if(window.innerWidth<=1050)$('detail').scrollIntoView({behavior:smooth(),block:'start'});}});$('export').onclick=exportPlan;
- $('missing-list').addEventListener('click',e=>{const b=e.target.closest('button[data-key]');if(b){detail(b.dataset.key);$('detail').scrollIntoView({behavior:smooth(),block:'start'});}});
+ $('state').addEventListener('change',()=>{
+  if(typeof demo5ModoHistorico!=='undefined' && demo5ModoHistorico && typeof demo5SeleccionarEstado==='function'){
+   demo5SeleccionarEstado($('state').value);
+   return;
+  }
+  const layers=layer.getLayers().filter(l=>!$('state').value||byKey.get(l.feature.properties.key).state===$('state').value);
+  if(layers.length)map.fitBounds(L.featureGroup(layers).getBounds(),{padding:[12,12]});
+  if(typeof demo5SeleccionarEstado==='function'){demo5SeleccionarEstado($('state').value);}
+ });
+ $('ranking').addEventListener('click',e=>{const b=e.target.closest('button[data-key]');if(b){selectMunicipalityResult(b.dataset.key);if(window.innerWidth<=1050)$('detail').scrollIntoView({behavior:smooth(),block:'start'});}});$('export').onclick=exportPlan;
+ $('missing-list').addEventListener('click',e=>{const b=e.target.closest('button[data-key]');if(b){selectMunicipalityResult(b.dataset.key);$('detail').scrollIntoView({behavior:smooth(),block:'start'});}});
  initLensCards();
  if(perfil&&perfil.nacional){$('perfil-nacional').innerHTML=['edad','sexo','seccion'].flatMap(dim=>Object.keys(perfil.nacional['2024'][dim]).map(g=>{const c=perfil.nacional['2024'][dim][g];return `<tr><td>${esc((GROUP_NAME[dim]&&GROUP_NAME[dim][g])||g)}</td><td>${c.abstencion_pct===null?'—':c.abstencion_pct.toFixed(2)+'%'}</td><td>${fmt.format(c.n)}</td></tr>`;})).join('');}
  $('metrics').innerHTML=Object.entries(metadata.checks).flatMap(([year,c])=>['persistencia','ridge'].map(method=>{const m=c[method];return `<tr><td>${year} · ${method}<small>n=${fmt.format(m.n)}</small></td><td>${m.mae.toFixed(2)} pp</td><td>${m.mae_ponderado.toFixed(2)} pp</td><td>${Math.round(m.precision_top*m.top_k)}/${m.top_k}</td></tr>`;})).join('');
@@ -264,7 +345,8 @@ document.querySelectorAll('[data-scenario-map]').forEach(a=>a.addEventListener('
  $('additional-metrics').innerHTML=Object.entries(ad.cuts).flatMap(([year,c])=>Object.entries(c).map(([method,m])=>`<tr><td>${year} · ${method}</td><td>${m.spearman.toFixed(3)}</td><td>${pct(100*m.precision_rojo)}</td><td>${pct(100*m.recobrado_rojo)}</td><td>${m.rojos_predichos}</td><td>${pct(100*m.precision_rojo_vs_tercio_observado_test)}</td></tr>`)).join('');
  $('size-errors').innerHTML=Object.entries(ad.error_by_size).flatMap(([cut,bins])=>Object.entries(bins).map(([size,m])=>`<tr><td>${esc(cut)}</td><td>${esc(size)}</td><td>${m.n}</td><td>${m.mae.toFixed(2)} pp</td><td>${m.p90_abs_error_pp.toFixed(2)} pp</td></tr>`)).join('');
  $('method-note').textContent='Al probar el modelo con elecciones pasadas, funcionó mejor que usar la elección anterior comparable en 2021, pero peor en 2024. Por eso, la cifra de 2027 sirve para explorar y requiere revisión. Una simulación no demuestra que una actividad vaya a aumentar el voto.';
- $('methodology').innerHTML='<p>MAE ponderado usa SV+NV del objetivo histórico. El umbral rojo de evaluación se aprende del entrenamiento y se congela por corte; precisión y recobrado usan ese mismo umbral. La última columna compara rojos predichos contra el tercio alto observado del test, solo retrospectivamente. Los umbrales de la demo 2027 son tercios de estimaciones base y quedan fijos entre sus tres modos.</p><p>Bandas por tamaño: SV+NV del último antecedente, bins &lt;10 mil, 10–100 mil y ≥100 mil. P90 de error retrospectivo no es intervalo futuro. Estabilidad de prioridad: frecuencia entre persistencia/Ridge × NS 5/10/20 (seis variantes). No es probabilidad calibrada. La incertidumbre de ranking se informa con esta frecuencia y no con el rango ±21.05 pp, que se conserva solo como error histórico.</p><p>2021 se usa para seleccionar, no es prueba independiente posterior. 2024 es presidencial, no valida 2027. Solo seis ocasiones, tres intermedias. NS y límites históricos restringen inferencia.</p>';
- update();map.fitBounds(layer.getBounds(),{padding:[12,12]});
+ $('methodology').innerHTML='<p>MAE ponderado usa SV+NV del objetivo histórico. El umbral rojo de evaluación se aprende del entrenamiento y se congela por corte; precisión y recobrado usan ese mismo umbral. La última columna compara rojos predichos contra el tercio alto observado del test, solo retrospectivamente. Los umbrales de la demo 2027 son tercios de estimaciones base y quedan fijos entre sus tres modos.</p><p>Bandas por tamaño: SV+NV del último antecedente, bins &lt;10 mil, 10–100 mil y ≥100 mil. P90 de error retrospectivo no es intervalo futuro. Estabilidad de prioridad: frecuencia entre persistencia/Ridge × NS 5/10/20 (seis variantes). No es probabilidad calibrada. La incertidumbre de ranking se informa con esta frecuencia y no con el rango ±21.05 pp, que se conserva solo como error histórico.</p><p>2021 se usa para seleccionar, no es prueba independiente posterior. 2024 es presidencial, no valida 2027. Solo seis ocasiones, tres intermedias. NS y límites históricos restringen inferencia.</p>';  update();map.fitBounds(layer.getBounds(),{padding:[12,12]});
 }
+
 try{load();}catch(e){$('effect-range').textContent='';$('status').textContent='Faltan recursos locales o hubo un error de carga. Revisa que la carpeta demo esté completa.';console.error(e);}
+window.__backToNacional = function(){ if(typeof layer!=='undefined'&&layer&&layer.eachLayer){layer.eachLayer(p=>{ if(p&&p.setStyle&&p.options&&p.options.fillOpacity!==undefined){try{p.setStyle({fillOpacity:parseFloat(p.options.fillOpacity)||0.6,opacity:parseFloat(p.options.opacity)||0.7});}catch(e){} }});} if(typeof map!=='undefined'&&map&&typeof map.invalidateSize==='function'){ setTimeout(()=>map.invalidateSize(), 80); } if(typeof update==='function'){ update(); } };

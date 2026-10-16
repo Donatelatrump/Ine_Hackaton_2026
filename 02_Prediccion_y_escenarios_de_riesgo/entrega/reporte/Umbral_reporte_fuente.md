@@ -1,14 +1,14 @@
 # Umbral: reporte metodológico y preventivo
-Versión técnica para revisión | 6 de octubre de 2026
+Versión técnica para revisión | 16 de octubre de 2026
 Estructura de 14 páginas (8 secciones)
 
 ## Página 1: Resumen ejecutivo
 
 ### Reporte metodológico y preventivo · Reto 2
-aguas.exe. Integrantes: Martin Isai Nuñez Villeda y Cesar Donnet Hernandez Gastelum. Versión técnica para revisión, 6 de octubre de 2026. Horizonte exploratorio: elección intermedia de 2027. Cobertura: México por municipio, claves INE. Datos históricos ordinarios 2009-2024. Presupuesto de 15 páginas; este documento usa 14.
+aguas.exe. Integrantes: Martin Isai Nuñez Villeda y Cesar Donnet Hernandez Gastelum. Versión técnica para revisión, 16 de octubre de 2026. Horizonte exploratorio: elección intermedia de 2027. Cobertura: México por municipio, claves INE. Datos históricos ordinarios 2009-2024. Presupuesto de 15 páginas; este documento usa 14.
 
 ### Resumen ejecutivo
-Umbral permite distribuir una cobertura total de personas en municipio, estado o país mediante prioridad o reparto proporcional. Compara una referencia sencilla (última elección del mismo tipo) con Ridge regularizado, con calidad visible y análisis congelados. Ridge mejora en 2021 y empeora en 2024: no se declara ganador. Los escenarios usan efectos publicados de SMS o llamada, como transferencia hipotética no validada a México, o respuesta personalizada sin respaldo causal. La comparación incluye todos los estimables filtrados. Propone fichas revisables y un piloto con protocolo previo; el uso es deliberación institucional.
+Se entrenaron y evaluaron Ridge, HistGradientBoosting, LightGBM y CatBoost con las mismas 15 variables históricas. Se seleccionó HistGradientBoosting: MAE medio 6.8360 pp frente a 9.0094 de Ridge (24.12% menos error). LightGBM obtuvo MAE 6.8304 pp; la diferencia menor que 0.05 pp activó el desempate por MAE ponderado, favorable a HistGradientBoosting. Ridge fue el más rápido. La selección es retrospectiva, sin validación futura de 2027. Demo6 muestra la consulta histórica y proyecciones precalculadas, comparación estatal, exportación de consultas y escenarios hipotéticos con cobertura total y fuentes.
 
 ### Qué es y qué no es
 Es una herramienta de priorización auditable y un registro explícito de supuestos. No es un predictor validado de 2027, no es un asignador automático de recursos y no demuestra efectos causales de una intervención.
@@ -36,11 +36,11 @@ SV: participación registrada. NV: no participación. NS: participación no espe
 Se exige NS ≤10% en el antecedente más reciente y en el del mismo tipo; la evaluación exige además objetivo observable con NS ≤10%. En 2027 hay 1,783 municipios con estimación y 694 sin estimación sobre 2,477 claves. La exclusión por calidad puede apartar zonas con necesidad alta: es un sesgo de cohorte que debe declararse. Fuente: modelado/salidas/metricas.json.
 
 ### Límite territorial
-Una clave municipal constante no prueba límites ni población constantes. No hay armonización histórica de fronteras y los conteos no se redistribuyeron a los límites de 2024. Se excluyen edades mayores de 120 al construir proporciones etarias, conservando los conteos originales.
+Se conservan 2,477 claves, con proyección NS10 para 1,783. La cartografía incorpora 308 componentes insulares oficiales. Los límites históricos no están armonizados y la coincidencia de claves no prueba continuidad territorial.
 
 ## Página 4: Variables usadas, omitidas y trazabilidad
 
-Variables del predictor en modelado/core.py: Abstención del mismo tipo, Abstención del último proceso, Diferencia último − mismo tipo, log(LN), Proporción 18-29, Proporción 60+ (sin >120), Proporción urbana, NS de ambos antecedentes, Tipo de elección (intermedia).
+Variables del predictor en modelado/core.py: Abstención del mismo tipo, Abstención del último proceso, Diferencia último − mismo tipo, log(LN), Proporción 18-29, Proporción 60+ (sin >120), Proporción urbana, NS de ambos antecedentes, Tipo de elección (intermedia), Interacciones electorales, Indicadores complementarios.
 
 ### Variables omitidas y por qué
 Sexo, escolaridad y variables externas no verificadas no forman parte del predictor. Sexo existe en la fuente y se usa solo en la capa explicativa posterior (sección de prevención); el modelo conserva variables agregadas verificables para reducir sobreajuste y fuga. La representación etaria es agregada; no se infieren características individuales.
@@ -48,50 +48,56 @@ Sexo, escolaridad y variables externas no verificadas no forman parte del predic
 ### Trazabilidad
 Cada cifra proviene de archivos citados en el pie de tabla o en el texto: datos_preparados/municipios_historico_con_calidad.csv, modelado/salidas/metricas.json, evaluacion_adicional.json y perfil_demografico.json. El diccionario de datos y las tablas largas viven en la base CSV y el repositorio, no en este PDF.
 
-## Página 5: Referencia simple y ajuste regularizado
+## Página 5: Referencia homóloga y cuatro regresores
 
 ### Referencia
 Predice la abstención de la última elección del mismo tipo: 2015 para 2021, 2018 para 2024 y 2021 para 2027. Si no existe antecedente válido, no se sustituye por otro tipo electoral. Es interpretable y constituye la exigencia mínima que la complejidad debe superar.
 
-### Ajuste Ridge
-Ridge estima el residual respecto de la referencia con diez características agregadas: abstención del mismo tipo, abstención del último proceso, su diferencia, logaritmo de LN, proporción 18-29, proporción 60+ sin edades extremas, proporción urbana, NS de ambos antecedentes y tipo de elección. StandardScaler y Ridge se ajustan solo con entrenamiento anterior a cada corte; alpha=10 se fijó antes de ver métricas; la predicción se trunca a [0,100].
+### Cuatro regresores
+Se comparan cuatro regresores del residual respecto a la misma referencia: Ridge, HistGradientBoosting, LightGBM y CatBoost. Todos usan las mismas 15 variables históricas y cohortes. Cuatro configuraciones por familia, semilla 42 y un hilo de CPU. No se añaden variables futuras ni categóricas a un único competidor.
 
 ### Flujo simple
-Antecedentes observados con calidad verificada → Referencia del mismo tipo → Ajuste Ridge del residual → Estimación 2027 → Semáforo relativo, estabilidad y decisión con capacidad.
+Antecedentes observados con calidad verificada → Referencia del mismo tipo → Ajuste del residual con el modelo seleccionado → Estimación 2027 → Semáforo relativo, estabilidad y decisión con capacidad.
 
 ## Página 6: Construcción, cortes y regla de selección
 
 ### Cortes temporales
-Para evaluar 2021 se entrena con etiquetas 2015 y 2018; para 2024, con 2015, 2018 y 2021. La proyección 2027 incorpora 2015, 2018, 2021 y 2024. Cada ejemplo usa características anteriores a su año objetivo. Hay seis procesos y solo tres intermedias: el volumen de registros no crea más ocasiones electorales.
+Evaluación 2021: entrenamiento 2015/2018 y validación interna 2018 con entrenamiento 2015. Evaluación 2024: entrenamiento 2015/2018/2021 y validaciones internas 2018/2021 con años anteriores. Para 2027 se entrena hasta 2024. No se ajusta ni detiene el aprendizaje con el corte externo.
 
 ### Regla de selección
-Fijada para 2021: adoptar Ridge solo si mejora el MAE al menos 1% y no empeora el MAE ponderado ni la precisión top50. Ridge cumple esa regla en 2021. El corte 2024 se conserva como comprobación y no se usó para reajustar alpha ni para ocultar el deterioro.
+Menor MAE medio, igual peso para 2021 y 2024. Diferencias ≤0.05 pp se desempatan por MAE ponderado; después top50 y tiempo. HistGradientBoosting y LightGBM empatan dentro de la tolerancia; gana el primero por su menor MAE ponderado. La regla previa de sesgo con signo no se usa en este experimento.
 
-### 2021 es selección, no prueba
-2021 se usó para elegir; no es una prueba independiente posterior a la selección. Los análisis posteriores (rango, tamaño, estabilidad) tampoco reajustan el modelo: describen su comportamiento con parámetros congelados.
+### Selección retrospectiva
+Los dos backtests participan en la selección final. 2024 ya fue examinado en etapas anteriores del proyecto. No hay una elección futura independiente después de elegir al ganador; la proyección 2027 sigue siendo exploratoria.
 
-## Página 7: La mejora no se transfiere de forma consistente
+## Página 7: Comparación temporal de cuatro modelos
 
 | Corte / método | n | MAE pp | Pond. pp | Top50 |
 |---|---|---|---|---|
 | 2021 / Referencia | 1490 | 12.116 | 8.052 | 16/50 |
-| 2021 / Ridge | 1490 | 8.897 | 5.298 | 21/50 |
+| 2021 / Ridge | 1490 | 9.321 | 5.571 | 19/50 |
+| 2021 / HistGradientBoosting | 1490 | 8.549 | 5.999 | 21/50 |
+| 2021 / LightGBM | 1490 | 8.542 | 6.230 | 22/50 |
+| 2021 / CatBoost | 1490 | 8.699 | 5.855 | 20/50 |
 | 2024 / Referencia | 1476 | 5.639 | 3.541 | 27/50 |
-| 2024 / Ridge | 1476 | 8.958 | 5.110 | 21/50 |
+| 2024 / Ridge | 1476 | 8.698 | 4.867 | 21/50 |
+| 2024 / HistGradientBoosting | 1476 | 5.123 | 3.338 | 19/50 |
+| 2024 / LightGBM | 1476 | 5.119 | 3.447 | 20/50 |
+| 2024 / CatBoost | 1476 | 5.119 | 3.484 | 21/50 |
 
 ### Lectura honesta
-En 2021 el MAE baja aproximadamente 23.9% y top50 pasa de 16 a 19 coincidencias; eso deja 31 municipios del top observado fuera de la lista Ridge. En 2024 el MAE sube aproximadamente 52.2%, el ponderado empeora y ambos métodos recuperan 27/50. No hay ganador universal: Ridge se conserva como alternativa exploratoria con la referencia visible.
+Se entrenaron y evaluaron Ridge, HistGradientBoosting, LightGBM y CatBoost con las mismas 15 variables históricas. Se seleccionó HistGradientBoosting: MAE medio 6.8360 pp frente a 9.0094 de Ridge (24.12% menos error). LightGBM obtuvo MAE 6.8304 pp; la diferencia menor que 0.05 pp activó el desempate por MAE ponderado, favorable a HistGradientBoosting. Ridge fue el más rápido. La selección es retrospectiva, sin validación futura de 2027.
 
-### Métricas posteriores congeladas
-Se definieron después del experimento original y antes de calcularlas: Spearman; precisión y recobrado del tercio alto con umbral aprendido en entrenamiento y congelado por corte; error P90 por tamaño municipal. En 2024 la precisión roja alta de Ridge convive con recobrado bajo: identifica pocos altos y no corrige su deterioro en MAE. Fuente: modelado/salidas/evaluacion_adicional.json.
+### Resultados y límites de priorización
+Se publican MAE, error ponderado, sesgo con signo, P90 y aciertos top50 para cada método y corte. En 2024 la referencia recupera 27/50 frente a 19/50 de HistGradientBoosting: mejorar error no garantiza mejor priorización. Fuente: modelado/salidas/comparacion_modelos/resultados.json.
 
 ## Página 8: Estabilidad, incertidumbre y límites
 
 ### Estabilidad del top N
-Dos métodos por umbrales NS 5/10/20 generan seis variantes. Seis inclusiones forman núcleo robusto; una a cinco, zona de revisión. La frecuencia describe el ranking de REFERENCIA top50, no una probabilidad ni la asignación municipal actual o proporcional. Las variantes comparten datos y pueden equivocarse juntas. Fuente: demo/decision.js y entrega/caso_municipal.json.
+Seis variantes: referencia y método activo, con calidad NS5/10/20. Al consultar referencia, el comparador es Ridge. Se fijan los parámetros elegidos en NS10 y se reentrena sobre cada cohorte. La frecuencia describe el ranking topN; no es probabilidad ni se utiliza para elegir al ganador.
 
 ### Incertidumbre de prioridad, no de intervalo
-La frecuencia informa acuerdo del ranking de referencia, separado del reparto de personas. El rango ±21.05 pp (P90 retrospectivo de Ridge 2021, truncado a [0,100]) es error histórico, no intervalo prospectivo. Los intervalos SMS pertenecen a estudios externos y no cubren incertidumbre de transferencia a México.
+Cada método muestra su P90 retrospectivo de 2021. Para HistGradientBoosting, ±18.04 pp, acotado a [0,100]. No es intervalo prospectivo calibrado. La estabilidad compara referencia y método activo en NS5/10/20 con parámetros finales congelados; no interviene en la selección del ganador.
 
 ### Error por tamaño y límites
 El P90 del error por denominador observable previo (<10 mil, 10-100 mil, ≥100 mil) describe heterogeneidad por escala, no un intervalo para 2027. Límites: seis ocasiones electorales y tres intermedias; 2024 es presidencial y no valida 2027; sin causalidad; selección por calidad que puede excluir zonas con necesidad alta.
@@ -139,7 +145,7 @@ SMS Suecia: ITT 0.30 pp [0.13,0.48], Lindgren, Nyman y Oskarsson (2025), resulta
 Cada recomendación registra: condición observable, acción, responsable propuesto, cobertura, condiciones de aplicación, recurso (personas y horas), medición y mecanismo hipotético.
 
 ### Caso 23008: SOLIDARIDAD (catálogo histórico)
-En ranking nacional de referencia top50, catálogo constante y tasa, Ridge ocupa puesto 1 y referencia 3. Estimación 62.106806%; antecedente 2021: 66.30%; NS 2021/2024: 9.60%/2.28%. Estabilidad 4/6, elegible 4/6, zona de revisión: no es la asignación municipal actual. Ámbito municipio, cobertura TOTAL 1,000, SMS Suecia ITT 0.30 pp [0.13,0.48], O=255,362: H=3 votos hipotéticos [1.3,4.8]; posterior 62.105631%, reducción 0.001175 pp. Responsable propuesto: educación cívica y junta local, por validar; verificar contactos y capacidad. Registrar asignación, entrega y resultados conforme al protocolo. Transferencia a México no validada. Fuente: entrega/caso_municipal.json.
+HistGradientBoosting, catálogo constante: puesto 9; referencia 3. Proyección 61.636222%. Frecuencia nacional top50 4/6. SMS Suecia a 1,000 personas asignadas: 3 votos hipotéticos [1.3,4.8], posterior 61.635048%, reducción 0.001175 pp. Base 255,362. La transferencia del efecto a México requiere evaluación. Fuente: entrega/caso_municipal.json.
 
 ### El resto, en el CSV
 La ficha completa de cada municipio seleccionado se exporta en el plan CSV; este PDF incluye un ejemplo representativo.
@@ -153,7 +159,7 @@ Cobertura total limitada a población observable elegible. Prioridad concentra c
 Aleatorizar atención inmediata o diferida entre municipios cercanos al corte de capacidad, con balance por entidad, tamaño, calidad y contexto; indicadores de cobertura y comprensión; y regla de análisis fijada antes de observar resultados. La cercanía del score no acredita equivalencia ni causalidad.
 
 ### Vista operativa
-Comparación municipal, estatal o nacional sobre TODOS los estimables filtrados, atendidos y no atendidos; exclusiones y motivos visibles. No representa todo el electorado nacional ni armoniza límites. Sin correspondencia distrital certificada.
+Demo6 conserva año y territorio al cambiar de método, muestra históricos sin proyecciones del pasado, agrega resumen ponderado y brecha estatal, gráfica temporal y exportación de toda la consulta. La simulación compara antes/después con presets editables. Cartografía municipal e islas INEGI, con límites históricos sin armonizar.
 
 ## Página 14: Qué se puede defender hoy y qué falta
 
@@ -170,4 +176,4 @@ Comparación municipal, estatal o nacional sobre TODOS los estimables filtrados,
 Uso automático de la lista como asignación definitiva; lectura causal del escenario; y falacia ecológica al pasar del municipio a la persona. Se mitigan con revisión humana, etiquetando el escenario como hipótesis y sin inferir comportamiento individual del agregado.
 
 ### Reproducibilidad y cierre
-Abrir el mapa con doble clic en demo/index.html (o servidor local); regenerar cifras con modelado/imprimir_cifras.py; el código, la demo y los insumos están en el repositorio y el paquete. La revisión visual comprueba estas 14 páginas. Umbral convierte la incertidumbre del modelo en diseño institucional: prioriza, muestra por qué y qué tan robusta es cada decisión, y propone cómo evaluar una acción. Se invita a pilotear alrededor del corte de capacidad antes de ampliar.
+Abrir demo/demo6.html. Se ejecutaron comparar_modelos.py, publicar_comparacion_demo6.py y verificar_comparacion.py en Python 3.12 con dependencias fijadas. Se conservan predicciones por fila, modelo serializado y hashes. La interacción usa proyecciones precalculadas. Fuentes: protocolo y comparación de cuatro modelos en modelado/. Voto Vigía no se modifica.

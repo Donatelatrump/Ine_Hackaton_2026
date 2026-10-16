@@ -1,3 +1,23 @@
+## Comparación de cuatro modelos ejecutada · 16 de octubre de 2026
+
+Se entrenaron y evaluaron Ridge, HistGradientBoosting, LightGBM y CatBoost con las mismas 15 variables históricas. Se seleccionó HistGradientBoosting: MAE medio 6.8360 pp frente a 9.0094 de Ridge (24.12% menos error). LightGBM obtuvo MAE 6.8304 pp; la diferencia menor que 0.05 pp activó el desempate por MAE ponderado, favorable a HistGradientBoosting. Ridge fue el más rápido. La selección es retrospectiva, sin validación futura de 2027.
+
+La versión vigente de demo6 incluye los cuatro métodos y usa HistGradientBoosting por defecto. La documentación anterior que sigue corresponde a la etapa previa al benchmark. Fuente actual: modelado/COMPARACION_4_MODELOS.md del track.
+
+---
+
+# Estado de demo6 · 16 de octubre de 2026
+
+Demo6 incorpora consulta unificada, mapa y resúmenes ponderados, serie temporal con proyección diferenciada, brecha municipal-estatal, métricas reales, coeficientes Ridge y descarga CSV independiente de la simulación. Presets SMS/llamada con supuestos explícitos. Consulta histórica sin recomendaciones ni proyecciones del pasado.
+
+Ridge mejora el error medio en 2021 (8.90 frente a 12.12 pp) y empeora en 2024 (8.96 frente a 5.64 pp). La referencia recupera 27 de los 50 municipios prioritarios en 2024 y Ridge 21. No hay evidencia de superioridad consistente.
+
+El artefacto actual identifica persistencia como método seleccionado y alpha final 500 para el ajuste Ridge. Demo6 inicia con la referencia de 2021 y permite comparar Ridge. La condición de sesgo implementada compara el cambio con signo: (sesgo candidato - sesgo referencia) >= -3 pp. Con 3.72 - 7.87 = -4.14 pp en 2021, rechaza Ridge aunque disminuya el sesgo absoluto. Esta selección describe el código vigente; no demuestra que la referencia sea universalmente superior. Corregir esa regla y regenerar modelos requiere un experimento separado, sin alterar retrospectivamente esta evaluación.
+
+Las cifras y rangos actuales sustituyen las menciones fijas de versiones previas. Evidencia técnica: [guía demo6](demo/DEMO6.md) y [metodología](modelado/METODOLOGIA.md). Voto Vigía no se modifica.
+
+---
+
 # Correcciones aplicadas — aguas.exe
 
 5 de octubre de 2026. Integrantes: Martin Isai Nuñez Villeda y Cesar Donnet Hernandez Gastelum.

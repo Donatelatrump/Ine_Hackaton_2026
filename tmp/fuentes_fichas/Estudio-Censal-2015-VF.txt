@@ -1,0 +1,6401 @@
+
+PÁGINA 1
+ 
+
+
+PÁGINA 2
+Direcci´on Ejecutiva de Capacitaci´on Electoral y Educaci´on C´ıvica
+Estudio Censal sobre la Participaci´on Ciudadana
+en las Elecciones Federales de 2015
+Diciembre, 2016
+
+
+PÁGINA 3
+Contenido
+Contenido
+2
+1. Introducci´on
+2
+1.1. Antecedentes
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+2
+1.2. Participaci´on Electoral . . . . . . . . . . . . . . . . . . . . . . . . . . .
+3
+2. Metodolog´ıa
+5
+2.1. Recolecci´on de datos . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+5
+2.2. Base de datos y sus variables . . . . . . . . . . . . . . . . . . . . . . . .
+6
+2.3. An´alisis estad´ıstico . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+6
+3. Participaci´on a nivel nacional
+7
+3.1. Participaci´on a nivel nacional en elecciones intermedias . . . . . . . . .
+7
+3.2. Participaci´on a nivel nacional por sexo . . . . . . . . . . . . . . . . . .
+9
+3.3. Participaci´on a nivel nacional por edad . . . . . . . . . . . . . . . . . .
+10
+3.4. Participaci´on a nivel nacional por sexo y edad . . . . . . . . . . . . . .
+11
+3.5. Participaci´on a nivel nacional por tipo de
+secci´on . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+12
+3.5.1.
+Participaci´on a nivel nacional por tipo de secci´on y sexo
+. . . .
+13
+3.5.2.
+Participaci´on a nivel nacional por tipo de secci´on y edad . . . .
+13
+3.5.3.
+Participaci´on a nivel nacional por tipo de secci´on, sexo y grupo
+de edad
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+14
+4. Participaci´on estatal
+16
+4.1. Participaci´on estatal por tipo de elecci´on concurrente y no concurrente
+17
+4.2. Participaci´on estatal por nivel de votaci´on . . . . . . . . . . . . . . . .
+18
+
+
+PÁGINA 4
+4.3. Participaci´on estatal por sexo . . . . . . . . . . . . . . . . . . . . . . .
+21
+4.4. Participaci´on estatal por nivel de brecha entre sexos . . . . . . . . . . .
+22
+4.5. Participaci´on estatal por edad . . . . . . . . . . . . . . . . . . . . . . .
+24
+4.6. Participaci´on estatal por nivel de brecha entre grupos de edad . . . . .
+25
+4.7. Participaci´on estatal por tipo de secci´on
+. . . . . . . . . . . . . . . . .
+26
+4.7.1.
+Participaci´on estatal en secciones urbanas por sexo
+. . . . . . .
+28
+4.7.2.
+Participaci´on estatal en secciones rurales por sexo . . . . . . . .
+29
+4.7.3.
+Participaci´on estatal en secciones mixtas por sexo . . . . . . . .
+30
+4.7.4.
+Nivel de participaci´on estatal en secciones urbanas . . . . . . . .
+31
+4.7.5.
+Nivel de participaci´on estatal en secciones rurales . . . . . . . .
+32
+4.7.6.
+Nivel de participaci´on estatal en secciones mixtas . . . . . . . .
+33
+5. Participaci´on distrital
+34
+5.1. Aguascalientes . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+36
+5.1.1.
+Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . .
+36
+5.1.2.
+Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . .
+37
+5.1.3.
+Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . .
+38
+5.2. Baja California . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+39
+5.2.1.
+Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . .
+39
+5.2.2.
+Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . .
+40
+5.2.3.
+Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . .
+41
+5.3. Baja California Sur . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+42
+5.3.1.
+Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . .
+42
+5.3.2.
+Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . .
+43
+5.3.3.
+Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . .
+44
+5.4. Campeche . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+45
+5.4.1.
+Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . .
+45
+5.4.2.
+Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . .
+46
+5.4.3.
+Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . .
+47
+5.5. Coahuila . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+48
+5.5.1.
+Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . .
+48
+5.5.2.
+Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . .
+49
+5.5.3.
+Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . .
+50
+5.6. Colima . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+51
+5.6.1.
+Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . .
+51
+5.6.2.
+Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . .
+52
+5.6.3.
+Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . .
+53
+5.7. Chiapas
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+54
+5.7.1.
+Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . .
+54
+5.7.2.
+Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . .
+55
+5.7.3.
+Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . .
+56
+5.8. Chihuahua . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+57
+5.8.1.
+Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . .
+57
+5.8.2.
+Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . .
+58
+5.8.3.
+Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . .
+59
+
+
+PÁGINA 5
+5.9. Distrito Federal . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+60
+5.9.1.
+Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . .
+60
+5.9.2.
+Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . .
+61
+5.9.3.
+Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . .
+62
+5.10. Durango . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+63
+5.10.1. Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . .
+63
+5.10.2. Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . .
+64
+5.10.3. Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . .
+65
+5.11. Guanajuato . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+66
+5.11.1. Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . .
+66
+5.11.2. Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . .
+67
+5.11.3. Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . .
+68
+5.12. Guerrero . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+69
+5.12.1. Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . .
+69
+5.12.2. Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . .
+70
+5.12.3. Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . .
+71
+5.13. Hidalgo
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+72
+5.13.1. Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . .
+72
+5.13.2. Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . .
+73
+5.13.3. Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . .
+74
+5.14. Jalisco . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+75
+5.14.1. Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . .
+75
+5.14.2. Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . .
+76
+5.14.3. Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . .
+77
+5.15. M´exico . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+78
+5.15.1. Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . .
+78
+5.15.2. Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . .
+79
+5.15.3. Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . .
+80
+5.16. Michoac´an . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+81
+5.16.1. Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . .
+81
+5.16.2. Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . .
+82
+5.16.3. Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . .
+83
+5.17. Morelos
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+84
+5.17.1. Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . .
+84
+5.17.2. Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . .
+85
+5.17.3. Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . .
+86
+5.18. Nayarit . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+87
+5.18.1. Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . .
+87
+5.18.2. Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . .
+88
+5.18.3. Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . .
+89
+5.19. Nuevo Le´on . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+90
+5.19.1. Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . .
+90
+5.19.2. Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . .
+91
+5.19.3. Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . .
+92
+5.20. Oaxaca . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+93
+
+
+PÁGINA 6
+5.20.1. Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . .
+93
+5.20.2. Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . .
+94
+5.20.3. Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . .
+95
+5.21. Puebla . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+96
+5.21.1. Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . .
+96
+5.21.2. Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . .
+97
+5.21.3. Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . .
+98
+5.22. Quer´etaro . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+99
+5.22.1. Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . .
+99
+5.22.2. Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . . 100
+5.22.3. Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . . 101
+5.23. Quintana Roo . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 102
+5.23.1. Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . . 102
+5.23.2. Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . . 103
+5.23.3. Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . . 104
+5.24. San Luis Potos´ı . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 105
+5.24.1. Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . . 105
+5.24.2. Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . . 106
+5.24.3. Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . . 107
+5.25. Sinaloa . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 108
+5.25.1. Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . . 108
+5.25.2. Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . . 109
+5.25.3. Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . . 110
+5.26. Sonora . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 111
+5.26.1. Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . . 111
+5.26.2. Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . . 112
+5.26.3. Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . . 113
+5.27. Tabasco . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 114
+5.27.1. Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . . 114
+5.27.2. Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . . 115
+5.27.3. Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . . 116
+5.28. Tamaulipas
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 117
+5.28.1. Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . . 117
+5.28.2. Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . . 118
+5.28.3. Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . . 119
+5.29. Tlaxcala . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 120
+5.29.1. Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . . 120
+5.29.2. Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . . 121
+5.29.3. Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . . 122
+5.30. Veracruz . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 123
+5.30.1. Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . . 123
+5.30.2. Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . . 124
+5.30.3. Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . . 125
+5.31. Yucat´an . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 126
+5.31.1. Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . . 126
+
+
+PÁGINA 7
+5.31.2. Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . . 127
+5.31.3. Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . . 128
+5.32. Zacatecas
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 129
+5.32.1. Nivel de participaci´on por distrito . . . . . . . . . . . . . . . . . 129
+5.32.2. Participaci´on distrital por sexo
+. . . . . . . . . . . . . . . . . . 130
+5.32.3. Participaci´on distrital por tipo de secci´on . . . . . . . . . . . . . 131
+5.33. Participaci´on distrital por nivel de brecha entre sexos . . . . . . . . . . 132
+5.34. Tabla de clasiﬁcaci´on de distritos por nivel de brecha entre sexos . . . . 132
+5.35. Participaci´on distrital por nivel de brecha entre grupos de edad
+. . . . 134
+6. Conclusiones
+136
+6.1. Participaci´on electoral nacional
+. . . . . . . . . . . . . . . . . . . . . . 136
+6.2. Participaci´on electoral a nivel estatal . . . . . . . . . . . . . . . . . . . 138
+6.3. Participaci´on electoral a nivel distrital
+. . . . . . . . . . . . . . . . . . 139
+7. Futuras L´ıneas de Investigaci´on
+140
+Referencias
+141
+A. Cuadros de Resultados
+144
+A.1. Cuadro de participaci´on nacional
+. . . . . . . . . . . . . . . . . . . . . 144
+A.2. Cuadro de participaci´on estatal en elecciones concurrentes
+. . . . . . . 146
+A.3. Cuadro de participaci´on estatal en elecciones no concurrentes
+. . . . . 147
+
+
+PÁGINA 8
+1
+Introducci´on
+1.1.
+Antecedentes
+En agosto de 2009, el Consejo General del entonces Instituto Federal Electoral (IFE)
+aprob´o, en sesi´on extraordinaria mediante el Acuerdo CG418/2009, un conjunto de
+criterios para evaluar la documentaci´on electoral empleada durante el proceso electo-
+ral federal 2008-2009. El Consejo General consider´o que en la documentaci´on electoral
+exist´ıan datos que podr´ıan ser de utilidad para conocer el perﬁl demogr´aﬁco del electo-
+rado, la calidad de la capacitaci´on electoral impartida por el Instituto a los funcionarios
+de casilla, as´ı como diversos aspectos del trabajo de las mesas directivas de casilla.
+En el marco del Acuerdo CG418/2009, la Direcci´on Ejecutiva de Capacitaci´on Electoral
+y Educaci´on C´ıvica (DECEyEC) realiz´o el Estudio censal sobre la participaci´on ciuda-
+dana en la elecci´on federal de 2009 a ﬁn de conocer el perﬁl de las y los ciudadanos que
+sufragaron e identiﬁcar las tasas de participaci´on electoral utilizando las variables sexo,
+edad y tipo de secci´on electoral. La informaci´on del Estudio Censal se convirti´o para
+la DECEyEC en un insumo para el dise˜no y la implementaci´on de las acciones que, en
+materia de educaci´on c´ıvica y promoci´on de la participaci´on electoral, llevaron a cabo
+los ´organos desconcentrados del Instituto durante el proceso electoral federal 2011-2012.
+En octubre de 2012, el Consejo General del Instituto aprob´o la elaboraci´on de diversos
+estudios con base en los materiales del proceso electoral federal 2011-2012 a trav´es del
+Acuerdo CG659/2012.
+Entre los estudios realizados, destaca la elaboraci´on del Estudio censal sobre la partici-
+paci´on ciudadana en las elecciones federales de 2012. Dicho estudio tuvo como objetivo
+general identiﬁcar el perﬁl de quienes votaron as´ı como de quienes no lo hicieron en
+2
+
+
+PÁGINA 9
+la elecci´on federal de 2012. Nuevamente, fue realizado un an´alisis de la participaci´on
+electoral a nivel nacional, estatal y distrital mediante las variables sexo, edad y tipo de
+secci´on, informaci´on contenida en los cuadernillos de las listas nominales.
+En la sesi´on ordinaria del 27 de mayo de 2015, el Consejo General aprob´o el Acuerdo
+INE/CG318/2015, mediante el cual se determin´o la realizaci´on del Estudio censal sobre
+la participaci´on ciudadana en las elecciones federales de 2015.
+A partir de este estudio censal de 2015, la Direcci´on Ejecutiva de Capacitaci´on Elec-
+toral y Educaci´on C´ıvica realizar´a tambi´en:
+- Monograf´ıas de participaci´on electoral para cada uno de los 300 distritos electo-
+rales en las elecciones federales de 2015.
+- Un documento complementario al Estudio censal sobre la participaci´on ciudadana
+en las elecciones federales de 2015, que incluye un comparativo con las elecciones
+del 2009 y 2012.
+1.2.
+Participaci´on Electoral
+La asistencia de los ciudadanos a las urnas es fundamental en los sistemas democr´ati-
+cos; no solamente es un medio para elegir representantes, sino legitima los gobiernos,
+promueve el debate sobre temas de inter´es p´ublico, al igual que contribuye en la cons-
+trucci´on de la ciudadan´ıa [4],[6],[7],[16], [21].
+Derivado de fen´omenos como la p´erdida de conﬁanza en las instituciones, el descontento
+con los gobiernos, la reivindicaci´on de individualismos (entre otros aspectos); se obser-
+va un declive en la participaci´on electoral en diversas democracias contempor´aneas
+tanto en Am´erica como en Europa desde ﬁnales del siglo pasado. Si bien, no existe un
+consenso en cuanto a la cantidad de votos que requiere un sistema democr´atico, esta
+desafecci´on ciudadana por las urnas, se est´a convirtiendo en un riesgo que amenaza la
+estabilidad de los gobiernos siendo este problema a´un mayor en sociedades en las que
+sus democracias est´an menos consolidadas [2],[4],[6],[9],[16],[20], [21].
+Particularmente en el caso de M´exico, aunque en las ´ultimas elecciones legislativas
+del 2015 el porcentaje de ciudadanos que asistieron a las urnas ha mostrado un ligero
+repunte (47.07 %) en comparaci´on con las del 2009 (44.06 % ) y 2003 (41.68 %); los ni-
+veles siguen siendo notablemente inferiores a los observados en las votaciones de 1997
+(57.70 %) y de 1991 (65.97 %) [24].
+En comparaci´on con el resto de pa´ıses de Am´erica Latina, las tasas de participaci´on en
+M´exico se sit´uan signiﬁcativamente por debajo de la regi´on: del 2010 al 2012 la parti-
+cipaci´on promedio en las elecciones legislativas de Am´erica Latina alcanz´o un 65.42 %
+3
+
+
+PÁGINA 10
+[26]. En su estudio hist´orico de 1978 a 2002, Daniel Zovatto [21] sit´ua la participaci´on
+electoral en M´exico en la posici´on 15 de 18 pa´ıses latinoamericanos considerados en su
+an´alisis.
+Bajo este panorama, el censo de participaci´on electoral del 2015 representa una valiosa
+oportunidad para analizar de forma detallada la participaci´on electoral del pa´ıs con-
+siderando las variables: sexo, edad, tipo de secci´on (urbana, rural y mixta) y tipo de
+elecci´on (concurrente o no). Tambi´en se incluyen rangos estad´ısticos para clasiﬁcar los
+distritos y entidades por su nivel de participaci´on: alta, media y baja.
+Aunque los patrones de participaci´on presentan algunas similitudes en todas las regio-
+nes del pa´ıs, los resultados obtenidos en estudios anteriores revelan que lo observado a
+nivel nacional, no constituye una r´eplica de lo que sucede a nivel estatal o distrital. Es
+por ello, que todas estas variables descritas son analizadas a escala nacional, estatal y
+distrital. Este nivel de precisi´on, convierte a este estudio en una fuente de informaci´on
+valiosa para el dise˜no de pol´ıticas y acciones en materia de capacitaci´on electoral y
+educaci´on c´ıvica que fomenten la participaci´on electoral de los ciudadanos, reduzcan el
+abstencionismo y con ello se fortalezca la democracia del pa´ıs.
+4
+
+
+PÁGINA 11
+2
+Metodolog´ıa
+2.1.
+Recolecci´on de datos
+La fuente de informaci´on para obtener los datos de participaci´on electoral del 2015 fue-
+ron los cuadernillos de la lista nominal generados para uso de las y los funcionarios de
+casilla. Las y los ciudadanos registraron la participaci´on de los electores que asistieron
+a emitir su voto en tales cuadernillos.
+Este documento toma como referencia la informaci´on contenida en las listas nominales
+de la pasada elecci´on federal de 2015. La captura de la informaci´on la llev´o a cabo
+personal contratado exclusivamente para dicha tarea y supervisado por los vocales
+distritales y locales tanto de organizaci´on electoral como de capacitaci´on electoral y
+educaci´on c´ıvica.
+La captura de datos fue realizada en dos etapa: en una primera, de agosto a diciembre
+de 2015, se recab´o informaci´on de una muestra de listas deﬁnidas y seleccionadas a
+ser utilizadas en el Estudio muestral sobre la participaci´on ciudadana en la elecci´on de
+diputados federales de 2015 (documento cuya elaboraci´on fue coordinada por la Direc-
+ci´on Ejecutiva de Organizaci´on Electoral). En una segunda etapa, efectuada de enero
+a marzo de 2016, se captur´o aquella informaci´on contenida en las listas nominales que
+no formaron parte de la muestra inicial, con lo que concluy´o exitosamente la etapa de
+recopilaci´on de informaci´on.
+En la recolecci´on de los datos no se consideraron los votos de electores que sufragaron
+en casillas especiales ni la votaci´on de los representantes de partidos pol´ıticos en las
+casillas.
+5
+
+
+PÁGINA 12
+2.2.
+Base de datos y sus variables
+La base de datos est´a integrada por el total de votantes registrados en el censo (78,444,487);
+cada uno de estos registros contiene las siguientes variables: entidad, distrito, munici-
+pio, secci´on, casilla, sexo, edad y condici´on de voto.
+2.3.
+An´alisis estad´ıstico
+Este reporte incluye un an´alisis descriptivo y comparativo de los datos a nivel nacional,
+estatal y distrital. El an´alisis considera las variables sexo, edad, secci´on (rural, urbana
+y mixta) y tipo de elecci´on (concurrente o no). Para construir los niveles de participa-
+ci´on, se estimaron los cuartiles de los porcentajes de participaci´on estatal (considerando
+distintos universos para cada tipo de elecci´on). De esta forma, se establecieron los si-
+guientes intervalos para las elecciones concurrentes: de [22 %-52 %) para el nivel bajo,
+de [52 %-56 %) medio y de 56 % o m´as como alto. En el caso de las no concurrentes los
+rango son: [32 %-39 %) para nivel bajo, de [39 %-43) medio y de 43 % en adelante como
+alto.
+6
+
+
+PÁGINA 13
+3
+Participaci´on a nivel nacional
+3.1.
+Participaci´on a nivel nacional en elecciones in-
+termedias
+El Instituto Nacional Electoral (INE), antes denominado Instituto Federal Electoral,
+es el organismo que desde su fundaci´on en 1990 ha sido responsable de organizar las
+elecciones federales para la integraci´on de la C´amara de Diputados. Desde entonces, se
+han realizado 5 procesos electorales, siendo el de 1991 el que mayor nivel de participa-
+ci´on ha registrado (65.97 %). En 2015, la participaci´on ciudadana fue de 47.07 %, lo que
+representa un incremento de 3.01 puntos porcentuales en relaci´on con las elecciones de
+2009, pero 4.52 puntos porcentuales por debajo del promedio hist´orico (51.29 %), ver
+ﬁgura 3.1.
+7
+
+
+PÁGINA 14
+1991
+1997
+2003
+2009
+2015
+0
+10
+20
+30
+40
+50
+60
+70
+Participación Electoral 1991−2015
+Año
+%
+Promedio: 51.29%
+Figura 3.1: Participaci´on ciudadana en elecciones federales intermedias de 1991 al 2015. El
+promedio de las 5 elecciones se representa con la l´ınea negra.
+El repunte en el n´umero de ciudadanas y ciudadanos que asistieron a las urnas en 2009
+y que permea nuevamente en el 2015, representa una buena noticia para las institucio-
+nes pol´ıticas del pa´ıs, las cuales han sido se˜naladas, en parte, como responsables del
+declive que ven´ıa presentando la participaci´on ciudadana en M´exico [3]. No obstante,
+si consideremos los porcentajes observados en 1991, la diferencia es de pr´acticamente
+19 puntos porcentuales en relaci´on con la estimada en el 2015.
+Esta signiﬁcativa disminuci´on en la participaci´on parece coincidir con la alternancia de
+partidos, as´ı como en el nacimiento de una fuerte competencia electoral en el pa´ıs. Al
+respecto, Silvia G´omez Tagle apunta que en M´exico, a diferencia de otros pa´ıses, no
+hay una relaci´on directa entre mayor competitividad y mayor participaci´on electoral [9].
+Poder entender las causas de esta desafecci´on por las urnas no es tarea sencilla, pues
+son m´ultiples las causas que los especialistas han identiﬁcado. Sin embargo, variables
+como localidad, sexo y edad de las y los ciudadanos, se consideran como aspectos de-
+terminantes al momento de explicar la conducta del votante [2], [14],[19].
+8
+
+
+PÁGINA 15
+3.2.
+Participaci´on a nivel nacional por sexo
+En las ´ultimas elecciones, se ha observado que son las mujeres las que registran los
+mayores niveles de participaci´on electoral [10], [11]. En 2015, la participaci´on femenina
+(50.89 %) super´o en pr´acticamente 8 puntos porcentuales la masculina (42.95 %). Este
+resultado revela un incremento en comparaci´on con el proceso electoral intermedio de
+2009, en donde las mujeres registraron una tasa de participaci´on alrededor de 7 puntos
+porcentuales por arriba de la masculina, ver ﬁgura 3.2.
+Mujeres
+Hombres
+0
+10
+20
+30
+40
+50
+60
+Participación Electoral por Sexo
+Sexo
+%
+General: 47.07%
+Figura 3.2: Participaci´on electoral en 2015 por sexo.
+Esta mayor asistencia a las urnas de las mujeres coincide con lo reportado en otras
+democracias occidentales. En Estados Unidos, por ejemplo, desde 1980 la tasa de par-
+ticipaci´on femenina ha superado la masculina de forma consistente. En las elecciones
+presidenciales del 2012 la participaci´on de las mujeres en los E.U.A. estuvo alrededor
+de los 4.5 puntos porcentuales por arriba de la masculina. En el caso espec´ıﬁco de la
+poblaci´on hispana, de 1996 al 2012, la votaci´on femenina se ha situado entre 3.8 y 5.3
+punto porcentuales por arriba de la masculina [27].
+En el caso de M´exico, algunos estudios interpretan esta diferencia como el resultado
+de una mayor participaci´on de las mujeres en cargos de elecci´on popular, as´ı como en
+un notable incremento de discursos y plataformas pol´ıticas orientadas a los intereses
+de las mujeres y la equidad de g´enero [8], [18].
+9
+
+
+PÁGINA 16
+3.3.
+Participaci´on a nivel nacional por edad
+Por edad, se observa que las y los j´ovenes de 20 a 29 a˜nos son los que participan menos.
+En 2015 la participaci´on de este grupo alcanz´o un 35.66 %, nivel que se encuentra 11.40
+puntos porcentuales por debajo de la media nacional (47.07 %). Dentro de la poblaci´on
+joven, se observa que los que votan por primera vez (sector de 18 a 19 a˜nos) tiene una
+participaci´on m´as activa: su nivel de participaci´on est´a 2.85 puntos porcentuales por
+debajo de la media. En contraste, la mayor participaci´on se concentra en el sector de
+60 a 79 a˜nos, ver ﬁgura 3.3.
+18−19
+20−29
+30−39
+40−49
+50−59
+60−69
+70−79
+>80
+0
+10
+20
+30
+40
+50
+60
+70
+Participación Electoral por Edad
+Edad
+%
+General: 47.07%
+Figura 3.3: Participaci´on electoral en 2015 a nivel nacional por edad.
+Esta apat´ıa de las y los j´ovenes por emitir su voto es consistente con su marcada
+desafecci´on por la pol´ıtica: seg´un resultados de la Encuesta Nacional de Valores en Ju-
+ventud del 2012, el 89.6 % de los encuestados contest´o tener poco o ning´un inter´es en la
+pol´ıtica. Las tres causas de este desinter´es m´as mencionadas fueron: la deshonestidad
+de los pol´ıticos (37.4 %), no les interesa la pol´ıtica (22.8 %) y no entienden de pol´ıtica
+(22.7 %) [28].
+La desafecci´on de las y los j´ovenes signiﬁca una reivindicaci´on del individualismo (ne-
+cesidades e intereses personales), una falta de conﬁanza en los pol´ıticos y en las insti-
+tuciones pol´ıticas y, en general, un desinter´es en participar en esquemas tradicionales
+de participaci´on pol´ıtica, pero no impugna o rechaza propiamente el r´egimen pol´ıtico
+democr´atico [2], [15],[20].
+El abstencionismo electoral no signiﬁca una ausencia total de participaci´on de parte de
+las y los j´ovenes, sino se caracteriza por orientarse principalmente, hacia la satisfacci´on
+10
+
+
+PÁGINA 17
+de necesidades de ocupaci´on del tiempo libre, y s´olo de manera secundaria a buscar
+satisfacer intereses sociales y pol´ıticos [2]. En el caso de M´exico, las asociaciones que
+m´as les interesan a los j´ovenes son las especializadas en actividades deportivas y en
+menor medida las estudiantiles y religiosas [28].
+3.4.
+Participaci´on a nivel nacional por sexo y edad
+Considerando tanto la edad como el sexo de las y los votantes, se observa que las muje-
+res en el rango de 18 a 69 a˜nos participan m´as que los hombres. A partir de los 70 a˜nos la
+tendencia cambia, y son los hombres los que registran mayores niveles de participaci´on.
+La brecha m´as grande en la participaci´on por sexo se presenta en el sector de 30 a 39
+a˜nos, en donde la tasa de las mujeres super´o la de los hombres en 11.90 puntos porcen-
+tuales. En contraparte, es en el rango de 60 a 69 a˜nos donde se observan las menores
+diferencias, en este segmento la diferencia entre la tasa femenina y la masculina fue
+´unicamente de 1.25 puntos porcentuales, ver ﬁgura 3.4.
+En particular, estos datos revelan la existencia de un componente generacional: las mu-
+jeres nacidas despu´es de 1957 empiezan a participar de forma signiﬁcativamente mayor
+en compraci´on con sus antecesoras.
+18−19
+20−29
+30−39
+40−49
+50−59
+60−69
+70−79
+>80
+0
+10
+20
+30
+40
+50
+60
+70
+Participación Electoral por Edad y Sexo
+Edad
+%
+Mujeres
+Hombres
+Figura 3.4: Participaci´on electoral en 2015 a nivel nacional por edad y sexo.
+11
+
+
+PÁGINA 18
+3.5.
+Participaci´on a nivel nacional por tipo de
+secci´on
+Por tipo de secci´on, es el ´area rural la que presenta los niveles de participaci´on m´as
+altos: alcanzan un 54.50 %, superando la secci´on urbana en 9.59 puntos porcentuales y
+la mixta en 6.07 puntos, ver ﬁgura 3.5.
+Urbana
+Rural
+Mixta
+0
+10
+20
+30
+40
+50
+60
+70
+Participación Electoral por Tipo de Sección
+Sección
+%
+Figura 3.5: Participaci´on electoral en 2015 por tipo de secci´on.
+Las y los ciudadanos no tienden a participar como entes aislados, sino como parte de
+un colectivo que inﬂuye en su comportamiento pol´ıtico. En este sentido, la territoria-
+lidad de la participaci´on electoral es una variable clave en el entendimiento del perﬁl
+del votante. Si bien, los resultados a nivel nacional sugieren que son las secciones me-
+nos urbanizadas las que muestran una mayor participaci´on, los estudios censales de
+participaci´on electoral del 2009 y 2012 del INE [10], [11] han mostrado que este com-
+portamiento no se replica en todas las regiones del pa´ıs.
+En general, es posible encontrar alta o baja participaci´on electoral tanto en zonas ru-
+rales marginadas como en regiones urbanas. Es por ello, que una tarea esencial de este
+nuevo estudio, consiste en analizar tanto a nivel estatal como distrital el porcentaje de
+asistencia a las urnas.
+12
+
+
+PÁGINA 19
+3.5.1.
+Participaci´on a nivel nacional por tipo de secci´on y sexo
+Al cruzar las variables sexo y secci´on, nos encontramos con un panorama muy parecido
+al nacional: son las mujeres las que registran una mayor participaci´on que los hombres
+en todas las secciones (urbana, rural y mixta).
+La brecha m´as amplia entre la participaci´on femenina y la masculina se presenta en el
+´area rural, con una diferencia de 9.46 puntos porcentuales; seguida de la urbana con
+8.56 puntos porcentuales de variaci´on y por ´ultimo la mixta, donde la participaci´on
+femenina super´o la masculina en 7.52 puntos porcentuales, ver ﬁgura 3.6.
+Urbana
+Rural
+Mixta
+0
+10
+20
+30
+40
+50
+60
+70
+Participación Electoral por Tipo de Sección y Sexo
+Sección
+%
+Mujeres
+Hombres
+Figura 3.6: Participaci´on electoral en 2015 por tipo de secci´on y sexo.
+3.5.2.
+Participaci´on a nivel nacional por tipo de secci´on y edad
+Analizando tanto la edad como la secci´on a la cual pertenecen las y los votantes, se
+encontr´o que la poblaci´on de las ´areas rurales supera en participaci´on las ´areas urbanas
+y mixtas en todos los rangos de edad. Estas diferencias empiezan a disminuir conforme
+se incrementa la edad de los votantes. Las menores variaciones entre secciones se dan
+entre las personas mayores de 60 a˜nos, particularmente entre la poblaci´on urbana y
+mixta, en donde la diferencia de participaci´on oscila entre los 0.25 y el 1.05 puntos
+porcentuales para este rango de edad.
+En contraste, las mayores variaciones se presentan entre las secciones rurales y urbanas,
+acentu´andose en el sector de 18 a 59 a˜nos, donde las diferencias oscilan entre los 8.39
+13
+
+
+PÁGINA 20
+y los 13.38 puntos porcentuales, ver ﬁgura 3.7.
+18−19
+20−29
+30−39
+40−49
+50−59
+60−69
+70−79
+>80
+0
+10
+20
+30
+40
+50
+60
+70
+Participación Electoral por Edad y Tipo de Sección
+Edad
+%
+Urbana
+Rural
+Mixta
+Figura 3.7: Participaci´on electoral en 2015 por edad y tipo de secci´on.
+3.5.3.
+Participaci´on a nivel nacional por tipo de secci´on, sexo
+y grupo de edad
+Analizando la participaci´on por sexo, secci´on y grupos de edad; se observa que son las
+mujeres del ´area rural las que m´as participan en el rango de 18 a 79 a˜nos de edad.
+En el caso de las mujeres de 80 a˜nos o mas, la participaci´on es casi id´entica en las
+tres secciones. Las mayores diferencias se presentan en el grupo de 18 a 49 a˜nos: las
+mujeres del ´area rural participan entre 10.57 y 15.60 puntos porcentuales por arriba
+de las urbanas. En este mismo rango de edad, la participaci´on de las mujeres de la
+secci´on rural con respecto a las de la mixta, est´a por arriba entre 7.19 y 8.81 puntos
+porcentuales, ver ﬁgura 3.8.
+En el caso de los hombres, en todos los rangos de edad, son los pertenecientes a las
+´areas rurales los que mayor participaci´on registran. Al igual que en el caso de las muje-
+res, ´unicamente en el grupo de 80 a˜nos o m´as, la participaci´on en las secciones rurales
+no guarda diferencias notables en relaci´on con las otras ´areas. Particularmente, son
+las secciones rurales y urbanas las que muestran las mayores divergencias entre s´ı; es
+en el estrato de hombres de 30 a 39 a˜nos donde se presenta la mayor variaci´on entre
+estas secciones: la participaci´on rural super´o la urbana en 11.02 puntos porcentuales,
+ver ﬁgura 3.8.
+14
+
+
+PÁGINA 21
+18−19
+20−29
+30−39
+40−49
+50−59
+60−69
+70−79
+>80
+0
+10
+20
+30
+40
+50
+60
+70
+Tasa de Participación Femenina por Sección
+Edad
+%
+Urbana
+Rural
+Mixta
+18−19
+20−29
+30−39
+40−49
+50−59
+60−69
+70−79
+>80
+0
+10
+20
+30
+40
+50
+60
+70
+Tasa de Participación Masculina por Sección
+Edad
+%
+Urbana
+Rural
+Mixta
+Figura 3.8: Participaci´on ciudadana en 2015 por tipo de secci´on, grupo de edad y sexo.
+15
+
+
+PÁGINA 22
+4
+Participaci´on estatal
+De las 32 entidades que conforman el pa´ıs, 14 registraron una participaci´on por arriba
+de la media nacional (47.07 %). Es importante destacar, que en estos estados de alta
+participaci´on se celebraron tanto elecciones federales como locales. De hecho, de las
+entidades en donde concurrieron elecciones (federales y locales), s´olo el Distrito Fede-
+ral 1 y Guanajuato presentan una participaci´on por debajo del promedio nacional, ver
+ﬁgura 4.1.
+1Debido a que la elecci´on fue llevada a cabo todav´ıa como Distrito Federal, se manejar´a esta
+denominaci´on en el documento.
+16
+
+
+PÁGINA 23
+Aguascalientes
+Baja California
+Baja California Sur
+Campeche
+Coahuila
+Colima
+Chiapas
+Chihuahua
+Distrito Federal
+Durango
+Guanajuato
+Guerrero
+Hidalgo
+Jalisco
+México
+Michoacán
+Morelos
+Nayarit
+Nuevo León
+Oaxaca
+Puebla
+Querétaro
+Quintana Roo
+San Luis Potosí
+Sinaloa
+Sonora
+Tabasco
+Tamaulipas
+Tlaxcala
+Veracruz
+Yucatán
+Zacatecas
+0
+10
+20
+30
+40
+50
+60
+70
+80
+Participación Electoral por Estado
+%
+47.07%
+Figura 4.1: Participaci´on electoral en 2015 por estado. La l´ınea horizontal en negro indica el
+promedio nacional.
+4.1.
+Participaci´on estatal por tipo de elecci´on con-
+currente y no concurrente
+Hist´oricamente se ha observado que los estados donde concurren elecciones (federales y
+locales) presentan una mayor participaci´on en comparaci´on con aquellos en los cuales
+solamente se eligen autoridades federales (elecciones no concurrentes) [10], [11]. De ah´ı
+la importancia de estudiar esta variable.
+Conﬁrmando lo expuesto anteriormente, se observa que al concurrir elecciones se eleva
+17
+
+
+PÁGINA 24
+el nivel de votaci´on. La tasa de participaci´on promedio en las entidades con elecciones
+concurrentes (federales y locales) supera en 14.29 puntos porcentuales al promedio pre-
+sentado por los estados con elecciones no concurrentes; de hecho es mayor al promedio
+nacional en 7.65 puntos porcentuales.
+En las elecciones concurrentes, sobresale el estado de Yucat´an con una tasa de partici-
+paci´on del 70.55 % (15.82 puntos porcentuales por arriba de la tasa media concurrente).
+Mientras que el Distrito Federal, es el estado con elecciones concurrentes que menos
+participaci´on presenta (43.58 %). En el caso de las elecciones no concurrentes los ma-
+yores niveles de participaci´on se presentan en Chiapas, Hidalgo, Veracruz y Zacatecas
+(m´as de 4 puntos porcentuales por arriba de la media). Cabe destacar que ninguno de
+los 16 estados con elecciones no concurrentes super´o la tasa media nacional (47.07 %),
+ver ﬁgura 4.2.
+Baja Cal. Sur
+Campeche
+Colima
+Distrito Federal
+Guanajuato
+Guerrero
+Jalisco
+México
+Michoacán
+Morelos
+Nuevo León
+Querétaro
+San Luis Potosí
+Sonora
+Tabasco
+Yucatán
+0
+10
+20
+30
+40
+50
+60
+70
+80
+Participación Electoral en Elecciones Concurrentes
+%
+54.72%
+Aguascalientes
+Baja California
+Coahuila
+Chiapas
+Chihuahua
+Durango
+Hidalgo
+Nayarit
+Oaxaca
+Puebla
+Quintana Roo
+Sinaloa
+Tamaulipas
+Tlaxcala
+Veracruz
+Zacatecas
+0
+10
+20
+30
+40
+50
+60
+70
+80
+Participación Electoral en Elecciones No Concurrentes
+%
+40.43%
+Figura 4.2: Participaci´on electoral en 2015 por estado y tipo de elecci´on. Las l´ıneas horizon-
+tales en negro indican el promedio por tipo de elecci´on.
+4.2.
+Participaci´on estatal por nivel de votaci´on
+Dado que el tipo de elecci´on (Concurrente o no) inﬂuye notablemente en las tasas de
+participaci´on, se procedi´o a establecer rangos distintos para cada tipo de elecci´on a ﬁn
+de clasiﬁcar los niveles de participaci´on en bajo, medio y alto.
+Estos rangos se establecieron considerando la dispersi´on de los resultados obtenidos
+en cada elecci´on y utilizando los cuartiles como estimadores de los intervalos. Para las
+elecciones concurrentes se consider´o el intervalo de [22 %-52 %) para el nivel bajo, de
+18
+
+
+PÁGINA 25
+[52 %-56 %) medio y de 56 % o m´as como alto. En el caso de las no concurrentes los ran-
+go son: [32 %-39 %) para nivel bajo, de [39 %-43) medio y de 43 % en adelante como alto.
+Considerando estos rangos, se obtuvo la siguiente distribuci´on: 41 % de los estados del
+pa´ıs present´o alta participaci´on, el 28 % fueron clasiﬁcados con un nivel medio y el
+31 % restantes entraron en la categor´ıa de baja participaci´on. Al revisar la distribuci´on
+geogr´aﬁca de los niveles de participaci´on; se observa que los estados con alta participa-
+ci´on se concentran principalmente en la zona oriente del pa´ıs. Por su lado, los de baja
+participaci´on se sit´uan en el centro y noroeste del pa´ıs, ver ﬁgura 4.3.
+19
+
+
+PÁGINA 26
+Nivel de Participación por Estado
+15°N
+20°N
+25°N
+30°N
+115°W
+110°W
+105°W
+100°W
+95°W
+90°W
+Alta
+Baja Media
+Figura 4.3: Participaci´on electoral en 2015 por estado y nivel de participaci´on. Estados con
+nivel alto de participaci´on: Campeche, Coahuila, Colima, Chiapas, Guerrero, Hidalgo, Nuevo
+Le´on, Quer´etaro, Tabasco, Tamaulipas, Veracruz, Yucat´an y Zacatecas; nivel medio: Durango,
+Jalisco, Michoac´an, Morelos, Nayarit, Oaxaca, Puebla, Quintana Roo y San Luis Potos´ı. En
+nivel bajo de participaci´on se encuentran: Aguascalientes, Baja California, Baja California
+Sur, Chihuahua, Distrito Federal, Guanajuato, M´exico, Sinaloa, Sonora y Tlaxcala.
+20
+
+
+PÁGINA 27
+4.3.
+Participaci´on estatal por sexo
+Al igual que a nivel nacional, en todos los estados del pa´ıs las mujeres registraron
+una mayor participaci´on que los hombres. El promedio de variaciones por estado es
+de 7.93 puntos porcentuales. En Coahuila, M´exico y Quer´etaro es donde se observan
+las mayores diferencias, m´as de 10 puntos porcentuales de variaci´on. En contraparte,
+las diferencias menores se dan en Chihuahua (3.38 puntos porcentuales de variaci´on) y
+Sinaloa (4.97 puntos porcentuales), ver ﬁgura 4.4.
+Aguascalientes
+Baja California
+Baja California Sur
+Campeche
+Coahuila
+Colima
+Chiapas
+Chihuahua
+Distrito Federal
+Durango
+Guanajuato
+Guerrero
+Hidalgo
+Jalisco
+México
+Michoacán
+Morelos
+Nayarit
+Nuevo León
+Oaxaca
+Puebla
+Querétaro
+Quintana Roo
+San Luis Potosí
+Sinaloa
+Sonora
+Tabasco
+Tamaulipas
+Tlaxcala
+Veracruz
+Yucatán
+Zacatecas
+0
+10
+20
+30
+40
+50
+60
+70
+80
+Participación Electoral por Estado y Sexo
+%
+Mujeres
+Hombres
+Figura 4.4: Participaci´on electoral en 2015 por estado y sexo.
+21
+
+
+PÁGINA 28
+4.4.
+Participaci´on estatal por nivel de brecha entre
+sexos
+Considerando la diversidad de la brecha entre sexos, se construyeron intervalos para
+clasiﬁcar los estados seg´un sus diferencias reportadas. Estos rangos se establecieron
+estimando la dispersi´on de las diferencias porcentuales entre la participaci´on femenina
+y masculina. Para el nivel bajo se calcul´o un intervalo de [1.2 %-7.3 %), de [7.3 %-8.7 %)
+como medio y de 8.7 % o m´as como alto.
+Analizando estos rangos, se obtuvo la siguiente distribuci´on: once de los estados del
+pa´ıs present´o una nivel alto, diez fueron clasiﬁcados con nivel medio y los once restantes
+entraron en la categor´ıa de bajo. Al revisar la distribuci´on geogr´aﬁca de los niveles de
+brecha por sexo, se observa una ligera concentraci´on de entidades con nivel alto en el
+centro y sureste del pa´ıs, ver ﬁgura 4.5.
+22
+
+
+PÁGINA 29
+Nivel de Brecha entre Sexos por Estado
+15°N
+20°N
+25°N
+30°N
+115°W
+110°W
+105°W
+100°W
+95°W
+90°W
+Alto BajoMedio
+Figura 4.5: Nivel de brecha de la participaci´on entre sexos en 2015 por estado. Estados con
+nivel alto: Baja California Sur, Campeche, Coahuila, Colima, Guanajuato, M´exico, More-
+los, Quer´etaro, San Luis Potos´ı, Tabasco y Yucat´an. Nivel medio: Aguascalientes, Chiapas,
+Durango, Guerrero, Michoac´an, Puebla, Quintana Roo, Sonora, Tamaulipas y Zacatecas.
+En nivel bajo se encuentran: Baja California, Chihuahua, Distrito Federal, Hidalgo, Jalisco,
+Nayarit, Nuevo Le´on, Oaxaca, Sinaloa, Tlaxcala y Veracruz.
+23
+
+
+PÁGINA 30
+4.5.
+Participaci´on estatal por edad
+Siguiendo la tendencia nacional, a nivel estatal son las y los j´ovenes los que menos
+participan. Si comparamos los grupos de edad: de 20 a 39 a˜nos y de 40 a 79 a˜nos;
+se observa que el nivel de participaci´on de la poblaci´on de m´as de 40 a˜nos es mayor
+en un promedio de 17.95 puntos porcentuales de la registrada por el sector de 20 a 39
+a˜nos. Los estados que presentan una brecha mayor son: Aguascalientes, Baja California
+Sur, Coahuila, Distrito Federal, Hidalgo, M´exico y Quintana Roo (diferencias de m´as
+de 20 puntos porcentuales). En contraste, en Chiapas y Guerrero se observan las me-
+nores diferencias, con 10.75 y 13.59 puntos porcentuales respectivamente, ver ﬁgura 4.6.
+Aguascalientes
+Baja California
+Baja California Sur
+Campeche
+Coahuila
+Colima
+Chiapas
+Chihuahua
+Distrito Federal
+Durango
+Guanajuato
+Guerrero
+Hidalgo
+Jalisco
+México
+Michoacán
+Morelos
+Nayarit
+Nuevo León
+Oaxaca
+Puebla
+Querétaro
+Quintana Roo
+San Luis Potosí
+Sinaloa
+Sonora
+Tabasco
+Tamaulipas
+Tlaxcala
+Veracruz
+Yucatán
+Zacatecas
+0
+10
+20
+30
+40
+50
+60
+70
+80
+Participación Promedio por Grupos de Edades
+%
+20 a 39
+40 a 79
+Figura 4.6: Participaci´on electoral promedio estatal de los grupos de edad 20 a 39 y 40 a 79
+en las elecciones federales del 2015.
+24
+
+
+PÁGINA 31
+4.6.
+Participaci´on estatal por nivel de brecha entre
+grupos de edad
+Estudiando a detalle las diferencias reportadas entre los grupos de 20 a 39 a˜nos y de
+40 a 79, tambi´en se construyeron intervalos para clasiﬁcar los estados seg´un sus dife-
+rencias de participaci´on por edad. Estos rangos se calcularon mediante la dispersi´on de
+las diferencias porcentuales entre ambos grupos de edad. Para el nivel bajo se calcul´o
+un intervalo de [8 %-16 %), de [16 %-19 %) como medio y de 19 % o m´as como alto.
+Revisando esta clasiﬁcaci´on, se tiene la siguiente distribuci´on: once de los estados del
+pa´ıs presentaron un nivel alto, diez fueron clasiﬁcados con nivel medio y los once res-
+tantes entraron en la categor´ıa de baja. Analizando la distribuci´on geogr´aﬁca de los
+niveles de brecha por grupos de edad; se observa una ligera concentraci´on de estados
+con nivel alto en el centro del pa´ıs, ver ﬁgura 4.7.
+25
+
+
+PÁGINA 32
+Nivel de Brecha entre Grupos de Edad por Estado
+15°N
+20°N
+25°N
+30°N
+115°W
+110°W
+105°W
+100°W
+95°W
+90°W
+Alta BajaMedia
+Figura 4.7: Nivel de brecha de la participaci´on entre grupos de edad en 2015 por estado.
+Estados con nivel alto: Aguascalientes, Baja California Sur, Coahuila, Distrito Federal, Gua-
+najuato, Hidalgo, M´exico, Quer´etaro, Quintana Roo, Sinaloa y Veracruz. Nivel medio: Baja
+California, Chihuahua, Jalisco, Nayarit, Oaxaca, Puebla, San Luis Potos´ı, Sonora, Tamauli-
+pas, Tlaxcala. En nivel bajo se encuentran: Campeche, Colima, Chiapas, Durango, Guerrero,
+Michoac´an, Morelos, Nuevo Le´on, Tabasco, Yucat´an y Zacatecas.
+4.7.
+Participaci´on estatal por tipo de secci´on
+A excepci´on del Distrito Federal, en donde las secciones urbanas participan m´as (8
+puntos porcentuales por arriba de las rurales y 6.33 de las mixtas), en el resto de los
+estados del pa´ıs siguen siendo las zonas rurales las que presentan un nivel de parti-
+cipaci´on mayor. En promedio, la tasa de participaci´on de las secciones rurales supera
+26
+
+
+PÁGINA 33
+en 9.59 puntos porcentuales la registrada por las secciones urbanas y en 6.90 puntos
+porcentuales la mixta.
+Destacan los estados de Chiapas, Quintana Roo y Yucat´an, ya que las variaciones en-
+tre las secciones rurales y urbanas superan los 17 puntos porcentuales. Los estados con
+menores diferencias entre secciones son Baja California y Chihuahua, con variaciones
+de entre 0.42 y 1.65 puntos porcentuales, ver ﬁgura 4.8.
+Aguascalientes
+Baja California
+Baja California Sur
+Campeche
+Coahuila
+Colima
+Chiapas
+Chihuahua
+Distrito Federal
+Durango
+Guanajuato
+Guerrero
+Hidalgo
+Jalisco
+México
+Michoacán
+Morelos
+Nayarit
+Nuevo León
+Oaxaca
+Puebla
+Querétaro
+Quintana Roo
+San Luis Potosí
+Sinaloa
+Sonora
+Tabasco
+Tamaulipas
+Tlaxcala
+Veracruz
+Yucatán
+Zacatecas
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+Participación Estatal por Tipo de Sección
+%
+Urbana
+Rural
+Mixta
+Figura 4.8: Participaci´on electoral estatal por tipo de secci´on en las elecciones federales del
+2015.
+27
+
+
+PÁGINA 34
+4.7.1.
+Participaci´on estatal en secciones urbanas por sexo
+Siguiendo la tendencia nacional, en las 32 entidades del pa´ıs la tasa de participaci´on de
+las mujeres super´o la registrada por los hombres en las tres secciones (urbana, rural y
+mixta). En el ´area urbana, el nivel de participaci´on de las mujeres es en promedio 7.49
+puntos porcentuales mayor al registrado por los hombres. Las brechas m´as amplias por
+sexo del votante se dan en los estados de Baja California Sur, Campeche, Coahuila,
+M´exico y Yucat´an (Las variaciones oscilan entre los 9.43 y los 10.32 puntos porcentua-
+les), ver ﬁgura 4.9.
+Aguascalientes
+Baja California
+Baja California Sur
+Campeche
+Coahuila
+Colima
+Chiapas
+Chihuahua
+Distrito Federal
+Durango
+Guanajuato
+Guerrero
+Hidalgo
+Jalisco
+México
+Michoacán
+Morelos
+Nayarit
+Nuevo León
+Oaxaca
+Puebla
+Querétaro
+Quintana Roo
+San Luis Potosí
+Sinaloa
+Sonora
+Tabasco
+Tamaulipas
+Tlaxcala
+Veracruz
+Yucatán
+Zacatecas
+0
+10
+20
+30
+40
+50
+60
+70
+80
+Participación en Secciones Urbanas por Sexo
+%
+Mujeres
+Hombres
+Figura 4.9: Participaci´on electoral estatal en secciones urbanas por sexo en las elecciones
+federales del 2015.
+28
+
+
+PÁGINA 35
+4.7.2.
+Participaci´on estatal en secciones rurales por sexo
+La brecha entre sexos se amplia en las secciones rurales, en donde las mujeres parti-
+cipan en promedio 9.34 puntos porcentuales m´as que los hombres. En los estados de
+Quer´etaro, Guanajuato y Coahuila la participaci´on femenina es notablemente mayor
+que la masculina (m´as de 14 puntos porcentuales). En cambio, en Chihuahua la varia-
+ci´on entre tasas no supera los 2 puntos porcentuales, ver ﬁgura 4.10.
+Aguascalientes
+Baja California
+Baja California Sur
+Campeche
+Coahuila
+Colima
+Chiapas
+Chihuahua
+Distrito Federal
+Durango
+Guanajuato
+Guerrero
+Hidalgo
+Jalisco
+México
+Michoacán
+Morelos
+Nayarit
+Nuevo León
+Oaxaca
+Puebla
+Querétaro
+Quintana Roo
+San Luis Potosí
+Sinaloa
+Sonora
+Tabasco
+Tamaulipas
+Tlaxcala
+Veracruz
+Yucatán
+Zacatecas
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+Participación en Secciones Rurales por Sexo
+%
+Mujeres
+Hombres
+Figura 4.10: Participaci´on electoral estatal en secciones rurales por sexo en las elecciones
+federales del 2015.
+29
+
+
+PÁGINA 36
+4.7.3.
+Participaci´on estatal en secciones mixtas por sexo
+En las secciones mixtas, las mayores variaciones se presentaron en los estados de
+Coahuila, Colima, Chiapas, Guanajuato, M´exico, Morelos, Quer´etaro, San Luis Potos´ı
+y Tlaxcala, diferencias que van de 10.12 a 11.46 puntos porcentuales. En promedio, la
+participaci´on femenina super´o la masculina en 8.61 puntos porcentuales, ver ﬁgura 4.11.
+Aguascalientes
+Baja California
+Baja California Sur
+Campeche
+Coahuila
+Colima
+Chiapas
+Chihuahua
+Distrito Federal
+Durango
+Guanajuato
+Guerrero
+Hidalgo
+Jalisco
+México
+Michoacán
+Morelos
+Nayarit
+Nuevo León
+Oaxaca
+Puebla
+Querétaro
+Quintana Roo
+San Luis Potosí
+Sinaloa
+Sonora
+Tabasco
+Tamaulipas
+Tlaxcala
+Veracruz
+Yucatán
+Zacatecas
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+Participación en Secciones Mixtas por Sexo
+%
+Mujeres
+Hombres
+Figura 4.11: Participaci´on electoral estatal en secciones mixtas por sexo en las elecciones
+federales del 2015.
+30
+
+
+PÁGINA 37
+4.7.4.
+Nivel de participaci´on estatal en secciones urbanas
+Si se consideran ´unicamente las poblaciones urbanas dentro de cada estado, se observa
+que el 13 % de las entidades del pa´ıs presentan una alta participaci´on, 56 % media y
+el 31 % restante son de baja participaci´on. Coahuila, Colima, Nuevo Le´on y Yucat´an
+sobresalen como estados de alta participaci´on, ver ﬁgura 4.12.
+Nivel de Participación Estatal en Secciones Urbanas
+15°N
+20°N
+25°N
+30°N
+115°W
+110°W
+105°W
+100°W
+95°W
+90°W
+Alta
+Baja Media
+Figura 4.12: Participaci´on electoral en 2015 por estado y nivel de participaci´on en secciones
+urbanas. Estados con nivel de participaci´on alto: Coahuila, Colima, Nuevo Le´on y Yucat´an;
+nivel medio: Campeche, Durango, Hidalgo, Morelos, Nayarit, Quer´etaro, Tabasco, Tamau-
+lipas, Veracruz y Zacatecas. Finalmente en nivel bajo se encuentran: Aguascalientes, Baja
+California, Baja California Sur, Chiapas, Chihuahua, Distrito Federal, Guanajuato, Guerre-
+ro, Jalisco, M´exico, Michoac´an, Oaxaca, Puebla, Quintana Roo, San Luis Potos´ı, Sinaloa,
+Sonora y Tlaxcala.
+31
+
+
+PÁGINA 38
+4.7.5.
+Nivel de participaci´on estatal en secciones rurales
+Al revisar la participaci´on estatal considerando ´unicamente sus secciones rurales, ob-
+servamos que el 84 % de las entidades del pa´ıs registr´o una alta participaci´on, 3 % est´an
+en un nivel medio y el 13 % restante tienen baja participaci´on, ver ﬁgura 4.13.
+Nivel de Participación por Estado en Secciones Rurales
+15°N
+20°N
+25°N
+30°N
+115°W
+110°W
+105°W
+100°W
+95°W
+90°W
+Alta
+Baja Media
+Figura 4.13: Participaci´on electoral en 2015 por estado y nivel de participaci´on en seccio-
+nes rurales. Los estados con nivel alto son: Baja California, Campeche, Chiapas, Coahuila,
+Colima, Durango, Guerrero, Hidalgo, Jalisco, M´exico, Michoac´an, Morelos, Nayarit, Nuevo
+Le´on, Oaxaca, Puebla, Quer´etaro, Quintana Roo, San Luis Potos´ı, Sinaloa, Sonora, Tabasco,
+Tamaulipas, Tlaxcala, Veracruz, Yucat´an y Zacatecas; en el nivel medio est´a: Aguascalientes.
+Finalmente en nivel bajo de participaci´on se encuentran: Baja California Sur, Chihuahua,
+Guanajuato, y el Distrito Federal.
+32
+
+
+PÁGINA 39
+4.7.6.
+Nivel de participaci´on estatal en secciones mixtas
+Finalmente, en las secciones mixtas la participaci´on a nivel estatal presenta la siguiente
+distribuci´on: 34 % de las entidades tiene un nivel alto, 38 % medio y 28 % tienen una
+baja participaci´on, ver ﬁgura 4.14.
+Nivel de Participación por Estado en Secciones Mixtas
+15°N
+20°N
+25°N
+30°N
+115°W
+110°W
+105°W
+100°W
+95°W
+90°W
+Alta
+Baja Media
+Figura 4.14: Participaci´on electoral en 2015 por estado y nivel de participaci´on en secciones
+mixtas. Son estados con nivel de participaci´on alto: Campeche, Chiapas, Colima, Guerrero,
+Morelos, Puebla, Quer´etaro, Quintana Roo, San Luis Potos´ı, Sonora y Yucat´an; nivel medio:
+Coahuila, Hidalgo, Jalisco, M´exico, Michoac´an, Nuevo Le´on, Oaxaca, Tabasco, Tamaulipas,
+Tlaxcala, Veracruz y Zacatecas. Finalmente en nivel bajo se encuentran: Aguascalientes, Baja
+California Sur y Norte, Chihuahua, Distrito Federal, Durango, Guanajuato, Nayarit y Sinaloa.
+33
+
+
+PÁGINA 40
+5
+Participaci´on distrital
+Al realizar un an´alisis de la participaci´on a nivel distrital encontramos los siguientes
+resultados: el 33.67 % de los 300 distritos del pa´ıs present´o una alta participaci´on elec-
+toral, el 49.33 % media y el 17 % restante se ubic´o en un nivel bajo, ver ﬁgura 5.1.
+Alta
+Media
+Baja
+0
+10
+20
+30
+40
+50
+60
+Distribución de los Distritos por Participación
+Nivel de Participación
+%
+Figura 5.1: Distribuci´on de participaci´on electoral en los 300 distritos.
+Realizar una generalizaci´on de la participaci´on electoral a partir ´unicamente del an´ali-
+34
+
+
+PÁGINA 41
+sis nacional, ser´ıa sobrevalorar y encubrir elementos peculiares de cada distrito en un
+pa´ıs tan diverso cultural, social y econ´omicamente como lo es M´exico. Por ello, en el
+siguiente apartado se estudia a detalle cada entidad federativa y los distritos que la
+conforman, con el ﬁn de analizar las caracter´ısticas distintivas de cada uno y tratar de
+encontrar los patrones que determinan su nivel de participaci´on.
+35
+
+
+PÁGINA 42
+5.1.
+Aguascalientes
+5.1.1.
+Nivel de participaci´on por distrito
+Los tres distritos que conforman el estado de Aguascalientes presentaron una baja par-
+ticipaci´on, de hecho ninguno logra superar la tasa promedio nacional en las elecciones
+no concurrentes, ver ﬁgura 5.2.
+1
+2
+3
+0
+10
+20
+30
+40
+50
+Aguascalientes
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac no Con=40.43%
+Figura 5.2: Participaci´on electoral en Aguascalientes por cada distrito y nivel de participaci´on
+en las elecciones federales no concurrentes de 2015. El promedio de la participaci´on nacional
+en elecciones no concurrentes se representa mediante la l´ınea negra. Los rangos son: [32 %-
+39 %) para nivel bajo, de [39 %-43) medio y de 43 % en adelante como alto.
+36
+
+
+PÁGINA 43
+5.1.2.
+Participaci´on distrital por sexo
+Al igual que lo estimado a nivel nacional y estatal, en los tres distritos que conforman el
+estado de Aguascalientes, son las mujeres las que mayor asistencia a las urnas registran.
+En promedio, la tasa femenina super´o la masculina en 7.30 puntos porcentuales. Es el
+distrito 1 donde se presenta la brecha m´as amplia entre sexos, 9.49 puntos porcentuales
+de diferencia, ver ﬁgura 5.3.
+1
+2
+3
+0
+10
+20
+30
+40
+50
+Aguascalientes
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.3: Participaci´on electoral en Aguascalientes por sexo en las elecciones federales no
+concurrentes de 2015.
+37
+
+
+PÁGINA 44
+5.1.3.
+Participaci´on distrital por tipo de secci´on
+En t´erminos generales, son las secciones rurales las que mayor participaci´on registran.
+La tasa promedio de participaci´on del ´area rural a nivel distrital es del 37.85 %, mien-
+tras que para la secci´on urbana es del 36.54 % y del 33.74 % para la mixta. La brecha
+m´as amplia entre secciones se encuentra en el distrito 1, en donde el ´area rural supera
+en 5.52 puntos porcentuales la participaci´on de la regi´on mixta y en 4.88 puntos la
+urbana, ver ﬁgura 5.4.
+1
+2
+3
+0
+10
+20
+30
+40
+50
+Aguascalientes
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.4: Participaci´on electoral en Aguascalientes por tipo de secci´on en las elecciones
+federales no concurrentes del 2015.
+38
+
+
+PÁGINA 45
+5.2.
+Baja California
+5.2.1.
+Nivel de participaci´on por distrito
+En todos de los distritos que conforman el estado de Baja California se observ´o un
+nivel bajo de participaci´on, lo cual concuerda con lo registrado a nivel estatal, al ser la
+entidad con la menor participaci´on electoral del pa´ıs. Destaca el hecho de que ning´un
+distrito logra superar la tasa promedio nacional en elecciones no concurrentes, ver ﬁgura
+5.5.
+1
+2
+3
+4
+5
+6
+7
+8
+0
+10
+20
+30
+40
+50
+Baja California
+Distrito
+%
+Nivel de Participación Distrital
+Nac no Con=40.43%
+Figura 5.5: Participaci´on electoral en Baja California por cada distrito y nivel de partici-
+paci´on en las elecciones federales no concurrentes de 2015. El promedio de la participaci´on
+nacional en elecciones no concurrentes se representa mediante la l´ınea negra. Los rangos son:
+[32 %-39 %) para nivel bajo, de [39 %-43) medio y de 43 % en adelante como alto.
+39
+
+
+PÁGINA 46
+5.2.2.
+Participaci´on distrital por sexo
+La participaci´on femenina en Baja California super´o la masculina en un promedio de
+5.11 puntos porcentuales, ver ﬁgura 5.6.
+1
+2
+3
+4
+5
+6
+7
+8
+0
+10
+20
+30
+40
+50
+Baja California
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.6: Participaci´on electoral en Baja California por sexo en las elecciones federales no
+concurrentes del 2015.
+40
+
+
+PÁGINA 47
+5.2.3.
+Participaci´on distrital por tipo de secci´on
+La participaci´on de las secciones urbanas sobresale del resto de las secciones. En cuatro
+distritos (3, 4, 6, y 8) de los ocho que conforman el estado, la tasa urbana fue mayor
+respecto a la mixta y rural. Destaca el distrito 7, por presentar las brechas m´as amplias
+entre secciones; la participaci´on rural super´o la urbana en 8.85 puntos porcentuales y
+en 10.27 la mixta, ver ﬁgura 5.7.
+1
+2
+3
+4
+5
+6
+7
+8
+0
+10
+20
+30
+40
+50
+Baja California
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.7: Participaci´on electoral en Baja California por tipo de secci´on en las elecciones
+federales no concurrentes de 2015.
+41
+
+
+PÁGINA 48
+5.3.
+Baja California Sur
+5.3.1.
+Nivel de participaci´on por distrito
+De los dos distritos que conforman el estado, el 1 es el m´as participativo. La tasa en
+este distrito fue del 56.88 %; con lo cual se ubic´o en un nivel alto de participaci´on y
+2.16 puntos porcentuales por arriba del promedio nacional en elecciones concurrentes.
+Por su parte, el distrito 2 present´o un nivel medio con 47.39 % de participaci´on y 7.32
+puntos por debajo de la media de elecciones concurrentes, ver ﬁgura 5.8.
+1
+2
+0
+10
+20
+30
+40
+50
+60
+Baja California Sur
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac  Con=54.72%
+Figura 5.8: Participaci´on electoral en Baja California Sur por cada distrito y nivel de par-
+ticipaci´on en las elecciones federales concurrentes de 2015. El promedio de la participaci´on
+nacional en elecciones concurrentes se representa mediante la l´ınea negra. Los rangos son:
+[22 %-52 %) para el nivel bajo, de [52 %-56 %) medio y de 56 % o m´as como alto.
+42
+
+
+PÁGINA 49
+5.3.2.
+Participaci´on distrital por sexo
+La brecha entre la participaci´on femenina y masculina en los dos distritos super´o lo
+estimado a nivel nacional. En el distrito 1, la tasa de participaci´on de las mujeres supera
+la de los hombres en 8.43 puntos porcentuales; mientras que en el distrito 2 esta brecha
+crece: se registra una diferencia entre tasas de 9.14 puntos porcentuales, ver ﬁgura 5.9.
+1
+2
+0
+10
+20
+30
+40
+50
+60
+70
+Baja California Sur
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.9: Participaci´on electoral en Baja California Sur por sexo en las elecciones federales
+concurrentes de 2015.
+43
+
+
+PÁGINA 50
+5.3.3.
+Participaci´on distrital por tipo de secci´on
+A nivel distrital, las secciones rurales siguen siendo las de mayor participaci´on. La
+brecha entre la participaci´on rural con respecto de la urbana y mixta est´a en un rango
+de 6.83 a 17.39 puntos porcentuales, siendo el distrito 2 el que present´o las diferencias
+m´as grandes. Por su parte, las secciones mixtas y urbanas registran una participaci´on
+similar: las diferencias entre secciones fueron de 0.70 para el distrito 1 y de 0.68 para
+el 2, ver ﬁgura 5.10.
+1
+2
+0
+10
+20
+30
+40
+50
+60
+70
+Baja California Sur
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.10: Participaci´on electoral en Baja California Sur por tipo de secci´on en las elec-
+ciones federales concurrentes de 2015.
+44
+
+
+PÁGINA 51
+5.4.
+Campeche
+5.4.1.
+Nivel de participaci´on por distrito
+Los dos distritos del estado de Campeche superaron el promedio nacional (elecciones
+concurrentes). El distrito 1, con una tasa del 63.12 % se clasiﬁc´o con un nivel de par-
+ticipaci´on alto. Por su parte, el distrito 2 con una participaci´on del 56.32 % se ubic´o
+en el nivel medio, superando la tasa media nacional de elecciones concurrentes en 1.60
+puntos porcentuales, ver ﬁgura 5.11.
+1
+2
+0
+10
+20
+30
+40
+50
+60
+70
+80
+Campeche
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac  Con=54.72%
+Figura 5.11: Participaci´on electoral en Campeche por cada distrito y nivel de participaci´on
+en las elecciones federales concurrentes de 2015. El promedio de la participaci´on nacional en
+elecciones concurrentes se representa mediante la l´ınea negra. Los rangos son: [22 %-52 %)
+para el nivel bajo, de [52 %-56 %) medio y de 56 % o m´as como alto.
+45
+
+
+PÁGINA 52
+5.4.2.
+Participaci´on distrital por sexo
+Las mujeres participaron 7.90 puntos porcentuales m´as que los hombres en el distrito
+1. En el distrito 2 la diferencia fue de 9.74 puntos, superando la nacional que se ubic´o
+en 8 puntos porcentuales, ver ﬁgura 5.12.
+1
+2
+0
+10
+20
+30
+40
+50
+60
+70
+80
+Campeche
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.12: Participaci´on electoral en Campeche por sexo en las elecciones federales concu-
+rrentes de 2015.
+46
+
+
+PÁGINA 53
+5.4.3.
+Participaci´on distrital por tipo de secci´on
+En ambos distritos, son las secciones rurales las que registraron una participaci´on
+mayor. La brecha m´as amplia se da entre el ´area urbana y la rural: en el distrito 1 esta
+diferencia fue de 17.07 puntos porcentuales, y en el distrito 2 de 15.87, ver ﬁgura 5.13.
+1
+2
+0
+10
+20
+30
+40
+50
+60
+70
+80
+Campeche
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.13: Participaci´on electoral en Campeche por tipo de secci´on en las elecciones fede-
+rales concurrentes del 2015.
+47
+
+
+PÁGINA 54
+5.5.
+Coahuila
+5.5.1.
+Nivel de participaci´on por distrito
+Coahuila present´o una alta participaci´on en 6 de sus 7 distritos, los cuales superan la
+tasa media nacional de elecciones no concurrentes, en un rango de 3.37 a 6.91 puntos
+porcentuales. Destaca el distrito 1, por ser el ´unico con nivel medio de participaci´on y
+por encontrarse 3.18 puntos por debajo de la media nacional (elecciones no concurren-
+tes), ver ﬁgura 5.14.
+1
+2
+3
+4
+5
+6
+7
+0
+10
+20
+30
+40
+50
+60
+70
+Coahuila
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac no Con = 40.43%
+Figura 5.14: Participaci´on electoral en Coahuila por cada distrito y nivel de participaci´on en
+las elecciones federales no concurrentes de 2015. El promedio de la participaci´on nacional en
+elecciones no concurrentes se representa mediante la l´ınea negra. Los rangos son: [32 %-39 %)
+para nivel bajo, de [39 %-43) medio y de 43 % en adelante como alto.
+48
+
+
+PÁGINA 55
+5.5.2.
+Participaci´on distrital por sexo
+La tasa de participaci´on de las mujeres super´o notablemente la de los hombres en todos
+los distritos del estado; la diferencia entre secciones est´a en un rango entre 8.87 y 12.16
+puntos porcentuales, ver ﬁgura 5.15.
+1
+2
+3
+4
+5
+6
+7
+0
+10
+20
+30
+40
+50
+60
+70
+Coahuila
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.15: Participaci´on electoral en Coahuila por sexo en las elecciones federales no con-
+currentes de 2015.
+49
+
+
+PÁGINA 56
+5.5.3.
+Participaci´on distrital por tipo de secci´on
+Las secciones rurales participaron m´as que las urbanas y mixtas en todos los distritos
+con presencia de las tres ´areas. Sobresale el distrito 4, en donde la participaci´on rural
+despunta 20.56 puntos porcentuales sobre la tasa urbana y en 23.74 sobre la mixta, ver
+ﬁgura 5.16.
+1
+2
+3
+4
+5
+6
+7
+0
+10
+20
+30
+40
+50
+60
+70
+Coahuila
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.16: Participaci´on electoral en Coahuila por tipo de secci´on en las elecciones federales
+no concurrentes de 2015.
+50
+
+
+PÁGINA 57
+5.6.
+Colima
+5.6.1.
+Nivel de participaci´on por distrito
+Los dos distritos que integran el estado de Colima se ubicaron en un nivel alto de
+participaci´on. El distrito 1 con una participaci´on del 61.31 % super´o la tasa promedio
+nacional de elecciones concurrentes en 6.59 puntos porcentuales, mientras que el dis-
+trito 2 con una participaci´on de 56.51 % la super´o en 1.79 puntos, ver ﬁgura 5.17.
+1
+2
+0
+10
+20
+30
+40
+50
+60
+70
+Colima
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac  Con = 54.72%
+Figura 5.17: Participaci´on electoral en Colima por cada distrito y nivel de participaci´on en
+las elecciones federales concurrentes de 2015. El promedio de la participaci´on nacional en
+elecciones concurrentes se representa mediante la l´ınea negra. Los rangos son: [22 %-52 %)
+para el nivel bajo, de [52 %-56 %) medio y de 56 % o m´as como alto.
+51
+
+
+PÁGINA 58
+5.6.2.
+Participaci´on distrital por sexo
+La brecha entre sexos en el distrito 1 fue muy similar a la nacional. En cambio, en el
+distrito 2 la super´o: en este distrito las mujeres participan 10.54 puntos porcentuales
+m´as que los hombres, ver ﬁgura 5.18.
+1
+2
+0
+10
+20
+30
+40
+50
+60
+70
+Colima
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.18: Participaci´on electoral en Colima por sexo en las elecciones federales concu-
+rrentes de 2015.
+52
+
+
+PÁGINA 59
+5.6.3.
+Participaci´on distrital por tipo de secci´on
+Consistente con lo observado a nivel nacional, las secciones rurales presentaron una
+mayor participaci´on que el ´area urbana y mixta. En el distrito 2, se observan las
+mayores diferencias entre secciones, la tasa rural super´o la urbana en 11.68 puntos
+porcentuales y la mixta en 11.30, ver ﬁgura 5.19.
+1
+2
+0
+10
+20
+30
+40
+50
+60
+70
+80
+Colima
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.19: Participaci´on electoral en Colima por tipo de secci´on en las elecciones federales
+concurrentes de 2015.
+53
+
+
+PÁGINA 60
+5.7.
+Chiapas
+5.7.1.
+Nivel de participaci´on por distrito
+El 66.67 % de los distritos del estado de Chiapas present´o alta participaci´on, el 25 %
+media y el 8.33 % restante baja. A excepci´on de los distritos 9 y 12, el resto super´o
+la tasa media nacional (elecciones no concurrentes). Destaca el distrito 9, cuya parti-
+cipaci´on apenas alcanz´o un 29.55 %, cifra que lo coloca 10.87 puntos porcentuales por
+debajo de la media nacional (elecciones no concurrentes). En contraparte, el distrito
+2 registr´o la participaci´on m´as alta de todos (59.25 %), ubic´andose 18.82 puntos por
+encima de la media nacional, ver ﬁgura 5.20.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+0
+10
+20
+30
+40
+50
+60
+70
+Chiapas
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac no Con = 40.43%
+Figura 5.20: Participaci´on electoral en Chiapas por cada distrito y nivel de participaci´on en
+las elecciones federales no concurrentes de 2015. El promedio de la participaci´on nacional en
+elecciones no concurrentes se representa mediante la l´ınea negra. Los rangos son: [32 %-39 %)
+para nivel bajo, de [39 %-43) medio y de 43 % en adelante como alto.
+54
+
+
+PÁGINA 61
+5.7.2.
+Participaci´on distrital por sexo
+Por sexo, las mujeres son las que mayor participaci´on registraron. La brecha entre se-
+xos es heterog´enea entre distritos, var´ıa entre los 5.79 y los 10.57 puntos porcentuales.
+Sobresalen los distritos 4, 5 y 6, en los que la tasa de participaci´on femenina super´o la
+masculina en m´as de 10 puntos porcentuales, ver ﬁgura 5.21.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+0
+10
+20
+30
+40
+50
+60
+70
+Mujeres
+Hombres
+Chiapas
+Distrito
+%
+Participación Distrital por Sexo
+Figura 5.21: Participaci´on electoral en Chiapas por sexo en las elecciones federales no con-
+currentes de 2015.
+55
+
+
+PÁGINA 62
+5.7.3.
+Participaci´on distrital por tipo de secci´on
+Al igual que la tendencia nacional, se observ´o una mayor participaci´on de las secciones
+rurales. En nueve de los doce distritos del estado, la tasa rural super´o la urbana y
+mixta en un rango que va de los 4.11 a los 26.93 puntos porcentuales. En el distrito
+3 y 12, es el ´area mixta la que mayor participaci´on tiene. La brecha m´as amplia entre
+secciones se da en el distrito 5 y 6, en donde la participaci´on rural supera la urbana en
+m´as de 23 puntos porcentuales, ver ﬁgura 5.22.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+0
+10
+20
+30
+40
+50
+60
+70
+Chiapas
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.22: Participaci´on electoral en Chiapas por tipo de secci´on en las elecciones federales
+no concurrentes de 2015.
+56
+
+
+PÁGINA 63
+5.8.
+Chihuahua
+5.8.1.
+Nivel de participaci´on por distrito
+A excepci´on del distrito 6, que se clasiﬁc´o como de participaci´on media, el resto de los
+distritos del estado presentaron un nivel bajo. Sobresale el distrito 1, por ubicarse 17.87
+puntos porcentuales por debajo del promedio nacional (elecciones no concurrentes), ver
+ﬁgura 5.23.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+10
+20
+30
+40
+50
+Chihuahua
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac no Con = 40.43%
+Figura 5.23: Participaci´on electoral en Chihuahua por cada distrito y nivel de participaci´on
+en las elecciones federales no concurrentes de 2015. El promedio de la participaci´on nacional
+en elecciones no concurrentes se representa mediante la l´ınea negra. Los rangos son: [32 %-
+39 %) para nivel bajo, de [39 %-43) medio y de 43 % en adelante como alto.
+57
+
+
+PÁGINA 64
+5.8.2.
+Participaci´on distrital por sexo
+La diferencia entre la tasa de participaci´on de las mujeres y los hombres, se encuentra
+por debajo de lo observado a nivel nacional (7.9 puntos porcentuales) en todos los
+distritos del estado. La brecha entre sexos a nivel distrital oscila entre el 1.15 y los 5.06
+puntos porcentuales, ver ﬁgura 5.24.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+10
+20
+30
+40
+50
+Chihuahua
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.24: Participaci´on electoral en Chihuahua por sexo en las elecciones federales no
+concurrentes de 2015.
+58
+
+
+PÁGINA 65
+5.8.3.
+Participaci´on distrital por tipo de secci´on
+Por tipo de secci´on, Chihuahua presenta la siguiente distribuci´on de la participaci´on
+electoral: en tres distritos (1, 5 y 8) despuntan las secciones rurales y en seis (2, 3,
+4, 6, 7 y 9) las urbanas; cabe destacar que el distrito 3 y 4 pertenecen ´unicamente al
+´area urbana. Las diferencias entre secciones son bastante heterog´eneas a nivel distrito
+y var´ıan entre los 0.37 y los 9.84 puntos porcentuales ver ﬁgura 5.25.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+10
+20
+30
+40
+50
+Chihuahua
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.25: Participaci´on electoral en Chihuahua por tipo de secci´on en las elecciones fede-
+rales no concurrentes de 2015.
+59
+
+
+PÁGINA 66
+5.9.
+Distrito Federal
+5.9.1.
+Nivel de participaci´on por distrito
+El Distrito Federal present´o un nivel de participaci´on bajo en todos sus distritos; so-
+bresale el hecho de que todos se encuentran por debajo del promedio nacional de las
+elecciones concurrentes, en un rango que va de los 6.49 a los 16.88 puntos porcentuales,
+ver ﬁgura 5.26
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+0
+10
+20
+30
+40
+50
+60
+Distrito Federal
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac  Con = 54.72%
+Figura 5.26: Participaci´on electoral en el Distrito Federal por cada distrito y nivel de par-
+ticipaci´on en las elecciones federales concurrentes de 2015. El promedio de la participaci´on
+nacional en elecciones concurrentes se representa mediante la l´ınea negra. Los rangos son:
+[22 %-52 %) para el nivel bajo, de [52 %-56 %) medio y de 56 % o m´as como alto.
+60
+
+
+PÁGINA 67
+5.9.2.
+Participaci´on distrital por sexo
+Por sexo, en todos los distritos del Distrito Federal las mujeres son el sector que m´as
+participa. De los 27 distritos de la entidad, s´olo ocho distritos (1, 14, 16, 17, 18, 19, 22
+y 23) presentan una brecha entre la participaci´on masculina y femenina mayor de la
+registrada a nivel nacional. En el resto la brecha entre sexos oscila entre los 3.64 a los
+7.91 puntos porcentuales, ver ﬁgura 5.27.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+0
+10
+20
+30
+40
+50
+60
+Distrito Federal
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.27: Participaci´on electoral en Distrito Federal por sexo en las elecciones federales
+concurrentes de 2015.
+61
+
+
+PÁGINA 68
+5.9.3.
+Participaci´on distrital por tipo de secci´on
+Dado que en el Distrito Federal predominan las secciones urbanas (s´olo en seis dis-
+tritos existen zonas rurales o mixtas), son precisamente estas secciones las que mayor
+participaci´on registran, ver ﬁgura 5.28.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+0
+10
+20
+30
+40
+50
+60
+Distrito Federal
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.28: Participaci´on electoral en Distrito Federal por sexo en las elecciones federales
+concurrentes de 2015.
+62
+
+
+PÁGINA 69
+5.10.
+Durango
+5.10.1.
+Nivel de participaci´on por distrito
+Durango present´o una participaci´on muy heterog´enea: el distrito 1 y 4 alcanzaron un
+nivel medio de participaci´on, el 2 se ubic´o en el nivel bajo y el 3 en el alto. Sobresale este
+´ultimo distrito, pues su nivel de participaci´on super´o la tasa media nacional (elecciones
+no concurrentes) en 5.34 puntos porcentuales, ver ﬁgura 5.29.
+1
+2
+3
+4
+0
+10
+20
+30
+40
+50
+60
+Durango
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac no Con = 40.43%
+Figura 5.29: Participaci´on electoral en Durango por cada distrito y nivel de participaci´on en
+las elecciones federales no concurrentes de 2015. El promedio de la participaci´on nacional en
+elecciones no concurrentes se representa mediante la l´ınea negra. Los rangos son: [32 %-39 %)
+para nivel bajo, de [39 %-43) medio y de 43 % en adelante como alto.
+63
+
+
+PÁGINA 70
+5.10.2.
+Participaci´on distrital por sexo
+Siguiendo la tendencia nacional, las mujeres son las que mayor participaci´on registran.
+La brecha entre sexos es muy similar entre distritos, oscila entre los 7.16 y los 8.65
+puntos porcentuales, ver ﬁgura 5.30.
+1
+2
+3
+4
+0
+10
+20
+30
+40
+50
+60
+Durango
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.30: Participaci´on electoral en Durango por sexo en las elecciones federales no con-
+currentes de 2015.
+64
+
+
+PÁGINA 71
+5.10.3.
+Participaci´on distrital por tipo de secci´on
+En los cuatro distritos del estado son las secciones rurales las que mayor participaci´on
+registran. La tasa rural supera la urbana y la mixta en un rango que va de los 2.01 a
+los 9.26 puntos porcentuales, ver ﬁgura 5.31.
+1
+2
+3
+4
+0
+10
+20
+30
+40
+50
+60
+Durango
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.31: Participaci´on electoral en Durango por tipo de secci´on en las elecciones federales
+no concurrentes de 2015.
+65
+
+
+PÁGINA 72
+5.11.
+Guanajuato
+5.11.1.
+Nivel de participaci´on por distrito
+El total de distritos que conforman el estado se clasiﬁcaron como de baja participa-
+ci´on. La tasa entre distritos es muy heterog´enea, var´ıa entre los 38.89 y los 51.99 puntos
+porcentuales. Sobresale el hecho de que ninguno super´o la tasa promedio nacional (elec-
+ciones concurrentes). El distrito 9 es el que registr´o la tasa de participaci´on m´as baja,
+ubic´andose 15.82 puntos porcentuales por debajo de la media nacional de elecciones
+concurrentes. En cambio, es el distrito 10 el que mayor tasa de votaci´on presenta, ver
+ﬁgura 5.32.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+0
+10
+20
+30
+40
+50
+60
+Guanajuato
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac  Con = 54.72%
+Figura 5.32: Participaci´on electoral en Guanajuato por cada distrito y nivel de participaci´on
+en las elecciones federales concurrentes de 2015. El promedio de la participaci´on nacional en
+elecciones concurrentes se representa mediante la l´ınea negra. Los rangos son: [22 %-52 %)
+para el nivel bajo, de [52 %-56 %) medio y de 56 % o m´as como alto.
+66
+
+
+PÁGINA 73
+5.11.2.
+Participaci´on distrital por sexo
+La brecha entre la tasa de participaci´on femenina y masculina oscila entre los 6.19 y
+los 15.02 puntos porcentuales. De los catorce distritos del estado, en nueve la brecha
+por sexo supera la estimaci´on nacional. Sobresalen los distritos 1, 2 y 14; en donde
+la tasa de participaci´on de la mujeres supera la de los hombres en m´as de 13 puntos
+porcentuales, ver ﬁgura 5.33.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+0
+10
+20
+30
+40
+50
+60
+Guanajuato
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.33: Participaci´on electoral en Guanajuato por sexo en las elecciones federales con-
+currentes de 2015.
+67
+
+
+PÁGINA 74
+5.11.3.
+Participaci´on distrital por tipo de secci´on
+A diferencia de los resultados nacionales, en Guanajuato no se observa una mayor
+participaci´on de las secciones rurales, salvo en el distrito 5, en donde la tasa rural
+super´o la urbana en 11.58 puntos porcentuales y la mixta en 23.76. En el resto de
+los distritos, la brecha entre las diferentes secciones var´ıa entre 0.12 y 12.60 puntos
+porcentuales, ver ﬁgura 5.34.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+0
+10
+20
+30
+40
+50
+60
+Guanajuato
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.34: Participaci´on electoral en Guanajuato por tipo de secci´on en las elecciones
+federales concurrentes de 2015.
+68
+
+
+PÁGINA 75
+5.12.
+Guerrero
+5.12.1.
+Nivel de participaci´on por distrito
+En Guerrero, cuatro de sus nueve distritos fueron clasiﬁcados como de alta partici-
+paci´on, dos pertenecen al nivel medio y los tres restantes al bajo. Los distritos con
+un nivel alto de participaci´on superaron la media nacional (elecciones concurrentes)
+en un rango de 8.14 a 14.12 puntos porcentuales. En cambio, el distrito 4 y 9 (baja
+participaci´on) est´an a m´as de 9 puntos por debajo de la media nacional de elecciones
+concurrentes, ver ﬁgura 5.35.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+10
+20
+30
+40
+50
+60
+70
+80
+Guerrero
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac  Con = 54.72%
+Figura 5.35: Participaci´on electoral en Guerrero por cada distrito y nivel de participaci´on
+en las elecciones federales concurrentes de 2015. El promedio de la participaci´on nacional en
+elecciones concurrentes se representa mediante la l´ınea negra. Los rangos son: [22 %-52 %)
+para el nivel bajo, de [52 %-56 %) medio y de 56 % o m´as como alto.
+69
+
+
+PÁGINA 76
+5.12.2.
+Participaci´on distrital por sexo
+Los distritos 1, 2 y 3 del estado, son los ´unicos en los cuales la brecha entre la partici-
+paci´on femenina y masculina no supera lo registrado a nivel nacional. Mientras que en
+el resto de los distritos esta diferencia oscila entre los 8 y los 11.97 puntos porcentuales,
+ver ﬁgura 5.36.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+10
+20
+30
+40
+50
+60
+70
+80
+Guerrero
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.36: Participaci´on electoral en Guerrero por sexo en las elecciones federales concu-
+rrentes de 2015.
+70
+
+
+PÁGINA 77
+5.12.3.
+Participaci´on distrital por tipo de secci´on
+Con excepci´on de los distritos 5 y 6 donde sobresale la tasa de participaci´on en las
+secciones mixtas; en el resto del estado, son las secciones rurales las que despuntan
+sobre las otras ´areas. La tasa rural super´o la mixta y la urbana en un rango de 0.44
+a 22.80 puntos porcentuales. Destaca la tasa registrada por las secciones urbanas del
+distrito 2, ´esta se sit´ua 22.79 puntos porcentuales por debajo de las secciones rurales y
+en 27.99 tambi´en por debajo de la registrada en el ´area mixta, ver ﬁgura 5.37.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+10
+20
+30
+40
+50
+60
+70
+80
+Guerrero
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.37: Participaci´on electoral en Guerrero por tipo de secci´on en las elecciones federales
+concurrentes de 2015.
+71
+
+
+PÁGINA 78
+5.13.
+Hidalgo
+5.13.1.
+Nivel de participaci´on por distrito
+A excepci´on del distrito 7, el resto de distritos de Hidalgo alcanz´o una tasa por arriba
+de la media nacional (elecciones no concurrentes). Destaca el distrito 1, el cual con
+una participaci´on del 63.38 % super´o la media nacional de elecciones no concurrentes
+en 22.95 puntos porcentuales, ver ﬁgura 5.38.
+1
+2
+3
+4
+5
+6
+7
+0
+10
+20
+30
+40
+50
+60
+70
+Hidalgo
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac no Con = 40.43%
+Figura 5.38: Participaci´on electoral en Hidalgo por cada distrito y nivel de participaci´on en
+las elecciones federales no concurrentes de 2015. El promedio de la participaci´on nacional en
+elecciones no concurrentes se representa mediante la l´ınea negra. Los rangos son:[32 %-39 %)
+para nivel bajo, de [39 %-43) medio y de 43 % en adelante como alto.
+72
+
+
+PÁGINA 79
+5.13.2.
+Participaci´on distrital por sexo
+A nivel distrital, las mujeres del estado de Hidalgo participan m´as que los hombres en
+un rango de 5.08 a 9.67 puntos porcentuales. Con excepci´on de los distritos 1 y 2, en
+los cuales la brecha entre la tasa de participaci´on de mujeres y la de hombres fue de
+9.67 y 8.43 puntos porcentuales respectivamente, en el resto del estado esta brecha fue
+menor a lo observado a nivel nacional, ver ﬁgura 5.39.
+1
+2
+3
+4
+5
+6
+7
+0
+10
+20
+30
+40
+50
+60
+70
+Hidalgo
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.39: Participaci´on electoral en Hidalgo por sexo en las elecciones federales no con-
+currentes de 2015.
+73
+
+
+PÁGINA 80
+5.13.3.
+Participaci´on distrital por tipo de secci´on
+Con excepci´on del distrito 6, en donde las secciones urbanas despuntan de las otras
+´areas, en el resto del estado se observa que el ´area rural es la que mayor participaci´on
+registra. Las secciones rurales participan entre 0.51 y 7.78 puntos porcentuales m´as que
+las ´areas mixta y urbanas, ver ﬁgura 5.40.
+1
+2
+3
+4
+5
+6
+7
+0
+10
+20
+30
+40
+50
+60
+70
+Hidalgo
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.40: Participaci´on electoral en Hidalgo por tipo de secci´on en las elecciones federales
+no concurrentes de 2015.
+74
+
+
+PÁGINA 81
+5.14.
+Jalisco
+5.14.1.
+Nivel de participaci´on por distrito
+Por nivel de participaci´on, Jalisco presenta la siguiente distribuci´on: siete de sus distri-
+tos fueron clasiﬁcados como de baja participaci´on, siete de media y los cinco restantes
+est´an en el nivel alto. Destaca el distrito 1, el cual con una participaci´on de 65.03 %
+se ubic´o 10.31 puntos porcentuales por arriba de la tasa promedio nacional (elecciones
+concurrentes). En contraste, el distrito 7 con una tasa de 39.62 % de participaci´on se
+coloca 15.09 puntos porcentuales por debajo de la media nacional (elecciones concu-
+rrentes), ver ﬁgura 5.41.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+0
+10
+20
+30
+40
+50
+60
+70
+Jalisco
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac  Con = 54.72%
+Figura 5.41: Participaci´on electoral en Jalisco por cada distrito y nivel de participaci´on en
+las elecciones federales concurrentes de 2015. El promedio de la participaci´on nacional en
+elecciones concurrentes se representa mediante la l´ınea negra. Los rangos son: [22 %-52 %)
+para el nivel bajo, de [52 %-56 %) medio y de 56 % o m´as como alto.
+75
+
+
+PÁGINA 82
+5.14.2.
+Participaci´on distrital por sexo
+A nivel distrital siguen siendo las mujeres las que mayor participaci´on registran. La
+diferencia entre la tasa de participaci´on masculina y femenina oscila entre los 5.94 y
+los 8.94 puntos porcentuales. ´Unicamente en los distritos 2, 3 y 11, esta brecha super´o
+el promedio nacional, ver ﬁgura 5.42.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+0
+10
+20
+30
+40
+50
+60
+70
+Jalisco
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.42: Participaci´on electoral en Jalisco por sexo en las elecciones federales concurren-
+tes de 2015.
+76
+
+
+PÁGINA 83
+5.14.3.
+Participaci´on distrital por tipo de secci´on
+Por tipo de secci´on, observamos una distribuci´on heterog´enea de la participaci´on: en
+los distrito 1, 4, 5, 10, 15 y 19 despuntan las secciones rurales; en el 6, 7, 12 y 16 las
+urbanas, en el 2, 3, 17 y 18 las mixtas y en el resto de los distritos (8, 9, 11, 13 y 14)
+s´olo hay presencia urbana. Las mayores diferencias entre secciones se observan en el
+distrito 5, en donde la tasa rural supera la urbana en 20.22 y la mixta en 10.06 puntos
+porcentuales; la diferencia entre la tasa mixta y urbana es de 10.16 puntos porcentuales,
+ver ﬁgura 5.43.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+0
+10
+20
+30
+40
+50
+60
+70
+Jalisco
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.43: Participaci´on electoral en Jalisco por tipo de secci´on en las elecciones federales
+concurrentes de 2015.
+77
+
+
+PÁGINA 84
+5.15.
+M´exico
+5.15.1.
+Nivel de participaci´on por distrito
+Al revisar la participaci´on electoral en los 40 distritos que conforman el estado de
+M´exico, se observa la siguiente distribuci´on: el 67.5 % de sus distritos fueron clasiﬁ-
+cados como de baja participaci´on, el 7.5 % como de nivel medio y el 25 % restante se
+ubicaron en un nivel alto. Los distritos de alta participaci´on superan la media nacional
+de elecciones concurrentes en un rango de 2.12 a 17.42 puntos porcentuales. Dentro
+de los distritos de baja participaci´on destaca el 25, el cual se encuentra 22.28 puntos
+porcentuales por debajo de la media nacional (elecciones concurrentes), ver ﬁgura 5.44.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+0
+10
+20
+30
+40
+50
+60
+70
+80
+México
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac  Con = 54.72%
+Figura 5.44: Participaci´on electoral en M´exico por cada distrito y nivel de participaci´on en
+las elecciones federales concurrentes de 2015. El promedio de la participaci´on nacional en
+elecciones concurrentes se representa mediante la l´ınea negra. Los rangos son: [22 %-52 %)
+para el nivel bajo, de [52 %-56 %) medio y de 56 % o m´as como alto.
+78
+
+
+PÁGINA 85
+5.15.2.
+Participaci´on distrital por sexo
+Con excepci´on del distrito 15 y 34, en el resto del estado la brecha entre la participaci´on
+femenina y la masculina supera lo estimado a nivel nacional. Las diferencias m´as am-
+plias se dan en el distrito 32 y 33 (15.05 y 14.28 puntos porcentuales respectivamente
+de diferencia entre tasas), ver ﬁgura 5.45.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+0
+10
+20
+30
+40
+50
+60
+70
+80
+México
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.45: Participaci´on electoral en M´exico por sexo en las elecciones federales concu-
+rrentes de 2015.
+79
+
+
+PÁGINA 86
+5.15.3.
+Participaci´on distrital por tipo de secci´on
+De los 40 distritos que conforman el estado, el 37.5 % son exclusivamente urbanos, en el
+10 % tienen presencia ´unicamente las secciones urbanas y mixtas y en el 52.5 % restante
+ﬁguran las 3 secciones. De los 21 distritos con presencia de las tres secciones, en 15 de
+ellos el ´area rural despunta sobre la urbana y la mixta: la tasa rural supera las otras
+´areas en un rango de 0.51 a 18.55 puntos porcentuales, ver ﬁgura 5.46.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+0
+10
+20
+30
+40
+50
+60
+70
+80
+México
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.46: Participaci´on electoral en M´exico por tipo de secci´on en las elecciones federales
+concurrentes de 2015.
+80
+
+
+PÁGINA 87
+5.16.
+Michoac´an
+5.16.1.
+Nivel de participaci´on por distrito
+Michoac´an registr´o una alta participaci´on en cuatro de sus doce distritos, tres fueron
+clasiﬁcados en un nivel medio y los cinco restantes presentaron una baja participa-
+ci´on. Todos los distritos de alta y media participaci´on superaron el promedio nacional
+(elecciones concurrentes) en un rango de 0.74 a 8.47 puntos porcentuales. Sobresale
+el distrito 8, cuya tasa de participaci´on (44.48 %) est´a 10.23 puntos porcentuales por
+debajo de la media nacional (elecciones concurrentes), ver ﬁgura 5.47.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+0
+10
+20
+30
+40
+50
+60
+70
+Michoacán
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac  Con = 54.72%
+Figura 5.47: Participaci´on electoral en Michoac´an por cada distrito y nivel de participaci´on
+en las elecciones federales concurrentes de 2015. El promedio de la participaci´on nacional en
+elecciones concurrentes se representa mediante la l´ınea negra. Los rangos son: [22 %-52 %)
+para el nivel bajo, de [52 %-56 %) medio y de 56 % o m´as como alto.
+81
+
+
+PÁGINA 88
+5.16.2.
+Participaci´on distrital por sexo
+En seis de los doce distritos, se observ´o una brecha entre la tasa femenina y masculina
+superior de la estimada a nivel nacional. En los distritos 3, 4 y 6 se presentaron las
+mayores diferencias entre tasas (m´as de 10 puntos porcentuales), ver ﬁgura 5.48.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+0
+10
+20
+30
+40
+50
+60
+70
+Michoacán
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.48: Participaci´on electoral en Michoac´an por sexo en las elecciones federales con-
+currentes de 2015.
+82
+
+
+PÁGINA 89
+5.16.3.
+Participaci´on distrital por tipo de secci´on
+Al revisar la participaci´on por tipo de secci´on se observ´o la siguiente distribuci´on:
+en seis de los doce distritos las ´areas rurales despuntan sobre las otras, en cuatro las
+secciones mixtas y en dos es el ´area urbana la que m´as participa. Las diferencias entre
+secciones son muy heterog´eneas por distrito, oscilan entre los 0.23 (distrito 4) y los
+16.74 (distrito 1) puntos porcentuales, ver ﬁgura 5.49.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+0
+10
+20
+30
+40
+50
+60
+70
+Michoacán
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.49: Participaci´on electoral en Michoac´an por tipo de secci´on en las elecciones fede-
+rales concurrentes de 2015.
+83
+
+
+PÁGINA 90
+5.17.
+Morelos
+5.17.1.
+Nivel de participaci´on por distrito
+De los cinco distritos que conforman el estado de Morelos dos presentan una alta par-
+ticipaci´on, uno pertenece al nivel medio y los dos restantes al bajo. La tasa de votaci´on
+por distrito es muy diversa, la diferencia entre el distrito de menor y mayor participa-
+ci´on es de 10.72 puntos porcentuales. Sobresalen los distritos 1 y 2, por ubicarse a m´as
+de 5 puntos porcentuales por debajo de la media nacional (elecciones concurrentes),
+ver ﬁgura 5.50.
+1
+2
+3
+4
+5
+0
+10
+20
+30
+40
+50
+60
+70
+Morelos
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac  Con = 54.72%
+Figura 5.50: Participaci´on electoral en Morelos por cada distrito y nivel de participaci´on
+en las elecciones federales concurrentes de 2015. El promedio de la participaci´on nacional en
+elecciones concurrentes se representa mediante la l´ınea negra. Los rangos son: [22 %-52 %)
+para el nivel bajo, de [52 %-56 %) medio y de 56 % o m´as como alto.
+84
+
+
+PÁGINA 91
+5.17.2.
+Participaci´on distrital por sexo
+Con excepci´on del distrito 1, el resto de los distritos del estado presentan una dife-
+rencia entre la tasa de participaci´on femenina y la masculina mayor de la observada
+a nivel nacional. Las mujeres de estos distritos participan entre 8.90 y 10.66 puntos
+porcentuales por arriba de los hombres, ver ﬁgura 5.51.
+1
+2
+3
+4
+5
+0
+10
+20
+30
+40
+50
+60
+70
+Morelos
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.51: Participaci´on electoral en Morelos por sexo en las elecciones federales concu-
+rrentes de 2015.
+85
+
+
+PÁGINA 92
+5.17.3.
+Participaci´on distrital por tipo de secci´on
+En los cuatro distritos en los cuales tienen presencia las tres secciones, son las ´areas ru-
+rales las que registran los mayores niveles de participaci´on. Las diferencias m´as grandes
+entre secciones se dan en el distrito 1, la tasa de participaci´on rural super´o la urbana
+en 12.54 y la mixta en 12.91 puntos porcentuales, ver ﬁgura 5.52.
+1
+2
+3
+4
+5
+0
+10
+20
+30
+40
+50
+60
+70
+Morelos
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.52: Participaci´on electoral en Morelos por tipo de secci´on en las elecciones federales
+concurrentes de 2015.
+86
+
+
+PÁGINA 93
+5.18.
+Nayarit
+5.18.1.
+Nivel de participaci´on por distrito
+Al igual que a nivel estatal, los distritos 1 y 2 de Nayarit presentan una tasa de
+participaci´on superior al promedio nacional (elecciones no concurrentes), ver ﬁgura
+5.53.
+1
+2
+3
+0
+10
+20
+30
+40
+50
+Nayarit
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac no  Con = 40.43%
+Figura 5.53: Participaci´on electoral en Nayarit por cada distrito y nivel de participaci´on en
+las elecciones federales no concurrentes de 2015. El promedio de la participaci´on nacional en
+elecciones no concurrentes se representa mediante la l´ınea negra. Los rangos son: [32 %-39 %)
+para nivel bajo, de [39 %-43) medio y de 43 % en adelante como alto.
+87
+
+
+PÁGINA 94
+5.18.2.
+Participaci´on distrital por sexo
+En los tres distritos del estado se observaron diferencias entre la tasa de participaci´on
+de las mujeres y los hombres menores a la brecha nacional; estas diferencias oscilan
+entre los 5.81 y los 6.91 puntos porcentuales, ver ﬁgura 5.54.
+1
+2
+3
+0
+10
+20
+30
+40
+50
+Nayarit
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.54: Participaci´on electoral en Nayarit por sexo en las elecciones federales no con-
+currentes de 2015.
+88
+
+
+PÁGINA 95
+5.18.3.
+Participaci´on distrital por tipo de secci´on
+Siguiendo la tendencia nacional, en Nayarit las poblaciones rurales participan m´as que
+las de otras secciones. Las mayores diferencias se dan entre el ´area rural y la mixta: estas
+diferencias fueron de 7.41 en el distrito 1, 15.76 en el 2 y de 14.82 puntos porcentuales
+en el 3, ver ﬁgura 5.55.
+1
+2
+3
+0
+10
+20
+30
+40
+50
+Nayarit
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.55: Participaci´on electoral en Nayarit por tipo de secci´on en las elecciones federales
+no concurrentes de 2015.
+89
+
+
+PÁGINA 96
+5.19.
+Nuevo Le´on
+5.19.1.
+Nivel de participaci´on por distrito
+El 58 % de los distritos de Nuevo Le´on presentaron un nivel de participaci´on alto y
+el 42 % restante medio. Sobresalen los distritos 6 y 9, cuya tasa de participaci´on su-
+per´o al promedio nacional (elecciones concurrentes) en 9.91 y 9.24 puntos porcentuales
+respectivamente, ver ﬁgura 5.56
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+0
+10
+20
+30
+40
+50
+60
+70
+Nuevo León
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac Con = 54.72%
+Figura 5.56: Participaci´on electoral en Nuevo Le´on por cada distrito y nivel de participaci´on
+en las elecciones federales concurrentes de 2015. El promedio de la participaci´on nacional en
+elecciones concurrentes se representa mediante la l´ınea negra. Los rangos son: [22 %-52 %)
+para el nivel bajo, de [52 %-56 %) medio y de 56 % o m´as como alto.
+90
+
+
+PÁGINA 97
+5.19.2.
+Participaci´on distrital por sexo
+A nivel distrital, las mujeres participan entre 5.31 y 9.61 puntos porcentuales m´as que
+los hombres. ´Unicamente los distritos 5 y 12 presentaron diferencias por sexo superiores
+de la estimada a nivel nacional, ver ﬁgura 5.57.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+0
+10
+20
+30
+40
+50
+60
+70
+Nuevo León
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.57: Participaci´on electoral en Nuevo Le´on por sexo en las elecciones federales con-
+currentes de 2015.
+91
+
+
+PÁGINA 98
+5.19.3.
+Participaci´on distrital por tipo de secci´on
+Por tipo de secci´on, se observa una distribuci´on heterog´enea de la participaci´on. De
+los cuatro distritos en los cuales hay presencia de las tres secciones, en dos sobresalen
+las secciones rurales y en los otros dos las urbanas. Cabe apuntar, que siete de los
+doce distritos son exclusivamente urbanos. Las diferencias m´as grandes entre secci´on
+se dan en el distrito 3, donde la participaci´on de la secci´on urbana est´a 20.94 puntos
+por encima de la mixta y 7.34 de la rural, ver ﬁgura 5.58.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+0
+10
+20
+30
+40
+50
+60
+70
+Nuevo León
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.58: Participaci´on electoral en Nuevo Le´on por tipo de secci´on en las elecciones
+federales concurrentes de 2015.
+92
+
+
+PÁGINA 99
+5.20.
+Oaxaca
+5.20.1.
+Nivel de participaci´on por distrito
+A nivel distrital, Oaxaca present´o la siguiente distribuci´on: 27 % de sus distritos fueron
+clasiﬁcados como de alta participaci´on, 18 % de media y un 55 % como de nivel bajo.
+Destacan los distrito 1 y 2, su tasa de participaci´on super´o la media nacional (elecciones
+no concurrentes) en m´as de 11 puntos porcentuales. Por otro lado, la tasa m´as baja
+se observ´o en el distrito 3, la cual estuvo 9.78 puntos por debajo de la media nacional
+(elecciones no concurrentes), ver ﬁgura 5.59.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+10
+20
+30
+40
+50
+60
+70
+Oaxaca
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac no  Con = 40.43%
+Figura 5.59: Participaci´on electoral en Oaxaca por cada distrito y nivel de participaci´on en
+las elecciones federales no concurrentes de 2015. El promedio de la participaci´on nacional en
+elecciones no concurrentes se representa mediante la l´ınea negra. Los rangos son: [32 %-39 %)
+para nivel bajo, de [39 %-43) medio y de 43 % en adelante como alto.
+93
+
+
+PÁGINA 100
+5.20.2.
+Participaci´on distrital por sexo
+En todos los distritos del estado, las diferencias entre la tasa de participaci´on femenina
+y masculina son menores en relaci´on con la estimada a nivel nacional: estas diferencias
+se sit´uan entre los 3.46 (distrito 7) y los 7.8 (distrito 9) puntos porcentuales, ver ﬁgura
+5.60.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+10
+20
+30
+40
+50
+60
+70
+Oaxaca
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.60: Participaci´on electoral en Oaxaca por sexo en las elecciones federales no con-
+currentes de 2015.
+94
+
+
+PÁGINA 101
+5.20.3.
+Participaci´on distrital por tipo de secci´on
+Con excepci´on del distrito 8 en donde las secciones urbanas son las que m´as participan,
+en el resto del estado sobresalen de las ´areas rurales. La brecha m´as grande entre
+secciones se observ´o en el distrito 1, en donde la participaci´on rural super´o la urbana
+en 21.38 puntos y la mixta en 16.72, ver ﬁgura 5.61.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+0
+10
+20
+30
+40
+50
+60
+70
+Oaxaca
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.61: Participaci´on electoral en Oaxaca por tipo de secci´on en las elecciones federales
+no concurrentes de 2015.
+95
+
+
+PÁGINA 102
+5.21.
+Puebla
+5.21.1.
+Nivel de participaci´on por distrito
+Por nivel de participaci´on, Puebla present´o los siguientes resultados: 31.25 % de distri-
+tos con alta participaci´on, 25 % media y el 43.75 % restante baja. Destacan los distritos
+1, 2 y 6, los cuales superan la media nacional (elecciones no concurrentes) en un ran-
+go de 13.95 a 14.62 puntos porcentuales. Sobresale el distrito 10 como el de menor
+participaci´on: se ubic´o 9.16 puntos porcentuales por debajo de la media, ver ﬁgura
+5.62.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+0
+10
+20
+30
+40
+50
+60
+70
+Puebla
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac no  Con = 40.43%
+Figura 5.62: Participaci´on electoral en Puebla por cada distrito y nivel de participaci´on en
+las elecciones federales no concurrentes de 2015. El promedio de la participaci´on nacional en
+elecciones no concurrentes se representa mediante la l´ınea negra. Los rangos son: [32 %-39 %)
+para nivel bajo, de [39 %-43) medio y de 43 % en adelante como alto.
+96
+
+
+PÁGINA 103
+5.21.2.
+Participaci´on distrital por sexo
+Del los 16 distritos del estado, en nueve se observaron diferencias entre la tasa de
+participaci´on de las mujeres y los hombres superiores de lo registrado a nivel nacional
+(7.94 puntos de diferencia). En los siete restantes, las diferencias por sexo var´ıan entre
+los 4.26 % y los 7.70 puntos porcentuales, ver ﬁgura 5.63.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+0
+10
+20
+30
+40
+50
+60
+70
+Puebla
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.63: Participaci´on electoral en Puebla por sexo en las elecciones federales no concu-
+rrentes de 2015.
+97
+
+
+PÁGINA 104
+5.21.3.
+Participaci´on distrital por tipo de secci´on
+De los 13 distritos en los cuales tienen presencia las tres secciones, en 10 de ellos
+predomina la participaci´on del ´area rural sobre la urbana y la mixta. Las mayores
+diferencias entre ´areas se dan en el distrito 12, la participaci´on rural super´o la urbana
+en 19.83 y la mixta en 23.33 puntos porcentuales. En el distrito 5 se presenta un nivel
+de participaci´on muy similar entre secciones: las diferencias oscilan entre los 0.13 y 0.64
+puntos, ver ﬁgura 5.64.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+0
+10
+20
+30
+40
+50
+60
+70
+Puebla
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.64: Participaci´on electoral en Puebla por tipo de secci´on en las elecciones federales
+no concurrentes del 2015.
+98
+
+
+PÁGINA 105
+5.22.
+Quer´etaro
+5.22.1.
+Nivel de participaci´on por distrito
+De los cuatro distritos que conforman el estado, ´unicamente el 3 muestra una participa-
+ci´on por debajo del promedio nacional (4.36 puntos). En cambio, el distrito 1 registr´o
+una tasa 11.79 puntos porcentuales por arriba de la media (elecciones concurrentes),
+ver ﬁgura 5.65.
+1
+2
+3
+4
+0
+10
+20
+30
+40
+50
+60
+70
+80
+Querétaro
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac   Con = 54.72%
+Figura 5.65: Participaci´on electoral en Quer´etaro por cada distrito y nivel de participaci´on
+en las elecciones federales concurrentes de 2015. El promedio de la participaci´on nacional
+en elecciones concurrentes se representa mediante la l´ınea negra. Los rangos son:[22 %-52 %)
+para el nivel bajo, de [52 %-56 %) medio y de 56 % o m´as como alto.
+99
+
+
+PÁGINA 106
+5.22.2.
+Participaci´on distrital por sexo
+Todos los distritos de Quer´etaro mostraron diferencias entre sexos superiores de las
+estimadas a nivel nacional, estas diferencias oscilan entre los 8.14 (distrito 3) y los
+14.60 (distrito 1) puntos porcentuales, ver ﬁgura 5.66.
+1
+2
+3
+4
+0
+10
+20
+30
+40
+50
+60
+70
+80
+Querétaro
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.66: Participaci´on electoral en Quer´etaro por sexo en las elecciones federales concu-
+rrentes de 2015.
+100
+
+
+PÁGINA 107
+5.22.3.
+Participaci´on distrital por tipo de secci´on
+Siguiendo la tendencia nacional, son las secciones rurales las que m´as participan: en
+tres de los cuatro distritos del estado presentaron una tasa mayor en comparaci´on con
+las otras secciones. La brecha m´as amplia entre secciones se da en el distrito 2, donde la
+secci´on rural mostr´o una participaci´on mayor que la urbana en 8.01 puntos porcentuales
+y que la mixta en 7.37. Por su lado, el distrito 1 muestra una participaci´on muy similar
+entre secciones (diferencias de 0.34 a 1.48 puntos), ver ﬁgura 5.67.
+1
+2
+3
+4
+0
+10
+20
+30
+40
+50
+60
+70
+80
+Querétaro
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.67: Participaci´on electoral en Quer´etaro por tipo de secci´on en las elecciones fede-
+rales concurrentes del 2015.
+101
+
+
+PÁGINA 108
+5.23.
+Quintana Roo
+5.23.1.
+Nivel de participaci´on por distrito
+En Quintana Roo destaca la participaci´on del distrito 2, la cual supera la registrada
+en el distrito 1 en 17.90 puntos, en 16 puntos la del distrito 3 y adem´as supera la tasa
+media nacional (elecciones no concurrentes) en 11.48 puntos porcentuales, ver ﬁgura
+5.68.
+1
+2
+3
+0
+10
+20
+30
+40
+50
+60
+Quintana Roo
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac no  Con = 40.43%
+Figura 5.68: Participaci´on electoral en Quintana Roo por cada distrito y nivel de partici-
+paci´on en las elecciones federales no concurrentes de 2015. El promedio de la participaci´on
+nacional en elecciones no concurrentes se representa mediante la l´ınea negra. Los rangos son:
+[32 %-39 %) para nivel bajo, de [39 %-43) medio y de 43 % en adelante como alto.
+102
+
+
+PÁGINA 109
+5.23.2.
+Participaci´on distrital por sexo
+Las diferencias entre la tasa femenina y la masculina son muy similares en los tres
+distritos, ´estas oscilan entre los 7.99 y los 8.41 puntos porcentuales, ver ﬁgura 5.69.
+1
+2
+3
+0
+10
+20
+30
+40
+50
+60
+Quintana Roo
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.69: Participaci´on electoral en Quintana Roo por sexo en las elecciones federales no
+concurrentes de 2015.
+103
+
+
+PÁGINA 110
+5.23.3.
+Participaci´on distrital por tipo de secci´on
+Al estudiar la participaci´on por tipo de secci´on, se observa claramente, que son las
+secciones rurales las que registran una mayor participaci´on que las urbanas y mixtas.
+La brecha m´as amplia entre secciones se tiene en el distrito 1, donde la poblaci´on rural
+particip´o 18.85 puntos m´as que la urbana y 13.22 m´as que la mixta, ver ﬁgura 5.70.
+1
+2
+3
+0
+10
+20
+30
+40
+50
+60
+Quintana Roo
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.70: Participaci´on electoral en Quintana Roo por tipo de secci´on en las elecciones
+federales no concurrentes de 2015.
+104
+
+
+PÁGINA 111
+5.24.
+San Luis Potos´ı
+5.24.1.
+Nivel de participaci´on por distrito
+San Luis Potos´ı registr´o una alta participaci´on en cuatro de sus siete distritos, dos
+fueron clasiﬁcados como de baja y uno fue clasiﬁcado como de nivel medio. Destaca la
+alta votaci´on del distrito 7, la cual super´o la media nacional (elecciones concurrentes)
+en 14.32 puntos porcentuales. Por el contrario, la tasa de participaci´on del distrito 6
+fue inferior de la media nacional (en 7.16 puntos porcentuales), ver ﬁgura 5.71.
+1
+2
+3
+4
+5
+6
+7
+0
+10
+20
+30
+40
+50
+60
+70
+80
+San Luis Potosí
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac Con = 54.72%
+Figura 5.71: Participaci´on electoral en San Luis Potos´ı por cada distrito y nivel de participa-
+ci´on en las elecciones federales concurrentes de 2015. El promedio de la participaci´on nacional
+en elecciones concurrentes se representa mediante la l´ınea negra. Los rangos son: [22 %-52 %)
+para el nivel bajo, de [52 %-56 %) medio y de 56 % o m´as como alto.
+105
+
+
+PÁGINA 112
+5.24.2.
+Participaci´on distrital por sexo
+Con excepci´on del distrito 5, en el resto del estado la brecha entre la tasa de las mujeres
+y los hombres super´o lo observado a nivel nacional (7.94 puntos de diferencia). En estos
+distritos, las mujeres participan m´as que los hombres en un rango de 8.29 a 11.04 puntos
+porcentuales, ver ﬁgura 5.72.
+1
+2
+3
+4
+5
+6
+7
+0
+10
+20
+30
+40
+50
+60
+70
+80
+San Luis Potosí
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.72: Participaci´on electoral en San Luis Potos´ı por sexo en las elecciones federales
+concurrentes del 2015.
+106
+
+
+PÁGINA 113
+5.24.3.
+Participaci´on distrital por tipo de secci´on
+Por tipo de secci´on se observaron los siguientes resultados: dos distritos (5 y 6) en donde
+las secciones urbanas son la que m´as participan, en tres distritos (1, 3 y 4) sobresale
+la participaci´on de las secciones rurales y en dos (2 y 7) son las ´areas mixtas las de
+mayor participaci´on. La brecha m´as amplia entre secciones se registr´o en el distrito
+2, la participaci´on del ´area rural super´o la urbana en 18.05 puntos porcentuales, ver
+ﬁgura 5.73.
+1
+2
+3
+4
+5
+6
+7
+0
+10
+20
+30
+40
+50
+60
+70
+80
+San Luis Potosí
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.73: Participaci´on electoral en San Luis Potos´ı por tipo de secci´on en las elecciones
+federales concurrentes de 2015.
+107
+
+
+PÁGINA 114
+5.25.
+Sinaloa
+5.25.1.
+Nivel de participaci´on por distrito
+De los ocho distritos que conforman el estado, dos presentaron un nivel de participaci´on
+alto, uno medio y los cinco restantes obtuvieron una baja participaci´on. Sobresale la
+tasa de participaci´on del distrito 4 (51.41 %), la cual super´o la media nacional (elec-
+ciones no concurrentes) en 10.98 puntos porcentuales. En el otro extremo tenemos al
+distrito 7, cuya tasa de participaci´on (28.73 %) se encuentra 11.69 puntos por debajo
+de la media de elecciones no concurrentes, ver ﬁgura 5.74.
+1
+2
+3
+4
+5
+6
+7
+8
+0
+10
+20
+30
+40
+50
+60
+Sinaloa
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac no  Con = 40.43%
+Figura 5.74: Participaci´on electoral en Sinaloa por cada distrito y nivel de participaci´on en
+las elecciones federales no concurrentes de 2015. El promedio de la participaci´on nacional en
+elecciones no concurrentes se representa mediante la l´ınea negra. Los rangos son:[32 %-39 %)
+para nivel bajo, de [39 %-43) medio y de 43 % en adelante como alto.
+108
+
+
+PÁGINA 115
+5.25.2.
+Participaci´on distrital por sexo
+En siete de los ocho distritos la diferencia entre sexos es menor en comparaci´on con lo
+estimado a nivel nacional: estas diferencias oscilan entre los 2.89 y los 7.74 puntos por-
+centuales. ´Unicamente en el distrito 4, la brecha entre la participaci´on de las mujeres
+y los hombres super´o la diferencia nacional, ver ﬁgura 5.75.
+1
+2
+3
+4
+5
+6
+7
+8
+0
+10
+20
+30
+40
+50
+60
+Sinaloa
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.75: Participaci´on electoral en Sinaloa por sexo en las elecciones federales no concu-
+rrentes de 2015.
+109
+
+
+PÁGINA 116
+5.25.3.
+Participaci´on distrital por tipo de secci´on
+Siguiendo la tendencia nacional, son las secciones rurales las que m´as participan: en
+seis de los ocho distritos de Sinaloa la tasa de votaci´on de estas secciones super´o la
+registrada por las urbanas y mixtas. Destaca la participaci´on de las secciones rurales
+del distrito 8, la cual super´o la registrada en las secciones urbanas en 19.27 puntos
+porcentuales y la de las mixtas en 25.41, ver ﬁgura 5.76.
+1
+2
+3
+4
+5
+6
+7
+8
+0
+10
+20
+30
+40
+50
+60
+Sinaloa
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.76: Participaci´on electoral en Sinaloa por tipo de secci´on en las elecciones federales
+no concurrentes de 2015.
+110
+
+
+PÁGINA 117
+5.26.
+Sonora
+5.26.1.
+Nivel de participaci´on por distrito
+Por nivel de participaci´on, el estado de Sonora registr´o la siguiente distribuci´on: dos
+distritos con alta participaci´on y cinco con un nivel bajo. Destaca el distrito 1, el cual
+presenta una participaci´on de 9.33 puntos por debajo de la media nacional (elecciones
+concurrentes), ver ﬁgura 5.77.
+1
+2
+3
+4
+5
+6
+7
+0
+10
+20
+30
+40
+50
+60
+70
+80
+Sonora
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac Con = 54.72%
+Figura 5.77: Participaci´on electoral en Sonora por cada distrito y nivel de participaci´on en
+las elecciones federales concurrentes de 2015. El promedio de la participaci´on nacional en
+elecciones concurrentes se representa mediante la l´ınea negra. Los rangos son: [22 %-52 %)
+para el nivel bajo, de [52 %-56 %) medio y de 56 % o m´as como alto.
+111
+
+
+PÁGINA 118
+5.26.2.
+Participaci´on distrital por sexo
+Las diferencias por sexo del votante oscilaron entre los 7.44 y los 11.07 puntos porcen-
+tuales, siendo las mujeres las que m´as participan. De los siete distritos, ´unicamente en
+el 4 y 6 la brecha entre sexos fue inferior a lo registrado a nivel nacional, ver ﬁgura
+5.78.
+1
+2
+3
+4
+5
+6
+7
+0
+10
+20
+30
+40
+50
+60
+70
+80
+Sonora
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.78: Participaci´on electoral en Sonora por sexo en las elecciones federales concurren-
+tes de 2015.
+112
+
+
+PÁGINA 119
+5.26.3.
+Participaci´on distrital por tipo de secci´on
+Al revisar la participaci´on por tipo de secci´on, sobresale el hecho que en cuatro de los
+siete distritos del estado, son las secciones mixtas las que m´as participan, contrario
+a la tendencia nacional en donde sobresale la participaci´on del ´area rural. La brecha
+m´as amplia entre secciones se registr´o en el distrito 4, en donde la participaci´on de la
+secci´on mixta super´o en 19.30 puntos porcentuales la urbana, ver ﬁgura 5.79.
+1
+2
+3
+4
+5
+6
+7
+0
+10
+20
+30
+40
+50
+60
+70
+80
+Sonora
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.79: Participaci´on electoral en Sonora por tipo de secci´on en las elecciones federales
+concurrentes de 2015.
+113
+
+
+PÁGINA 120
+5.27.
+Tabasco
+5.27.1.
+Nivel de participaci´on por distrito
+Por nivel de participaci´on, Tabasco present´o cuatro distritos con alta votaci´on y dos
+con baja. Los distritos de alta participaci´on superan la media nacional (elecciones
+concurrentes) en un rango de 6.38 a 7.85 puntos porcentuales. En cambio, los distritos
+4 y 6 (baja votaci´on) est´an por debajo de la media nacional en 9.89 y 5.49 puntos
+respectivamente, ver ﬁgura 5.80.
+1
+2
+3
+4
+5
+6
+0
+10
+20
+30
+40
+50
+60
+70
+Tabasco
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac Con = 54.72 %
+Figura 5.80: Participaci´on electoral en Tabasco por cada distrito y nivel de participaci´on
+en las elecciones federales concurrentes de 2015. El promedio de la participaci´on nacional en
+elecciones concurrentes se representa mediante la l´ınea negra. Los rangos son: [22 %-52 %)
+para el nivel bajo, de [52 %-56 %) medio y de 56 % o m´as como alto.
+114
+
+
+PÁGINA 121
+5.27.2.
+Participaci´on distrital por sexo
+En Tabasco, las mujeres participan en un rango ente 6.17 y 11.68 puntos porcentuales
+m´as que los hombres. Con excepci´on del distrito 4, el resto de los distritos super´o la
+brecha registrada a nivel nacional (7.94 puntos de diferencia), ver ﬁgura 5.81.
+1
+2
+3
+4
+5
+6
+0
+10
+20
+30
+40
+50
+60
+70
+Tabasco
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.81: Participaci´on electoral en Tabasco por sexo en las elecciones federales concu-
+rrentes de 2015.
+115
+
+
+PÁGINA 122
+5.27.3.
+Participaci´on distrital por tipo de secci´on
+Al igual que a nivel nacional, en los seis distritos de Tabasco las secciones rurales
+tienden a participar m´as que las urbanas y las mixtas. Al respecto destaca el distrito 5,
+en donde la secci´on rural super´o en 14.14 puntos la tasa de la secci´on mixta ver ﬁgura
+5.82.
+1
+2
+3
+4
+5
+6
+0
+10
+20
+30
+40
+50
+60
+70
+Tabasco
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.82: Participaci´on electoral en Tabasco por tipo de secci´on en las elecciones federales
+concurrentes de 2015.
+116
+
+
+PÁGINA 123
+5.28.
+Tamaulipas
+5.28.1.
+Nivel de participaci´on por distrito
+Por nivel de participaci´on, Tamaulipas present´o la siguiente distribuci´on: dos distritos
+con nivel bajo, cuatro alto y los dos restantes fueron clasiﬁcados como medios. Destacan
+los distritos 5 y 6, los cuales superaron la media nacional (elecciones no concurrentes)
+en 12.12 y 14.46 puntos porcentuales respectivamente, ver ﬁgura 5.83.
+1
+2
+3
+4
+5
+6
+7
+8
+0
+10
+20
+30
+40
+50
+60
+Tamaulipas
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac no Con = 40.43 %
+Figura 5.83: Participaci´on electoral en Tamaulipas por cada distrito y nivel de participaci´on
+en las elecciones federales no concurrentes de 2015. El promedio de la participaci´on nacional
+en elecciones no concurrentes se representa mediante la l´ınea negra. Los rangos son: [32 %-
+39 %) para nivel bajo, de [39 %-43) medio y de 43 % en adelante como alto.
+117
+
+
+PÁGINA 124
+5.28.2.
+Participaci´on distrital por sexo
+Al estudiar la variable sexo, se observa que las diferencias entre la tasa de participaci´on
+masculina y femenina var´ıa entre 6.32 y 9.47 puntos porcentuales, dependiendo del
+distrito. En particular, el distrito 5 present´o las mayores diferencias, mientras que en
+el 1 donde se observa la menor brecha, ver ﬁgura 5.84.
+1
+2
+3
+4
+5
+6
+7
+8
+0
+10
+20
+30
+40
+50
+60
+Tamaulipas
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.84: Participaci´on electoral en Tamaulipas por sexo en las elecciones federales no
+concurrentes de 2015.
+118
+
+
+PÁGINA 125
+5.28.3.
+Participaci´on distrital por tipo de secci´on
+En todos los distritos en los cuales hay secciones rurales, ´estas mostraron una mayor
+tasa que las urbanas y mixtas. El distrito 3, por su parte, presenta las diferencias m´as
+amplias entre secciones: la tasa rural super´o la mixta en 16.56 puntos porcentuales y
+la urbana en 14.23, ver ﬁgura 5.85.
+1
+2
+3
+4
+5
+6
+7
+8
+0
+10
+20
+30
+40
+50
+60
+Tamaulipas
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.85: Participaci´on electoral en Tamaulipas por tipo de secci´on en las elecciones
+federales no concurrentes de 2015.
+119
+
+
+PÁGINA 126
+5.29.
+Tlaxcala
+5.29.1.
+Nivel de participaci´on por distrito
+De los tres distritos que componen el estado de Tlaxcala; dos presentaron un nivel bajo
+de participaci´on y uno medio. Sobresale el hecho de que ninguno de los tres distritos
+logr´o superar la media nacional (elecciones no concurrentes), incluso el distrito 1 se
+ubic´o 3.3 puntos por debajo de ´esta, ver ﬁgura 5.86.
+1
+2
+3
+0
+10
+20
+30
+40
+50
+Tlaxcala
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac no Con = 40.43 %
+Figura 5.86: Participaci´on electoral en Tlaxcala por cada distrito y nivel de participaci´on en
+las elecciones federales no concurrentes de 2015. El promedio de la participaci´on nacional en
+elecciones no concurrentes se representa mediante la l´ınea negra. Los rangos son: [32 %-39 %)
+para nivel bajo, de [39 %-43) medio y de 43 % en adelante como alto.
+120
+
+
+PÁGINA 127
+5.29.2.
+Participaci´on distrital por sexo
+Las mujeres participan entre 6.13 y 7.94 puntos porcentuales m´as que los hombres en
+los diferentes distritos de Tlaxcala. Los distritos 1 y 3 presentaron una diferencia entre
+la participaci´on femenina y masculina muy similar de la registrada a nivel nacional
+(7.94 puntos), ver ﬁgura 5.87.
+1
+2
+3
+0
+10
+20
+30
+40
+50
+Tlaxcala
+Distrito
+%
+Participación Distrital por Sexo
+Figura 5.87: Participaci´on electoral en Tlaxcala por sexo en las elecciones federales no con-
+currentes de 2015.
+121
+
+
+PÁGINA 128
+5.29.3.
+Participaci´on distrital por tipo de secci´on
+En el distrito 1 y 3 destaca la participaci´on de la secci´on rural sobre las otras ´areas, la
+tasa de participaci´on de ´esta super´o en un rango de 5.30 a 13.42 puntos la registrada
+por el ´area urbana y mixta. Las mayores diferencias se presentaron en el distrito 1,
+donde la secci´on rural obtuvo una tasa mayor en 8.76 puntos por arriba de la regi´on
+mixta y en 13.42 del ´area urbana, ver ﬁgura 5.88.
+1
+2
+3
+0
+10
+20
+30
+40
+50
+Tlaxcala
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.88: Participaci´on distrital en Tlaxcala por tipo de secci´on en las elecciones federales
+no concurrentes de 2015.
+122
+
+
+PÁGINA 129
+5.30.
+Veracruz
+5.30.1.
+Nivel de participaci´on por distrito
+Por nivel de participaci´on, el 62 % del total de distritos mostraron una alta participa-
+ci´on, el 19 % baja y el restante 19 % media. Sobresale el distrito 2, el cual se ubic´o 21.41
+puntos porcentuales por arriba de la media nacional (elecciones no concurrentes), ver
+ﬁgura 5.89.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+0
+10
+20
+30
+40
+50
+60
+70
+Veracruz
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac no Con = 40.43 %
+Figura 5.89: Participaci´on electoral en Veracruz por cada distrito y nivel de participaci´on en
+las elecciones federales no concurrentes de 2015. El promedio de la participaci´on nacional en
+elecciones no concurrentes se representa mediante la l´ınea negra. Los rangos son: [32 %-39 %)
+para nivel bajo, de [39 %-43) medio y de 43 % en adelante como alto.
+123
+
+
+PÁGINA 130
+5.30.2.
+Participaci´on distrital por sexo
+Al revisar la participaci´on por sexo, se observ´o que de los veinti´un distritos del estado
+solamente el distrito 2, 6, 7 y 18 muestran una brecha entre sexos mayor de la registrada
+a nivel nacional. En los diecisiete distritos restantes la brecha oscila entre los 2.10 y los
+7.77 puntos porcentuales, ver ﬁgura 5.90.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+0
+10
+20
+30
+40
+50
+60
+70
+Veracruz
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.90: Participaci´on electoral en Veracruz por sexo en las elecciones federales no con-
+currentes de 2015.
+124
+
+
+PÁGINA 131
+5.30.3.
+Participaci´on distrital por tipo de secci´on
+En diecinueve de los veinti´un distritos del estado, son las secciones rurales las que
+tienden a participar m´as que las urbanas y las mixtas. Destaca el distrito 12, en donde
+la participaci´on rural super´o en 15.59 la urbana y en 21.23 puntos la mixta, ver ﬁgura
+5.91.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+0
+10
+20
+30
+40
+50
+60
+70
+Veracruz
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.91: Participaci´on electoral en Veracruz por tipo de secci´on en las elecciones federales
+no concurrentes del 2015.
+125
+
+
+PÁGINA 132
+5.31.
+Yucat´an
+5.31.1.
+Nivel de participaci´on por distrito
+De los 32 estados del pa´ıs, Yucat´an es el que present´o la mayor tasa de participaci´on;
+en congruencia con esto, el 100 % de sus distritos registr´o un nivel alto de participa-
+ci´on. Sobresalen los distritos 1, 2 y 5, cuyas tasas de participaci´on superaron la media
+nacional (elecciones concurrentes) entre 19.46 y 25.61 puntos porcentuales, ver ﬁgura
+5.92.
+1
+2
+3
+4
+5
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+Yucatán
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac Con = 54.72 %
+Figura 5.92: Participaci´on electoral en Yucat´an por cada distrito y nivel de participaci´on
+en las elecciones federales concurrentes de 2015. El promedio de la participaci´on nacional en
+elecciones concurrentes se representa mediante la l´ınea negra. Los rangos son: [22 %-52 %)
+para el nivel bajo, de [52 %-56 %) medio y de 56 % o m´as como alto.
+126
+
+
+PÁGINA 133
+5.31.2.
+Participaci´on distrital por sexo
+Al revisar la participaci´on por sexo, se observa que en los cinco distritos del estado las
+diferencias por sexo superaron lo observado a nivel nacional. Estas diferencias oscilan
+entre los 9.23 y los 10.14 puntos porcentuales, ver ﬁgura 5.93.
+1
+2
+3
+4
+5
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+Yucatán
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.93: Participaci´on electoral en Yucat´an por sexo en las elecciones federales concu-
+rrentes de 2015.
+127
+
+
+PÁGINA 134
+5.31.3.
+Participaci´on distrital por tipo de secci´on
+En concordancia con lo estimado a nivel nacional, en los cinco distritos del estado las
+poblaciones rurales despuntan de las otras ´areas. La tasa de participaci´on en estas
+secciones est´a entre los 2.60 y los 20.92 puntos porcentuales por arriba de las urbanas
+y mixtas. Como se observa en la ﬁgura 5.94, las diferencias son bastante amplias por
+distrito.
+1
+2
+3
+4
+5
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+Yucatán
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.94: Participaci´on electoral en Yucat´an por tipo de secci´on en las elecciones federales
+concurrentes de 2015.
+128
+
+
+PÁGINA 135
+5.32.
+Zacatecas
+5.32.1.
+Nivel de participaci´on por distrito
+La mitad de los distritos de Zacatecas present´o un nivel alto de participaci´on y el resto
+se ubic´o en un nivel medio. Sobresale el hecho que sus cuatro distritos superaron la
+media nacional de elecciones no concurrentes: la tasa de participaci´on distrital ﬂuct´ua
+entre los 43.43 y los 46.97 puntos porcentuales, ver ﬁgura 5.95.
+1
+2
+3
+4
+0
+10
+20
+30
+40
+50
+60
+Zacatecas
+Distrito
+%
+Nivel de Participación Distrital
+Alta
+Media
+Baja
+Nac no Con = 40.43%
+Figura 5.95: Participaci´on electoral en Zacatecas por cada distrito y nivel de participaci´on en
+las elecciones federales no concurrentes de 2015. El promedio de la participaci´on nacional en
+elecciones no concurrentes se representa mediante la l´ınea negra. Los rangos son: [32 %-39 %)
+para nivel bajo, de [39 %-43) medio y de 43 % en adelante como alto.
+129
+
+
+PÁGINA 136
+5.32.2.
+Participaci´on distrital por sexo
+Al revisar la participaci´on por sexo del votante, se observ´o que ´unicamente en el distrito
+4 la brecha por sexos super´o lo registrado a nivel nacional. En el resto de los distritos
+del estado, las diferencias var´ıan entre los 5.88 y los 7.50 puntos porcentuales, ver ﬁgura
+5.96.
+1
+2
+3
+4
+0
+10
+20
+30
+40
+50
+60
+Zacatecas
+Distrito
+%
+Participación Distrital por Sexo
+Mujeres
+Hombres
+Figura 5.96: Participaci´on electoral en Zacatecas por sexo en las elecciones federales no
+concurrentes de 2015.
+130
+
+
+PÁGINA 137
+5.32.3.
+Participaci´on distrital por tipo de secci´on
+Siguiendo la tendencia nacional, en Zacatecas la participaci´on rural despunta de las
+otras ´areas. Las tasas de las secciones rurales registraron entre 1.47 y 10.35 puntos
+porcentuales m´as que las urbanas y las mixtas. Las brecha m´as amplia por secciones se
+present´o en el distrito 4, en donde la tasa del ´area rural fue superior en 10.35 puntos
+de la urbana y en 9.28 de la mixta, ver ﬁgura 5.97.
+1
+2
+3
+4
+0
+10
+20
+30
+40
+50
+60
+Zacatecas
+Distrito
+%
+Participación Distrital por tipo de Sección
+Urbana
+Rural
+Mixta
+Figura 5.97: Participaci´on electoral en Zacatecas por tipo de secci´on en las elecciones fede-
+rales no concurrentes de 2015.
+131
+
+
+PÁGINA 138
+5.33.
+Participaci´on distrital por nivel de brecha en-
+tre sexos
+Al igual que a nivel estatal, se clasiﬁcaron los distritos por el nivel de la brecha entre
+la participaci´on masculina y femenina: 36 % de los distritos presentaron un nivel alto,
+25 % nivel medio y 39 % entraron en la categor´ıa de bajo. La distribuci´on geogr´aﬁca
+de estos niveles reﬂejan la gran diversidad del territorio nacional: la realidad local es
+heterog´enea, los distritos no s´olo divergen del nivel nacional (medio), sino incluso de
+su realidad estatal, ver la siguiente tabla.
+5.34.
+Tabla de clasiﬁcaci´on de distritos por nivel de
+brecha entre sexos
+Niveles de brecha entre sexos por distrito
+Nivel de brecha
+Estado
+Alto
+Medio
+Bajo
+Aguascalientes
+Distritos 1
+Distritos 2 y 3
+Baja California
+Distritos 1, 2, 3, 4, 5,
+6, 7 y 8
+Baja
+California
+Sur
+Distrito 2
+Distrito 1
+Campeche
+Distrito 2
+Distrito 1
+Coahuila
+Distritos 1, 2, 3, 4, 5,
+6 y 7
+Colima
+Distrito 2
+Distrito 1
+Chiapas
+Distritos 4, 5 y 6
+Distritos 2, 3, 9, 10, 11
+y 12
+Distritos 1, 7 y 8
+Chihuahua
+Distritos 1, 2, 3, 4, 5,
+6, 7, 8 y 9
+Distrito Federal
+Distritos 18, 19 y 22
+Distritos 1, 4, 11, 14,
+16, 17, 20, 21, 23 y 25
+Distritos 2, 3, 5, 6, 7,
+8, 9, 10, 12, 13, 15, 24,
+26 y 27
+132
+
+
+PÁGINA 139
+Nivel de brecha
+Estado
+Alto
+Medio
+Bajo
+Durango
+Distritos 2, 3 y 4
+Distrito 1
+Guanajuato
+Distritos 1, 2, 4, 7, 8,
+10, 11, 13 y 14
+Distrito 12
+Distritos 3, 5, 6 y 9
+Guerrero
+Distritos 5, 6, 7 y 9
+Distritos 2, 4 y 8
+Distritos 1 y 3
+Hidalgo
+Distrito 1
+Distritos 2 y 4
+Distritos 3, 5, 6 y 7
+Jalisco
+Distritos 2 y 3
+Distritos 9, 11, 13, 14,
+15, 17 y 19
+Distritos 1, 4, 5, 6, 7,
+8, 10, 12, 16 y 18
+M´exico
+Distritos 1, 2, 3, 4, 5,
+6, 8, 9, 10, 11, 12, 13,
+14, 16, 17, 18, 19, 20,
+21, 22, 23, 24, 25, 26,
+27, 28, 29, 30, 31, 32,
+33, 35, 36, 37, 38, 39 y
+40
+Distritos 7, 15 y 34
+Michoac´an
+Distritos 2, 3, 4, 6 y 7
+Distritos 8 y 11
+Distritos 1, 5, 9, 10, 12
+Morelos
+Distritos 2, 3, 4 y 5
+Distrito 1
+Nayarit
+Distritos 1, 2 y 3
+Nuevo Le´on
+Distrito 5
+Distritos 7 y 12
+Distritos 1, 2, 3, 4, 6,
+8, 9, 10 y 11
+Oaxaca
+Distritos 6 y 9
+Distritos 1, 2, 3, 4, 5,
+7, 8, 10 y 11
+Puebla
+Distritos 1, 2, 3, 4, 7,
+8, 14, 15 y 16
+Distrito 13
+Distritos 5, 6, 9, 10,
+11, 12
+Quer´etaro
+Distritos 1 y 2
+Distritos 3 y 4
+Quintana Roo
+Distritos 1, 2 y 3
+San Luis Potos´ı
+Distritos 1, 2, 3 y 7
+Distritos 4, 5 y 6
+Sinaloa
+Distrito 4
+Distrito 1
+Distritos 2, 3, 5, 6, 7 y
+8
+Sonora
+Distritos 5 y 7
+Distritos 1, 2, 3, 4 y 6
+Tabasco
+Distritos 2, 3 y 5
+Distritos 1 y 6
+Distrito 4
+Tamaulipas
+Distritos 5 y 6
+Distritos 2, 3, 4, 7 y 8
+Distrito 1
+Tlaxcala
+Distritos 1 y 3
+Distrito 2
+Veracruz
+Distritos 2, 6, 7, 16, 18
+y 19
+Distritos 1, 3, 4, 5, 8,
+9, 10, 11, 12, 13, 14,
+15, 17, 20 y 21
+Yucat´an
+Distritos 1, 2, 3, 4 y 5
+Zacatecas
+Distrito 4
+Distrito 3
+Distrito 1 y 2
+133
+
+
+PÁGINA 140
+5.35.
+Participaci´on distrital por nivel de brecha en-
+tre grupos de edad
+Finalmente, se clasiﬁcaron los distritos por el nivel de la brecha entre los grupos de
+edad de 20 a 39 y de 40 a 79 a˜nos: 44 % de los distritos presentaron un nivel alto, 28 %
+nivel medio y el 28 % restante fueron clasiﬁcados como de nivel bajo. La distribuci´on
+geogr´aﬁca de estos niveles muestran la gran diversidad del territorio nacional. En par-
+ticular, el sureste del pa´ıs parece tener los niveles m´as bajos, ver la siguiente tabla.
+Niveles de brecha entre grupos de edad
+Nivel de brecha
+Estado
+Alto
+Medio
+Bajo
+Aguascalientes
+Distritos 2 y 3
+Distrito 1
+Baja California
+Distritos 1, 2 y 3
+Distritos 5, 6 y 7
+Distritos 4 y 8
+Baja
+California
+Sur
+Distritos 1 y 2
+Campeche
+Distritos 1 y 2
+Coahuila
+Distritos 3, 4, 5, 6 y 7
+Distritos 1 y 2
+Colima
+Distrito 2
+Distrito 1
+Chiapas
+Distritos 1, 2, 3, 4, 5,
+6, 7, 8, 9, 10, 11 y 12
+Chihuahua
+Distritos 6 y 8
+Distritos 2, 3, 4 y 5
+Distritos 1, 7 y 9
+Distrito Federal
+Distritos 1, 2, 3, 4, 5,
+6, 7, 8, 9, 10, 11, 12,
+13, 14, 16, 17, 18, 19,
+20, 21, 22, 23, 24, 25,
+26, 27
+Distrito 15
+Durango
+Distritos 2 y 4
+Distritos 1 y 3
+Guanajuato
+Distritos 3, 4, 5, 6, 9 y
+12
+Distritos 1, 2, 7, 8 y 13
+Distritos 10, 11 y 14
+Guerrero
+Distrito 7
+Distritos 1, 2, 3, 4, 5,
+6, 8, 9
+134
+
+
+PÁGINA 141
+Nivel de brecha
+Estado
+Alto
+Medio
+Bajo
+Hidalgo
+Distritos 1, 2, 3, 4, 5,
+6 y 7
+Jalisco
+Distritos 4, 6, 7, 10,
+11, 14 y 16
+Distritos 5, 8, 9, 12 y
+13
+Distritos 1, 2, 3, 15,
+17, 18 y 19
+M´exico
+Distritos 3, 4, 6, 7, 8,
+9, 10, 11, 12, 13, 14,
+15, 16, 17, 19, 20, 21,
+22, 24, 25, 26, 27, 28,
+29, 30, 31, 32, 34, 37,
+38 y 39
+Distritos 1, 2, 5, 18 y
+33
+Distritos 23, 35, 36 y
+40
+Michoac´an
+Distritos 8 y 10
+Distritos 1, 6 y 9
+Distritos 2, 3, 4, 5, 7,
+11, 12
+Morelos
+Distritos 1 y 2
+Distritos 3, 4 y 5
+Nayarit
+Distrito 2
+Distrito 3
+Distrito 1
+Nuevo Le´on
+Distritos 1, 5 y 10
+Distritos 2, 3, 4, 6, 7,
+8, 9, 11 y 12
+Oaxaca
+Distritos 1, 8 y 11
+Distritos 2, 3, 4, 5, 6,
+7, 9 y 10
+Puebla
+Distritos 4, 6, 9, 11,
+12, 13
+Distritos 1, 2, 3, 5, 7,
+8, 10, 14 y 15
+Distrito 16
+Quer´etaro
+Distritos 2, 3 y 4
+Distrito 1
+Quintana Roo
+Distritos 1 y 3
+Distrito 2
+San Luis Potos´ı
+Distritos 6 y 7
+Distritos 2, 4 y 5
+Distritos 1 y 3
+Sinaloa
+Distritos 2, 3, 5, 7 y 8
+Distritos 4 y 6
+Distrito 1
+Sonora
+Distritos 3, 5 y 6
+Distrito 7
+Distritos 1, 2 y 4
+Tabasco
+Distrito 4
+Distritos 1, 2, 3, 5 y 6
+Tamaulipas
+Distritos 5, 7 y 8
+Distritos 2, 3 y 4
+Distritos 1 y 6
+Tlaxcala
+Distritos 1, 2 y 3
+Veracruz
+Distritos 2, 3, 4, 5, 9,
+10, 11, 12, 15 y 16
+Distritos 1, 6, 7, 8, 13,
+14, 17, 19, 20 y 21
+Distrito 18
+Yucat´an
+Distritos 3 y 4
+Distritos 1, 2 y 5
+Zacatecas
+Distritos 1, 3 y 4
+Distrito 2
+135
+
+
+PÁGINA 142
+6
+Conclusiones
+Al analizar la participaci´on electoral hist´orica se observa que si bien en los ´ultimos
+procesos electorales se empieza a incrementar la misma, a´un estamos muy lejos de al-
+canzar los niveles logrados en los a˜nos noventa. El voto es el medio a trav´es del cual las
+y los ciudadanos deﬁnen quien los representar´a a nivel local, estatal y nacional, por lo
+que es de gran importancia conocer los factores que determinan el que un ciudadano
+acuda a las urnas.
+El Estudio censal sobre la participaci´on ciudadana en las elecciones federales de 2015
+busca, a trav´es del registro y an´alisis de quienes acuden a las urnas, identiﬁcar el perﬁl
+del ciudadano con mayor y menor presencia electoral. El an´alisis se realiz´o a partir
+de las variables edad, sexo, secci´on y tipo de elecci´on (concurrente o no), identiﬁcadas
+como determinantes de la participaci´on. A continuaci´on se presentan los principales
+resultados del estudio.
+6.1.
+Participaci´on electoral nacional
+⇒Al revisar el hist´orico de la participaci´on electoral en las elecciones federales para
+la conformaci´on de la C´amara de Diputados, se observa como a partir del proceso
+de 2009 la tasa empieza a incrementarse. Continuando con esta tendencia, en el
+2015 la participaci´on electoral alcanz´o una tasa del 47.07 %, lo cual representa un
+incremento de 3.01 puntos porcentuales con respecto de la tasa de 2009 (44.06 %),
+pero a´un muy lejana al m´aximo hist´orico de 1991 (65.97 %).
+⇒En las elecciones de 2015 la tasa de participaci´on femenina (50.89 %) fue superior
+en 7.94 puntos porcentuales a la masculina a nivel nacional (42.95 %).
+136
+
+
+PÁGINA 143
+⇒Por edad, se observa que los menores niveles de participaci´on se presentan en los
+j´ovenes de 20 a 29 a˜nos. En contraste, la mayor participaci´on se concentra en el
+grupo de 40 a 79 a˜nos
+⇒Por edad y sexo del votante, se encontr´o que entre los 18 y 69 a˜nos, las mujeres
+presentan una mayor participaci´on que los hombres. A partir de los 70 a˜nos
+esta tendencia cambia, y son los hombres los que registran mayores niveles de
+participaci´on. Conforme la edad de la ciudadan´ıa se incrementa la brecha entre
+sexos disminuye, ya que mientras en el sector de 30 a 39 a˜nos la brecha entre sexos
+fue de 11.90 puntos, en el grupo de edad de 60 a 69 a˜nos la brecha disminuye a
+1.25 puntos porcentuales.
+⇒Por tipo de secci´on (urbana, rural o mixta), se observa un importante repunte
+de la secci´on rural sobre las dem´as ´areas: 9.59 puntos porcentuales sobre la zona
+urbana y 6.07 puntos sobre la mixta.
+⇒Por sexo y tipo de secci´on el panorama es el siguiente: en los tres tipos de secciones
+son las mujeres las que participan m´as que los hombres. La brecha por sexo es
+m´as amplia en las secciones rurales (9.46 puntos de diferencia), seguida del ´area
+urbana (8.56 puntos) y por ´ultimo la mixta en donde las diferencias entre sexos
+son de 7.52 puntos porcentuales, siendo el ´unico tipo de secci´on en la cual la
+brecha es inferior a la registrada a nivel nacional.
+⇒Por edad y tipo de secci´on, se observ´o que la poblaci´on de las ´areas rurales
+supera en participaci´on a la de las urbanas y mixtas en todos los rangos de
+edad. Las menores variaciones se presentan entre las secciones urbanas y mixtas,
+en el rango de edad de mayores de 60 a˜nos (diferencias de entre 0.25 y el 1.05
+puntos porcentuales). Mientras que las mayores diferencias se observan entre el
+´area rural y urbana, en el sector de 18 a 59 a˜nos (diferencias de 8.39 y los 13.38
+puntos porcentuales).
+⇒La participaci´on femenina por grupos de edad y secci´on, muestra que las mujeres
+de poblaciones rurales entre 18 y 79 a˜nos son las que m´as votan. A partir de los
+80 a˜nos son las habitantes del ´area urbana las que m´as participan. Es importante
+recalcar que conforme se incrementa la edad de las mujeres las diferencias de
+participaci´on por secciones disminuyen notablemente.
+⇒En el caso de los hombres, en todos los grupos de edad las poblaciones rurales
+participan m´as.
+137
+
+
+PÁGINA 144
+Con base en el an´alisis estad´ıstico del censo de participaci´on electoral 2015, se elabo-
+raron dos perﬁles de ciudadanos que sufragaron:
+Perﬁl de las y los ciudadanos que participaron en las elecciones federales de 2015
+Mayor participaci´on electoral
+Menor participaci´on electoral
+Edad: Electores entre 40 y 79 a˜nos
+Edad: Electores entre 20 y 29 a˜nos
+Sexo: Mujeres
+Sexo: Hombres
+Secci´on: Poblaci´on rural, en particular en
+el rango de edad entre 50 a 79 a˜nos
+Secci´on: Poblaci´on urbana y mixta en par-
+ticular en el rango de edad entre 20 y 29
+a˜nos
+6.2.
+Participaci´on electoral a nivel estatal
+⇒Al concurrir elecciones locales con federales, se eleva notablemente la tasa de
+participaci´on. En 2015 la diferencia entre la tasa de participaci´on concurrente
+(54.72 %) y la no concurrente (40.43 %) fue de 14.29 puntos porcentuales.
+⇒Dado que la concurrencia de elecciones eleva la participaci´on, a ﬁn de eliminar
+este efecto se utilizaron rangos distintos para cada tipo de elecci´on, identiﬁc´andose
+que un 41 % de los estados pertenecen a un nivel alto, el 28 % al medio y el 31 %
+restante registraron una baja participaci´on.
+• Nivel de participaci´on alto: Campeche, Coahuila, Colima, Chiapas, Guerre-
+ro, Higaldo, Nuevo Le´on, Quer´etaro, Tabasco, Tamaulipas, Veracruz, Yu-
+cat´an y Zacatecas.
+• Nivel de participaci´on medio: Durango, Jalisco, Michoac´an, Morelos, Naya-
+rit, Oaxaca, Puebla, Quintana Roo y San Luis Potos´ı.
+• Nivel de participaci´on bajo: Aguascalientes, Baja California, Baja California
+Sur, Chihuahua, Distrito Federal, Guanajuato, M´exico, Sinaloa, Sonora y
+Tlaxcala.
+⇒A nivel estatal, la relaci´on entre las variables estudiadas presenta una tendencia
+similar a la nacional; sin embargo, es posible identiﬁcar algunas particularidades:
+• Por sexo, en todos los estados las mujeres registraron una mayor partici-
+paci´on que los hombres, el promedio de variaciones por estado es de 7.93
+puntos porcentuales. La diferencia entre mujeres y hombres fue m´as alta en
+Coahuila, M´exico y Quer´etaro (m´as de 10 puntos porcentuales de variaci´on).
+En contraparte, las diferencias menores se dan en Chihuahua y Sinaloa (3.38
+y 4.97 puntos porcentuales respectivamente).
+138
+
+
+PÁGINA 145
+• Por tipo de secci´on, en las zonas rurales se tiende a participar m´as que en las
+urbanas y mixtas, la ´unica excepci´on a este comportamiento fue el Distri-
+to Federal en donde predomina la participaci´on del ´area urbana. Destacan
+Chiapas, Quintana Roo y Yucat´an, ya que las variaciones entre las seccio-
+nes rurales y urbanas superan los 17 puntos porcentuales. Los estados con
+menores diferencias entre secciones son Baja California y Chihuahua, con
+variaciones de entre 0.42 y 1.65 puntos porcentuales.
+6.3.
+Participaci´on electoral a nivel distrital
+Los resultados obtenidos revelan que la tendencia distrital no siempre es una r´eplica
+de la prevaleciente a nivel nacional y estatal, de ah´ı que es posible identiﬁcar distritos
+que presenten semejanzas con respecto a las tendencias nacionales y con sus respecti-
+vos estados; sin embargo, tambi´en hay distritos cuyas caracter´ısticas de participaci´on
+diﬁeren del ´ambito nacional e, incluso, de sus propias entidades.
+Esta diversidad, pone a discusi´on la necesidad de que el Instituto dise˜ne pol´ıticas y
+acciones en materia de capacitaci´on electoral, educaci´on c´ıvica y promoci´on del voto a
+nivel nacional, estatal y distrital. Por otro lado, tambi´en sugiere la necesidad de incluir
+otras variables distintas a las aqu´ı analizadas (sexo, edad y tipo de secci´on), que nos
+puedan dar diagn´osticos m´as robustos del contexto local.
+139
+
+
+PÁGINA 146
+7
+Futuras L´ıneas de Investigaci´on
+El Estudio Censal sobre la Participaci´on Ciudadana en las Elecciones Federales de 2015
+analiza de forma particular las variables registradas por el INE: sexo, edad y tipo de
+secci´on. No obstante, estas variables no son las ´unicas que pueden inﬂuir en la parti-
+cipaci´on de las y los ciudadanos. El nivel socioecon´omico, los ´ındices de seguridad, la
+cobertura de la educaci´on, por mencionar algunas, son otras variables que pueden estar
+asociadas con la asistencia a las urnas. Al respecto, existe un c´umulo de datos tanto
+a escalas geoelectorales como estatales y municipales (INEGI, 2010), que pueden ser
+eventualmente usados en estudios posteriores.
+Asimismo, los resultados del estudio invitan al an´alisis y reﬂexi´on de dos temas noda-
+les: las causas que originan la mayor participaci´on de las mujeres y el desencanto de
+los j´ovenes por las urnas.
+140
+
+
+PÁGINA 147
+Referencias
+[1] Altman, D., Luna, J. 2007. Desafecci´on c´ıvica, polarizaci´on ideol´ogica y ca-
+lidad de la democracia: una introducci´on al Anuario Pol´ıtico de Am´erica
+Latina, Rev. cienc. pol´ıt. (Santiago) [online]. vol.27, pp. 3-2
+[2] Benedit, R. 1999. Participaci´on social y pol´ıtica de los j´ovenes en pa´ıses
+de la Uni´on Europea, Ponencia presentada durante la Reuni´on del Grupo de
+Trabajo Juventud CLACSO (Bs. As. 14-17.12. 1999)
+[3] Calva, J., 2012. La Agenda de la democracia en M´exico”, An´alisis estrat´egico
+para el desarrollo VOL. XV.
+[4] Dagnino, E.; A. Olvera y A. Panﬁci (coords.) 2006. La disputa por la construc-
+ci´on democr´atica en Am´erica Latina, Fondo de Cultura Econ´omica. M´exico.
+[5] Feixa, C., 2006. Generaci´on XX. Teor´ıas sobre la juventud en la era con-
+tempor´anea, Revista Latinoamericana de Ciencias Sociales, Ni˜nez y Juventud,
+4, 2. p 18.
+[6] Font F´abregas, J., 1995. Manuel Justel in Memoriam. La abstenci´on electoral
+en Espa˜na: certezas e interrogantes, en Reis, Revista Espa˜nola de Investiga-
+ciones Sociol´ogicas, Madrid. 71-72/ pp. 11-37
+[7] G´omez, S., Tejera, H. y Aguilar, J., 2012. La cultura pol´ıtica de los j´ovenes
+en M´exico, M´exico 2012, Colegio de M´exico.p 6.
+[8] Fern´andez Poncela, A., 2013. Preferencias, discursos y cuotas: mujeres y
+elecciones 2012, El Cotidiano [en linea] (Marzo-Abril).
+141
+
+
+PÁGINA 148
+[9] G´omez Tagle, S., 2009. ¿Cu´antos votos necesita la democracia? La par-
+ticipaci´on electoral en M´exico 1961-2006, M´exico, D.F. Instituto Federal
+Electoral.
+[10] Instituto Federal Electoral, 2011. Estudio censal sobre la participaci´on ciu-
+dadana en la Elecci´on Federal 2009 , M´exico, D.F. Instituto Federal Electoral.
+[11] Instituto Federal Electoral, 2013. Estudio censal de la participaci´on ciuda-
+dana en las elecciones federales de 2012 , M´exico, D.F. Instituto Federal
+Electoral.
+[12] Inglehart, R. y Norris P., 2000. The Developmental Theory of the Gender
+Gap: Women’s and Men’s Voting Behavior in Global Perspective, en
+International Political Science Review / Revue internationale de science politique,
+Vol. 21, No. 4, pp. 441-463.
+[13] Lipset, S., 1977. El hombre pol´ıtico. Las bases sociales de la pol´ıtica, Buenos
+Aires, Ed. Universitaria, pp.161 -203.
+[14] Moreno, A., 2003. El votante mexicano: Democracia, actitudes pol´ıticas y
+conducta electoral, Fondo de Cultura Econ´omica, M´exico DF.
+[15] Morales, L., 2005. ¿Existe una crisis participativa? La evoluci´on de la
+participaci´on pol´ıtica y el asociacionismo en Espa˜na, Revista Espa˜nola de
+Ciencia Pol´ıtica, 13: 51-87.
+[16] Norris, P., 2002. La participaci´on ciudadana: M´exico desde una perspec-
+tiva comparativa, Facultad de Gobierno John F. Kennedy y Universidad de
+Harvard, Cambridge.
+[17] Przeworski, A. et al., 2000.. Democracy and development: political institu-
+tions and well-being in the world, 1950-1990, Cambridge University Press,
+Cambridge UK.
+[18] Pach´on, M., Pe˜na, X., Wills, M., 2012. Participaci´on Pol´ıtica en Am´erica
+Latina: Un an´alisis desde la Perspectiva de G´enero, Revista de Ciencia
+Pol´ıtica , Vol 32, No 2, pp. 359 381.
+[19] Temkin, B., Salazar,E., 2007. Abstencionismo, escolaridad y conﬁanza en
+las instituciones Las elecciones federales de 2003 en M´exico, Pol´ıtica y
+Gobierno VOL. XIV.N´UM. 1 pp: 5-42.
+[20] Toro Maureira, S., 2008. De lo ´epico a lo cotidiano: J´ovenes y generaciones
+pol´ıticas en Chile, en Revista de ciencia Pol´ıtica / volumen 28, No 3, Corpora-
+ci´on de Estudios para Latinoam´erica CIEPLAN, pp. 143160.
+[21] Zovatto, Daniel., 2015. La participaci´on electoral en Am´erica Latina: ten-
+dencias y perspectivas, 1978-2002., Apuntes Electorales 14 .
+[22] http://cendoc.imjuventud.gob.mx/, consultada en octubre de 2016
+142
+
+
+PÁGINA 149
+[23] www.cawp.rutgers.edu, consultada en octubre de 2016
+[24] www.ine.mx, consultada en octubre de 2016
+[25] www.juridicas.unam.mx, consultada en octubre de 2016
+[26] http://www.idea.int/americas/index.cfm, consultada en octubre de 2016
+[27] https://www.census.gov/, consultada en octubre de 2016
+[28] http://www.gob.mx/imjuve, consultada en octubre de 2016
+143
+
+
+PÁGINA 150
+Ap´endice
+A
+Cuadros de Resultados
+A.1.
+Cuadro de participaci´on nacional
+144
+
+
+PÁGINA 151
+Participaci´on ciudadana a Nivel Nacional
+Concepto
+Tasa 2015
+de Participaci´on Nacional
+47.07 %
+Por sexo
+Tasa de Participaci´on Femenina
+50.89 %
+Tasa de Participaci´on Masculina
+42.95 %
+Por secci´on
+Tasa de Participaci´on Urbana
+44.90 %
+Tasa de Participaci´on Rural
+54.50 %
+Tasa de Participaci´on Mixta
+48.42 %
+Por grupos de edad
+De 18 a 19 a˜nos
+44.21 %
+De 20 a 29 a˜nos
+35.66 %
+De 30 a 39 a˜nos
+43.01 %
+De 40 a 49 a˜nos
+51.49 %
+De 50 a 59 a˜nos
+57.01 %
+De 60 a 69 a˜nos
+62.12 %
+De 70 a 79 a˜nos
+60.18 %
+De 80 a 89 a˜nos
+40.79 %
+145
+
+
+PÁGINA 152
+A.2.
+Cuadro de participaci´on estatal en elecciones
+concurrentes
+Tasas de Participaci´on Ciudadana a Nivel Estatal
+Elecciones Concurrentes
+Estado
+Tasa
+Por sexo
+Por edad
+Secci´on
+Hombres
+Mujeres
+De 18-19 a˜nos
+De 20-29 a˜nos
+De 30-39 a˜nos
+De 40-49 a˜nos
+De 50-59 a˜nos
+De 60-69 a˜nos
+De 70-79 a˜nos
+De 80-90 a˜nos
+Urbana
+Rural
+Mixta
+Baja California Sur
+51.36
+46.97
+56.00
+46.16
+37.76
+47.64
+57.97
+64.90
+68.10
+63.74
+41.89
+50.30
+63.19
+49.81
+Campeche
+59.90
+55.40
+64.30
+58.94
+50.78
+57.28
+64.47
+69.25
+72.03
+66.92
+46.56
+55.28
+70.76
+64.39
+Colima
+59.27
+54.52
+63.81
+57.77
+48.74
+56.06
+64.23
+68.87
+70.38
+67.36
+48.78
+58.35
+68.79
+58.76
+Distrito Federal
+43.59
+39.73
+47.00
+41.05
+30.52
+35.80
+45.67
+53.09
+61.24
+61.91
+42.02
+43.63
+35.18
+41.52
+Guanajuato
+45.09
+39.96
+49.80
+42.16
+33.18
+41.64
+50.67
+55.89
+60.78
+59.30
+38.22
+44.64
+46.36
+44.49
+Guerrero
+56.55
+52.22
+60.47
+54.36
+47.38
+54.77
+62.78
+66.86
+67.42
+61.63
+39.66
+49.60
+64.65
+60.74
+Jalisco
+52.05
+48.30
+55.59
+50.73
+40.98
+48.37
+57.39
+61.85
+65.31
+62.47
+42.11
+50.56
+59.33
+54.08
+M´exico
+50.02
+44.45
+55.08
+46.93
+38.03
+45.31
+54.23
+60.51
+67.91
+68.31
+48.50
+47.47
+62.22
+55.70
+Michoac´an
+53.93
+49.70
+57.83
+52.56
+43.41
+50.97
+59.61
+63.58
+65.17
+62.66
+45.48
+51.65
+58.11
+54.59
+Morelos
+54.47
+49.70
+58.80
+51.98
+43.96
+50.70
+58.87
+63.68
+67.41
+65.07
+46.41
+52.77
+64.34
+58.28
+Nuevo Le´on
+57.94
+54.44
+61.42
+55.97
+47.28
+54.79
+62.62
+66.82
+70.26
+66.35
+46.05
+57.82
+63.84
+56.09
+Quer´etaro
+56.51
+51.11
+61.51
+53.24
+44.49
+53.30
+62.42
+67.87
+72.96
+71.38
+49.57
+53.43
+63.64
+57.61
+San Luis Potos´ı
+56.50
+51.80
+60.87
+52.54
+44.23
+53.44
+62.11
+67.28
+70.38
+67.81
+48.12
+50.90
+65.11
+60.21
+Sonora
+50.75
+46.46
+55.01
+47.93
+38.02
+46.41
+55.79
+61.75
+65.15
+61.64
+42.02
+48.80
+58.85
+56.66
+Tabasco
+57.09
+52.28
+61.61
+55.53
+47.50
+54.77
+61.83
+66.63
+69.63
+65.53
+43.31
+53.04
+63.17
+53.47
+Yucat´an
+70.55
+65.67
+75.15
+68.36
+61.45
+67.92
+74.33
+78.81
+81.93
+79.36
+61.58
+67.51
+85.21
+78.82
+146
+
+
+PÁGINA 153
+A.3.
+Cuadro de participaci´on estatal en elecciones
+no concurrentes
+Tasas de Participaci´on Ciudadana a Nivel Estatal
+Elecciones Concurrentes
+Estado
+Tasa
+Por sexo
+Por edad
+Secci´on
+Hombres
+Mujeres
+De 18-19 a˜nos
+De 20-29 a˜nos
+De 30-39 a˜nos
+De 40-49 a˜nos
+De 50-59 a˜nos
+De 60-69 a˜nos
+De 70-79 a˜nos
+De 80-90 a˜nos
+Urbana
+Rural
+Mixta
+Aguascalientes
+36.41
+32.61
+39.94
+33.05
+24.91
+31.09
+40.59
+48.01
+55.07
+54.08
+35.95
+36.40
+40.67
+33.75
+Baja California
+29.95
+27.37
+32.55
+29.07
+19.41
+25.25
+33.29
+38.72
+45.67
+45.90
+31.55
+29.98
+30.50
+28.85
+Coahuila
+44.39
+39.07
+49.53
+39.41
+30.38
+39.28
+49.28
+55.71
+62.14
+61.44
+43.76
+44.05
+54.96
+39.78
+Chiapas
+45.99
+41.71
+49.94
+42.20
+38.47
+45.82
+50.97
+53.77
+55.75
+51.10
+31.78
+35.93
+54.81
+46.40
+Chihuahua
+31.62
+29.91
+33.30
+30.13
+20.99
+26.47
+35.11
+40.88
+46.33
+44.78
+27.46
+31.42
+33.05
+31.85
+Durango
+41.38
+37.32
+45.27
+40.32
+31.10
+37.72
+45.78
+51.02
+54.15
+50.65
+32.03
+39.86
+45.71
+38.95
+Hidalgo
+44.76
+41.14
+48.00
+39.92
+32.04
+40.42
+49.13
+55.92
+62.46
+60.66
+38.19
+42.11
+49.17
+41.11
+Nayarit
+40.75
+37.43
+43.98
+36.55
+29.04
+36.36
+44.52
+50.76
+55.55
+53.12
+37.01
+40.75
+46.42
+31.62
+Oaxaca
+40.70
+37.40
+43.59
+33.02
+28.68
+37.62
+45.98
+51.50
+56.31
+53.01
+33.73
+35.81
+48.53
+39.81
+Puebla
+41.00
+36.84
+44.64
+36.79
+29.68
+37.56
+45.89
+51.62
+57.49
+55.85
+34.64
+36.69
+51.49
+43.79
+Quintana Roo
+39.84
+35.66
+44.24
+37.16
+28.28
+36.37
+46.25
+53.50
+58.70
+57.27
+40.96
+37.12
+55.73
+43.78
+Sinaloa
+37.62
+35.08
+40.05
+34.42
+25.25
+32.27
+41.62
+48.07
+54.00
+51.41
+31.94
+35.60
+45.50
+38.47
+Tamaulipas
+44.04
+39.92
+48.01
+43.15
+31.56
+39.21
+48.74
+54.05
+58.59
+56.88
+39.92
+42.64
+56.95
+43.17
+Tlaxcala
+38.79
+34.96
+42.24
+36.59
+28.86
+34.99
+42.84
+48.27
+53.67
+53.87
+37.41
+37.98
+47.01
+40.01
+Veracruz
+45.07
+41.95
+47.88
+41.28
+32.11
+40.78
+49.55
+54.96
+60.14
+58.52
+39.42
+42.26
+50.61
+43.36
+Zacatecas
+44.60
+40.70
+48.28
+43.44
+33.46
+41.65
+50.12
+53.73
+55.83
+54.43
+38.15
+42.33
+49.69
+42.65
+147

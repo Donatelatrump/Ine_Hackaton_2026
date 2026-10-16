@@ -13,22 +13,32 @@ function goBackGeography() {
    geographyFocusKey = null;
    paintMunicipalityFocus();
    const statePolygon = stateLayer.getLayers().find(p=>p.feature.properties.state===$('state').value);
-   map.fitBounds(statePolygon?statePolygon.getBounds():layer.getBounds(),{padding:[12,12]});
+   /* Sin estado activo no hay nivel estatal: se vuelve a la vista nacional completa (paneles,
+      capas y encuadre). Antes se reencuadraba con los limites municipales y eso dejaba la
+      escala nacional con la capa de municipios a la vista. */
+   if(statePolygon){map.fitBounds(statePolygon.getBounds(),{padding:[12,12]});}
+   else{returnToMexico();}
   }else if($('state').value){returnToMexico();}
   return;
  }
- $('state').value = previous.state;
- $('search').value = previous.search;
- geographyFocusKey = previous.key;
- activeKey = previous.detailKey;
- update();
- const polygon = previous.key?layer.getLayers().find(p=>p.feature.properties.key===previous.key):
+  $('state').value = previous.state;
+  $('search').value = previous.search;
+  geographyFocusKey = previous.key;
+  activeKey = previous.detailKey;
+  paintMunicipalityFocus();
+  if(typeof demo5EstadoActivo !== 'undefined' && previous.state === '') demo5EstadoActivo = null;
+  update();  const polygon = previous.key?layer.getLayers().find(p=>p.feature.properties.key===previous.key):
   previous.state?stateLayer.getLayers().find(p=>p.feature.properties.state===previous.state):null;
- map.fitBounds(polygon?polygon.getBounds():layer.getBounds(),{padding:[12,12],maxZoom:previous.key?10:undefined});
+ const bounds = polygon?(polygon.getBounds()):(layer.getBounds());
+ map.fitBounds(bounds,{padding:[12,12],maxZoom:previous.key?10:undefined});
 }
 const municipalBaseStyles = new Map();
 function paintMunicipalityFocus() {
- layer.eachLayer(polygon=>{
+  if(typeof demo5ModoHistorico !== 'undefined' && demo5ModoHistorico && demo5EstadoActivo){
+    if(typeof demo5PintarSeleccionMunicipal==='function')demo5PintarSeleccionMunicipal();
+    return;
+  }
+  layer.eachLayer(polygon=>{
   const key = polygon.feature.properties.key, base = municipalBaseStyles.get(key);
   if(!base) return;
   const other = geographyFocusKey && key !== geographyFocusKey;
@@ -40,7 +50,14 @@ function paintMunicipalityFocus() {
 }
 function focusMunicipality(key, polygon) {
  if(!$('state').value || byKey.get(key).state !== $('state').value) return;
- if(!geographyFocusKey) rememberGeographyView();
+ const navegacionDemo5 = typeof demo5Iniciado !== 'undefined' && demo5Iniciado;
+ if(navegacionDemo5){
+  // El retroceso sigue niveles territoriales, aunque se visiten varios municipios.
+  geographyHistory.length = 0;
+  geographyHistory.push({state:$('state').value,search:'',key:null,detailKey:null});
+ } else {
+  rememberGeographyView();
+ }
  const municipality = byKey.get(key);
  if($('search').value !== municipality.name){
   $('search').value = municipality.name;
@@ -49,15 +66,25 @@ function focusMunicipality(key, polygon) {
  geographyFocusKey = key;
  paintMunicipalityFocus();
  detail(key);
- map.fitBounds(polygon.getBounds(), {padding:[30,30],maxZoom:10});
+ map.fitBounds(polygon.getBounds(), {padding:[30,30],maxZoom:10,animate:true});
+}
+function selectMunicipalityResult(key){
+ const polygon=layer.getLayers().find(p=>p.feature.properties.key===key);
+ if(polygon && $('state').value===byKey.get(key)?.state){
+  focusMunicipality(key,polygon);
+ } else {
+  detail(key);
+ }
 }
 function returnToMexico() {
- geographyHistory.length = 0;
- geographyFocusKey = null;
- $('state').value = '';
- $('search').value = '';
- update();
+  geographyHistory.length = 0;
+  geographyFocusKey = null;
+  $('state').value = '';
+  $('search').value = '';
+  if(typeof demo5EstadoActivo !== 'undefined') demo5EstadoActivo = null;
+  update();
  map.fitBounds(layer.getBounds(), {padding:[12,12]});
+ setTimeout(()=>{ map.invalidateSize(); }, 80);
 }
 const mapTextSelectors = ["#map-caption", ".map-guide", ".legend", "#confidence-note"];
 function reserveGeographyTextSpace() {
@@ -94,11 +121,11 @@ function initGeography() {
    update();
    map.fitBounds(polygon.getBounds(), {padding:[12,12]});
   });
- }}).addTo(map);
- map.on('contextmenu', event=>{
+ }}).addTo(map);  map.on('contextmenu', event=>{
   if(event.originalEvent) L.DomEvent.preventDefault(event.originalEvent);
   goBackGeography();
  });
+
  let resizeFrame;
  window.addEventListener('resize', ()=>{
   cancelAnimationFrame(resizeFrame);
@@ -111,9 +138,9 @@ function initGeography() {
  });
 }
 function updateGeography(dataChanged = true) {
- if(dataChanged){
-  stateGeographyDirty = true;
-  layer.eachLayer(polygon=>{
+  if(typeof demo5ModoHistorico !== 'undefined' && demo5ModoHistorico && demo5EstadoActivo) return;
+  if(dataChanged){
+  stateGeographyDirty = true;   layer.eachLayer(polygon=>{
    const o = polygon.options;
    municipalBaseStyles.set(polygon.feature.properties.key, {color:o.color,weight:o.weight,fillColor:o.fillColor,fillOpacity:o.fillOpacity,opacity:o.opacity});
   });

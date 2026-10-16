@@ -1,0 +1,13 @@
+{
+  "selection": {
+    "year": 2027,
+    "state": "",
+    "municipality": null,
+    "method": "hgb",
+    "stable": false
+  },
+  "coverage": 100000,
+  "distribution": "proporcional",
+  "action": "sms_suecia",
+  "additional": 299.999999999995
+}

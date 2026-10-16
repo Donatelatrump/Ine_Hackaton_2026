@@ -1,3 +1,15 @@
+## Comparación de cuatro modelos ejecutada · 16 de octubre de 2026
+
+Se entrenaron y evaluaron Ridge, HistGradientBoosting, LightGBM y CatBoost con las mismas 15 variables históricas. Se seleccionó HistGradientBoosting: MAE medio 6.8360 pp frente a 9.0094 de Ridge (24.12% menos error). LightGBM obtuvo MAE 6.8304 pp; la diferencia menor que 0.05 pp activó el desempate por MAE ponderado, favorable a HistGradientBoosting. Ridge fue el más rápido. La selección es retrospectiva, sin validación futura de 2027.
+
+La versión vigente de demo6 incluye los cuatro métodos y usa HistGradientBoosting por defecto. La documentación anterior que sigue corresponde a la etapa previa al benchmark. Fuente actual: modelado/COMPARACION_4_MODELOS.md del track.
+
+---
+
+> Actualización de 16 de octubre de 2026: la versión vigente es demo6. Consultar `02_Prediccion_y_escenarios_de_riesgo/demo/DEMO6.md` y `modelado/RESULTADOS.md` del track para parámetros y cifras actuales. El contenido fechado anteriormente conserva el contexto de su versión y no debe usarse como fuente de las métricas vigentes.
+
+---
+
 # Entrega técnica vigente
 
 Actualización: 6 de octubre de 2026. Umbral, equipo aguas.exe, track 2.

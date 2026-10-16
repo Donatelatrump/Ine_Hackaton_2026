@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f1e9">
+  <meta name="description" content="Mapa interactivo de México, resultados municipales y simulación de acciones para explorar la participación electoral.">
+  <title>Umbral / Exploración municipal v2 — Demo 5</title>
+  <link rel="stylesheet" href="vendor/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="demo2.css">
+  <link rel="stylesheet" href="demo4.css?v=20261014-4">
+  <link rel="stylesheet" href="demo5.css?v=20261015">
+  <script defer src="vendor/leaflet.js"></script>
+  <script defer src="demo4-bootstrap.js?v=20261015b"></script>
+  <script defer src="decision.js"></script>
+  <script defer src="data/datos_embebidos.js"></script>
+  <script defer src="data/estados.js"></script>
+  <script defer src="_oraculo_geo_prev.js"></script>
+  <script defer src="buscadores.js?v=20261016a"></script>
+  <script defer src="aplicacion.js?v=20261016a"></script>
+  <script defer src="demo2.js"></script>
+  <script defer src="demo4.js?v=20261015b"></script>
+  <script defer src="_oraculo_demo5_sin_red.js"></script>
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
+
+  <header class="site-header">
+    <a class="wordmark" href="#inicio" aria-label="Umbral, por aguas.exe, inicio">
+      <span class="wordmark-symbol" aria-hidden="true">U</span>
+      <span class="wordmark-copy"><strong>UMBRAL</strong><small>Participación electoral en tu municipio — Demo 5</small></span>
+    </a>
+    <nav class="quick-nav" aria-label="Navegar módulos">
+      <a href="#modulo-1"><span>01</span> Mapa</a>
+      <a href="#modulo-2"><span>02</span> Resultados</a>
+      <a href="#modulo-3"><span>03</span> Simulación</a>
+    </nav>
+    <a class="header-link" href="#modulo-1">Ir al mapa municipal <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="inicio">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span>Tres pasos · Un recorrido</p>
+        <h1 id="hero-title">Del mapa<br>a la<br><span>decisión.</span></h1>
+        <p class="hero-lede">Explora 2,477 municipios, consulta evidencia y compara escenarios hipotéticos de participación hacia 2027. Ahora con mapa histórico por año y planes recomendados por estado.</p>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#modulo-1">Comenzar recorrido <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="module module-one integrated-flow" id="modulo-1" aria-labelledby="module-one-title">
+      <div class="module-rail"><span>01</span><i></i><small>MAPA</small></div>
+      <div class="module-content">
+        <div class="module-heading"><div><h2 id="module-one-title">Busca tu<br><em>municipio.</em></h2></div><span class="module-sticker sticker-coral">2,477<br>MUNICIPIOS<br>EN EL MAPA</span></div>
+        <p class="module-description">Elige una entidad y municipio o explora directamente el mapa de México. Las estimaciones usan antecedentes de 2009 a 2024 para revisar escenarios hacia 2027.</p>
+        <div id="status" class="umbral-status" role="status" aria-live="polite">Cargando datos y cartografía locales...</div>
+        <div class="workspace-top">
+        <aside class="controls panel" id="paso-1" style="border-right:none;border-top-right-radius:0;border-bottom-right-radius:0;height:100%;">
+         <div class="panel-heading"><span class="step">1</span><h2>Busca tu municipio</h2></div>
+         <label for="state-picker">Elige tu estado</label><div class="searchable-picker"><input id="state-picker" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="state-options" placeholder="Escribe o elige un estado" autocomplete="off"><button id="state-toggle" class="picker-toggle" type="button" aria-label="Mostrar estados">&#9662;</button><div id="state-options" class="picker-options" role="listbox" aria-label="Estados" hidden></div></div><select id="state" hidden aria-hidden="true" tabindex="-1"><option value="">Todo México</option></select>
+         <label for="search">Elige tu municipio</label><div class="searchable-picker"><input id="search" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="municipality-options" placeholder="Elige primero un estado" autocomplete="off" disabled><button id="municipality-toggle" class="picker-toggle" type="button" aria-label="Mostrar municipios del estado" disabled>&#9662;</button><div id="municipality-options" class="picker-options" role="listbox" aria-label="Municipios del estado" hidden></div></div>
+         <p id="filter-summary" class="filter-summary" aria-live="polite"></p><button type="button" class="ghost" id="show-all">Incluir todos los estados</button>
+        <details class="settings" id="settings" open><summary>Opciones avanzadas de datos</summary>
+          <label for="method">Método de estimación</label><select id="method"><option value="ridge" selected>Estimación regularizada (Ridge)</option><option value="baseline">Referencia: elección de 2021</option></select>
+          <label class="check"><input id="stable" type="checkbox"><span>Solo estados con catálogo municipal constante</span></label>
+         </details>
+
+         <!-- NUEVO: selector de año histórico para el mapa -->
+         <details class="settings" id="historical-settings" open><summary>Mapa histórico por elección</summary>
+           <label for="map-year">Ver abstención observada en año:</label>
+           <select id="map-year"></select>
+           <p class="hint" id="map-year-hint">Colorea cada municipio con su abstención observada en esa elección. Los datos provienen de los CCPC históricos del INE.</p>
+         </details>
+        </aside>
+        <!-- Mapa a la derecha -->
+        <section class="map-panel panel" id="paso-1-map" style="border-left:none;border-top-left-radius:0;border-bottom-left-radius:0;">
+          <div class="map-heading"><div><h2 id="map-title">Explora el mapa</h2><p id="map-caption">Click en un estado → municipios; click en municipio → ficha</p></div></div>
+          <div class="map-options" id="simulation-map-controls" hidden>
+            <label for="map-mode">Qué muestra el mapa</label><select id="map-mode"><option value="base">Estimación para 2027</option><option value="intervencion">Con la acción elegida</option><option value="cambio">Cambio en puntos porcentuales</option></select>
+            <label class="check"><input id="confidence" type="checkbox">Comparar la selección entre métodos</label>
+          </div>
+          <div id="map" aria-label="Mapa de los estados de México"></div>
+          <div class="legend"><span><i class="low"></i>Bajo</span><span><i class="medium"></i>Medio</span><span><i class="high"></i>Alto</span><span><i class="missing"></i>Sin estimación</span><span><i class="chosen"></i>Seleccionado</span><span>Atenuado: fuera del filtro</span></div>
+          <p class="map-guide"><a href="#sin-estimacion">Consultar criterios para municipios sin estimación ↓</a></p>
+          <p id="confidence-note" class="table-note hint"></p>
+          <details class="map-reading"><summary>Cómo leer los colores y el promedio</summary><p id="map-reading-text" class="hint"></p></details>
+
+          <!-- NUEVO: panel de plan recomendado por estado -->
+          <details class="panel state-plan-panel" id="state-plan-panel" hidden>
+            <summary>Plan recomendado para el estado seleccionado</summary>
+            <div id="state-plan-content">
+              <p class="hint">Selecciona un estado en el mapa o en el buscador para ver su plan de intervención recomendado.</p>
+            </div>
+          </details>
+        </section>
+       </div>
+      </div>
+      <span class="module-back-number" aria-hidden="true">01</span>
+    </section>
+
+    <section class="module module-two integrated-flow" id="modulo-2" aria-labelledby="module-two-title">
+      <div class="module-rail"><span>02</span><i></i><small>RESULTADOS</small></div>
+      <div class="module-content">
+        <div class="module-heading"><div><h2 id="module-two-title">Entiende los<br><em>resultados.</em></h2></div><span class="module-sticker sticker-lime">DATO<br>EVIDENCIA<br>CONTEXTO</span></div>
+        <p class="module-description">Consulta la ficha del municipio, el ranking y la calidad de la estimación. Ridge se contrasta con la referencia de la elección previa; 2021 selecciona el método y 2024 revisa su transferencia.</p>
+        <section class="analysis panel" id="paso-2">
+        <div class="section-heading"><span class="step">2</span><div><h2>Entiende los resultados</h2><p>Consulta la ficha detallada y el ranking de municipios de tu búsqueda.</p></div></div>
+        <div class="stats"><article><span>Con estimación en tu búsqueda</span><strong id="eligible">—</strong><small id="coverage">—</small></article><article><span>Sin estimación en tu búsqueda</span><strong id="missing-count">—</strong><small><a href="#sin-estimacion">Ver criterios de calidad</a></small></article></div>
+        <section class="lower">
+        <aside class="panel detail" id="detail" aria-live="polite"><span class="eyebrow">TU MUNICIPIO</span><h2 id="detail-name">Selecciona un municipio</h2><p id="detail-state">Elige tu estado y municipio o abre uno en el mapa para consultar sus datos.</p><div id="detail-content"></div></aside>
+        <details class="panel ranking" id="municipality-list"><summary>Consultar municipios de esta búsqueda <span id="list-count" class="badge">—</span></summary><div class="table-wrap"><table><thead><tr><th>Municipio / clave</th><th>Podrían no votar en 2027</th></tr></thead><tbody id="ranking"></tbody></table></div></details></section>
+       <details class="panel missing-panel" id="sin-estimacion"><summary>¿Por qué algunos municipios no tienen estimación?</summary><p>El color gris indica que no hay evidencia histórica suficiente o la participación no especificada supera el 10%, según la regla de calidad metodológica.</p><details><summary>Ver municipios sin estimación en el filtro actual</summary><div id="missing-list" class="missing-list"></div></details></details>
+       </section>
+      </div>
+      <span class="module-back-number" aria-hidden="true">02</span>
+    </section>
+
+    <section class="module module-three integrated-flow" id="modulo-3" aria-labelledby="module-three-title">
+      <div class="module-rail"><span>03</span><i></i><small>SIMULACIÓN</small></div>
+      <div class="module-content">
+        <div class="module-heading"><div><h2 id="module-three-title">Simula una<br><em>acción.</em></h2></div><span class="module-sticker sticker-blue">OPCIONAL<br>SUPUESTOS<br>VISIBLES</span></div>
+        <p class="module-description">Elige una acción, territorio y alcance para comparar escenarios. La simulación es hipotética y no demuestra un efecto causal en México.</p>
+        <section class="panel intervention" id="paso-3"><div class="section-heading"><span class="step">3</span><div><h2>Simula una acción</h2><p>Opcional. Elige una acción y cuántas personas podrías alcanzar.</p></div></div>
+  
+  <div class="intervention-grid"><div class="scenario-controls">
+  <label for="action">¿Qué acción quieres simular?</label><select id="action"></select>
+  <p id="simulation-prompt" class="hint">Elige una acción para configurar la cobertura y comparar los resultados.</p>
+  <div id="simulation-inputs" hidden>
+  <div id="action-evidence" class="evidence-note" aria-live="polite"></div>
+  <label for="simulation-scope">¿Dónde quieres simular?</label><select id="simulation-scope"><option value="pais">México: municipios con estimación incluidos</option><option value="estado">Un estado</option><option value="municipio">Un municipio</option></select>
+  <div id="simulation-state-wrap" hidden><label for="simulation-state">Estado</label><select id="simulation-state"></select></div>
+  <div id="simulation-municipality-wrap" hidden><label for="simulation-municipality">Municipio</label><select id="simulation-municipality"></select></div>
+  <p id="scope-coverage" class="filter-summary" aria-live="polite"></p>
+  <label for="reach" id="reach-label">Personas que alcanzarías en total</label><input id="reach" aria-describedby="coverage-help simulation-prompt" type="number" min="0" max="100000000" step="1" value="1000">
+  <p id="coverage-help" class="hint"></p>
+  <div id="custom-response" hidden><label for="response">De quienes no votarían, ¿qué porcentaje supones que participaría tras la acción? <output id="response-out">5%</output></label><input id="response" type="range" min="0" max="100" value="5"></div>
+   <details class="planning-settings" id="planning-settings"><summary>Cómo repartir y priorizar las personas</summary><label for="distribution">¿Cómo repartir las personas?</label><select id="distribution"><option value="prioridad">Primero los municipios con mayor prioridad</option><option value="proporcional">Proporcional al tamaño de cada municipio</option></select><p id="distribution-help" class="hint"></p><div class="lens-section">
+      <span class="lens-title-label" id="lens-title">¿Qué criterio quieres priorizar?</span>
+      <div class="lens-cards" id="lens-cards" role="radiogroup" aria-labelledby="lens-title">
+       <button type="button" class="lens-card active" data-lens="tasa" role="radio" aria-checked="true">
+        <div class="lens-card-header"><span class="lens-badge">Porcentaje (%)</span><span class="lens-icon">🎯</span></div>
+        <strong>Mayor porcentaje</strong>
+        <small>Municipios donde una mayor proporción de personas podría no votar.</small>
+       </button>
+       <button type="button" class="lens-card" data-lens="volumen" role="radio" aria-checked="false">
+        <div class="lens-card-header"><span class="lens-badge">Personas (N)</span><span class="lens-icon">👥</span></div>
+        <strong>Mayor volumen</strong>
+        <small>Municipios con más personas que podrían no votar.</small>
+       </button>
+       <button type="button" class="lens-card" data-lens="deterioro" role="radio" aria-checked="false">
+        <div class="lens-card-header"><span class="lens-badge">Tendencia (Δ)</span><span class="lens-icon">📉</span></div>
+        <strong>Mayor deterioro</strong>
+        <small>Municipios con mayor aumento estimado frente a 2021.</small>
+       </button>
+      </div>
+      <select id="lens" class="sr-only" aria-hidden="true">
+       <option value="tasa" selected>Mayor porcentaje de personas que no votarían</option>
+       <option value="volumen">Mayor cantidad de personas que no votarían</option>
+       <option value="deterioro">Mayor aumento de abstención frente a 2021</option>
+      </select>
+      
+     </div>
+        <label for="min-confidence">Cuánto se repite la selección al comparar métodos</label><select id="min-confidence"><option value="todas">Todas</option><option value="media">Media o superior</option><option value="alta">Solo alta</option></select>
+   </details>
+
+  
+ <button id="export" class="primary" type="button">Descargar simulación y municipios ↓</button>
+ </div></div>
+ <div><div id="simulation-empty" class="simulation-empty"><h3>¿Qué podría cambiar?</h3><p>Los resultados aparecerán al elegir una acción. Puedes seguir consultando municipios sin configurar este paso.</p></div>
+ <div id="simulation-results" hidden>
+ <p class="simulation-count"><strong id="selected">—</strong> municipios incluidos en el plan</p>
+   <div class="scenario-panel"><div><span class="eyebrow">COMPARACIÓN PARA 2027 · TERRITORIO ELEGIDO</span><h2>¿Qué cambiaría con una acción?</h2><p>Promedio del territorio con estimación disponible, incluidos municipios sin atender. Se pondera por las personas con registro de voto en 2024; los municipios sin estimación quedan fuera.</p></div><details class="result-details"><summary>Territorio, cobertura y supuestos del cálculo</summary><p id="scenario-assumptions" class="scenario-assumptions" aria-live="polite"></p><p id="precise-results" class="hint"></p></details><div class="scenario-values comparison"><div><span>Sin acción</span><strong id="before">—</strong><small>Estimación inicial</small></div><div><span>Con acción simulada</span><strong id="after">—</strong><small>Si se cumplen los supuestos</small></div><div><span>Qué cambiaría</span><strong id="reduction">—</strong><small>Reducción en puntos porcentuales</small></div></div><p id="rounding-note" class="hint" hidden></p></div>
+    <div class="scenario-outcomes"><div><span>Personas adicionales que votarían en esta simulación</span><strong id="additional">—</strong><small id="served">—</small></div></div>
+   <details class="result-details"><summary>Incertidumbre y límites del efecto</summary><p id="effect-range" class="hint" aria-live="polite"></p></details>
+   
+   <nav class="scenario-map-actions" aria-label="Ver escenarios en el mapa"><a href="#paso-2" data-scenario-map="base">Mapa sin acción ↑</a><a href="#paso-2" data-scenario-map="intervencion">Mapa con acción ↑</a><a href="#paso-2" data-scenario-map="cambio">Mapa de diferencias ↑</a></nav>
+ <details class="plan"><summary>Consultar resumen del plan</summary><div class="plan-grid" id="plan-summary"></div><p id="agreement" class="hint"></p></details>   <details class="panel review-details"><summary>Avanzado: cómo cambia la lista según el método</summary>
+   <section class="panel frontier"><div class="panel-heading"><span class="step">✦</span><h2>Frontera de decisión</h2></div><p id="frontier-summary">—</p><div class="frontier-grid" id="frontier-table"></div><p id="pilot-note" class="hint"></p></section>
+   </details>
+  </div></div></div>
+  </section><section class="panel evidence-brief" id="evidencia"><span class="eyebrow">QUÉ RESPALDA ESTA EXPLORACIÓN</span><h2>La evidencia y sus límites</h2><p id="method-note"></p><details class="technical-details"><summary>Consultar metodología y resultados completos</summary>
+ <section  class="panel evidence"><div><span class="eyebrow">PRUEBA RETROSPECTIVA</span><h2>La evidencia antes que la complejidad.</h2><p>Comparamos con conservar la abstención de la última elección del mismo tipo. Cada corte usa únicamente datos anteriores; 2021 selecciona el método y 2024 comprueba su transferencia a una presidencial.</p></div><div class="table-wrap"><table><thead><tr><th>Elección / método</th><th>Error medio</th><th>Error ponderado</th><th>Aciertos top 50</th></tr></thead><tbody id="metrics"></tbody></table></div><p  class="evidence-note"></p><details><summary>Cómo leer las cifras y sus límites</summary><div id="methodology"></div></details></section>
+  <section class="panel evidence"><h2>Validación adicional del semáforo y ranking</h2><p>Análisis posterior; umbral rojo del entrenamiento congelado por corte. Precisión y recobrado deben leerse juntos.</p><div class="table-wrap"><table><thead><tr><th>Corte / método</th><th>Spearman</th><th>Precisión roja</th><th>Recobrado rojo</th><th>Rojos predichos</th><th>Rojos en tercio alto real del test</th></tr></thead><tbody id="additional-metrics"></tbody></table></div><details><summary>Error por tamaño municipal</summary><div class="table-wrap"><table><thead><tr><th>Corte/método</th><th>Tamaño observable previo</th><th>n</th><th>MAE</th><th>P90 error</th></tr></thead><tbody id="size-errors"></tbody></table></div></details></section>
+  <section class="panel evidence"><h2>Perfil CCPC observado como capa explicativa</h2><p>El modelo decide <em>dónde</em> revisar; el perfil CCPC observado por edad, sexo y tipo de sección ayuda a decidir <em>a quién</em> podría dirigirse una intervención. Es una lectura descriptiva posterior: nunca alimenta a Ridge ni a la prioridad, y no implica causalidad.</p><div class="table-wrap"><table><thead><tr><th>Grupo</th><th>Abstención nacional 2024</th><th>n (SV+NV)</th></tr></thead><tbody id="perfil-nacional"></tbody></div><p class="hint">Patrones documentados por el INE: mayor abstención entre jóvenes (19–29) y diferencias por sexo y tipo urbano/rural. Las cifras se calculan directo de los CCPC aportados.</p></section>
+  <section class="panel evidence"><h2>Puente operativo por entidad</h2><p>Resumen del filtro actual; tasa sobre municipios estimables, ponderada por SV+NV 2024. No hay una correspondencia distrital validada disponible.</p><div class="table-wrap"><table><thead><tr><th>Entidad</th><th>Estimables / filtro</th><th>Seleccionados</th><th>Base</th><th>Escenario</th><th>Alcance</th></tr></thead><tbody id="entity-table"></tbody></table></div></section>
+  <section class="panel evidence"><h2>Piloto propuesto alrededor del corte de capacidad</h2><p id="pilot-detail">Con el área usuaria, definir antes de asignar una ventana de municipios elegibles cerca del corte N, revisar tamaño, contexto, calidad y límites, y aleatorizar atención inmediata o diferida dentro de bloques comparables. Estar cerca del corte no garantiza equivalencia. Registrar asignación, contaminación, capacidad, consentimiento aplicable y resultados agregados. No se ha ejecutado el piloto ni demostrado causalidad; tamaño de muestra y potencia requieren diseño específico.</p></section>
+
+   </details></section><details id="documents" class="panel documents"><summary>Documentos, fuentes y descargas del proyecto</summary><div class="document-grid">
+  <article id="report-status"><h3>Reporte metodológico</h3><strong>Disponible · 14 páginas</strong><p>Incluye resultados del modelo, fuentes y supuestos de las acciones, distribución territorial y caso municipal.</p><a href="../entrega/reporte/Umbral_reporte_metodologico_preventivo.pdf" target="_blank" rel="noopener">Abrir reporte PDF</a></article>
+  <article><h3>Presentación ejecutiva</h3><p>Diez diapositivas sobre el problema, el método y la propuesta.</p><a href="https://github.com/Donatelatrump/Ine_Hackaton_2026/blob/main/02_Prediccion_y_escenarios_de_riesgo/entrega/presentacion/Umbral_presentacion.pdf" target="_blank" rel="noopener noreferrer">Abrir presentación PDF ↗</a></article>
+  <article><h3>Base histórica utilizada</h3><p>Datos municipales agregados con indicadores de calidad, sin identidades individuales.</p><a href="https://github.com/Donatelatrump/Ine_Hackaton_2026/blob/main/02_Prediccion_y_escenarios_de_riesgo/datos_preparados/municipios_historico_con_calidad.csv" target="_blank" rel="noopener noreferrer">Abrir base CSV en GitHub ↗</a></article>
+  <article><h3>Mapa de municipios</h3><p>Geometría simplificada usada en la web. Las estimaciones se consultan por separado.</p><a href="data/municipios.geojson" download>Descargar mapa GeoJSON ↓</a> <a href="data/resultados.json" download>Descargar estimaciones JSON ↓</a></article>
+  <article><h3>Metodología y resultados</h3><p>Cómo se calculan las estimaciones, cómo se evaluaron y cuáles son sus límites.</p><a href="https://github.com/Donatelatrump/Ine_Hackaton_2026/blob/main/02_Prediccion_y_escenarios_de_riesgo/modelado/METODOLOGIA.md" target="_blank" rel="noopener noreferrer">Consultar metodología ↗</a> <a href="#evidencia">Ver evidencia en esta página ↑</a></article>
+  <article><h3>Código del proyecto</h3><p>Archivos y pasos para reproducir el análisis y ejecutar la página.</p><a href="https://github.com/Donatelatrump/Ine_Hackaton_2026" target="_blank" rel="noopener noreferrer">Abrir repositorio ↗</a></article>
+  </div></details><footer><span>UMBRAL · aguas.exe · Martin Isai Nuñez Villeda y Cesar Donnet Hernandez Gastelum</span><span><a href="https://ine.mx/transparencia/datos-abiertos/visualizacion-datos/conteos-censales-participacion/" target="_blank" rel="noreferrer">Datos oficiales CCPC ↗</a> · <a href="data/metricas.json" download>Descargar evidencia JSON ↓</a></span></footer>
+  </div>
+  <span class="module-back-number" aria-hidden="true">03</span>
+</section>
+
+  </main>
+
+  <footer class="site-footer"><a class="footer-brand" href="#inicio"><span class="footer-brand-mark" aria-hidden="true">U</span><span class="footer-brand-copy"><strong>UMBRAL</strong><small>aguas.exe · Demo 5</small></span></a><span>Exploratorio · Datos agregados · Supuestos visibles</span><a href="#inicio">Volver arriba ↑</a></footer>
+</body>
+</html>

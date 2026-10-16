@@ -1,0 +1,52 @@
+{
+  "fecha": "2026-10-16",
+  "fuentes": [
+    "https://lcidsig.inegi.org.mx/server/rest/services/Hosted/Entidades_federativas_2025/FeatureServer/0",
+    "https://lcidsig.inegi.org.mx/server/rest/services/Hosted/Municipios_2025/FeatureServer/0"
+  ],
+  "crs": "EPSG:4326",
+  "generalizacion_grados": 0.001,
+  "componentes_insulares_anadidos": 308,
+  "municipios_vinculados": [
+    "02001",
+    "02002",
+    "02004",
+    "02006",
+    "02007",
+    "03001",
+    "03002",
+    "03003",
+    "03005",
+    "04001",
+    "04002",
+    "06008",
+    "06010",
+    "12001",
+    "12039",
+    "14045",
+    "14069",
+    "18005",
+    "18012",
+    "18015",
+    "20332",
+    "20414",
+    "20454",
+    "23003",
+    "23004",
+    "23007",
+    "25012",
+    "26049",
+    "26061",
+    "30152",
+    "30192",
+    "31011",
+    "31059",
+    "31065"
+  ],
+  "sin_correspondencia_municipal": [],
+  "alcance": "Complemento visual; no modifica estimaciones ni el continente de la base.",
+  "sha256_fuentes": {
+    "entidades_inegi_2025_insular.geojson": "f6d028569e298ef28154e39d50694cb601bcf1e551841a1df55bfa1edc43c469",
+    "municipios_inegi_2025_insular.geojson": "7b47a972a749f7b2837303faf65549b31dc96c84dc0b236707c6749067ff1e82"
+  }
+}

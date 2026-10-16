@@ -52,7 +52,7 @@ function initSearchablePickers() {
    $('search').value=option.label;
    $('search').dispatchEvent(new Event('input',{bubbles:true}));
    const polygon=layer.getLayers().find(p=>p.feature.properties.key===option.key);
-   if(polygon)focusMunicipality(option.key,polygon);
+    if(polygon&&typeof focusMunicipality==='function'){focusMunicipality(option.key,polygon);}
   });
 }
 function syncSearchablePickers() {

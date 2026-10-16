@@ -1,0 +1,69 @@
+/* Demo6 conserva el lenguaje visual de Umbral y amplía la lectura de datos. */
+.d6-toolbar { display:flex; gap:12px; align-items:center; justify-content:space-between; flex-wrap:wrap; margin:18px 0 12px; }
+.d6-toolbar p { margin:0; color:var(--muted); }
+.d6-toolbar button,.d6-presets button { border:1px solid var(--ink); background:var(--white); color:var(--ink); padding:10px 14px; cursor:pointer; font:600 12px var(--body); border-radius:3px; }
+.d6-toolbar button:hover,.d6-presets button:hover { background:var(--ink); color:var(--white); }
+.d6-summary { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border:1px solid var(--line); background:#fffdf8; margin:14px 0; }
+.d6-summary article { padding:16px; border-right:1px solid var(--line); }
+.d6-summary article:last-child { border-right:0; }
+.d6-summary span,.d6-summary small { display:block; color:var(--muted); font-size:11px; line-height:1.6; }
+.d6-summary strong { display:block; font:600 clamp(22px,2.4vw,36px) var(--display); color:var(--ink); margin:6px 0; }
+.d6-note { font:12px/1.7 var(--body); color:var(--muted); margin:10px 0 20px; }
+.d6-context { display:flex; flex-wrap:wrap; gap:10px 22px; padding:13px 16px; border-left:3px solid #10685f; background:#edf4f0; margin-bottom:16px; font:13px/1.7 var(--body); }
+.d6-chart { width:100%; height:auto; display:block; max-height:350px; }
+.d6-chart text { font:12px var(--body); fill:#52616b; }
+.d6-chart .d6-axis { stroke:#cbd5d8; stroke-width:1; }
+.d6-chart .d6-observed { stroke:#10685f; stroke-width:3; fill:none; }
+.d6-chart .d6-reference { stroke:#6c7f99; stroke-width:2; fill:none; }
+.d6-chart .d6-forecast { stroke:#10685f; stroke-width:3; stroke-dasharray:6 5; fill:none; }
+.d6-chart-legend { display:flex; gap:20px; flex-wrap:wrap; font:12px var(--body); color:var(--muted); }
+.d6-chart-legend span::before { content:''; display:inline-block; width:25px; border-top:3px solid #10685f; margin-right:7px; vertical-align:middle; }
+.d6-chart-legend .reference::before { border-color:#6c7f99; }
+.d6-chart-legend .forecast::before { border-top-style:dashed; }
+.d6-chart-box,.d6-evidence { padding:22px; border:1px solid var(--line); margin-top:22px; background:var(--white); color:var(--ink); }
+.d6-chart-box h3,.d6-evidence h3 { margin:0 0 10px; color:var(--ink); font-family:var(--display); }
+.d6-evidence table { width:100%; font-size:13px; border-collapse:collapse; }
+.d6-evidence td,.d6-evidence th { padding:11px 9px; text-align:left; border-bottom:1px solid var(--line); }
+.d6-evidence th { background:#edf4f0; }
+.d6-metrics-wrap { overflow-x:auto; }
+.d6-metrics-wrap table { min-width:800px; }
+.d6-model-note { padding:14px 16px; background:#f7f0df; border-left:3px solid #d8a84d; color:#53472c; font:13px/1.7 var(--body); }
+.d6-factors { margin:18px 0; }
+.d6-factor { display:grid; grid-template-columns:minmax(140px,2fr) 3fr 65px; gap:12px; align-items:center; margin:12px 0; font:12px var(--body); }
+.d6-factor-track { height:8px; background:#edf1ee; }
+.d6-factor-track i { display:block; height:100%; background:#10685f; }
+.d6-factor-track i.negative { background:#bd5472; }
+.d6-presets { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0; }
+.d6-scenario-compare { margin:20px 0; }
+.d6-scenario-row { display:grid; grid-template-columns:115px minmax(0,1fr) 90px; align-items:center; gap:12px; margin:12px 0; font:13px var(--body); }
+.d6-scenario-track { height:18px; background:#e7eeea; overflow:hidden; }
+.d6-scenario-track i { display:block; height:100%; background:#10685f; }
+.d6-scenario-row:first-child i { background:#bd5472; }
+[hidden] { display:none !important; }
+@media(max-width:700px){
+  .d6-summary { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .d6-summary article { border-bottom:1px solid var(--line); }
+  .d6-summary article:nth-child(2) { border-right:0; }
+  .d6-summary article:nth-last-child(-n+2) { border-bottom:0; }
+  .d6-chart-box,.d6-evidence { padding:15px; }
+  .d6-factor { grid-template-columns:minmax(100px,2fr) 2fr 50px; gap:7px; }
+}
+/* Las tablas anchas no deben aumentar el ancho mínimo de la cuadrícula de resultados. */
+#paso-2 { grid-template-columns:minmax(0,1fr); width:100%; max-width:100%; }
+#paso-2 > *, #paso-2 .lower > *, #detail-content, #detail-content > * { min-width:0; max-width:100%; }
+#paso-2 > .lower { grid-template-columns:minmax(0,1fr); }
+#paso-2 .stats { grid-template-columns:repeat(2,minmax(0,1fr)); }
+#paso-2 .stats > article { min-width:0; }
+#paso-2 .d6-metrics-wrap, #paso-2 .table-wrap { min-width:0; max-width:100%; overflow-x:auto; }
+#paso-2 .detail, #paso-2 .section-heading { overflow-wrap:anywhere; }
+#module-three-title { font-size:clamp(38px,5.4vw,76px); overflow-wrap:break-word; }
+#modulo-3 .module-heading > div { min-width:0; }
+#modulo-3 .module-sticker { flex-shrink:0; }
+@media(max-width:700px){
+  #modulo-3 .module-heading { flex-wrap:wrap; }
+  #module-three-title { font-size:clamp(34px,8.5vw,58px); }
+  #modulo-3 .module-sticker { margin-top:0; }
+}
+.d6-action-plan { padding:22px 0; margin:24px 0; min-width:0; border-top:1px solid #d5ddd4; border-bottom:1px solid #d5ddd4; }
+.d6-action-plan h4 { margin:0; font-size:20px; line-height:1.35; }
+#d6-action-plan-content { min-height:64px; }

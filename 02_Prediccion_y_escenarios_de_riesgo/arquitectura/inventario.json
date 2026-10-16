@@ -1,0 +1,611 @@
+{
+  "scope": "Umbral; excluye Voto Vigía, dependencias instaladas, archivo de depuración y cachés. Referencias HTML estáticas, sin ejecutar navegador o pruebas.",
+  "file_count": 263,
+  "extensions": {
+    ".md": 26,
+    ".py": 45,
+    ".json": 37,
+    ".csv": 15,
+    ".txt": 12,
+    ".geojson": 4,
+    ".zip": 1,
+    ".js": 45,
+    ".cjs": 5,
+    ".css": 13,
+    ".html": 5,
+    ".pdf": 6,
+    ".joblib": 1,
+    ".png": 40,
+    ".pptx": 2,
+    "[sin extensión]": 1,
+    ".dbf": 1,
+    ".prj": 1,
+    ".shp": 1,
+    ".shx": 1,
+    ".xml": 1
+  },
+  "sources": [
+    {
+      "path": "demo/style.css",
+      "bytes": 43620,
+      "lines": 1549
+    },
+    {
+      "path": "demo/styles/demo6/foundation.css",
+      "bytes": 43620,
+      "lines": 1549
+    },
+    {
+      "path": "demo/demo5.js",
+      "bytes": 24155,
+      "lines": 584
+    },
+    {
+      "path": "modelado/ejecutar.py",
+      "bytes": 21950,
+      "lines": 484
+    },
+    {
+      "path": "cartografia/municipiosmx_conabio/municipiosmx.html",
+      "bytes": 37692,
+      "lines": 449
+    },
+    {
+      "path": "demo/demo5.css",
+      "bytes": 13273,
+      "lines": 363
+    },
+    {
+      "path": "demo/styles/demo6/map.css",
+      "bytes": 13273,
+      "lines": 363
+    },
+    {
+      "path": "demo/aplicacion.js",
+      "bytes": 58985,
+      "lines": 352
+    },
+    {
+      "path": "entrega/reporte/generar_reporte.py",
+      "bytes": 26598,
+      "lines": 348
+    },
+    {
+      "path": "modelado/core.py",
+      "bytes": 13484,
+      "lines": 314
+    },
+    {
+      "path": "modelado/tests/test_entrenamiento.py",
+      "bytes": 15259,
+      "lines": 313
+    },
+    {
+      "path": "modelado/entrenamiento.py",
+      "bytes": 12302,
+      "lines": 312
+    },
+    {
+      "path": "demo/demo4.css",
+      "bytes": 10571,
+      "lines": 291
+    },
+    {
+      "path": "demo/styles/demo6/identity.css",
+      "bytes": 10571,
+      "lines": 291
+    },
+    {
+      "path": "modelado/comparar_modelos.py",
+      "bytes": 16368,
+      "lines": 267
+    },
+    {
+      "path": "demo/src/demo6/map/layers.js",
+      "bytes": 10890,
+      "lines": 258
+    },
+    {
+      "path": "demo/demo6.html",
+      "bytes": 29549,
+      "lines": 230
+    },
+    {
+      "path": "demo/demo3.css",
+      "bytes": 8048,
+      "lines": 228
+    },
+    {
+      "path": "demo/demo5.html",
+      "bytes": 24804,
+      "lines": 208
+    },
+    {
+      "path": "demo/demo4.html",
+      "bytes": 24804,
+      "lines": 201
+    },
+    {
+      "path": "entrega/presentacion/generar_presentacion.py",
+      "bytes": 12520,
+      "lines": 201
+    },
+    {
+      "path": "demo/geografia.js",
+      "bytes": 9950,
+      "lines": 197
+    },
+    {
+      "path": "demo/_fuzz_mapa.py",
+      "bytes": 7221,
+      "lines": 196
+    },
+    {
+      "path": "modelado/tests/test_core.py",
+      "bytes": 9588,
+      "lines": 194
+    },
+    {
+      "path": "demo/src/demo6/controller.js",
+      "bytes": 11383,
+      "lines": 190
+    },
+    {
+      "path": "demo/src/demo6/map/geography.js",
+      "bytes": 9196,
+      "lines": 183
+    },
+    {
+      "path": "demo/_fuzz_demo5.py",
+      "bytes": 7835,
+      "lines": 171
+    },
+    {
+      "path": "modelado/conapo_loader.py",
+      "bytes": 5611,
+      "lines": 166
+    },
+    {
+      "path": "demo/_casos_mapa.py",
+      "bytes": 9186,
+      "lines": 155
+    },
+    {
+      "path": "modelado/ampliar_analisis.py",
+      "bytes": 6681,
+      "lines": 147
+    },
+    {
+      "path": "demo/index.html",
+      "bytes": 21149,
+      "lines": 134
+    },
+    {
+      "path": "demo/_fuzz_random.py",
+      "bytes": 5759,
+      "lines": 124
+    },
+    {
+      "path": "auditoria/procesar_ccpc.py",
+      "bytes": 7590,
+      "lines": 119
+    },
+    {
+      "path": "cartografia/incorporar_islas.py",
+      "bytes": 5371,
+      "lines": 116
+    },
+    {
+      "path": "demo/_repro_panes.py",
+      "bytes": 4249,
+      "lines": 116
+    },
+    {
+      "path": "demo/decision.js",
+      "bytes": 15500,
+      "lines": 111
+    },
+    {
+      "path": "modelado/perfil_demografico.py",
+      "bytes": 4535,
+      "lines": 101
+    },
+    {
+      "path": "demo/verificar_demo6.py",
+      "bytes": 6492,
+      "lines": 99
+    },
+    {
+      "path": "demo/verificar_intervenciones.py",
+      "bytes": 6698,
+      "lines": 99
+    },
+    {
+      "path": "modelado/publicar_comparacion_demo6.py",
+      "bytes": 5701,
+      "lines": 98
+    },
+    {
+      "path": "demo/src/demo6/views/municipality.js",
+      "bytes": 13768,
+      "lines": 96
+    },
+    {
+      "path": "cartografia/preparar_cartografia.py",
+      "bytes": 5725,
+      "lines": 92
+    },
+    {
+      "path": "demo/_traza_clics.py",
+      "bytes": 4498,
+      "lines": 89
+    },
+    {
+      "path": "demo/src/demo6/app/render.js",
+      "bytes": 15462,
+      "lines": 87
+    },
+    {
+      "path": "auditoria/finalizar_revision.py",
+      "bytes": 5378,
+      "lines": 85
+    },
+    {
+      "path": "modelado/imprimir_cifras.py",
+      "bytes": 3432,
+      "lines": 85
+    },
+    {
+      "path": "demo/_oraculo_mapa.py",
+      "bytes": 3924,
+      "lines": 81
+    },
+    {
+      "path": "demo/_verificar_arreglo.py",
+      "bytes": 4209,
+      "lines": 79
+    },
+    {
+      "path": "demo/decision.test.cjs",
+      "bytes": 4957,
+      "lines": 72
+    },
+    {
+      "path": "demo/src/demo6/domain/analytics.js",
+      "bytes": 4142,
+      "lines": 70
+    },
+    {
+      "path": "demo/buscadores.js",
+      "bytes": 3921,
+      "lines": 69
+    },
+    {
+      "path": "demo/comprimir_datos.py",
+      "bytes": 2352,
+      "lines": 68
+    },
+    {
+      "path": "demo/src/demo6/ui/search.js",
+      "bytes": 3817,
+      "lines": 67
+    },
+    {
+      "path": "demo/src/demo6/map/start.js",
+      "bytes": 2382,
+      "lines": 64
+    },
+    {
+      "path": "demo/demo4.js",
+      "bytes": 2480,
+      "lines": 62
+    },
+    {
+      "path": "modelado/ampliacion.py",
+      "bytes": 2583,
+      "lines": 62
+    },
+    {
+      "path": "entrega/verificar_entrega.py",
+      "bytes": 3941,
+      "lines": 57
+    },
+    {
+      "path": "demo/_verificar_jerarquia_actual.py",
+      "bytes": 3767,
+      "lines": 55
+    },
+    {
+      "path": "modelado/tests/test_ampliacion.py",
+      "bytes": 2794,
+      "lines": 55
+    },
+    {
+      "path": "demo/verificar_jerarquia.py",
+      "bytes": 3656,
+      "lines": 54
+    },
+    {
+      "path": "modelado/verificar_comparacion.py",
+      "bytes": 3384,
+      "lines": 54
+    },
+    {
+      "path": "demo/intervenciones.test.cjs",
+      "bytes": 3572,
+      "lines": 52
+    },
+    {
+      "path": "demo/src/demo6/map/decorations.js",
+      "bytes": 1884,
+      "lines": 52
+    },
+    {
+      "path": "descargar_documentos.py",
+      "bytes": 2209,
+      "lines": 50
+    },
+    {
+      "path": "demo/demo2.js",
+      "bytes": 2061,
+      "lines": 50
+    },
+    {
+      "path": "demo/styles/demo6/main.css",
+      "bytes": 4070,
+      "lines": 50
+    },
+    {
+      "path": "demo/src/demo6/ui/motion.js",
+      "bytes": 2061,
+      "lines": 50
+    },
+    {
+      "path": "demo/capturar_demo.py",
+      "bytes": 3003,
+      "lines": 48
+    },
+    {
+      "path": "demo/src/demo6/map/navigation.js",
+      "bytes": 2467,
+      "lines": 48
+    },
+    {
+      "path": "demo/src/demo6/app/exploration.js",
+      "bytes": 4030,
+      "lines": 45
+    },
+    {
+      "path": "demo/build.test.cjs",
+      "bytes": 2006,
+      "lines": 41
+    },
+    {
+      "path": "modelado/generar_fichas_estatales.py",
+      "bytes": 4465,
+      "lines": 41
+    },
+    {
+      "path": "demo/src/demo6/app/bootstrap.js",
+      "bytes": 6714,
+      "lines": 40
+    },
+    {
+      "path": "demo/demo6.test.cjs",
+      "bytes": 2005,
+      "lines": 36
+    },
+    {
+      "path": "tools/inventario.py",
+      "bytes": 2255,
+      "lines": 36
+    },
+    {
+      "path": "entrega/generar_caso.cjs",
+      "bytes": 3001,
+      "lines": 35
+    },
+    {
+      "path": "demo/preparar_datos.py",
+      "bytes": 2693,
+      "lines": 34
+    },
+    {
+      "path": "tools/construir_web.py",
+      "bytes": 2002,
+      "lines": 34
+    },
+    {
+      "path": "demo/src/demo6/views/state-profile.js",
+      "bytes": 4477,
+      "lines": 32
+    },
+    {
+      "path": "modelado/tests/test_comparacion_modelos.py",
+      "bytes": 1264,
+      "lines": 29
+    },
+    {
+      "path": "demo/src/demo6/views/history.js",
+      "bytes": 2166,
+      "lines": 29
+    },
+    {
+      "path": "demo/src/demo6/legacy/scenario-controls.js",
+      "bytes": 1557,
+      "lines": 27
+    },
+    {
+      "path": "demo/src/demo6/views/summary.js",
+      "bytes": 2160,
+      "lines": 27
+    },
+    {
+      "path": "demo/src/demo6/map/years.js",
+      "bytes": 688,
+      "lines": 26
+    },
+    {
+      "path": "demo/src/demo6/views/evidence.js",
+      "bytes": 3027,
+      "lines": 25
+    },
+    {
+      "path": "tools/servir_demo.py",
+      "bytes": 988,
+      "lines": 23
+    },
+    {
+      "path": "modelado/verificar_artefactos.py",
+      "bytes": 1380,
+      "lines": 22
+    },
+    {
+      "path": "demo/demo2.css",
+      "bytes": 21018,
+      "lines": 18
+    },
+    {
+      "path": "demo/styles/demo6/layout.css",
+      "bytes": 21018,
+      "lines": 18
+    },
+    {
+      "path": "demo/src/demo6/legacy/scenario-export.js",
+      "bytes": 10189,
+      "lines": 16
+    },
+    {
+      "path": "demo/styles/demo6/state-profile.css",
+      "bytes": 1977,
+      "lines": 14
+    },
+    {
+      "path": "demo/src/demo6/legacy/scenarios.js",
+      "bytes": 2945,
+      "lines": 13
+    },
+    {
+      "path": "demo/src/demo6/map/context.js",
+      "bytes": 395,
+      "lines": 13
+    },
+    {
+      "path": "demo/src/demo6/ui/lenses.js",
+      "bytes": 653,
+      "lines": 13
+    },
+    {
+      "path": "demo/verificar_demo.py",
+      "bytes": 1334,
+      "lines": 11
+    },
+    {
+      "path": "demo/src/demo6/app/context.js",
+      "bytes": 1508,
+      "lines": 11
+    },
+    {
+      "path": "demo/src/demo6/app/start.js",
+      "bytes": 447,
+      "lines": 11
+    },
+    {
+      "path": "demo/src/demo6/legacy/scenario-evidence.js",
+      "bytes": 1712,
+      "lines": 9
+    },
+    {
+      "path": "demo/demo4-bootstrap.js",
+      "bytes": 337,
+      "lines": 8
+    },
+    {
+      "path": "demo/src/demo6/app/runtime.js",
+      "bytes": 297,
+      "lines": 5
+    },
+    {
+      "path": "demo/src/demo6/map/renderer.js",
+      "bytes": 196,
+      "lines": 4
+    },
+    {
+      "path": "demo/src/demo6/map/styles.js",
+      "bytes": 166,
+      "lines": 3
+    }
+  ],
+  "pages": {
+    "demo4.html": {
+      "resources": [
+        "vendor/leaflet.css",
+        "style.css",
+        "demo2.css",
+        "demo4.css",
+        "vendor/leaflet.js",
+        "demo4-bootstrap.js",
+        "decision.js",
+        "data/datos_embebidos.js",
+        "data/estados.js",
+        "geografia.js",
+        "buscadores.js",
+        "aplicacion.js",
+        "demo2.js",
+        "demo4.js"
+      ],
+      "missing": []
+    },
+    "demo5.html": {
+      "resources": [
+        "vendor/leaflet.css",
+        "style.css",
+        "demo2.css",
+        "demo4.css",
+        "demo5.css",
+        "vendor/leaflet.js",
+        "demo4-bootstrap.js",
+        "decision.js",
+        "data/datos_embebidos.js",
+        "data/estados.js",
+        "data/islas.js",
+        "geografia.js",
+        "buscadores.js",
+        "aplicacion.js",
+        "demo2.js",
+        "demo4.js",
+        "demo5.js"
+      ],
+      "missing": []
+    },
+    "demo6.html": {
+      "resources": [
+        "vendor/leaflet.css",
+        "assets/demo6.css",
+        "vendor/leaflet.js",
+        "decision.js",
+        "data/datos_embebidos.js",
+        "data/comparacion_modelos.js",
+        "data/estados.js",
+        "data/islas.js",
+        "data/fichas_estatales.js",
+        "assets/demo6.js"
+      ],
+      "missing": []
+    },
+    "index.html": {
+      "resources": [
+        "vendor/leaflet.css",
+        "style.css",
+        "vendor/leaflet.js",
+        "decision.js",
+        "data/datos_embebidos.js",
+        "data/estados.js",
+        "geografia.js",
+        "buscadores.js",
+        "aplicacion.js"
+      ],
+      "missing": []
+    }
+  }
+}

@@ -1,5 +1,6 @@
 # Dependencias reinstalables; incluidas en el ZIP completo de entrega.
 .task_packages/
+.venv_modelos/
 .packages/
 __pycache__/
 *.py[cod]

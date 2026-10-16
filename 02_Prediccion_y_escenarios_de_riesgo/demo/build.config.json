@@ -1,0 +1,43 @@
+{
+  "analytics": "src/demo6/domain/analytics.js",
+    "scripts": [
+      "src/demo6/app/runtime.js",
+      "src/demo6/app/context.js",
+      "src/demo6/map/context.js",
+      "src/demo6/map/renderer.js",
+      "src/demo6/map/geography.js",
+      "src/demo6/ui/search.js",
+      "src/demo6/legacy/scenarios.js",
+      "src/demo6/views/municipality.js",
+      "src/demo6/legacy/scenario-controls.js",
+      "src/demo6/app/exploration.js",
+      "src/demo6/app/render.js",
+      "src/demo6/legacy/scenario-export.js",
+      "src/demo6/ui/lenses.js",
+      "src/demo6/legacy/scenario-evidence.js",
+      "src/demo6/app/bootstrap.js",
+      "src/demo6/ui/motion.js",
+      "src/demo6/map/years.js",
+      "src/demo6/map/styles.js",
+      "src/demo6/map/layers.js",
+      "src/demo6/map/navigation.js",
+      "src/demo6/map/start.js",
+      "src/demo6/map/decorations.js",
+      "src/demo6/domain/state-plans.js",
+      "src/demo6/views/state-profile.js",
+      "src/demo6/views/state-context.js",
+      "src/demo6/views/summary.js",
+      "src/demo6/views/history.js",
+      "src/demo6/views/evidence.js",
+      "src/demo6/controller.js",
+      "src/demo6/app/start.js"
+    ],
+  "styles": [
+    "styles/demo6/foundation.css",
+    "styles/demo6/layout.css",
+    "styles/demo6/identity.css",
+    "styles/demo6/map.css",
+    "styles/demo6/main.css",
+    "styles/demo6/state-profile.css"
+  ]
+}

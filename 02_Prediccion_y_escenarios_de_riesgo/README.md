@@ -1,3 +1,23 @@
+## Organización actual del código
+
+Demo6 usa `demo/src/demo6/` y `demo/styles/demo6/` dentro del track. Consultar [arquitectura y comandos](arquitectura/README.md). Las capturas y copias de depuración están en `demo/archivo/depuracion/`.
+
+---
+
+## Comparación de cuatro modelos ejecutada · 16 de octubre de 2026
+
+Se entrenaron y evaluaron Ridge, HistGradientBoosting, LightGBM y CatBoost con las mismas 15 variables históricas. Se seleccionó HistGradientBoosting: MAE medio 6.8360 pp frente a 9.0094 de Ridge (24.12% menos error). LightGBM obtuvo MAE 6.8304 pp; la diferencia menor que 0.05 pp activó el desempate por MAE ponderado, favorable a HistGradientBoosting. Ridge fue el más rápido. La selección es retrospectiva, sin validación futura de 2027.
+
+La versión vigente de demo6 incluye los cuatro métodos y usa HistGradientBoosting por defecto. La documentación anterior que sigue corresponde a la etapa previa al benchmark. Fuente actual: modelado/COMPARACION_4_MODELOS.md del track.
+
+---
+
+# Actualización Umbral demo6
+
+16 de octubre de 2026. Versión de consulta actual: [demo6](demo/demo6.html), con [guía](demo/DEMO6.md), [metodología actualizada](modelado/METODOLOGIA.md) y [resultados vigentes](modelado/RESULTADOS.md). El reporte y la presentación de entrega se actualizan con los artefactos existentes. Esta actualización no reentrena el modelo. Las referencias fechadas más abajo documentan etapas previas.
+
+---
+
 # Track 2: Predicción y escenarios de riesgo de abstención
 
 **aguas.exe, versión corregida:** [estado](CORRECCIONES_Y_ESTADO.md), [reporte 14 páginas](entrega/reporte/Umbral_reporte_metodologico_preventivo.pdf), [presentación 10 diapositivas](entrega/presentacion/Umbral_presentacion.pptx). Demo abre con doble clic y compara Base/Intervención/Δ. Registro, firmas y envío no acreditados.

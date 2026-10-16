@@ -1,0 +1,8 @@
+{
+  "selected_model": "hgb",
+  "forecast_count": 1783,
+  "benchmark_source_sha256": "f570ab633f03386cfeb208b8a1d96c8865ab4889d9beb03cd6bc686133829c2a",
+  "publisher_sha256": "1e432473983765a4b6bb2a1775fd9b0fd5401de219bee727cd731ff206e87ffd",
+  "data_js_sha256": "20303e82e1da2407afa6e942fcfae13bd593b8f82174d292db44babf97514acd",
+  "sensitivity_definition": "NS 5/10/20. Parámetros finales NS10 congelados; reentrenamiento con la cohorte de calidad correspondiente. Referencia versus método activo; referencia versus Ridge si se consulta baseline."
+}

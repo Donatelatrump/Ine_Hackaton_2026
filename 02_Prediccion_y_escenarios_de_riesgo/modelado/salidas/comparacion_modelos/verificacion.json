@@ -1,0 +1,10 @@
+{
+  "metrics_recomputed": 10,
+  "cohort_rows": 2966,
+  "future_rows": 1783,
+  "temporal_leakage_checks": "pass",
+  "serialization_roundtrip": "pass",
+  "source_hashes": "pass",
+  "selected_model": "hgb",
+  "publication_matches": "pass"
+}

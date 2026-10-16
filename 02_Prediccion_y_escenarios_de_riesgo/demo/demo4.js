@@ -20,6 +20,7 @@
         ? L.svg({ pane: 'demo4-land-mask' })
         : L.canvas({ pane: 'demo4-land-mask' }),
       interactive: false,
+      noClip: true,
       style: {
         color: '#bac7bd',
         weight: 0.7,

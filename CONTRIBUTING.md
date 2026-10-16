@@ -56,3 +56,9 @@ git push -u origin algoritmo
 Abrir un pull request hacia `main`, describir el cambio y las comprobaciones, y pedir revisión a la otra persona. Integrar de uno en uno; después actualizar las demás ramas desde `origin/main`. Evitar push directo a `main` y force push en ramas compartidas.
 
 Estas reglas son acuerdos de trabajo. Para hacerlas obligatorias, un administrador debe configurar un ruleset de GitHub para `main` que exija pull requests y una aprobación, y bloquee force push y eliminación. Crear ramas por sí solo no habilita esa protección.
+
+## Organización de demo6
+
+El código actual está en `demo/src/demo6/` y los estilos propios en `demo/styles/demo6/`, dentro del track. Las vistas reciben dependencias explícitas; las fórmulas descriptivas pertenecen a `domain/analytics.js`. Consultar `arquitectura/README.md` antes de cambiar rutas. Las entradas HTML y los comandos de generadores se conservan. Los datos publicados se modifican mediante su generador.
+
+Después de modificar fuentes JS/CSS, ejecutar `python 02_Prediccion_y_escenarios_de_riesgo/tools/construir_web.py` y compartir también los recursos actualizados de `demo/assets/`. El orden está en `demo/build.config.json`. El estado interno es privado: las pruebas de navegador usan `Umbral6.inspect()`. El arranque completo emite `umbral:ready`; no añadir sondeos con intervalos ni sobrescribir funciones del motor para integrar componentes.
