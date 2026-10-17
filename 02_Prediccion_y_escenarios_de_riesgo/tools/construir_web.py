@@ -19,6 +19,13 @@ def main():
     analytics=read(config['analytics'])
     js="/* Generado por tools/construir_web.py. Editar fuentes, no este archivo. */\n(() => {\n'use strict';\n"
     js+="const analyticsModule={exports:{}};\n(function(module){\n"+analytics+"\n})(analyticsModule);\nconst UmbralAnalytics=analyticsModule.exports;\n"
+    if 'state_plan_markdown' in config:
+        project_root=DEMO.parents[1].resolve()
+        plan_path=(project_root/config['state_plan_markdown']).resolve()
+        if not plan_path.is_relative_to(project_root):raise ValueError('Documento fuera del proyecto: '+config['state_plan_markdown'])
+        plan_markdown=plan_path.read_text(encoding='utf-8')
+        provenance[config['state_plan_markdown']]=hashlib.sha256(plan_path.read_bytes()).hexdigest()
+        js+='const statePlanMarkdown='+json.dumps(plan_markdown,ensure_ascii=False)+';\n'
     for source in config['scripts']:
         js+='\n/* SOURCE: '+source+' */\n'+read(source)+'\n'
     js+='\n})();\n'

@@ -1,9 +1,10 @@
 {
-  "builder_sha256": "d752bb56fa2bfb5de1f00f91c7f405b8f2dce214563ed4bafdea9fa00dc3f090",
-  "config_sha256": "39a94dae969dd0f8794acd46e7deac7d756f1627a693c4d29e575ecea1dc9267",
+  "builder_sha256": "7c0fe84a9a5707eca7ced6c3bc5c49952cb32837250017e861f6e93569da6837",
+  "config_sha256": "ab4898ed6ca5be2b3596ddd32f3d28f1b0511838982785f675f31e4ff9ebc929",
   "sources": {
-    "src/demo6/domain/analytics.js": "ed210c4dc45fd26116aea8eaff453425c9d69a939972b9ef5691c08de8ca41f3",
-    "src/demo6/app/runtime.js": "e625b88c256dc751961231fa60795539b9930ca807ed56db0ad92a6c217fa0b4",
+    "src/demo6/domain/analytics.js": "668f1d8313f6b6a8f342341812aa8fb14d9413a2b12f8fb61ec73eba8477a8f4",
+    "docs/PLANES_ACCION_ESTATALES_PARTICIPACION.md": "fa2320826b7eb71c2398ef3406a6a526bb46b448dccd20df217167a98441961b",
+    "src/demo6/app/runtime.js": "6cf39062cf44cdf0d2bb6e8918d6bf3645a4640dd4d4d039faedc4a30ba1c3cc",
     "src/demo6/app/context.js": "9813ca04d2869c2371146030869a60a6056ea96037a88daf6db89256fb1e821c",
     "src/demo6/map/context.js": "fb36df0747fc857e0f858e1bfd5bdece2c7e0603deaa44bacfaed1280ee4c576",
     "src/demo6/map/renderer.js": "f379c681f13eed8cf2ec322d5c831de6a69a853cd2d923c33577d6a1a4bddf57",
@@ -25,23 +26,21 @@
     "src/demo6/map/navigation.js": "f202b08e250c402a2cc273a38ad78429728dfac189eb7965f625b3d704bddcd3",
     "src/demo6/map/start.js": "0ec61264f41018c4719fa7f1177d1db0e84a6b705d77d72baf7b19390ce88488",
     "src/demo6/map/decorations.js": "c39cf8c2c29e214e9687f1767805e2d409a8aa60a637ba129e59524ec6ce3ff3",
-    "src/demo6/domain/state-plans.js": "e183f644be361b7e9e0c279a689b6225fd29c8625c63c30170468f7e8cbb1e63",
-    "src/demo6/views/state-profile.js": "93ca6a58963a53b66f34f686dcf377aeda429019c300ce1592767614445bca1e",
-    "src/demo6/views/state-context.js": "10a3d3d5be6d4e926c0b9731216b5a71e730282deba1e7ae914fc93a4e792c04",
+    "src/demo6/views/state-context.js": "5a35aed0d8a2bf5e4d7a7adbb3142e38f88d955ed1b0a4f7bcfa1b4ec7bb1810",
     "src/demo6/views/summary.js": "054fad2ab0f0c2dcf32905013950a996d01d6105872d30af3c8a4a8bb5b78829",
     "src/demo6/views/history.js": "ec24ba661009917ee16763f83f3955fd9cc6719c8698916d26a5a9de5a36fcdc",
     "src/demo6/views/evidence.js": "e09a31a817a014ffde813049fff481c3b03938cd4ee27862a42951e4b00aebb2",
-    "src/demo6/controller.js": "dd80c5e3733314628c12d067f4b1f7f60ce52bb0e43266ea49b4f6bfda6f9c5b",
+    "src/demo6/controller.js": "fd5d418e8cea018b3f74e7e5d0823ea1087365900afa904b27000940dab2dd0b",
     "src/demo6/app/start.js": "c129eaa4f250e089adaaec134aecacdaf4428610ff088fcf8cbbb918b52b793e",
     "styles/demo6/foundation.css": "197376528f1bc6c123b9c5de5f8e3ff4005c1f6ef12a192bc5397f51ee80f1e3",
     "styles/demo6/layout.css": "6fb354b17450f95be766cb17511dd42348f7085875bcafdb498ed4e5f1bd6263",
-    "styles/demo6/identity.css": "176318d6aa7d6c8776c37a1c4fdd5fc5873048882ddca120a972447c0c9ac613",
-    "styles/demo6/map.css": "1f5958acd35665dbb8a7757aef914835a6597fdc829116eb6f5b6118140c341d",
-    "styles/demo6/main.css": "7edd48e8a21de86b23fc2583746b630658beb1c8d41a63593546387cd78e4c2d",
-    "styles/demo6/state-profile.css": "270f1c2ca9fbe9fef8d5635e58c05e29129f1c0b5c49448bf65f06d5e9eafef9"
+    "styles/demo6/identity.css": "d365ce7376887376996300c5b83925965b65b937572d0026394c8f75c406a2e3",
+    "styles/demo6/map.css": "41aa583922734b1ae2cf10a00983424a3ba35734ca9434ad5332b8d54fe5f661",
+    "styles/demo6/main.css": "f2543a35f9a7b7ef367db2c5546f555c4674cc083db464d31d42b701420ea94e",
+    "styles/demo6/state-profile.css": "8a87159becdbe4786430ce027bde4a94dbc678610f5f2557d1614021f411e999"
   },
   "outputs": {
-    "demo6.js": "5504044086e62d6aa4e529657f85a0d1c2d5be179007ceea675a4cdb473eed2b",
-    "demo6.css": "b2220eb8bdc7e64625d6584d4012ae1a31afc10ebe187da1dbb394d666b85624"
+    "demo6.js": "fbafc1efa28ecade7d30a22b69cff19c4ee7aa4ce8da7609045a16714c15181d",
+    "demo6.css": "e94028a97456164d94e771c22fd5bff753901dc0a04e56c352b181b27c43f2d0"
   }
 }

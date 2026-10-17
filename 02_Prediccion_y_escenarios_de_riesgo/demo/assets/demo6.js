@@ -76,11 +76,12 @@ const analyticsModule={exports:{}};
 
 })(analyticsModule);
 const UmbralAnalytics=analyticsModule.exports;
+const statePlanMarkdown="# Planes de acción por estado para mejorar la participación y reducir la abstención electoral\n\n**Fecha de elaboración:** 16 de octubre de 2026.  \n**Fuente base:** `docs/FUENTES_COMPLEMENTARIAS_UMBRAL.md` (inventario de fuentes complementarias de Umbral).  \n**Alcance:** 32 entidades federativas de México.  \n**Tipo de documento:** propuesta de planes de acción derivados del contexto de Umbral (predicción y escenarios de riesgo electoral, participación y abstención). No son estrategias extraídas de la fuente; la fuente declara explícitamente que no contiene estrategias de movilización electoral.\n\n---\n\n## 1. Objetivo\n\nDefinir, por entidad federativa, un plan de acción operativo para aumentar la participación ciudadana y reducir la abstención en procesos electorales, articulado con los insumos descriptivos de Umbral (población, antecedentes de abstención, documentos institucionales y bases de datos demográficas).\n\n---\n\n## 2. Alcance y limitaciones\n\n- Los planes son **propuestas de intervención**, no compromisos institucionales ni ejecución comprobada.\n- Cada plan debe validarse con datos locales (lista nominal, abstención observada por elección, cobertura municipal y catálogo territorial) antes de su implementación.\n- La fuente base (`FUENTES_COMPLEMENTARIAS_UMBRAL.md`) aclara que:\n  - La población no es lista nominal.\n  - Una aprobación institucional no demuestra ejecución ni efecto.\n  - Los datos estatales no describen por sí solos a cada municipio.\n- Los responsables y presupuestos indicados son referenciales y deben confirmarse con cada entidad.\n\n---\n\n## 3. Marco de referencia\n\n- **ENCÍVICA 2024–2026** y su Plan de Implementación 2026 (acuerdo INE/CG61/2026): educación cívica, cultura democrática y participación.\n- **Sistema MOSE** (Monitoreo, Seguimiento y Evaluación): línea de base para medir avances.\n- **Umbral**: predicción y escenarios de riesgo de abstención por entidad y municipio.\n- **Datos poblacionales**: `pobproy_ggrupos.csv`, `pobproy_inddemo.csv`, `pobproy_quinq1.csv`, `00_Pob_Inicio_1950_2070.csv`.\n\n---\n\n## 4. Ejes estratégicos comunes (aplicables a todas las entidades)\n\n| Eje | Objetivo | Líneas de acción |\n| --- | --- | --- |\n| **Información cívica** | Que el ciudadano conozca cuándo, dónde y cómo votar. | Campañas informativas, calendario electoral, ubicación de casillas, requisitos de credencial. |\n| **Acceso al voto** | Reducir barreras físicas y logísticas. | Casillas cercanas, horarios ampliados, voto anticipado, asistencia a personas con discapacidad. |\n| **Motivación y movilización** | Convertir el derecho en intención de voto. | Mensajes segmentados, contacto directo, líderes de opinión locales, influencia de pares. |\n| **Confianza institucional** | Mejorar percepción del proceso electoral. | Transparencia en conteo, observación electoral, rendición de cuentas del INE y OPL. |\n| **Juventud y primer voto** | Incrementar participación de 18–29 años. | Programas en escuelas, redes sociales, registro anticipado de credencial, simulacros de voto. |\n\n---\n\n## 5. Planes de acción por entidad\n\n### 5.1 Aguascalientes\n\n- **Contexto:** entidad de tamaño pequeño y alta concentración urbana en la capital; perfil de lista nominal estable con abstención moderada.\n- **Acciones prioritarias:**\n  1. Campaña de información cívica en cabecera municipal y delegaciones con énfasis en fecha de elección y ubicación de casillas.\n  2. Puntos móviles de atención para trámite de credencial de elector en zonas con baja cobertura registral.\n  3. Jornadas de simulación de voto en bachilleratos y universidades del estado.\n- **Actores:** INE junta local, OPL de Aguascalientes, ayuntamiento de la capital, instituciones educativas.\n- **Indicadores:** % de credenciales vigentes en lista nominal, asistencia a casillas,Mensajes de información entregados.\n- **Horizonte:** preelectoral (3 meses antes) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **320–3,200 votos adicionales** (central: **1,600**) en municipios estimables.\n\n### 5.2 Baja California\n\n- **Contexto:** entidad fronteriza con alta movilidad poblacional y comunidades binacionales; abstención influenciada por residencia temporal.\n- **Acciones prioritarias:**\n  1. Campaña dirigida a residentes con domicilio en el estado pero ausentes temporalmente (revalidación de domicilio en credencial).\n  2. Casillas estratégicas en zonas fronterizas y de alto tránsito.\n  3. Mensajes en español e inglés en medios locales y redes sociales.\n- **Actores:** INE junta local, OPL de Baja California, ayuntamientos (Tijuana, Mexicali, Ensenada), consulados (coordinación informativa).\n- **Indicadores:** actualización de domicilio en credencial, casillas instaladas, participación por sección.\n- **Horizonte:** preelectoral (4 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **630–6,300 votos adicionales** (central: **3,100**) en municipios estimables.\n\n### 5.3 Baja California Sur\n\n- **Contexto:** entidad con población dispersa y zonas turísticas de alta estacionalidad; cobertura municipal heterogénea.\n- **Acciones prioritarias:**\n  1. Mapa de casillas con cobertura territorial priorizando zonas rurales y cabeceras municipales.\n  2. Difusión radiofónica en zonas con baja conectividad digital.\n  3. Apoyo logístico de traslado a casillas en comunidades alejadas.\n- **Actores:** INE junta local, OPL de Baja California Sur, ayuntamientos, autoridades comunitarias.\n- **Indicadores:** casillas con acceso reportado, participación rural vs urbana, alcance de difusión radiofónica.\n- **Horizonte:** preelectoral (3 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **180–1,800 votos adicionales** (central: **880**) en municipios estimables.\n\n### 5.4 Campeche\n\n- **Contexto:** entidad con zonas rurales extensas y población indígena; históricamente con brechas de participación territorial.\n- **Acciones prioritarias:**\n  1. Campaña bilingüe (español y lenguas mayas) de información electoral.\n  2. Casillas con intérpretes y materiales traducidos en municipios con población indígena.\n  3. Articulación con autoridades tradicionales para convocatoria al voto.\n- **Actores:** INE junta local, OPL de Campeche, ayuntamientos, autoridades indígenas y comunitarias.\n- **Indicadores:** materiales en lenguas indígenas, casillas con intérprete, participación en municipios rurales.\n- **Horizonte:** preelectoral (4 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **30–270 votos adicionales** (central: **140**) en municipios estimables.\n\n### 5.5 Chiapas\n\n- **Contexto:** entidad con alta población indígena, dispersión territorial y desafíos de acceso; brechas significativas de abstención.\n- **Acciones prioritarias:**\n  1. Red de casillas con cobertura prioritaria en municipios con baja participación histórica.\n  2. Campaña cívica en lenguas tsotsil, tseltal, chol y español.\n  3. Brigadas de información casa por casa en zonas de difícil acceso.\n  4. Capacitación de funcionarios de casilla con sensibilidad cultural.\n- **Actores:** INE junta local, OPL de Chiapas, ayuntamientos, organizaciones de la sociedad civil, autoridades comunitarias.\n- **Indicadores:** casillas en municipios prioritarios, materiales en lenguas originarias, brigadas realizadas, participación municipal.\n- **Horizonte:** preelectoral (5 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **570–5,700 votos adicionales** (central: **2,900**) en municipios estimables.\n\n### 5.6 Chihuahua\n\n- **Contexto:** entidad extensa con zonas serranas y urbanas; participación desigual entre cabecera y municipios rurales.\n- **Acciones prioritarias:**\n  1. Campaña segmentada por zona (urbana en Chihuahua/Juárez; rural en serranía).\n  2. Puntos de información en cabeceras municipales y ferias locales.\n  3. Transporte de apoyo en zonas serranas el día de elección.\n- **Actores:** INE junta local, OPL de Chihuahua, ayuntamientos, transporte público estatal/municipal.\n- **Indicadores:** participación por municipio, puntos de información instalados, servicios de traslado.\n- **Horizonte:** preelectoral (4 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **100–1,000 votos adicionales** (central: **520**) en municipios estimables.\n\n### 5.7 Coahuila\n\n- **Contexto:** entidad con fuerte actividad industrial y minera; población trabajadora con horarios extendidos.\n- **Acciones prioritarias:**\n  1. Campaña en centros laborales (maquiladoras, minería) con información sobre horarios de votación y derecho a permiso laboral para votar.\n  2. Casillas con horarios accesibles para turnos laborales.\n  3. Difusión en radios locales y sindicatos.\n- **Actores:** INE junta local, OPL de Coahuila, ayuntamientos, sector privado, sindicatos.\n- **Indicadores:** centros laborales alcanzados, casillas con horario extendido, participación en zonas industriales.\n- **Horizonte:** preelectoral (3 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **430–4,300 votos adicionales** (central: **2,100**) en municipios estimables.\n\n### 5.8 Colima\n\n- **Contexto:** entidad pequeña con población concentrada; listas nominales estables y alta conectividad.\n- **Acciones prioritarias:**\n  1. Campaña digital segmentada por edad y sección electoral.\n  2. Recordatorios vía SMS y redes sociales en días previos a la elección.\n  3. Simulacros de voto en instituciones educativas de la capital.\n- **Actores:** INE junta local, OPL de Colima, ayuntamientos, instituciones educativas.\n- **Indicadores:** alcance de campaña digital, recordatorios enviados, participación juvenil.\n- **Horizonte:** preelectoral (2 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **170–1,700 votos adicionales** (central: **850**) en municipios estimables.\n\n### 5.9 Durango\n\n- **Contexto:** entidad con zonas rurales y mineras; referencia documental local (investigación sobre juventudes presentada en Durango).\n- **Acciones prioritarias:**\n  1. Campaña dirigida a juventudes basada en la investigación local de participación política y electoral.\n  2. Casillas con cobertura en zonas mineras y rurales.\n  3. Talleres de educación cívica en secundaria y bachillerato.\n- **Actores:** INE junta local, OPL de Durango, ayuntamientos, instituciones educativas, investigadores locales.\n- **Indicadores:** participación juvenil 18–29, talleres realizados, casillas en zonas rurales/mineras.\n- **Horizonte:** preelectoral (4 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **400–4,000 votos adicionales** (central: **2,000**) en municipios estimables.\n\n### 5.10 Estado de México\n\n- **Contexto:** entidad con la mayor lista nominal del país; alta concentración urbana y desigualdad intraestatal.\n- **Acciones prioritarias:**\n  1. Plan territorial por sección con foco en secciones con menor participación histórica.\n  2. Campaña masiva en transporte público y espacios comerciales.\n  3. Casillas adicionales en zonas de alta densidad poblacional.\n  4. Brigadas de información en municipios conurbados con CDMX.\n- **Actores:** INE junta local, OPL del Estado de México, ayuntamientos, transporte público, comercio organizado.\n- **Indicadores:** participación por sección, casillas instaladas, cobertura de campaña en transporte público.\n- **Horizonte:** preelectoral (5 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **3,400–34,000 votos adicionales** (central: **17,000**) en municipios estimables.\n\n### 5.11 Guanajuato\n\n- **Contexto:** entidad con alta participación histórica en algunas zonas y brechas en otras; fuerte tejido social y religioso.\n- **Acciones prioritarias:**\n  1. Campaña en plazas públicas y eventos comunitarios con lideres locales de opinión.\n  2. Información cívica en parroquias y centros comunitarios (sin partidismo).\n  3. Casillas con cobertura en municipios rurales del norte y sur del estado.\n- **Actores:** INE junta local, OPL de Guanajuato, ayuntamientos, líderes comunitarios.\n- **Indicadores:** participación municipal, eventos comunitarios, casillas rurales.\n- **Horizonte:** preelectoral (4 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **1,400–14,000 votos adicionales** (central: **6,800**) en municipios estimables.\n\n### 5.12 Guerrero\n\n- **Contexto:** entidad con desafíos de seguridad y acceso en varias regiones; alta población indígena.\n- **Acciones prioritarias:**\n  1. Casillas con medidas de seguridad y acceso acordadas con autoridades locales.\n  2. Campaña bilingüe en regiones indígenas (náhuatl, mixteco, tlapaneco, amuzgo).\n  3. Difusión en radios comunitarias y altoparlantes municipales.\n- **Actores:** INE junta local, OPL de Guerrero, ayuntamientos, autoridades comunitarias, radios comunitarias.\n- **Indicadores:** casillas operativas, materiales en lenguas indígenas, municipios cubiertos por radio comunitaria.\n- **Horizonte:** preelectoral (5 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **680–6,800 votos adicionales** (central: **3,400**) en municipios estimables.\n\n### 5.13 Hidalgo\n\n- **Contexto:** entidad con zonas rurales y urbanas; población indígena significativa.\n- **Acciones prioritarias:**\n  1. Campaña en otomí, náhuatl y español en municipios con población indígena.\n  2. Casillas con cobertura en zonas de la sierra y huasteca hidalguense.\n  3. Talleres de educación cívica en telebachilleratos y CECyTE.\n- **Actores:** INE junta local, OPL de Hidalgo, ayuntamientos, instituciones educativas, autoridades indígenas.\n- **Indicadores:** participación en municipios indígenas, talleres realizados, casillas en zonas rurales.\n- **Horizonte:** preelectoral (4 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **520–5,200 votos adicionales** (central: **2,600**) en municipios estimables.\n\n### 5.14 Jalisco\n\n- **Contexto:** entidad con gran lista nominal, zona metropolitana de Guadalajara y diversidad municipal.\n- **Acciones prioritarias:**\n  1. Campaña metropolitana con enfoque en zonas de baja participación de Guadalajara y zona conurbada.\n  2. Casillas adicionales en municipios con alta densidad.\n  3. Difusión digital y en medios masivos segmentada por grupo de edad.\n- **Actores:** INE junta local, OPL de Jalisco, ayuntamientos (Guadalajara y conurbados), medios de comunicación.\n- **Indicadores:** participación por sección metropolitana, casillas instaladas, alcance digital.\n- **Horizonte:** preelectoral (4 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **1,700–17,000 votos adicionales** (central: **8,600**) en municipios estimables.\n\n### 5.15 Michoacán\n\n- **Contexto:** entidad con fuerte presencia rural e indígena (purépecha) y alta migración.\n- **Acciones prioritarias:**\n  1. Campaña en purépecha y español en regiones michoacanas con población indígena.\n  2. Información dirigida a migrantes y familias con residencia temporal en el extranjero (revalidación de credencial).\n  3. Casillas con cobertura en zonas rurales de la meseta purépecha.\n- **Actores:** INE junta local, OPL de Michoacán, ayuntamientos, autoridades indígenas, organizaciones de migrantes.\n- **Indicadores:** participación en zonas indígenas, revalidaciones de credencial, casillas rurales.\n- **Horizonte:** preelectoral (5 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **730–7,300 votos adicionales** (central: **3,700**) en municipios estimables.\n\n### 5.16 Morelos\n\n- **Contexto:** entidad pequeña con alta conectividad y población urbana; lista nominal estable.\n- **Acciones prioritarias:**\n  1. Campaña digital y en espacios públicos de Cuernavaca y municipios conurbados.\n  2. Recordatorios de elección vía redes sociales y SMS.\n  3. Casillas con accesibilidad en zonas con población adulta mayor.\n- **Actores:** INE junta local, OPL de Morelos, ayuntamientos, centros de atención al adulto mayor.\n- **Indicadores:** participación urbana, recordatorios enviados, casillas accesibles.\n- **Horizonte:** preelectoral (3 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **380–3,800 votos adicionales** (central: **1,900**) en municipios estimables.\n\n### 5.17 Nayarit\n\n- **Contexto:** entidad con población indígena (wixárika, náayeri, o'dam, mexikanería) y zonas rurales.\n- **Acciones prioritarias:**\n  1. Campaña en lenguas wixárika, náayeri, o'dam y español.\n  2. Casillas con cobertura en zonas serranas y costeras.\n  3. Articulación con autoridades tradicionales para convocatoria.\n- **Actores:** INE junta local, OPL de Nayarit, ayuntamientos, autoridades indígenas.\n- **Indicadores:** materiales en lenguas originarias, participación en municipios serranos/costeros, casillas con intérprete.\n- **Horizonte:** preelectoral (4 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **180–1,800 votos adicionales** (central: **890**) en municipios estimables.\n\n### 5.18 Nuevo León\n\n- **Contexto:** entidad con gran zona metropolitana (Monterrey), actividad industrial y alta movilidad.\n- **Acciones prioritarias:**\n  1. Campaña en zona metropolitana con foco en secciones de baja participación.\n  2. Información en centros laborales e industriales sobre permiso para votar.\n  3. Casillas con horario accesible para turnos laborales.\n  4. Difusión digital segmentada por edad y sección.\n- **Actores:** INE junta local, OPL de Nuevo León, ayuntamientos (Monterrey y conurbados), sector privado, sindicatos.\n- **Indicadores:** participación metropolitana, centros laborales alcanzados, casillas con horario extendido.\n- **Horizonte:** preelectoral (4 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **830–8,300 votos adicionales** (central: **4,100**) en municipios estimables.\n\n### 5.19 Oaxaca\n\n- **Contexto:** entidad con alta diversidad lingüística, zonas rurales extensas y brechas territoriales de participación.\n- **Acciones prioritarias:**\n  1. Campaña multilingüe (zapoteco, mixteco, mazateco, chinanteco, entre otros) y español.\n  2. Red de casillas con cobertura prioritaria en municipios de la sierra y costa.\n  3. Brigadas casa por casa con intérpretes comunitarios.\n  4. Capacitación de funcionarios de casilla con sensibilidad cultural.\n- **Actores:** INE junta local, OPL de Oaxaca, ayuntamientos, autoridades comunitarias e indígenas, OSC.\n- **Indicadores:** materiales en lenguas indígenas, casillas en municipios prioritarios, brigadas realizadas, participación municipal.\n- **Horizonte:** preelectoral (5 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **770–7,700 votos adicionales** (central: **3,900**) en municipios estimables.\n\n### 5.20 Puebla\n\n- **Contexto:** entidad con mezcla urbana (Puebla capital) y rural; población indígena significativa.\n- **Acciones prioritarias:**\n  1. Campaña en náhuatl, totonaco y español en municipios con población indígena.\n  2. Casillas con cobertura en zonas de la sierra norte y mixteca poblana.\n  3. Difusión en medios locales y redes comunitarias.\n- **Actores:** INE junta local, OPL de Puebla, ayuntamientos, autoridades indígenas, medios locales.\n- **Indicadores:** participación en municipios indígenas, casillas rurales, materiales en lenguas originarias.\n- **Horizonte:** preelectoral (4 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **1,200–12,000 votos adicionales** (central: **6,200**) en municipios estimables.\n\n### 5.21 Querétaro\n\n- **Contexto:** entidad con crecimiento urbano acelerado y zonas industriales; lista nominal en expansión.\n- **Acciones prioritarias:**\n  1. Campaña en zonas de reciente crecimiento urbano y fraccionamientos.\n  2. Información sobre trámite de credencial para nuevos residentes.\n  3. Casillas con cobertura en zonas de alta densidad nueva.\n- **Actores:** INE junta local, OPL de Querétaro, ayuntamientos, desarrolladores habitacionales (coordinación informativa).\n- **Indicadores:** credenciales tramitadas por nuevos residentes, participación en zonas nuevas, casillas instaladas.\n- **Horizonte:** preelectoral (4 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **560–5,600 votos adicionales** (central: **2,800**) en municipios estimables.\n\n### 5.22 Quintana Roo\n\n- **Contexto:** entidad con alta población turística y temporera; zonas costeras y selva.\n- **Acciones prioritarias:**\n  1. Campaña dirigida a residentes con domicilio en el estado (revalidación de credencial y domicilio).\n  2. Casillas en zonas turísticas y comunidades rurales de la selva.\n  3. Difusión en medios locales y puntos de atención turística (coordinación informativa).\n- **Actores:** INE junta local, OPL de Quintana Roo, ayuntamientos, sector turístico (coordinación informativa).\n- **Indicadores:** actualización de domicilio, participación en zonas turísticas/rurales, casillas instaladas.\n- **Horizonte:** preelectoral (4 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **420–4,200 votos adicionales** (central: **2,100**) en municipios estimables.\n\n### 5.23 San Luis Potosí\n\n- **Contexto:** entidad con zonas rurales, indígenas y zonas urbanas; brechas de participación entre regiones.\n- **Acciones prioritarias:**\n  1. Campaña en náhuatl, tenek y español en regiones huasteca y media.\n  2. Casillas con cobertura en municipios rurales y serranos.\n  3. Difusión en radios comunitarias de la huasteca.\n- **Actores:** INE junta local, OPL de San Luis Potosí, ayuntamientos, radios comunitarias, autoridades indígenas.\n- **Indicadores:** participación en municipios rurales, materiales en lenguas indígenas, cobertura radiofónica.\n- **Horizonte:** preelectoral (4 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **440–4,400 votos adicionales** (central: **2,200**) en municipios estimables.\n\n### 5.24 Sinaloa\n\n- **Contexto:** entidad con zonas agrícolas y urbanas; población trabajadora del campo.\n- **Acciones prioritarias:**\n  1. Campaña en zonas agrícolas con información adaptada a jornadas laborales del campo.\n  2. Casillas con horario accesible para trabajadores agrícolas.\n  3. Difusión en radios locales y centros de acopio/comunidades agrícolas.\n- **Actores:** INE junta local, OPL de Sinaloa, ayuntamientos, organizaciones agrícolas, radios locales.\n- **Indicadores:** participación en zonas agrícolas, casillas con horario extendido, centros de acopio alcanzados.\n- **Horizonte:** preelectoral (4 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **430–4,300 votos adicionales** (central: **2,200**) en municipios estimables.\n\n### 5.25 Sonora\n\n- **Contexto:** entidad fronteriza y extensa con zonas desérticas, urbanas e indígenas (yaqui, mayo, seri, pápago).\n- **Acciones prioritarias:**\n  1. Campaña en zonas fronterizas y desérticas con cobertura de transporte a casillas.\n  2. Campaña bilingüe en regiones indígenas (yaqui, mayo, seri).\n  3. Casillas con cobertura en zonas de baja densidad poblacional.\n- **Actores:** INE junta local, OPL de Sonora, ayuntamientos, autoridades indígenas, transporte público.\n- **Indicadores:** participación en zonas fronterizas/desérticas, materiales en lenguas indígenas, servicios de traslado.\n- **Horizonte:** preelectoral (5 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **240–2,400 votos adicionales** (central: **1,200**) en municipios estimables.\n\n### 5.26 Tabasco\n\n- **Contexto:** entidad con zonas rurales, urbanas y desafíos de acceso por inundaciones estacionales.\n- **Acciones prioritarias:**\n  1. Plan de contingencia para casillas en zonas propensas a inundación.\n  2. Campaña en municipios rurales y zonas urbanas de Villahermosa.\n  3. Difusión en radios locales y altoparlantes municipales.\n- **Actores:** INE junta local, OPL de Tabasco, ayuntamientos, protección civil, radios locales.\n- **Indicadores:** casillas con plan de contingencia, participación municipal, cobertura de difusión.\n- **Horizonte:** preelectoral (4 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **380–3,800 votos adicionales** (central: **1,900**) en municipios estimables.\n\n### 5.27 Tamaulipas\n\n- **Contexto:** entidad fronteriza con alta movilidad y zonas urbanas/industriales.\n- **Acciones prioritarias:**\n  1. Campaña en zonas fronterizas y ciudades industriales (reynosa, matamoros, nuevo laredo).\n  2. Información sobre revalidación de domicilio para residentes temporales.\n  3. Casillas con cobertura en zonas rurales y fronterizas.\n- **Actores:** INE junta local, OPL de Tamaulipas, ayuntamientos, sector privado, consulados (coordinación informativa).\n- **Indicadores:** participación fronteriza/urbana, revalidaciones de domicilio, casillas instaladas.\n- **Horizonte:** preelectoral (4 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **670–6,700 votos adicionales** (central: **3,300**) en municipios estimables.\n\n### 5.28 Tlaxcala\n\n- **Contexto:** entidad pequeña con alta densidad y participación tradicionalmente activa; zonas rurales y urbanas.\n- **Acciones prioritarias:**\n  1. Campaña en plazas municipales y centros comunitarios.\n  2. Casillas con cobertura en municipios rurales.\n  3. Talleres de educación cívica en bachilleratos.\n- **Actores:** INE junta local, OPL de Tlaxcala, ayuntamientos, instituciones educativas.\n- **Indicadores:** participación municipal, talleres realizados, casillas rurales.\n- **Horizonte:** preelectoral (3 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **230–2,300 votos adicionales** (central: **1,200**) en municipios estimables.\n\n### 5.29 Veracruz\n\n- **Contexto:** entidad con la tercera lista nominal más grande, zonas rurales extensas, costa y sierra; alta diversidad lingüística.\n- **Acciones prioritarias:**\n  1. Campaña multilingüe (náhuatl, totonaco, huasteco, zapoteco, entre otros) y español.\n  2. Red de casillas con cobertura prioritaria en municipios de baja participación histórica.\n  3. Brigadas de información casa por casa en zonas rurales y costas.\n  4. Difusión en radios comunitarias de la sierra y costa.\n- **Actores:** INE junta local, OPL de Veracruz, ayuntamientos, autoridades comunitarias e indígenas, radios comunitarias, OSC.\n- **Indicadores:** participación por municipio, materiales en lenguas indígenas, brigadas realizadas, casillas en municipios prioritarios.\n- **Horizonte:** preelectoral (5 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **1,500–15,000 votos adicionales** (central: **7,400**) en municipios estimables.\n\n### 5.30 Yucatán\n\n- **Contexto:** entidad con fuerte población maya, zonas urbanas (Mérida) y rurales; alta conectividad en la capital.\n- **Acciones prioritarias:**\n  1. Campaña en maya y español en municipios con población maya.\n  2. Casillas con intérpretes mayas en zonas rurales.\n  3. Campaña digital en Mérida y zona conurbada.\n  4. Talleres de educación cívica en instituciones educativas.\n- **Actores:** INE junta local, OPL de Yucatán, ayuntamientos, autoridades mayas, instituciones educativas.\n- **Indicadores:** participación en municipios mayas, casillas con intérprete, alcance digital, talleres realizados.\n- **Horizonte:** preelectoral (4 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **380–3,800 votos adicionales** (central: **1,900**) en municipios estimables.\n\n### 5.31 Zacatecas\n\n- **Contexto:** entidad con zonas rurales, mineras y urbanas; migración interna y externa.\n- **Acciones prioritarias:**\n  1. Campaña en zonas mineras y rurales con información adaptada a jornadas laborales.\n  2. Información dirigida a migrantes y familias con residencia temporal.\n  3. Casillas con cobertura en municipios rurales y serranos.\n- **Actores:** INE junta local, OPL de Zacatecas, ayuntamientos, organizaciones de migrantes, sector minero.\n- **Indicadores:** participación en zonas rurales/mineras, revalidaciones de credencial, casillas instaladas.\n- **Horizonte:** preelectoral (4 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **320–3,200 votos adicionales** (central: **1,600**) en municipios estimables.\n\n### 5.32 Ciudad de México\n\n- **Contexto:** entidad con la segunda lista nominal más grande, alta concentración urbana y diversidad demográfica.\n- **Acciones prioritarias:**\n  1. Plan territorial por alcaldía con foco en secciones de menor participación histórica.\n  2. Campaña masiva en transporte público (metro, metrobús), espacios comerciales y universidades.\n  3. Casillas adicionales en zonas de alta densidad poblacional.\n  4. Difusión digital segmentada por grupo de edad y alcaldía.\n- **Actores:** INE junta local, OPL de la Ciudad de México, alcaldías, transporte público, instituciones educativas.\n- **Indicadores:** participación por sección y alcaldía, casillas instaladas, cobertura en transporte público, alcance digital.\n- **Horizonte:** preelectoral (5 meses) y día de elección.\n- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **2,300–23,000 votos adicionales** (central: **12,000**) en municipios estimables.\n\n---\n\n## 6. Coordinación nacional y seguimiento\n\n- **Línea de base:** usar los conteos de abstención observada por elección y entidad de Umbral como referencia inicial (Paso 2 de la guía de fichas estatales).\n- **Monitoreo:** aplicar el Sistema MOSE (Monitoreo, Seguimiento y Evaluación) de la ENCÍVICA para reportar avances y resultados a la comisión correspondiente.\n- **Evaluación retrospectiva:** etiquetar proyecciones como tales y evaluar su comportamiento posterior a cada elección.\n- **Informes:** cada OPL estatal entrega avance de ejecución del plan a la junta local del INE y a la comisión encargada, con los avisos previstos en el acuerdo de ENCÍVICA (modificaciones, recursos, ajustes o cancelaciones ante imposibilidades materiales, financieras o humanas).\n\n---\n\n## 7. Anexos y notas de lectura\n\n- Los datos estatales no describen por sí solos a cada municipio.\n- Una asociación estadística no demuestra una causa individual.\n- Una aprobación institucional no demuestra ejecución ni efecto.\n- Cuando no exista un dato estatal representativo, registrar «no disponible en las fuentes revisadas».\n- Este documento no contiene estrategias de movilización electoral ni recomendaciones de canales, mensajes o grupos que deban recibir una intervención (declaración de la fuente base); los planes aquí presentados son propuestas operativas a validar localmente.\n\n## 8. Estimación aproximada de impacto\n\nLas cifras por estado son un escenario de referencia, no una predicción ni un efecto comprobado del conjunto de acciones. Su cálculo supone alcanzar al 10 % de la base observable SV+NV de 2024 en municipios con estimación válida para 2027, y aplicar a las personas alcanzadas el supuesto de información institucional práctica de la demo: 0.3–3.0 pp de efecto (valor central: 1.5 pp). Por eso el cambio estatal equivale a +0.03–+0.30 pp (central: +0.15 pp).\n\nLos votos adicionales se calculan como base elegible × 10 % de cobertura × efecto supuesto, y se redondean para evitar falsa precisión. La base excluye municipios sin estimación válida y no representa la lista nominal ni el electorado de 2027. El supuesto de efecto procede de evidencia heterogénea y no está validado para estas acciones, estados o elección; no se suman los efectos de varias actividades. Se requiere definir presupuesto, alcance real y una evaluación local antes de atribuir impacto.\n";
 
 /* SOURCE: src/demo6/app/runtime.js */
 /* Conexiones explícitas; el generador mantiene todo este estado en una clausura privada. */
 const runtime={
-  views:{},renderProfile:null,startController:null,mapStyles:{},selectMunicipality:null,
+  views:{},renderStatePlan:null,startController:null,mapStyles:{},selectMunicipality:null,
   hooks:{beforeUpdate(){},afterUpdate(){},afterExplore(){},afterFocus(){},afterScope(){}}
 };
 if(typeof window!=='undefined'){
@@ -1276,459 +1277,106 @@ function initMapDecorations(){
 }
 
 
-/* SOURCE: src/demo6/domain/state-plans.js */
-/* Planes de acción por entidad federativa para mejorar la participación y reducir la abstención.
-   Datos estructurados derivados de docs/PLANES_ACCION_ESTATALES_PARTICIPACION.md.
-   Claves de entidad coinciden con fichas_estatales.js (01-32).
-   Información descriptiva: ejes, acciones, actores e indicadores. Sin cálculos de impacto. */
-const STATE_PLANS = {
-  '01': { key: '01', name: 'Aguascalientes', priority: 'Campañas en zonas urbanas con menor participación histórica.',
-    axes: ['Acceso al voto', 'Juventud y primer voto', 'Información cívica'],
-    actions: [
-      'Campaña de información cívica en cabecera municipal y delegaciones.',
-      'Puntos móviles de atención para trámite de credencial en zonas con baja cobertura registral.',
-      'Jornadas de simulación de voto en bachilleratos y universidades.',
-    ],
-    actors: ['INE junta local', 'OPL de Aguascalientes', 'Ayuntamiento de la capital', 'Instituciones educativas'],
-    indicators: ['Credenciales vigentes en lista nominal', 'Asistencia a casillas', 'Mensajes de información entregados'],
-  },
-  '02': { key: '02', name: 'Baja California', priority: 'Revalidación de domicilio en zonas fronterizas.',
-    axes: ['Información cívica', 'Acceso al voto', 'Juventud y primer voto'],
-    actions: [
-      'Campaña dirigida a residentes con domicilio en el estado ausentes temporalmente (revalidación de domicilio).',
-      'Casillas estratégicas en zonas fronterizas y de alto tránsito.',
-      'Mensajes en español e inglés en medios locales y redes sociales.',
-    ],
-    actors: ['INE junta local', 'OPL de Baja California', 'Ayuntamientos', 'Consulados'],
-    indicators: ['Actualización de domicilio en credencial', 'Casillas instaladas', 'Participación por sección'],
-  },
-  '03': { key: '03', name: 'Baja California Sur', priority: 'Cobertura de casillas en zonas rurales y alejadas.',
-    axes: ['Acceso al voto', 'Información cívica', 'Confianza institucional'],
-    actions: [
-      'Mapa de casillas con cobertura territorial priorizando zonas rurales y cabeceras.',
-      'Difusión radiofónica en zonas con baja conectividad digital.',
-      'Apoyo logístico de traslado a casillas en comunidades alejadas.',
-    ],
-    actors: ['INE junta local', 'OPL de Baja California Sur', 'Ayuntamientos', 'Autoridades comunitarias'],
-    indicators: ['Casillas con acceso reportado', 'Participación rural vs urbana', 'Alcance de difusión radiofónica'],
-  },
-  '04': { key: '04', name: 'Campeche', priority: 'Campaña bilingüe en municipios con población indígena.',
-    axes: ['Información cívica', 'Confianza institucional', 'Acceso al voto'],
-    actions: [
-      'Campaña bilingüe (español y lenguas mayas) de información electoral.',
-      'Casillas con intérpretes y materiales traducidos en municipios con población indígena.',
-      'Articulación con autoridades tradicionales para convocatoria al voto.',
-    ],
-    actors: ['INE junta local', 'OPL de Campeche', 'Ayuntamientos', 'Autoridades indígenas y comunitarias'],
-    indicators: ['Materiales en lenguas indígenas', 'Casillas con intérprete', 'Participación en municipios rurales'],
-  },
-  '05': { key: '05', name: 'Coahuila de Zaragoza', priority: 'Centros laborales con turnos extendidos.',
-    axes: ['Información cívica', 'Acceso al voto', 'Confianza institucional'],
-    actions: [
-      'Campaña en centros laborales (maquiladoras, minería) con información sobre horarios y permiso para votar.',
-      'Casillas con horarios accesibles para turnos laborales.',
-      'Difusión en radios locales y sindicatos.',
-    ],
-    actors: ['INE junta local', 'OPL de Coahuila', 'Ayuntamientos', 'Sector privado', 'Sindicatos'],
-    indicators: ['Centros laborales alcanzados', 'Casillas con horario extendido', 'Participación en zonas industriales'],
-  },
-  '06': { key: '06', name: 'Colima', priority: 'Campaña digital y recordatorios a jóvenes.',
-    axes: ['Juventud y primer voto', 'Información cívica', 'Confianza institucional'],
-    actions: [
-      'Campaña digital segmentada por edad y sección electoral.',
-      'Recordatorios vía SMS y redes sociales en días previos a la elección.',
-      'Simulacros de voto en instituciones educativas de la capital.',
-    ],
-    actors: ['INE junta local', 'OPL de Colima', 'Ayuntamientos', 'Instituciones educativas'],
-    indicators: ['Alcance de campaña digital', 'Recordatorios enviados', 'Participación juvenil'],
-  },
-  '07': { key: '07', name: 'Chiapas', priority: 'Municipios con baja participación histórica y zonas de difícil acceso.',
-    axes: ['Acceso al voto', 'Información cívica', 'Confianza institucional'],
-    actions: [
-      'Red de casillas con cobertura prioritaria en municipios con baja participación histórica.',
-      'Campaña cívica en lenguas tsotsil, tseltal, chol y español.',
-      'Brigadas de información casa por casa en zonas de difícil acceso.',
-      'Capacitación de funcionarios de casilla con sensibilidad cultural.',
-    ],
-    actors: ['INE junta local', 'OPL de Chiapas', 'Ayuntamientos', 'Organizaciones de la sociedad civil', 'Autoridades comunitarias'],
-    indicators: ['Casillas en municipios prioritarios', 'Materiales en lenguas originarias', 'Brigadas realizadas', 'Participación municipal'],
-  },
-  '08': { key: '08', name: 'Chihuahua', priority: 'Zonas serranas y municipios rurales con menor cobertura.',
-    axes: ['Acceso al voto', 'Información cívica', 'Juventud y primer voto'],
-    actions: [
-      'Campaña segmentada por zona (urbana en Chihuahua/Juárez; rural en serranía).',
-      'Puntos de información en cabeceras municipales y ferias locales.',
-      'Transporte de apoyo en zonas serranas el día de elección.',
-    ],
-    actors: ['INE junta local', 'OPL de Chihuahua', 'Ayuntamientos', 'Transporte público estatal/municipal'],
-    indicators: ['Participación por municipio', 'Puntos de información instalados', 'Servicios de traslado'],
-  },
-  '09': { key: '09', name: 'Ciudad de México', priority: 'Secciones de menor participación por alcaldía.',
-    axes: ['Información cívica', 'Acceso al voto', 'Juventud y primer voto'],
-    actions: [
-      'Plan territorial por alcaldía con foco en secciones de menor participación histórica.',
-      'Campaña masiva en transporte público (metro, metrobús), espacios comerciales y universidades.',
-      'Casillas adicionales en zonas de alta densidad poblacional.',
-      'Difusión digital segmentada por grupo de edad y alcaldía.',
-    ],
-    actors: ['INE junta local', 'OPL de la Ciudad de México', 'Alcaldías', 'Transporte público', 'Instituciones educativas'],
-    indicators: ['Participación por sección y alcaldía', 'Casillas instaladas', 'Cobertura en transporte público', 'Alcance digital'],
-  },
-  '10': { key: '10', name: 'Durango', priority: 'Juventudes 18–29 y zonas mineras/rurales.',
-    axes: ['Juventud y primer voto', 'Acceso al voto', 'Información cívica'],
-    actions: [
-      'Campaña dirigida a juventudes basada en la investigación local de participación política y electoral.',
-      'Casillas con cobertura en zonas mineras y rurales.',
-      'Talleres de educación cívica en secundaria y bachillerato.',
-    ],
-    actors: ['INE junta local', 'OPL de Durango', 'Ayuntamientos', 'Instituciones educativas', 'Investigadores locales'],
-    indicators: ['Participación juvenil 18–29', 'Talleres realizados', 'Casillas en zonas rurales/mineras'],
-  },
-  '11': { key: '11', name: 'Guanajuato', priority: 'Municipios rurales del norte y sur del estado.',
-    axes: ['Confianza institucional', 'Información cívica', 'Acceso al voto'],
-    actions: [
-      'Campaña en plazas públicas y eventos comunitarios con líderes locales de opinión.',
-      'Información cívica en parroquias y centros comunitarios (sin partidismo).',
-      'Casillas con cobertura en municipios rurales del norte y sur del estado.',
-    ],
-    actors: ['INE junta local', 'OPL de Guanajuato', 'Ayuntamientos', 'Líderes comunitarios'],
-    indicators: ['Participación municipal', 'Eventos comunitarios', 'Casillas rurales'],
-  },
-  '12': { key: '12', name: 'Guerrero', priority: 'Regiones indígenas y zonas con desafíos de seguridad.',
-    axes: ['Acceso al voto', 'Información cívica', 'Confianza institucional'],
-    actions: [
-      'Casillas con medidas de seguridad y acceso acordadas con autoridades locales.',
-      'Campaña bilingüe en regiones indígenas (náhuatl, mixteco, tlapaneco, amuzgo).',
-      'Difusión en radios comunitarias y altoparlantes municipales.',
-    ],
-    actors: ['INE junta local', 'OPL de Guerrero', 'Ayuntamientos', 'Autoridades comunitarias', 'Radios comunitarias'],
-    indicators: ['Casillas operativas', 'Materiales en lenguas indígenas', 'Municipios cubiertos por radio comunitaria'],
-  },
-  '13': { key: '13', name: 'Hidalgo', priority: 'Municipios indígenas y zonas de la sierra.',
-    axes: ['Información cívica', 'Acceso al voto', 'Juventud y primer voto'],
-    actions: [
-      'Campaña en otomí, náhuatl y español en municipios con población indígena.',
-      'Casillas con cobertura en zonas de la sierra y huasteca hidalguense.',
-      'Talleres de educación cívica en telebachilleratos y CECyTE.',
-    ],
-    actors: ['INE junta local', 'OPL de Hidalgo', 'Ayuntamientos', 'Instituciones educativas', 'Autoridades indígenas'],
-    indicators: ['Participación en municipios indígenas', 'Talleres realizados', 'Casillas en zonas rurales'],
-  },
-  '14': { key: '14', name: 'Jalisco', priority: 'Zonas de baja participación en Guadalajara y conurbados.',
-    axes: ['Información cívica', 'Acceso al voto', 'Juventud y primer voto'],
-    actions: [
-      'Campaña metropolitana con enfoque en zonas de baja participación de Guadalajara y zona conurbada.',
-      'Casillas adicionales en municipios con alta densidad.',
-      'Difusión digital y en medios masivos segmentada por grupo de edad.',
-    ],
-    actors: ['INE junta local', 'OPL de Jalisco', 'Ayuntamientos', 'Medios de comunicación'],
-    indicators: ['Participación por sección metropolitana', 'Casillas instaladas', 'Alcance digital'],
-  },
-  '15': { key: '15', name: 'Estado de México', priority: 'Secciones con menor participación histórica y zonas conurbadas.',
-    axes: ['Acceso al voto', 'Información cívica', 'Confianza institucional'],
-    actions: [
-      'Plan territorial por sección con foco en secciones con menor participación histórica.',
-      'Campaña masiva en transporte público y espacios comerciales.',
-      'Casillas adicionales en zonas de alta densidad poblacional.',
-      'Brigadas de información en municipios conurbados con CDMX.',
-    ],
-    actors: ['INE junta local', 'OPL del Estado de México', 'Ayuntamientos', 'Transporte público', 'Comercio organizado'],
-    indicators: ['Participación por sección', 'Casillas instaladas', 'Cobertura de campaña en transporte público'],
-  },
-  '16': { key: '16', name: 'Michoacán de Ocampo', priority: 'Regiones indígenas y meseta purépecha.',
-    axes: ['Acceso al voto', 'Información cívica', 'Confianza institucional'],
-    actions: [
-      'Campaña en purépecha y español en regiones con población indígena.',
-      'Información dirigida a migrantes y familias con residencia temporal (revalidación de credencial).',
-      'Casillas con cobertura en zonas rurales de la meseta purépecha.',
-    ],
-    actors: ['INE junta local', 'OPL de Michoacán', 'Ayuntamientos', 'Autoridades indígenas', 'Organizaciones de migrantes'],
-    indicators: ['Participación en zonas indígenas', 'Revalidaciones de credencial', 'Casillas rurales'],
-  },
-  '17': { key: '17', name: 'Morelos', priority: 'Zonas urbanas y adultas mayores.',
-    axes: ['Información cívica', 'Juventud y primer voto', 'Acceso al voto'],
-    actions: [
-      'Campaña digital y en espacios públicos de Cuernavaca y municipios conurbados.',
-      'Recordatorios de elección vía redes sociales y SMS.',
-      'Casillas con accesibilidad en zonas con población adulta mayor.',
-    ],
-    actors: ['INE junta local', 'OPL de Morelos', 'Ayuntamientos', 'Centros de atención al adulto mayor'],
-    indicators: ['Participación urbana', 'Recordatorios enviados', 'Casillas accesibles'],
-  },
-  '18': { key: '18', name: 'Nayarit', priority: 'Zonas serranas y costeras con población indígena.',
-    axes: ['Información cívica', 'Acceso al voto', 'Confianza institucional'],
-    actions: [
-      "Campaña en lenguas wixárika, náayeri, o'dam y español.",
-      'Casillas con cobertura en zonas serranas y costeras.',
-      'Articulación con autoridades tradicionales para convocatoria.',
-    ],
-    actors: ['INE junta local', 'OPL de Nayarit', 'Ayuntamientos', 'Autoridades indígenas'],
-    indicators: ['Materiales en lenguas originarias', 'Participación en municipios serranos/costeros', 'Casillas con intérprete'],
-  },
-  '19': { key: '19', name: 'Nuevo León', priority: 'Secciones de baja participación en zona metropolitana.',
-    axes: ['Información cívica', 'Acceso al voto', 'Juventud y primer voto'],
-    actions: [
-      'Campaña en zona metropolitana con foco en secciones de baja participación.',
-      'Información en centros laborales e industriales sobre permiso para votar.',
-      'Casillas con horario accesible para turnos laborales.',
-      'Difusión digital segmentada por edad y sección.',
-    ],
-    actors: ['INE junta local', 'OPL de Nuevo León', 'Ayuntamientos', 'Sector privado', 'Sindicatos'],
-    indicators: ['Participación metropolitana', 'Centros laborales alcanzados', 'Casillas con horario extendido'],
-  },
-  '20': { key: '20', name: 'Oaxaca', priority: 'Municipios de la sierra y costa con baja participación.',
-    axes: ['Acceso al voto', 'Información cívica', 'Confianza institucional'],
-    actions: [
-      'Campaña multilingüe (zapoteco, mixteco, mazateco, chinanteco, entre otros) y español.',
-      'Red de casillas con cobertura prioritaria en municipios de la sierra y costa.',
-      'Brigadas casa por casa con intérpretes comunitarios.',
-      'Capacitación de funcionarios de casilla con sensibilidad cultural.',
-    ],
-    actors: ['INE junta local', 'OPL de Oaxaca', 'Ayuntamientos', 'Autoridades comunitarias e indígenas', 'OSC'],
-    indicators: ['Materiales en lenguas indígenas', 'Casillas en municipios prioritarios', 'Brigadas realizadas', 'Participación municipal'],
-  },
-  '21': { key: '21', name: 'Puebla', priority: 'Sierra norte y mixteca poblana.',
-    axes: ['Información cívica', 'Acceso al voto', 'Confianza institucional'],
-    actions: [
-      'Campaña en náhuatl, totonaco y español en municipios con población indígena.',
-      'Casillas con cobertura en zonas de la sierra norte y mixteca poblana.',
-      'Difusión en medios locales y redes comunitarias.',
-    ],
-    actors: ['INE junta local', 'OPL de Puebla', 'Ayuntamientos', 'Autoridades indígenas', 'Medios locales'],
-    indicators: ['Participación en municipios indígenas', 'Casillas rurales', 'Materiales en lenguas originarias'],
-  },
-  '22': { key: '22', name: 'Querétaro', priority: 'Zonas de reciente crecimiento urbano y fraccionamientos.',
-    axes: ['Información cívica', 'Acceso al voto', 'Juventud y primer voto'],
-    actions: [
-      'Campaña en zonas de reciente crecimiento urbano y fraccionamientos.',
-      'Información sobre trámite de credencial para nuevos residentes.',
-      'Casillas con cobertura en zonas de alta densidad nueva.',
-    ],
-    actors: ['INE junta local', 'OPL de Querétaro', 'Ayuntamientos', 'Desarrolladores habitacionales'],
-    indicators: ['Credenciales tramitadas por nuevos residentes', 'Participación en zonas nuevas', 'Casillas instaladas'],
-  },
-  '23': { key: '23', name: 'Quintana Roo', priority: 'Residentes temporales y zonas rurales de la selva.',
-    axes: ['Información cívica', 'Acceso al voto', 'Confianza institucional'],
-    actions: [
-      'Campaña dirigida a residentes con domicilio en el estado (revalidación de credencial y domicilio).',
-      'Casillas en zonas turísticas y comunidades rurales de la selva.',
-      'Difusión en medios locales y puntos de atención turística.',
-    ],
-    actors: ['INE junta local', 'OPL de Quintana Roo', 'Ayuntamientos', 'Sector turístico'],
-    indicators: ['Actualización de domicilio', 'Participación en zonas turísticas/rurales', 'Casillas instaladas'],
-  },
-  '24': { key: '24', name: 'San Luis Potosí', priority: 'Regiones huasteca y media con población indígena.',
-    axes: ['Información cívica', 'Acceso al voto', 'Confianza institucional'],
-    actions: [
-      'Campaña en náhuatl, tenek y español en regiones huasteca y media.',
-      'Casillas con cobertura en municipios rurales y serranos.',
-      'Difusión en radios comunitarias de la huasteca.',
-    ],
-    actors: ['INE junta local', 'OPL de San Luis Potosí', 'Ayuntamientos', 'Radios comunitarias', 'Autoridades indígenas'],
-    indicators: ['Participación en municipios rurales', 'Materiales en lenguas indígenas', 'Cobertura radiofónica'],
-  },
-  '25': { key: '25', name: 'Sinaloa', priority: 'Zonas agrícolas y trabajadores del campo.',
-    axes: ['Información cívica', 'Acceso al voto', 'Confianza institucional'],
-    actions: [
-      'Campaña en zonas agrícolas con información adaptada a jornadas laborales del campo.',
-      'Casillas con horario accesible para trabajadores agrícolas.',
-      'Difusión en radios locales y centros de acopio/comunidades agrícolas.',
-    ],
-    actors: ['INE junta local', 'OPL de Sinaloa', 'Ayuntamientos', 'Organizaciones agrícolas', 'Radios locales'],
-    indicators: ['Participación en zonas agrícolas', 'Casillas con horario extendido', 'Centros de acopio alcanzados'],
-  },
-  '26': { key: '26', name: 'Sonora', priority: 'Zonas fronterizas, desérticas y regiones indígenas.',
-    axes: ['Acceso al voto', 'Información cívica', 'Confianza institucional'],
-    actions: [
-      'Campaña en zonas fronterizas y desérticas con cobertura de transporte a casillas.',
-      'Campaña bilingüe en regiones indígenas (yaqui, mayo, seri, pápago).',
-      'Casillas con cobertura en zonas de baja densidad poblacional.',
-    ],
-    actors: ['INE junta local', 'OPL de Sonora', 'Ayuntamientos', 'Autoridades indígenas', 'Transporte público'],
-    indicators: ['Participación en zonas fronterizas/desérticas', 'Materiales en lenguas indígenas', 'Servicios de traslado'],
-  },
-  '27': { key: '27', name: 'Tabasco', priority: 'Zonas propensas a inundación y municipios rurales.',
-    axes: ['Acceso al voto', 'Información cívica', 'Confianza institucional'],
-    actions: [
-      'Plan de contingencia para casillas en zonas propensas a inundación.',
-      'Campaña en municipios rurales y zonas urbanas de Villahermosa.',
-      'Difusión en radios locales y altoparlantes municipales.',
-    ],
-    actors: ['INE junta local', 'OPL de Tabasco', 'Ayuntamientos', 'Protección civil', 'Radios locales'],
-    indicators: ['Casillas con plan de contingencia', 'Participación municipal', 'Cobertura de difusión'],
-  },
-  '28': { key: '28', name: 'Tamaulipas', priority: 'Zonas fronterizas y ciudades industriales.',
-    axes: ['Información cívica', 'Acceso al voto', 'Juventud y primer voto'],
-    actions: [
-      'Campaña en zonas fronterizas y ciudades industriales.',
-      'Información sobre revalidación de domicilio para residentes temporales.',
-      'Casillas con cobertura en zonas rurales y fronterizas.',
-    ],
-    actors: ['INE junta local', 'OPL de Tamaulipas', 'Ayuntamientos', 'Sector privado', 'Consulados'],
-    indicators: ['Participación fronteriza/urbana', 'Revalidaciones de domicilio', 'Casillas instaladas'],
-  },
-  '29': { key: '29', name: 'Tlaxcala', priority: 'Municipios rurales y bachilleratos.',
-    axes: ['Información cívica', 'Acceso al voto', 'Juventud y primer voto'],
-    actions: [
-      'Campaña en plazas municipales y centros comunitarios.',
-      'Casillas con cobertura en municipios rurales.',
-      'Talleres de educación cívica en bachilleratos.',
-    ],
-    actors: ['INE junta local', 'OPL de Tlaxcala', 'Ayuntamientos', 'Instituciones educativas'],
-    indicators: ['Participación municipal', 'Talleres realizados', 'Casillas rurales'],
-  },
-  '30': { key: '30', name: 'Veracruz de Ignacio de la Llave', priority: 'Municipios de baja participación histórica en sierra y costa.',
-    axes: ['Acceso al voto', 'Información cívica', 'Confianza institucional'],
-    actions: [
-      'Campaña multilingüe (náhuatl, totonaco, huasteco, zapoteco, entre otros) y español.',
-      'Red de casillas con cobertura prioritaria en municipios de baja participación histórica.',
-      'Brigadas de información casa por casa en zonas rurales y costas.',
-      'Difusión en radios comunitarias de la sierra y costa.',
-    ],
-    actors: ['INE junta local', 'OPL de Veracruz', 'Ayuntamientos', 'Autoridades comunitarias e indígenas', 'Radios comunitarias', 'OSC'],
-    indicators: ['Participación por municipio', 'Materiales en lenguas indígenas', 'Brigadas realizadas', 'Casillas en municipios prioritarios'],
-  },
-  '31': { key: '31', name: 'Yucatán', priority: 'Municipios con población maya y zona conurbada de Mérida.',
-    axes: ['Información cívica', 'Acceso al voto', 'Juventud y primer voto'],
-    actions: [
-      'Campaña en maya y español en municipios con población maya.',
-      'Casillas con intérpretes mayas en zonas rurales.',
-      'Campaña digital en Mérida y zona conurbada.',
-      'Talleres de educación cívica en instituciones educativas.',
-    ],
-    actors: ['INE junta local', 'OPL de Yucatán', 'Ayuntamientos', 'Autoridades mayas', 'Instituciones educativas'],
-    indicators: ['Participación en municipios mayas', 'Casillas con intérprete', 'Alcance digital', 'Talleres realizados'],
-  },
-  '32': { key: '32', name: 'Zacatecas', priority: 'Zonas mineras, rurales y migrantes.',
-    axes: ['Información cívica', 'Acceso al voto', 'Confianza institucional'],
-    actions: [
-      'Campaña en zonas mineras y rurales con información adaptada a jornadas laborales.',
-      'Información dirigida a migrantes y familias con residencia temporal.',
-      'Casillas con cobertura en municipios rurales y serranos.',
-    ],
-    actors: ['INE junta local', 'OPL de Zacatecas', 'Ayuntamientos', 'Organizaciones de migrantes', 'Sector minero'],
-    indicators: ['Participación en zonas rurales/mineras', 'Revalidaciones de credencial', 'Casillas instaladas'],
-  },
-};
-
-function getStatePlan(stateKey){
-  return STATE_PLANS[String(stateKey).padStart(2,'0')] || null;
-}
-
-if(typeof window!=='undefined'){
-  window.STATE_PLANS = STATE_PLANS;
-  window.getStatePlan = getStatePlan;
-}
-
-
-/* SOURCE: src/demo6/views/state-profile.js */
-/* Ficha descriptiva: conserva siempre el alcance estatal de las fuentes. */
-(() => {
-  'use strict';
-  const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const number=new Intl.NumberFormat('es-MX',{maximumFractionDigits:0});
-  const percent=value=>Number.isFinite(value)?value.toFixed(2)+'%':'Sin dato';
-  const sourceLink=path=>'../../'+path.split('/').map(encodeURIComponent).join('/');
-  const latestObservedRate=(rows)=>{
-    for(const year of [2024,2021,2018,2015]){
-      const s=UmbralAnalytics.summary(rows,year,'baseline');
-      if(Number.isFinite(s.rate)) return {rate:s.rate,year,denominator:s.denominator};
-    }
-    return null;
-  };
-
-  function renderActionPlan(stateKey){
-    const title=document.getElementById('d6-action-plan-title');
-    const content=document.getElementById('d6-action-plan-content');
-    const plan=typeof window!=='undefined'&&window.getStatePlan?window.getStatePlan(stateKey):null;
-    if(!title||!content)return;
-    if(!plan){
-      title.textContent='Plan de acción recomendado';
-      content.innerHTML='<p class="d6-note">Selecciona un estado para ver su plan de acción recomendado.</p>';
-      return;
-    }
-    title.textContent=`Plan de acción recomendado · ${escape(plan.name)}`;
-    content.innerHTML=`
-      <div class="d6-action-plan-body">
-        <div class="d6-action-field"><span class="d6-action-label">Prioridad:</span><strong>${plan.priority.charAt(0).toUpperCase()+plan.priority.slice(1)}</strong></div>
-        <div class="d6-action-field"><span class="d6-action-label">Ejes estratégicos:</span>${plan.axes.map(a=>`<span class="d6-action-chip">${escape(a)}</span>`).join('')}</div>
-        <div class="d6-action-field"><span class="d6-action-label">Enfoque recomendado:</span><p>${escape(plan.priority)}</p></div>
-        <div class="d6-action-field"><span class="d6-action-label">Acciones prioritarias:</span><ul class="d6-action-list">${plan.actions.map(a=>`<li>${escape(a)}</li>`).join('')}</ul></div>
-        <div class="d6-action-field"><span class="d6-action-label">Actores sugeridos:</span>${plan.actors.map(a=>`<span class="d6-action-chip">${escape(a)}</span>`).join('')}</div>
-        <div class="d6-action-field"><span class="d6-action-label">Indicadores de seguimiento:</span>${plan.indicators.map(i=>`<span class="d6-action-chip">${escape(i)}</span>`).join('')}</div>
-      </div>
-    `;
-  }
-
-  if(typeof window!=='undefined'&&window._umbralRuntime){
-    window._umbralRuntime.renderProfile=function(selection,records){
-      const host=document.getElementById('d6-state-profile');
-      const data=window.UMBRAL_FICHAS_ESTATALES;
-      if(!host||!data)return;
-      const key=selection.state?String(selection.state).padStart(2,'0'):'';
-      if(!key){
-        host.innerHTML='<div class="d6-profile-empty"><span class="eyebrow">CONTEXTO ANTES DE SIMULAR</span><h3>Consulta la ficha de tu estado</h3><p>Selecciona un estado en el mapa para ver sus antecedentes, contexto poblacional y documentos de referencia. Al entrar a un municipio se conserva la ficha estatal.</p><a href="#modulo-1">Elegir estado en el mapa ↑</a></div>';
-        document.getElementById('d6-action-plan-title').textContent='Plan de acción recomendado';
-        document.getElementById('d6-action-plan-content').innerHTML='<p class="d6-note">Selecciona un estado para ver su plan de acción recomendado.</p>';
-        return;
-      }
-      const rows=records.filter(r=>String(r.state).padStart(2,'0')===key);
-      const info=data.states[key];
-      const name=rows[0]?.state_name||info?.name||key;
-      const municipality=selection.municipality&&rows.find(r=>r.key===selection.municipality);
-      const card=(label,value,note)=>`<article><span>${escape(label)}</span><strong>${escape(value)}</strong><small>${escape(note)}</small></article>`;
-      const history=[2015,2018,2021,2024].map(year=>{
-        const s=UmbralAnalytics.summary(rows,year,'baseline');
-        return `<tr><td>${year}</td><td>${percent(s.rate)}</td><td>${s.valid} / ${s.total}</td></tr>`;
-      }).join('');
-      const latest=latestObservedRate(rows);
-      host.innerHTML=`<div class="d6-profile-heading"><div><span class="eyebrow">FICHA INFORMATIVA ESTATAL · ${escape(key)}</span><h3>${escape(name)}</h3></div><span class="d6-profile-badge">Datos y fuentes</span></div>
-        <p class="d6-profile-scope">${municipality?`Estás consultando ${escape(municipality.name)}. Esta ficha corresponde a todo ${escape(name)}; sus cifras no son las del municipio.`:'Contexto de toda la entidad, independiente del filtro de municipios con proyección.'}</p>
-        <div class="d6-profile-stats">${card('Población · 2024',info?.population?.['2024']?number.format(info.population['2024']):'Sin dato','Serie demográfica aportada; no lista nominal')}${card('Población · 2027',info?.population?.['2027']?number.format(info.population['2027']):'Sin dato','Proyección demográfica; no electores esperados')}${card('Municipios en la serie · 2027',info?.municipalities?.['2027']??'Sin dato','Cobertura del archivo demográfico')}</div>
-        <div class="d6-profile-body"><section><h4>Antecedentes observados del estado</h4><div class="table-wrap"><table><thead><tr><th>Elección</th><th>Abstención</th><th>Municipios con dato</th></tr></thead><tbody>${history}</tbody></table></div><p class="d6-note">Promedios ponderados por SV + NV del año. Se usan todos los registros de la entidad, incluidos los que no tienen proyección para 2027. Presidenciales e intermedias tienen contextos distintos.</p></section><section><h4>Qué permiten conocer estas fuentes</h4><p>Los conteos describen lo ocurrido y las series demográficas aportan contexto poblacional. Los documentos complementan la lectura con metodología, cultura cívica y antecedentes institucionales.</p><p>No identifican por sí solos por qué una persona no votó ni demuestran qué acción funcionaría en este estado.</p><p class="d6-note">${escape(data.population_definition)}</p></section></div>
-        <details class="d6-profile-sources"><summary>Documentos revisados y alcance de cada fuente</summary><div class="d6-source-grid">${data.sources.map(s=>`<article><span class="eyebrow">${escape(s.scope)}</span><h4>${escape(s.title)}</h4><p>${escape(s.note)}</p><a href="${sourceLink(s.path)}" target="_blank" rel="noopener">Consultar fuente local ↗</a></article>`).join('')}</div><p class="d6-note">También se revisaron los seis CSV de Bases_de_datos_explicativos. No se suman archivos solapados: la población mostrada procede únicamente de pobproy_ggrupos.csv. Las series de defunciones no se interpretan como motivos de abstención.</p><a href="data/fichas_estatales.json" download>Descargar datos, inventario y huellas de las fuentes ↓</a></details>`;
-      renderActionPlan(key);
-    };
-    runtime.renderProfile=window._umbralRuntime.renderProfile;
-  }
-})();
-
-
 /* SOURCE: src/demo6/views/state-context.js */
-/* Ficha descriptiva: conserva siempre el alcance estatal de las fuentes. */
+/* Render the selected state's plan and its 2027 comparison. */
 (() => {
   'use strict';
-  const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const number=new Intl.NumberFormat('es-MX',{maximumFractionDigits:0});
-  const percent=value=>Number.isFinite(value)?value.toFixed(2)+'%':'Sin dato';
-  const sourceLink=path=>'../../'+path.split('/').map(encodeURIComponent).join('/');
-  runtime.renderProfile=function(selection,records){
-    const host=document.getElementById('d6-state-profile');
-    const data=window.UMBRAL_FICHAS_ESTATALES;
-    if(!host||!data)return;
-    const key=selection.state?String(selection.state).padStart(2,'0'):'';
-    if(!key){
-      host.innerHTML='<div class="d6-profile-empty"><span class="eyebrow">CONTEXTO ANTES DE SIMULAR</span><h3>Consulta la ficha de tu estado</h3><p>Selecciona un estado en el mapa para ver sus antecedentes, contexto poblacional y documentos de referencia. Al entrar a un municipio se conserva la ficha estatal.</p><a href="#modulo-1">Elegir estado en el mapa ↑</a></div>';
+  const normalize=value=>String(value??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+  const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const stateAliases={'05':'Coahuila','15':'Estado de M\u00e9xico','16':'Michoac\u00e1n','30':'Veracruz'};
+  let renderedPlanKey='';
+
+  function statePlanSection(markdown,name,key){
+    const aliases=[name,stateAliases[key]].filter(Boolean).map(normalize);
+    const lines=markdown.split(/\r?\n/);
+    const start=lines.findIndex(line=>{
+      const heading=line.match(/^###\s+\d+(?:\.\d+)?\s+(.+?)\s*$/);
+      return heading&&aliases.includes(normalize(heading[1]));
+    });
+    if(start<0)return '';
+    let end=lines.findIndex((line,index)=>index>start&&/^#{1,3}\s+/.test(line));
+    if(end<0)end=lines.length;
+    return lines.slice(start+1,end).filter(line=>!line.startsWith('- **Impacto orientativo:**')).join('\n').trim();
+  }
+
+  function markdownToHtml(markdown){
+    const inline=value=>escapeHtml(value).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+    const lines=markdown.split(/\r?\n/),html=[];
+    let list='';
+    const closeList=()=>{if(list){html.push(`</${list}>`);list='';}};
+    for(const raw of lines){
+      const line=raw.trim();
+      if(!line){closeList();continue;}
+      const ordered=line.match(/^\d+\.\s+(.+)$/),unordered=line.match(/^[-*]\s+(.+)$/);
+      if(ordered||unordered){
+        const kind=ordered?'ol':'ul';
+        if(list&&list!==kind)closeList();
+        if(!list){list=kind;html.push(`<${kind}>`);}
+        html.push(`<li>${inline((ordered||unordered)[1])}</li>`);
+        continue;
+      }
+      closeList();
+      if(!/^---+$/.test(line))html.push(`<p>${inline(line)}</p>`);
+    }
+    closeList();
+    return html.join('');
+  }
+
+  const percentage=value=>`${value.toFixed(2)}%`;
+  const roundedCount=value=>{
+    const step=value<1000?10:value<10000?100:1000;
+    return Math.round(value/step)*step;
+  };
+  function renderComparison(selection,rows){
+    const panel=document.getElementById('d6-plan-comparison');
+    const values=document.getElementById('d6-plan-comparison-values');
+    const note=document.getElementById('d6-plan-comparison-note');
+    if(!panel||!values||!note)return;
+    const prediction=UmbralAnalytics.summary(rows,2027,selection.method);
+    const base=prediction.denominator;
+    if(!Number.isFinite(prediction.rate)||!base){
+      panel.hidden=false;
+      values.innerHTML='<p class="d6-note">No hay base suficiente para comparar este estado.</p>';
+      note.textContent='La comparaci\u00f3n incluye municipios con estimaci\u00f3n v\u00e1lida para 2027.';
       return;
     }
-    const rows=records.filter(r=>String(r.state).padStart(2,'0')===key);
-    const info=data.states[key];
-    const name=rows[0]?.state_name||info?.name||key;
-    const municipality=selection.municipality&&rows.find(r=>r.key===selection.municipality);
-    const card=(label,value,note)=>`<article><span>${escape(label)}</span><strong>${escape(value)}</strong><small>${escape(note)}</small></article>`;
-    const history=[2015,2018,2021,2024].map(year=>{
-      const s=UmbralAnalytics.summary(rows,year,'baseline');
-      return `<tr><td>${year}</td><td>${percent(s.rate)}</td><td>${s.valid} / ${s.total}</td></tr>`;
-    }).join('');
-    host.innerHTML=`<div class="d6-profile-heading"><div><span class="eyebrow">FICHA INFORMATIVA ESTATAL · ${escape(key)}</span><h3>${escape(name)}</h3></div><span class="d6-profile-badge">Datos y fuentes</span></div>
-      <p class="d6-profile-scope">${municipality?`Estás consultando ${escape(municipality.name)}. Esta ficha corresponde a todo ${escape(name)}; sus cifras no son las del municipio.`:'Contexto de toda la entidad, independiente del filtro de municipios con proyección.'}</p>
-      <div class="d6-profile-stats">${card('Población · 2024',info?.population?.['2024']?number.format(info.population['2024']):'Sin dato','Serie demográfica aportada; no lista nominal')}${card('Población · 2027',info?.population?.['2027']?number.format(info.population['2027']):'Sin dato','Proyección demográfica; no electores esperados')}${card('Municipios en la serie · 2027',info?.municipalities?.['2027']??'Sin dato','Cobertura del archivo demográfico')}</div>
-      <section class="d6-action-plan" id="d6-action-plan" aria-labelledby="d6-action-plan-title">
-        <h4 id="d6-action-plan-title">Plan de acción recomendado</h4>
-        <div id="d6-action-plan-content"></div>
-      </section>
-      <div class="d6-profile-body"><section><h4>Antecedentes observados del estado</h4><div class="table-wrap"><table><thead><tr><th>Elección</th><th>Abstención</th><th>Municipios con dato</th></tr></thead><tbody>${history}</tbody></table></div><p class="d6-note">Promedios ponderados por SV + NV del año. Se usan todos los registros de la entidad, incluidos los que no tienen proyección para 2027. Presidenciales e intermedias tienen contextos distintos.</p></section><section><h4>Qué permiten conocer estas fuentes</h4><p>Los conteos describen lo ocurrido y las series demográficas aportan contexto poblacional. Los documentos complementan la lectura con metodología, cultura cívica y antecedentes institucionales.</p><p>No identifican por sí solos por qué una persona no votó ni demuestran qué acción funcionaría en este estado.</p><p class="d6-note">${escape(data.population_definition)}</p></section></div>
-      <details class="d6-profile-sources"><summary>Documentos revisados y alcance de cada fuente</summary><div class="d6-source-grid">${data.sources.map(s=>`<article><span class="eyebrow">${escape(s.scope)}</span><h4>${escape(s.title)}</h4><p>${escape(s.note)}</p><a href="${sourceLink(s.path)}" target="_blank" rel="noopener">Consultar fuente local ↗</a></article>`).join('')}</div><p class="d6-note">También se revisaron los seis CSV de Bases_de_datos_explicativos. No se suman archivos solapados: la población mostrada procede únicamente de pobproy_ggrupos.csv. Las series de defunciones no se interpretan como motivos de abstención.</p><a href="data/fichas_estatales.json" download>Descargar datos, inventario y huellas de las fuentes ↓</a></details>`;
+    const lowEffect=0.3,centralEffect=1.5,highEffect=3.0,coverage=0.10;
+    const impact=effect=>Math.min(base*prediction.rate/100,base*coverage*effect/100);
+    const low=impact(lowEffect),central=impact(centralEffect),high=impact(highEffect);
+    const afterCentral=Math.max(0,prediction.rate-100*central/base);
+    panel.hidden=false;
+    values.innerHTML=`<article><span>Sin aplicar el plan \u00b7 predicci\u00f3n 2027</span><strong>${percentage(prediction.rate)}</strong><small>Abstenci\u00f3n estimada; participaci\u00f3n ${percentage(100-prediction.rate)}</small></article><span class="d6-plan-comparison-arrow" aria-hidden="true">\u2192</span><article><span>Plan aplicado \u00b7 escenario central</span><strong>${percentage(afterCentral)}</strong><small>Abstenci\u00f3n estimada; participaci\u00f3n ${percentage(100-afterCentral)}</small></article>`;
+    note.textContent=`Escenario: ${roundedCount(low).toLocaleString('es-MX')} a ${roundedCount(high).toLocaleString('es-MX')} votos adicionales (central: ${roundedCount(central).toLocaleString('es-MX')}); mejora estimada de 0.03 a 0.30 puntos porcentuales (central: 0.15). Supone alcanzar al 10 % de la base SV+NV 2024 y usa como proxy el efecto supuesto de informaci\u00f3n institucional pr\u00e1ctica (0.3 a 3.0 puntos; central 1.5) entre personas alcanzadas. No es un efecto comprobado del plan completo; la base excluye municipios sin estimaci\u00f3n.`;
+  }
+
+  runtime.renderStatePlan=function(selection,records){
+    const panel=document.getElementById('d6-state-plan');
+    const content=document.getElementById('d6-state-plan-content');
+    const title=document.getElementById('d6-state-plan-title');
+    if(!panel||!content||!title)return;
+    const key=selection.state?String(selection.state).padStart(2,'0'):'';
+    panel.hidden=false;
+    if(!key){
+      title.textContent='Plan de acci\u00f3n estatal';
+      content.innerHTML='<p class="d6-note">Selecciona un estado para consultar su plan.</p>';
+      document.getElementById('d6-plan-comparison').hidden=true;
+      renderedPlanKey='';
+      return;
+    }
+    const data=window.UMBRAL_FICHAS_ESTATALES;
+    const rows=records.filter(row=>String(row.state).padStart(2,'0')===key);
+    const name=rows[0]?.state_name||data?.states?.[key]?.name||key;
+    if(renderedPlanKey===key){renderComparison(selection,rows);return;}
+    try{
+      const section=statePlanSection(statePlanMarkdown,name,key);
+      if(!section)throw new Error(`No se encontr\u00f3 el plan de ${name}.`);
+      title.textContent=`Plan de acci\u00f3n \u00b7 ${name}`;
+      content.innerHTML=markdownToHtml(section);
+      renderedPlanKey=key;
+    }catch(error){
+      content.innerHTML=`<p class="d6-note">${escapeHtml(error.message||'No se pudo mostrar el plan estatal.')}</p>`;
+    }
+    renderComparison(selection,rows);
   };
 })();
 
@@ -1862,7 +1510,7 @@ if(typeof window!=='undefined'){
     const views=runtime.views;
     views.renderSummary(context);views.renderHistory(context);views.renderEvidence(context);
     renderScenario();
-    runtime.renderProfile?.(state,records);
+    runtime.renderStatePlan?.(state,records);
     $('method').disabled=state.year!==2027;
     $('modulo-3').hidden=state.year!==2027;
     $('d6-historical-notice').hidden=state.year===2027;

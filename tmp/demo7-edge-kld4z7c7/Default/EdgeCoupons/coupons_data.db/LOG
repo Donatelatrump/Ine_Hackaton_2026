@@ -1,0 +1,5 @@
+2026/10/17-14:55:02.504 e04 Creating DB C:\Users\Cesar Donnet\Desktop\Ine_Hackaton_2026\tmp\demo7-edge-kld4z7c7\Default\EdgeCoupons/coupons_data.db since it was missing.
+2026/10/17-14:55:02.511 e04 Reusing MANIFEST C:\Users\Cesar Donnet\Desktop\Ine_Hackaton_2026\tmp\demo7-edge-kld4z7c7\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
+2026/10/17-14:55:02.683 1878 Level-0 table #5: started
+2026/10/17-14:55:02.687 1878 Level-0 table #5: 683273 bytes OK
+2026/10/17-14:55:02.689 1878 Delete type=0 #3

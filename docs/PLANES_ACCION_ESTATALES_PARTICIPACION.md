@@ -58,6 +58,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Aguascalientes, ayuntamiento de la capital, instituciones educativas.
 - **Indicadores:** % de credenciales vigentes en lista nominal, asistencia a casillas,Mensajes de información entregados.
 - **Horizonte:** preelectoral (3 meses antes) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **320–3,200 votos adicionales** (central: **1,600**) en municipios estimables.
 
 ### 5.2 Baja California
 
@@ -69,6 +70,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Baja California, ayuntamientos (Tijuana, Mexicali, Ensenada), consulados (coordinación informativa).
 - **Indicadores:** actualización de domicilio en credencial, casillas instaladas, participación por sección.
 - **Horizonte:** preelectoral (4 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **630–6,300 votos adicionales** (central: **3,100**) en municipios estimables.
 
 ### 5.3 Baja California Sur
 
@@ -80,6 +82,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Baja California Sur, ayuntamientos, autoridades comunitarias.
 - **Indicadores:** casillas con acceso reportado, participación rural vs urbana, alcance de difusión radiofónica.
 - **Horizonte:** preelectoral (3 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **180–1,800 votos adicionales** (central: **880**) en municipios estimables.
 
 ### 5.4 Campeche
 
@@ -91,6 +94,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Campeche, ayuntamientos, autoridades indígenas y comunitarias.
 - **Indicadores:** materiales en lenguas indígenas, casillas con intérprete, participación en municipios rurales.
 - **Horizonte:** preelectoral (4 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **30–270 votos adicionales** (central: **140**) en municipios estimables.
 
 ### 5.5 Chiapas
 
@@ -103,6 +107,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Chiapas, ayuntamientos, organizaciones de la sociedad civil, autoridades comunitarias.
 - **Indicadores:** casillas en municipios prioritarios, materiales en lenguas originarias, brigadas realizadas, participación municipal.
 - **Horizonte:** preelectoral (5 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **570–5,700 votos adicionales** (central: **2,900**) en municipios estimables.
 
 ### 5.6 Chihuahua
 
@@ -114,6 +119,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Chihuahua, ayuntamientos, transporte público estatal/municipal.
 - **Indicadores:** participación por municipio, puntos de información instalados, servicios de traslado.
 - **Horizonte:** preelectoral (4 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **100–1,000 votos adicionales** (central: **520**) en municipios estimables.
 
 ### 5.7 Coahuila
 
@@ -125,6 +131,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Coahuila, ayuntamientos, sector privado, sindicatos.
 - **Indicadores:** centros laborales alcanzados, casillas con horario extendido, participación en zonas industriales.
 - **Horizonte:** preelectoral (3 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **430–4,300 votos adicionales** (central: **2,100**) en municipios estimables.
 
 ### 5.8 Colima
 
@@ -136,6 +143,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Colima, ayuntamientos, instituciones educativas.
 - **Indicadores:** alcance de campaña digital, recordatorios enviados, participación juvenil.
 - **Horizonte:** preelectoral (2 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **170–1,700 votos adicionales** (central: **850**) en municipios estimables.
 
 ### 5.9 Durango
 
@@ -147,6 +155,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Durango, ayuntamientos, instituciones educativas, investigadores locales.
 - **Indicadores:** participación juvenil 18–29, talleres realizados, casillas en zonas rurales/mineras.
 - **Horizonte:** preelectoral (4 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **400–4,000 votos adicionales** (central: **2,000**) en municipios estimables.
 
 ### 5.10 Estado de México
 
@@ -159,6 +168,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL del Estado de México, ayuntamientos, transporte público, comercio organizado.
 - **Indicadores:** participación por sección, casillas instaladas, cobertura de campaña en transporte público.
 - **Horizonte:** preelectoral (5 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **3,400–34,000 votos adicionales** (central: **17,000**) en municipios estimables.
 
 ### 5.11 Guanajuato
 
@@ -170,6 +180,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Guanajuato, ayuntamientos, líderes comunitarios.
 - **Indicadores:** participación municipal, eventos comunitarios, casillas rurales.
 - **Horizonte:** preelectoral (4 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **1,400–14,000 votos adicionales** (central: **6,800**) en municipios estimables.
 
 ### 5.12 Guerrero
 
@@ -181,6 +192,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Guerrero, ayuntamientos, autoridades comunitarias, radios comunitarias.
 - **Indicadores:** casillas operativas, materiales en lenguas indígenas, municipios cubiertos por radio comunitaria.
 - **Horizonte:** preelectoral (5 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **680–6,800 votos adicionales** (central: **3,400**) en municipios estimables.
 
 ### 5.13 Hidalgo
 
@@ -192,6 +204,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Hidalgo, ayuntamientos, instituciones educativas, autoridades indígenas.
 - **Indicadores:** participación en municipios indígenas, talleres realizados, casillas en zonas rurales.
 - **Horizonte:** preelectoral (4 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **520–5,200 votos adicionales** (central: **2,600**) en municipios estimables.
 
 ### 5.14 Jalisco
 
@@ -203,6 +216,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Jalisco, ayuntamientos (Guadalajara y conurbados), medios de comunicación.
 - **Indicadores:** participación por sección metropolitana, casillas instaladas, alcance digital.
 - **Horizonte:** preelectoral (4 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **1,700–17,000 votos adicionales** (central: **8,600**) en municipios estimables.
 
 ### 5.15 Michoacán
 
@@ -214,6 +228,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Michoacán, ayuntamientos, autoridades indígenas, organizaciones de migrantes.
 - **Indicadores:** participación en zonas indígenas, revalidaciones de credencial, casillas rurales.
 - **Horizonte:** preelectoral (5 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **730–7,300 votos adicionales** (central: **3,700**) en municipios estimables.
 
 ### 5.16 Morelos
 
@@ -225,6 +240,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Morelos, ayuntamientos, centros de atención al adulto mayor.
 - **Indicadores:** participación urbana, recordatorios enviados, casillas accesibles.
 - **Horizonte:** preelectoral (3 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **380–3,800 votos adicionales** (central: **1,900**) en municipios estimables.
 
 ### 5.17 Nayarit
 
@@ -236,6 +252,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Nayarit, ayuntamientos, autoridades indígenas.
 - **Indicadores:** materiales en lenguas originarias, participación en municipios serranos/costeros, casillas con intérprete.
 - **Horizonte:** preelectoral (4 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **180–1,800 votos adicionales** (central: **890**) en municipios estimables.
 
 ### 5.18 Nuevo León
 
@@ -248,6 +265,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Nuevo León, ayuntamientos (Monterrey y conurbados), sector privado, sindicatos.
 - **Indicadores:** participación metropolitana, centros laborales alcanzados, casillas con horario extendido.
 - **Horizonte:** preelectoral (4 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **830–8,300 votos adicionales** (central: **4,100**) en municipios estimables.
 
 ### 5.19 Oaxaca
 
@@ -260,6 +278,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Oaxaca, ayuntamientos, autoridades comunitarias e indígenas, OSC.
 - **Indicadores:** materiales en lenguas indígenas, casillas en municipios prioritarios, brigadas realizadas, participación municipal.
 - **Horizonte:** preelectoral (5 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **770–7,700 votos adicionales** (central: **3,900**) en municipios estimables.
 
 ### 5.20 Puebla
 
@@ -271,6 +290,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Puebla, ayuntamientos, autoridades indígenas, medios locales.
 - **Indicadores:** participación en municipios indígenas, casillas rurales, materiales en lenguas originarias.
 - **Horizonte:** preelectoral (4 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **1,200–12,000 votos adicionales** (central: **6,200**) en municipios estimables.
 
 ### 5.21 Querétaro
 
@@ -282,6 +302,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Querétaro, ayuntamientos, desarrolladores habitacionales (coordinación informativa).
 - **Indicadores:** credenciales tramitadas por nuevos residentes, participación en zonas nuevas, casillas instaladas.
 - **Horizonte:** preelectoral (4 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **560–5,600 votos adicionales** (central: **2,800**) en municipios estimables.
 
 ### 5.22 Quintana Roo
 
@@ -293,6 +314,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Quintana Roo, ayuntamientos, sector turístico (coordinación informativa).
 - **Indicadores:** actualización de domicilio, participación en zonas turísticas/rurales, casillas instaladas.
 - **Horizonte:** preelectoral (4 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **420–4,200 votos adicionales** (central: **2,100**) en municipios estimables.
 
 ### 5.23 San Luis Potosí
 
@@ -304,6 +326,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de San Luis Potosí, ayuntamientos, radios comunitarias, autoridades indígenas.
 - **Indicadores:** participación en municipios rurales, materiales en lenguas indígenas, cobertura radiofónica.
 - **Horizonte:** preelectoral (4 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **440–4,400 votos adicionales** (central: **2,200**) en municipios estimables.
 
 ### 5.24 Sinaloa
 
@@ -315,6 +338,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Sinaloa, ayuntamientos, organizaciones agrícolas, radios locales.
 - **Indicadores:** participación en zonas agrícolas, casillas con horario extendido, centros de acopio alcanzados.
 - **Horizonte:** preelectoral (4 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **430–4,300 votos adicionales** (central: **2,200**) en municipios estimables.
 
 ### 5.25 Sonora
 
@@ -326,6 +350,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Sonora, ayuntamientos, autoridades indígenas, transporte público.
 - **Indicadores:** participación en zonas fronterizas/desérticas, materiales en lenguas indígenas, servicios de traslado.
 - **Horizonte:** preelectoral (5 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **240–2,400 votos adicionales** (central: **1,200**) en municipios estimables.
 
 ### 5.26 Tabasco
 
@@ -337,6 +362,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Tabasco, ayuntamientos, protección civil, radios locales.
 - **Indicadores:** casillas con plan de contingencia, participación municipal, cobertura de difusión.
 - **Horizonte:** preelectoral (4 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **380–3,800 votos adicionales** (central: **1,900**) en municipios estimables.
 
 ### 5.27 Tamaulipas
 
@@ -348,6 +374,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Tamaulipas, ayuntamientos, sector privado, consulados (coordinación informativa).
 - **Indicadores:** participación fronteriza/urbana, revalidaciones de domicilio, casillas instaladas.
 - **Horizonte:** preelectoral (4 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **670–6,700 votos adicionales** (central: **3,300**) en municipios estimables.
 
 ### 5.28 Tlaxcala
 
@@ -359,6 +386,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Tlaxcala, ayuntamientos, instituciones educativas.
 - **Indicadores:** participación municipal, talleres realizados, casillas rurales.
 - **Horizonte:** preelectoral (3 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **230–2,300 votos adicionales** (central: **1,200**) en municipios estimables.
 
 ### 5.29 Veracruz
 
@@ -371,6 +399,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Veracruz, ayuntamientos, autoridades comunitarias e indígenas, radios comunitarias, OSC.
 - **Indicadores:** participación por municipio, materiales en lenguas indígenas, brigadas realizadas, casillas en municipios prioritarios.
 - **Horizonte:** preelectoral (5 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **1,500–15,000 votos adicionales** (central: **7,400**) en municipios estimables.
 
 ### 5.30 Yucatán
 
@@ -383,6 +412,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Yucatán, ayuntamientos, autoridades mayas, instituciones educativas.
 - **Indicadores:** participación en municipios mayas, casillas con intérprete, alcance digital, talleres realizados.
 - **Horizonte:** preelectoral (4 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **380–3,800 votos adicionales** (central: **1,900**) en municipios estimables.
 
 ### 5.31 Zacatecas
 
@@ -394,6 +424,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de Zacatecas, ayuntamientos, organizaciones de migrantes, sector minero.
 - **Indicadores:** participación en zonas rurales/mineras, revalidaciones de credencial, casillas instaladas.
 - **Horizonte:** preelectoral (4 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **320–3,200 votos adicionales** (central: **1,600**) en municipios estimables.
 
 ### 5.32 Ciudad de México
 
@@ -406,6 +437,7 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - **Actores:** INE junta local, OPL de la Ciudad de México, alcaldías, transporte público, instituciones educativas.
 - **Indicadores:** participación por sección y alcaldía, casillas instaladas, cobertura en transporte público, alcance digital.
 - **Horizonte:** preelectoral (5 meses) y día de elección.
+- **Impacto orientativo:** +0.03 a +0.30 puntos porcentuales de participación (escenario central: +0.15 pp), equivalentes a aproximadamente **2,300–23,000 votos adicionales** (central: **12,000**) en municipios estimables.
 
 ---
 
@@ -425,3 +457,9 @@ Definir, por entidad federativa, un plan de acción operativo para aumentar la p
 - Una aprobación institucional no demuestra ejecución ni efecto.
 - Cuando no exista un dato estatal representativo, registrar «no disponible en las fuentes revisadas».
 - Este documento no contiene estrategias de movilización electoral ni recomendaciones de canales, mensajes o grupos que deban recibir una intervención (declaración de la fuente base); los planes aquí presentados son propuestas operativas a validar localmente.
+
+## 8. Estimación aproximada de impacto
+
+Las cifras por estado son un escenario de referencia, no una predicción ni un efecto comprobado del conjunto de acciones. Su cálculo supone alcanzar al 10 % de la base observable SV+NV de 2024 en municipios con estimación válida para 2027, y aplicar a las personas alcanzadas el supuesto de información institucional práctica de la demo: 0.3–3.0 pp de efecto (valor central: 1.5 pp). Por eso el cambio estatal equivale a +0.03–+0.30 pp (central: +0.15 pp).
+
+Los votos adicionales se calculan como base elegible × 10 % de cobertura × efecto supuesto, y se redondean para evitar falsa precisión. La base excluye municipios sin estimación válida y no representa la lista nominal ni el electorado de 2027. El supuesto de efecto procede de evidencia heterogénea y no está validado para estas acciones, estados o elección; no se suman los efectos de varias actividades. Se requiere definir presupuesto, alcance real y una evaluación local antes de atribuir impacto.

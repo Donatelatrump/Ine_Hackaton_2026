@@ -64,6 +64,3 @@
   #module-three-title { font-size:clamp(34px,8.5vw,58px); }
   #modulo-3 .module-sticker { margin-top:0; }
 }
-.d6-action-plan { padding:22px 0; margin:24px 0; min-width:0; border-top:1px solid #d5ddd4; border-bottom:1px solid #d5ddd4; }
-.d6-action-plan h4 { margin:0; font-size:20px; line-height:1.35; }
-#d6-action-plan-content { min-height:64px; }

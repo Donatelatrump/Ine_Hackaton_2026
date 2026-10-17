@@ -1,0 +1,225 @@
+{
+   "checksum": "b86bea38379e8425ba41ef0f87099a26",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "0",
+            "date_last_used": "0",
+            "guid": "f54db967-8ca0-465b-b91b-e441999c5559",
+            "id": "14",
+            "name": "Facebook",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://www.facebook.com/",
+            "visit_count": 0
+         }, {
+            "date_added": "0",
+            "date_last_used": "0",
+            "guid": "a98df0c6-f85e-4e17-8925-3e39a34d5f12",
+            "id": "15",
+            "name": "Reescribe, reordena o vuelve a escribir texto | cambiador de palabras gratis | Español",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://smodin.me/es/Reproduzca-autom%C3%A1ticamente-texto-en-espa%C3%B1ol-gratis",
+            "visit_count": 0
+         }, {
+            "date_added": "0",
+            "date_last_used": "0",
+            "guid": "d4f2ab81-f344-4af5-aca9-e484e9ce10c9",
+            "id": "16",
+            "name": "Contratos, formatos, machotes y plantillas para uso en México",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://derechomexicano.com.mx/contratos/",
+            "visit_count": 0
+         }, {
+            "date_added": "0",
+            "date_last_used": "0",
+            "guid": "84af2761-9435-40c9-b6d8-ffcd2f51e73a",
+            "id": "17",
+            "name": "Aula Virtual Licenciatura",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://aulavirtual.uaa.mx/",
+            "visit_count": 0
+         }, {
+            "date_added": "0",
+            "date_last_used": "0",
+            "guid": "2b94f08b-c7ba-4fc0-b7c4-792cc23cfa27",
+            "id": "18",
+            "name": "Curso de Inteligencia Artificial con IBM Watson - Platzi",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://platzi.com/cursos/ibm-watson/",
+            "visit_count": 0
+         }, {
+            "date_added": "0",
+            "date_last_used": "0",
+            "guid": "89769037-dc0c-482d-ba07-7450bbf05c00",
+            "id": "19",
+            "name": "Ver Komi-san wa, Comyushou desu. Episodio 2 - AnimeFLV",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://ww3.animeflv.cc/komisan-wa-comyushou-desu-2",
+            "visit_count": 0
+         }, {
+            "date_added": "0",
+            "date_last_used": "0",
+            "guid": "0dbee5c9-5ef6-4933-8d75-6cbe6d02b5e5",
+            "id": "20",
+            "name": "Enen no Shouboutai Episodio 1 Sub Español — AnimeFLV",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://www3.animeflv.net/ver/enen-no-shouboutai-1",
+            "visit_count": 0
+         }, {
+            "date_added": "0",
+            "date_last_used": "0",
+            "guid": "455bff84-846a-4b01-9f7d-965010e3c44b",
+            "id": "21",
+            "name": "Instalar Steam",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://store.steampowered.com/about/?snr=1_7_7_151_global-header",
+            "visit_count": 0
+         }, {
+            "date_added": "0",
+            "date_last_used": "0",
+            "guid": "7ccbb690-babb-4398-be91-d83f8e323cee",
+            "id": "22",
+            "name": "Configuración del entorno de trabajo - Platzi",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://platzi.com/clases/1804-ibm-watson/26171-configuracion-del-entorno-de-trabajo/",
+            "visit_count": 0
+         } ],
+         "date_added": "13436743983875257",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "Barra de favoritos",
+         "source": "unknown",
+         "type": "folder"
+      },
+      "other": {
+         "children": [ {
+            "children": [ {
+               "date_added": "0",
+               "date_last_used": "0",
+               "guid": "218e5867-fd68-4b4a-9bb0-6cb368034578",
+               "id": "8",
+               "name": "Tutorial crear cartel cine - YouTube",
+               "show_icon": false,
+               "source": "sync",
+               "type": "url",
+               "url": "https://www.youtube.com/watch?v=EmUxH14h_7Y",
+               "visit_count": 0
+            }, {
+               "date_added": "0",
+               "date_last_used": "0",
+               "guid": "8ec03f10-cd51-4be2-8fb9-8f671cdbc50e",
+               "id": "9",
+               "name": "Power Jack Laptop Asus K43 Series K43s K43e K43b K43ta K43ly | Mercado Libre",
+               "show_icon": false,
+               "source": "sync",
+               "type": "url",
+               "url": "https://articulo.mercadolibre.com.mx/MLM-614591799-power-jack-laptop-asus-k43-series-k43s-k43e-k43b-k43ta-k43ly-_JM#position=3&type=item&tracking_id=556ed43b-9cfc-46af-a0c7-0c71eafba740",
+               "visit_count": 0
+            } ],
+            "date_added": "13296505420228830",
+            "date_last_used": "0",
+            "date_modified": "13296505420228830",
+            "guid": "4da812f6-9b12-418d-893d-1ed7f6814d58",
+            "id": "7",
+            "name": "Other Bookmarks",
+            "source": "unknown",
+            "type": "folder"
+         }, {
+            "children": [ {
+               "date_added": "0",
+               "date_last_used": "0",
+               "guid": "e3766320-c53d-41c1-a92a-46234a4bdf77",
+               "id": "11",
+               "name": "forma.gle",
+               "show_icon": false,
+               "source": "sync",
+               "type": "url",
+               "url": "https://forma.gle/cmFKgXUfiQepYV3h8",
+               "visit_count": 0
+            }, {
+               "date_added": "0",
+               "date_last_used": "0",
+               "guid": "ed1018c8-d80e-40d3-be48-c837d139056a",
+               "id": "12",
+               "name": "Ford Ranger (1996) - fuse box diagram - Auto Genius",
+               "show_icon": false,
+               "source": "sync",
+               "type": "url",
+               "url": "https://www.google.com/amp/s/www.autogenius.info/ford-ranger-1996-fuse-box-diagram-2/amp/",
+               "visit_count": 0
+            }, {
+               "date_added": "0",
+               "date_last_used": "0",
+               "guid": "ccd7c86f-83b7-4d7b-a89f-e894d87ef24d",
+               "id": "13",
+               "name": "Chess.com - Play Chess Online - Free Games",
+               "show_icon": false,
+               "source": "sync",
+               "type": "url",
+               "url": "https://www.chess.com/",
+               "visit_count": 0
+            } ],
+            "date_added": "13296505420229113",
+            "date_last_used": "0",
+            "date_modified": "13296505420229113",
+            "guid": "d32864e7-dab2-48bc-9d36-2979a43ada95",
+            "id": "10",
+            "name": "Synced Bookmarks",
+            "source": "unknown",
+            "type": "folder"
+         } ],
+         "date_added": "13436743983875257",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "Otros favoritos",
+         "source": "unknown",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13436743983875257",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "Favoritos móviles",
+         "source": "unknown",
+         "type": "folder"
+      },
+      "workspaces_v2": {
+         "children": [  ],
+         "date_added": "13436743983875257",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "75aa6670-344f-549d-b742-660f029506ab",
+         "id": "5",
+         "name": "Áreas de trabajo",
+         "source": "unknown",
+         "type": "folder"
+      }
+   },
+   "sync_metadata": "CkEKHgiIgQISCKY7n0uhAQAAKg4QABgBIAAoBTAAOABAABIAKhg5U09MMzJVOUM1TEV2MFM1YUlhdytnPT1IA6AGDBKMAQgFEocBChx3UkJyWkwrNlBBOWF2S2dqTlA3SlhETGNmdnM9EiRhM2ViZWZmZC04ZWQzLTU0ZjUtOTk4YS1kNGYxOWJlNzY4MDMYACAAKAAwz7ft758zOMy57e+fM0DMue3vnzNKHG5teDY1c1FEdnhJOFRnRWV2K0ErbnR0b1NuND1lAAAAAMI+AmAAEq0BCBYSqAEKHFFBcm9WRUxjTnN0QUg0b1ZsTW5MRkVVY0crYz0SJDdjY2JiNjkwLWJhYmItNDM5OC1iZTkxLWQ4M2Y4ZTMyM2NlZRgAIAAoADDi4pSmijA45uaUpoowQObmlKaKMEocc2x5Wis0K2RaS3B1Zkg2eG1aWi9scUIveTEwPVofIh3/RzlIUEZadmFNaVBpMlFoNW15T3BVSnhBVGRBPWUAAAAAwj4CYAUSrQEIFRKoAQocMXpaUVFHMFVoenRYY0xOQi96ZW9Va2FLVnVJPRIkNDU1YmZmODQtODQ2YS00YjAxLTlmN2QtOTY1MDEwZTNjNDRiGAAgACgAMOLilKaKMDis5JSmijBArOSUpoowShxzY0lOdy9QZjlVWVl4bzVUMFJIRmlkTjJQWFU9Wh8iHf5KRzBtek1ETnFrekpaSS85NVRNZVFZSjlEQ0k9ZQAAAADCPgJgBRKtAQgSEqgBChxDWHdncHVQcnd2a0tsa0FSL3YzTmhycmUzYTA9EiQyYjk0ZjA4Yi1jN2JhLTRmYzAtYjdjNC03OTJjYzIzY2ZhMjcYACAAKAAw4uKUpoowOMbmlKaKMEDG5pSmijBKHDZDcUl4WEZvdFh4QWF0b2h5cDc4bmF4UWhpZz1aHyId9mFiMCtPYjRwRnZjMytZMi9XbFYvcjBLTTFLTT1lAAAAAMI+AmAFEq0BCBASqAEKHGtleEdwOThkclhQUE1mNWhIeEpUemlVU3ZSbz0SJGQ0ZjJhYjgxLWYzNDQtNGFmNS1hY2E5LWU0ODRlOWNlMTBjORgAIAAoADDi4pSmijA47eOUpoowQO3jlKaKMEocVXFhWWw4VXRSOVZzWTdPSHVSR3grWWMxS0FzPVofIh3Yc2JRL0dnOGFyZDBQVUdFNVdxOXkyZkU2ekFvPWUAAAAAwj4CYAUSrQEIFBKoAQocQ3UwK1VyTEpYS0pOVXhka3BWclpQQzlUY1FjPRIkMGRiZWU1YzktNWVmNi00OTMzLThkNzUtNmNiZTZkMDJiNWU1GAAgACgAMOLilKaKMDje45SmijBA3uOUpoowShx5Z0IzL0t3dE10TTlKbS95YVVyVmU0ZDBYaXc9Wh8iHf1JV280VThKaXF6M2o0bjBzMDlGWWdhd2NPZjQ9ZQAAAADCPgJgBRKMAQgBEocBChx5eEovNmZ2a2VjcjdrcDVFUXpCNHRXTHBkYkU9EiQ5NGEzYzJiMi1iYzYxLTUzYzktYmQ0NS04M2IyMGRiMDNiNTEYACAAKAAw9qyalrIwOInAhbftL0CJwIW37S9KHGFSQ1dMZ2hGOWI1SW5xS0lEdnVKL2p2UWtGYz1lAAAAAMI+AmAAEowBCAMShwEKHG5qZ0R1ODhlQ3J2WHA4NnBEN2ZIR2NxRnA4OD0SJDY4ZWFjY2VlLTRjNGMtNTAzNC1iMDFiLTU3MTkyYTVlMzhjMxgAIAAoADD2rJqWsjA49sCFt+0vQPbAhbftL0oceXpOQjAxY241NEE3Y1JVMHVUKy9QZ21UdFVvPWUAAAAAwj4CYAASrQEIERKoAQocL0VmSkhNWE1URmR6S1ZlbXVhakw1a3NpWHk0PRIkODRhZjI3NjEtOTQzNS00MGM5LWI2ZDgtZmZjZDJmNTFlNzNhGAAgACgAMNXwope4MTiq5ZSmijBAquWUpoowShxXcDM5NkVtenowNE40empxOWtFOUhwck54blk9Wh8iHexvN21VNjYwUGpja04wRlpRRG5oZXFzRGhvLzA9ZX3ATwfCPgJgBRKsAQgHEqcBChxTdG9mRXIxa2ozZEZKYnJUSjNJMFJlZUZLZ0k9EiQ0ZGE4MTJmNi05YjEyLTQxOGQtODkzZC0xZWQ3ZjY4MTRkNTgYACAAKAAw4uKUpoowOLzklKaKMEC85JSmijBKHEIrRlJvTDFMRnRSTGJjRDdsdEhrTE1GZ0s2ND1aHiIcQ3FydVJOa1Z4NVhxazNkaE5VMnZjbFZIbjBrPWUAAAAAwj4CYAASrQEIDBKoAQoccnVhRCtMUkpPNml6eWdLN1loUExSNU5hMDQwPRIkZWQxMDE4YzgtZDgwZS00MGQzLWJlNDgtYzgzN2QxMzkwNTZhGAAgACgAMOLilKaKMDiI5pSmijBAiOaUpoowShxCYVpPN24xSDBBZDVNREZicHI2cDFWK3ZLdkk9Wh8iHbRVQTArL1FMSHMxMk9uYk5FQXZlS003dDVvS289ZQAAAADCPgJgBRKsAQgLEqcBChxSSko2eUlESVhuaXoydzZZY2paSGtZdFNFdm89EiRlMzc2NjMyMC1jNTNkLTQxYzEtYTkyYS00NjIzNGE0YmRmNzcYACAAKAAw4uKUpoowOPjllKaKMED45ZSmijBKHENoRmlqQ3NBbFExU29KVHl5SDNzWSs0ZktxRT1aHiIcaWM4aFV3RHJhUU9ySGRxYUJCWWhpemZpTk93PWUAAAAAwj4CYAUSrAEICBKnAQocc21ZR1RpK3JtMER3RGZFbTJpWEpuQ2hVcUlvPRIkMjE4ZTU4NjctZmQ2OC00YjRhLTliYjAtNmNiMzY4MDM0NTc4GAAgACgAMOLilKaKMDjb5JSmijBA2+SUpoowShxoeWhtTlh2V05CRTdEQVk0M1U2dmdKZlFwU0k9Wh4iHC9pN2xnUHJlNW5oSW9OK3FHRnZhQ0xnckdvZz1lAAAAAMI+AmAFEq0BCA8SqAEKHFNqOW94S0w1VGlyeGhJdUMweXl6elFpMjlmRT0SJGE5OGRmMGM2LWY4NWUtNGUxNy04OTI1LTNlMzlhMzRkNWYxMhgAIAAoADDi4pSmijA4v+OUpoowQL/jlKaKMEocV2o0OUM3VERoMk0wNGRBRWt6eHdPakR3Y1VRPVofIh2xRVpXUDBLaVdLWWc0V0VHaFEwWEY2eDhtekgwPWUAAAAAwj4CYAUSrQEIExKoAQocYnEyYWlqamptSm1PRCtTOHYvNWFPc3k1aXVBPRIkODk3NjkwMzctZGMwYy00ODJkLWJhMDctNzQ1MGJiZjA1YzAwGAAgACgAMOLilKaKMDj945SmijBA/eOUpoowShx6b2lKSjZtd3BwQzZqR0FGbHpSN0FUeG5CcGc9Wh8iHftMR1liQXlBaFJneFc4bnpMTEgxRmczVTBwb0E9ZQAAAADCPgJgBRKMAQgCEocBChxZY1NUb252RVNQd3FDczRMMmNyVmh2NjhMOTg9EiQ1NzA4YTFhMC0zYTc2LTU1ZjYtYjI3OS1lOTA1OGVjNjllM2MYACAAKAAw9qyalrIwOJjAhbftL0CYwIW37S9KHG9QVmtod0JSYlY2NUtDV1IyK0lPTkhXb091OD1lAAAAAMI+AmAAEqwBCA4SpwEKHHhacm5ZdktwME5LaCtBQ0YzT2JFbVpTeUUxQT0SJGY1NGRiOTY3LThjYTAtNDY1Yi1iOTFiLWU0NDE5OTljNTU1ORgAIAAoADDU8KKXuDE4i+WUpoowQIvllKaKMEocV05RWTFwSjNSbWg4UmhBV2RIU29TQTJqa0lJPVoeIhxiZi8xWWp2UTNSUVhva050SFRDQlFnSk1IYWM9ZcSRdsXCPgJgBRKtAQgNEqgBChxYYWg2dktHeTZDWnBMRjdHeXh0YTFrUlo1aTA9EiRjY2Q3Yzg2Zi04M2I3LTRkN2ItYTg5Zi1lODk0ZDg3ZWYyNGQYACAAKAAw4uKUpoowOKfmlKaKMECn5pSmijBKHDJIVjRkUWc5SWNpdlhxZjI2VFdRQzFGaGd5Yz1aHyId2ktPa3dWT05YMnI4Yjgydm9RVFNCcFNZeDh5VT1lAAAAAMI+AmAFEqwBCAoSpwEKHHRSMDJ6QUxwVXNNYTFETkkyV3YvQXNiVkdNMD0SJGQzMjg2NGU3LWRhYjItNDhiYy05ZDM2LTI5NzlhNDNhZGE5NRgAIAAoADDi4pSmijA42eWUpoowQNnllKaKMEocSWpBcm5Hd1pYZ1lvQkRWUGlPOVhmcUZyYzZNPVoeIhxRMTRwMXJtRExaSGdNcmNYOEhBdUFDYmxvdDA9ZQAAAADCPgJgABKsAQgJEqcBChxtWGRFNUJJUDQ2am5NNlladjRvaTlpVW1LeDQ9EiQ4ZWMwM2YxMC1jZDUxLTRiZTItOGZiOS04ZjY3MWNkYmM1MGUYACAAKAAw4uKUpoowOPrklKaKMED65JSmijBKHEljSWdMVW9yaUw4MXFjNkpsTTlEWG5ya0JpWT1aHiIcakxTUzBGNkdPTGxFTDVxbXVmT253Q2ZUNlFJPWUAAAAAwj4CYAUwADgA",
+   "version": 1
+}

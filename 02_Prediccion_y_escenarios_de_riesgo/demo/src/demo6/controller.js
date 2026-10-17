@@ -36,7 +36,7 @@
     const views=runtime.views;
     views.renderSummary(context);views.renderHistory(context);views.renderEvidence(context);
     renderScenario();
-    runtime.renderProfile?.(state,records);
+    runtime.renderStatePlan?.(state,records);
     $('method').disabled=state.year!==2027;
     $('modulo-3').hidden=state.year!==2027;
     $('d6-historical-notice').hidden=state.year===2027;
