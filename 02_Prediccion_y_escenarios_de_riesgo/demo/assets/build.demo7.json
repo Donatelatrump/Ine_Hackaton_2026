@@ -28,8 +28,8 @@
     "src/demo6/views/history.js": "ec24ba661009917ee16763f83f3955fd9cc6719c8698916d26a5a9de5a36fcdc",
     "src/demo6/views/evidence.js": "e09a31a817a014ffde813049fff481c3b03938cd4ee27862a42951e4b00aebb2",
     "src/demo7/controller.js": "ac5b2b53236348075d5e10e54cd539391fecedf8ca6109bfa679dd045d6e82e9",
-    "src/demo7/experience.js": "f3d417375d0820cc4524ed0b4ce6ef0146a5107a9ea97a8ef010cccadefcc3ee",
-    "src/demo7/planning.js": "1c3c626ecde7324a00972ee93cd02bd7ee57a766fe4eb01ab3b746c372016a08",
+    "src/demo7/experience.js": "16c9be0132f8b6600b9880370f15cb4c3a0bf67bd69fa69e64d3a8b87b921270",
+    "src/demo7/planning.js": "e14fd49fc519a1808b55a28ae90d89101f8321df1a0e96bc07cfde1b0cb3f8af",
     "src/demo6/app/start.js": "c129eaa4f250e089adaaec134aecacdaf4428610ff088fcf8cbbb918b52b793e",
     "styles/demo6/foundation.css": "197376528f1bc6c123b9c5de5f8e3ff4005c1f6ef12a192bc5397f51ee80f1e3",
     "styles/demo6/layout.css": "6fb354b17450f95be766cb17511dd42348f7085875bcafdb498ed4e5f1bd6263",
@@ -40,7 +40,7 @@
     "styles/demo7.css": "2b16d3f2221376c4fd44558758be8858794c6cd9d3b82085d5e48a7153e4bd06"
   },
   "outputs": {
-    "demo7.js": "697ec284f299c5b30765ecb04e56d54564f748df9b71afaa01dcbc199a9b70c8",
+    "demo7.js": "3c4791d1b772e5108ed28a48e0fd3e314562d9d2a5ff02b3ec3d54b82208463e",
     "demo7.css": "fca83c5acf7b05b997a0b5cb221ab1591e3529584b56429d7e0385b17e16d5e5"
   }
 }

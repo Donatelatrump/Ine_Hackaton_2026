@@ -1,3 +1,15 @@
+# Estado vigente: Demo7 · 21 de octubre de 2026
+
+La [revisión de requisitos del INE](02_Prediccion_y_escenarios_de_riesgo/entrega/REVISION_REQUISITOS_INE.md) contrasta el Reto 2 con los archivos y pendientes. [Demo7](02_Prediccion_y_escenarios_de_riesgo/demo/demo7.html) incorpora consulta territorial, planes estatales hipotéticos, mapas comparados y distribución exportable. Ver la [guía actual](02_Prediccion_y_escenarios_de_riesgo/demo/DEMO7.md).
+
+Se corrigieron los controles ocultos de cobertura, el recálculo al cambiar el catálogo, la descarga trazable de escenarios y los enlaces a resultados vigentes. Reporte de 14 páginas y presentación de 10 diapositivas regenerados para Demo7. Se conserva el experimento de cuatro modelos del 16 de octubre; no se reentrenó.
+
+Las comprobaciones actuales están en `demo/verificacion/demo7/resultado.json` y `entrega/verificacion_unificacion.json`, dentro del track. Registro, elegibilidad, firmas, ZIP final y envío no están acreditados. Tampoco existe validación futura de 2027 ni eficacia causal demostrada del plan estatal.
+
+El análisis siguiente corresponde a la reorganización anterior de demo6; sus fechas, rutas y pruebas describen esa etapa.
+
+---
+
 # Análisis general de Umbral
 
 **Corte:** 16 de octubre de 2026. **Versión activa:** demo6.

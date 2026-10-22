@@ -59,6 +59,8 @@ Estas reglas son acuerdos de trabajo. Para hacerlas obligatorias, un administrad
 
 ## Organización de demo6
 
+La interfaz vigente es demo7. Sus cambios propios están en `demo/src/demo7/` y `demo/styles/demo7.css`; comparte el motor descrito abajo. Reconstruir con `python 02_Prediccion_y_escenarios_de_riesgo/tools/construir_demo7.py` y comprobar con `python 02_Prediccion_y_escenarios_de_riesgo/demo/verificar_demo7.py`. Ver [guía vigente](02_Prediccion_y_escenarios_de_riesgo/demo/DEMO7.md). Un cambio en fuentes compartidas requiere reconstruir y comprobar ambas versiones.
+
 El código actual está en `demo/src/demo6/` y los estilos propios en `demo/styles/demo6/`, dentro del track. Las vistas reciben dependencias explícitas; las fórmulas descriptivas pertenecen a `domain/analytics.js`. Consultar `arquitectura/README.md` antes de cambiar rutas. Las entradas HTML y los comandos de generadores se conservan. Los datos publicados se modifican mediante su generador.
 
 Después de modificar fuentes JS/CSS, ejecutar `python 02_Prediccion_y_escenarios_de_riesgo/tools/construir_web.py` y compartir también los recursos actualizados de `demo/assets/`. El orden está en `demo/build.config.json`. El estado interno es privado: las pruebas de navegador usan `Umbral6.inspect()`. El arranque completo emite `umbral:ready`; no añadir sondeos con intervalos ni sobrescribir funciones del motor para integrar componentes.

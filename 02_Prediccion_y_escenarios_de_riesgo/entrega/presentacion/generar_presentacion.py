@@ -4,7 +4,7 @@ Ejecutar desde esta carpeta. Dependencias locales opcionales en .packages.
 from pathlib import Path
 import sys, textwrap, json
 HERE=Path(__file__).resolve().parent
-sys.path[:0]=[str(HERE/'.packages'),str(HERE.parent/'reporte'/'.packages')]
+sys.path[:0]=[str(HERE/'.packages'),str(HERE.parent/'reporte'/'.packages'),str(HERE.parents[2]/'.task_packages')]
 import zipfile, copy, xml.etree.ElementTree as ET
 from reportlab.pdfgen import canvas
 from reportlab.pdfbase import pdfmetrics
@@ -20,16 +20,16 @@ slides=[('UMBRAL',
    ('Revisión territorial con evidencia, capacidad y supuestos visibles', 22),
    ('aguas.exe · Hackathon INE 2026 · Track 2', 18),
    ('Martin Isai Nuñez Villeda y Cesar Donnet Hernandez Gastelum', 17),
-   ('Versión técnica · 16 de octubre de 2026', 17)],
+   ('Versión técnica · 21 de octubre de 2026', 17)],
   'Datos agregados CCPC 2009–2024. Prototipo para revisión institucional.'),
- ('Consulta territorial en demo6',
+ ('Consulta territorial en demo7',
   [('Municipio, estado o país', 26),
    ('Un mismo año y método para el mapa, el resumen y la ficha. Los históricos muestran resultados observados y 2027 '
     'una proyección diferenciada.',
     21),
    ('Gráfica temporal y comparación con el promedio estatal, ponderados por personas con dato de voto.', 21),
    ('La consulta completa se descarga en CSV, aunque no se configure una intervención.', 21)],
-  'Guía: demo/DEMO6.md. Cartografía municipal y complemento insular INEGI 2025.'),
+  'Guía: demo/DEMO7.md. Cartografía municipal y complemento insular INEGI 2025.'),
  ('Cobertura y calidad visibles',
   [('1,783 con estimación', 36),
    ('694 sin estimación · 2,477 claves históricas', 24),
@@ -60,16 +60,12 @@ slides=[('UMBRAL',
     'ponderación SV+NV 2024.',
     20)],
   'DOI: 10.1017/S0007123424000504; 10.1007/s11109-026-10121-2; 10.1177/0956797609359326. Traslado a México: supuesto.'),
- ('Una ficha para entender la selección',
-  [('Resultados observados y proyección diferenciados', 25),
-   ('Serie temporal 2009–2024 con 2027 separado visualmente. Faltantes visibles y cobertura declarada.', 21),
-   ('Brecha municipal frente al estado con el mismo método y denominador. Las diferencias agregadas no identifican '
-    'causas.',
-    21),
-   ('Métricas reales y coeficientes Ridge disponibles. Los coeficientes no son efectos causales ni explicaciones '
-    'individuales.',
-    21)],
-  'Demo6. Umbrales nacionales por año y método; fijos entre escenarios.'),
+ ('Plan estatal y semáforo en demo7',
+  [('Escenario hipotético editable', 25),
+   ('Cobertura inicial del 10%; efecto supuesto de 1.5 pp entre alcanzados. Variantes de 0.3 y 3 pp. No es eficacia medida del plan.', 21),
+   ('Mapas sin/con acción con cortes nacionales fijos por tercios: bajo, medio y alto. Gris significa sin estimación; nunca cero.', 21),
+   ('Distribución proporcional; CSV con tasas antes/después, semáforo, cobertura, método y fuentes. La vista de diferencias muestra cambios pequeños.', 21)],
+  'Demo7 y docs/PLANES_ACCION_ESTATALES_PARTICIPACION.md, sección 8. Propuestas por validar con el área usuaria.'),
  ('Caso 23008: SMS con traslado hipotético',
   [('SOLIDARIDAD · catálogo histórico de Quintana Roo', 24),
    ('HistGradientBoosting, puesto 9; referencia 3. Base 61.636222%. Frecuencia nacional top50 4/6.', 21),
@@ -79,7 +75,7 @@ slides=[('UMBRAL',
   '10.1017/S0007123424000504.'),
  ('De la ficha a un plan verificable',
   [('Recursos, condiciones y medición', 25),
-   ('Exportar territorio, acción y cita, cobertura total, distribución, supuestos y estabilidad del plan actual.', 21),
+   ('Definir prioridad y cobertura; exportar territorio, acción, fuente, distribución y supuestos. Revisar la estabilidad por separado.', 21),
    ('Registrar alcance único agregado, horas y conocimiento previo/posterior. El perfil por edad describe grupos '
     'agregados y no demuestra barreras.',
     21),
@@ -96,7 +92,7 @@ slides=[('UMBRAL',
    ('Predefinir indicadores y asignación del piloto. Conservar la referencia y publicar resultados favorables y '
     'adversos.',
     22),
-   ('Equipo: aguas.exe. Firmas, registro y envío formal siguen pendientes.', 19)],
+   ('Equipo: aguas.exe. Registro, elegibilidad, firmas y envío formal no acreditados.', 19)],
   '2024 es presidencial y no valida directamente 2027. No se promete superioridad predictiva o efectividad '
   'preventiva.')]
 

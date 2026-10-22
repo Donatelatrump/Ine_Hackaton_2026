@@ -79,7 +79,7 @@
       `${active?'Cálculo actualizado con tu simulación. '+scenarioPlan.action.label+'. Alcance configurado en '+scope+'.':scenarioPlan.description||'Cálculo orientativo automático: información práctica de votación para el 10 % de la base estatal, distribuida proporcionalmente. Efecto supuesto entre personas alcanzadas: 0.3 a 3 puntos porcentuales (central: 1.5).'} Promedio estatal calculado sobre ${fmt.format(baseline.denominator)} personas de la base SV+NV 2024, con el mismo método y filtro de catálogo que la consulta. Escenario de referencia del plan completo, sin efecto comprobado ni intervalo de confianza para 2027. Ajusta cobertura y escenario debajo.`:
       requested?'Corrige la cobertura del simulador para actualizar el impacto.':baseline.denominator&&runtime.stateScenarioError?runtime.stateScenarioError:'No hay base estimable suficiente para calcular el impacto de este estado con los filtros actuales.';
     $('d7-prepare-plan').disabled=!baseline.denominator;
-    $('d7-impact-caption').textContent=active?'Escenario de la acción elegida en el simulador.':'Plan estatal investigado: impacto aproximado para 2027.';
+    $('d7-impact-caption').textContent=active?'Escenario de la acción elegida en el simulador.':'Plan estatal hipotético: cobertura inicial del 10 % y efecto supuesto de 1.5 pp entre personas alcanzadas; ajustables debajo. No es eficacia medida del plan.';
     softenUpdate($('d6-plan-comparison-values'),$('d6-plan-comparison-values').textContent);
     runtime.renderPlanning?.({selection,rows,baseline,scenarioPlan,territory,automatic:!active,valid:hasImpact});
   };
@@ -100,7 +100,7 @@
     if(limits&&state.year===2027){
       let key=$('d7-thresholds');
       if(!key){key=document.createElement('p');key.id='d7-thresholds';key.className='d6-note';document.querySelector('#paso-1-map .legend').after(key);}
-      key.hidden=false;key.textContent=`Categorías relativas de la proyección municipal: menor < ${safePercent(limits.low)}; intermedia hasta ${safePercent(limits.high)}; mayor a partir de ${safePercent(limits.high)}. Los cortes permanecen fijos al aplicar una acción. Los colores estatales resumen municipios estimables; no son umbrales oficiales de riesgo.`;
+      key.hidden=false;key.textContent=`Semáforo de abstención relativa: bajo < ${safePercent(limits.low)}; medio desde ${safePercent(limits.low)} y < ${safePercent(limits.high)}; alto ≥ ${safePercent(limits.high)}. Gris: sin estimación. Cortes nacionales por tercios del método activo, fijos entre escenarios. No son probabilidades ni umbrales oficiales. Los colores estatales resumen municipios estimables.`;
     }else if($('d7-thresholds'))$('d7-thresholds').hidden=true;
     scheduleMaps();
     document.dispatchEvent(new CustomEvent('umbral7:updated'));

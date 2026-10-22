@@ -1,6 +1,6 @@
-# Guion de demostración de Umbral demo6
+# Guion de demostración de Umbral demo7
 
-Versión del 16 de octubre de 2026. Duración orientativa: tres minutos. Abrir demo/demo6.html con la carpeta completa.
+Versión del 21 de octubre de 2026. Duración orientativa: cinco minutos. Abrir demo/demo7.html con la carpeta completa.
 
 ## 1. Territorio y datos
 
@@ -21,6 +21,14 @@ Para reproducir el caso: Quintana Roo, SOLIDARIDAD (clave histórica 23008), añ
 Seleccionar el ejemplo de 1,000 SMS Suecia. Con efecto ITT externo de 0.30 pp se obtienen 3 votos adicionales hipotéticos; posterior 61.635048% y reducción de 0.001175 pp. Las barras comparten escala y ese efecto pequeño puede no distinguirse visualmente.
 
 La cobertura es editable y no constituye una capacidad institucional confirmada. El traslado a México requiere evaluación. Mostrar fuentes, supuestos y descarga del plan. El puesto del modelo seleccionado es 9, Ridge 4 y referencia 3; la frecuencia 4/6 es del ranking nacional top50 con catálogo constante, no del plan sobre un municipio.
+
+## 4. Plan estatal y entrega
+
+Volver al estado y abrir su plan. La comparación inicial supone alcanzar al 10% de la base estimable, con un efecto central de 1.5 pp entre personas alcanzadas; las variantes 0.3 y 3 pp son sensibilidad de un supuesto del proyecto. No atribuir eficacia demostrada al plan completo.
+
+Comparar los mapas sin/con acción con los mismos umbrales nacionales por tercios; abrir diferencias para ver cambios pequeños. Cambiar cobertura a 0%: las tasas deben coincidir. Restaurar cobertura y descargar la distribución CSV: incluye antes/después, semáforo, método, fuentes y municipios sin estimación. Descargar la ficha imprimible.
+
+En Documentos, mostrar reporte de 14 páginas, presentación de 10 diapositivas, base agregada y proyecciones vigentes. La revisión de requisitos identifica registro, elegibilidad, firmas y envío como no acreditados. La demo y sus documentos no equivalen a una inscripción aceptada.
 
 ## Cierre
 

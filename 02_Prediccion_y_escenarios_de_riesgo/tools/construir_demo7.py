@@ -25,7 +25,7 @@ def main():
     css = '\n'.join('/* SOURCE: '+name+' */\n'+read(name) for name in config['styles'])
     for name, content in [('demo7.js', js), ('demo7.css', css)]:
         (DEMO / 'assets' / name).write_text(content, encoding='utf-8')
-    (DEMO / 'assets' / 'build.demo7.json').write_text(json.dumps({'sources':sources, 'outputs':{name:hashlib.sha256((DEMO/'assets'/name).read_bytes()).hexdigest() for name in ['demo7.js','demo7.css']}}, indent=2)+'\n', encoding='utf-8')
+    (DEMO / 'assets' / 'build.demo7.json').write_text(json.dumps({'sources':sources, 'outputs':{name:hashlib.sha256((DEMO/'assets'/name).read_bytes()).hexdigest() for name in ['demo7.js','demo7.css']}}, indent=2)+'\n', encoding='utf-8', newline='\n')
     print('Demo7: assets/demo7.js and assets/demo7.css generated.')
 
 if __name__ == '__main__':

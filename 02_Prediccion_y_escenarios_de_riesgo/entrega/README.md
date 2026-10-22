@@ -1,39 +1,34 @@
-## Comparación de cuatro modelos ejecutada · 16 de octubre de 2026
+# Entrega técnica de Umbral · Demo7
 
-Se entrenaron y evaluaron Ridge, HistGradientBoosting, LightGBM y CatBoost con las mismas 15 variables históricas. Se seleccionó HistGradientBoosting: MAE medio 6.8360 pp frente a 9.0094 de Ridge (24.12% menos error). LightGBM obtuvo MAE 6.8304 pp; la diferencia menor que 0.05 pp activó el desempate por MAE ponderado, favorable a HistGradientBoosting. Ridge fue el más rápido. La selección es retrospectiva, sin validación futura de 2027.
+Actualización: 21 de octubre de 2026. Equipo aguas.exe, Reto 2: Predicción y escenarios de riesgo de abstención.
 
-La versión vigente de demo6 incluye los cuatro métodos y usa HistGradientBoosting por defecto. La documentación anterior que sigue corresponde a la etapa previa al benchmark. Fuente actual: modelado/COMPARACION_4_MODELOS.md del track.
+La [revisión de requisitos del INE](REVISION_REQUISITOS_INE.md) identifica la evidencia de cada requisito y los pendientes administrativos. Esta carpeta no acredita registro, elegibilidad, firmas ni envío oficial.
 
----
+## Archivos de revisión
 
-> Actualización de 16 de octubre de 2026: la versión vigente es demo6. Consultar `02_Prediccion_y_escenarios_de_riesgo/demo/DEMO6.md` y `modelado/RESULTADOS.md` del track para parámetros y cifras actuales. El contenido fechado anteriormente conserva el contexto de su versión y no debe usarse como fuente de las métricas vigentes.
+- [Reporte metodológico y preventivo PDF](reporte/Umbral_reporte_metodologico_preventivo.pdf): 14 páginas, variables, evaluación, semáforo y prevención.
+- [Presentación PDF](presentacion/Umbral_presentacion.pdf) y [PPTX editable](presentacion/Umbral_presentacion.pptx): diez diapositivas.
+- [Demo7](../demo/demo7.html) y [guía de ejecución](../demo/DEMO7.md): mapas sin/con acción, diferencias y exportación de distribución CSV.
+- [Base histórica agregada](../datos_preparados/municipios_historico_con_calidad.csv), [proyecciones de los cuatro modelos](../modelado/salidas/comparacion_modelos/proyeccion_2027.csv) y [evaluación vigente](../modelado/salidas/comparacion_modelos/resultados.json).
+- [Caso municipal](CASO_MUNICIPAL.md) y [guion de demostración](GUION_PRESENTACION.md).
+- [Verificación de entrega](verificacion_unificacion.json) y [prueba de navegador de demo7](../demo/verificacion/demo7/resultado.json).
 
----
+El plan estatal usa cobertura inicial del 10% y efecto supuesto de 1.5 pp entre alcanzados, con variantes 0.3/3 pp. Son hipótesis del proyecto. El caso municipal SMS conserva el coeficiente externo de 0.30 pp; no debe confundirse con el plan estatal ni atribuirse a México como eficacia probada.
 
-# Entrega técnica vigente
-
-Actualización: 6 de octubre de 2026. Umbral, equipo aguas.exe, track 2.
-
-- [Reporte PDF](reporte/Umbral_reporte_metodologico_preventivo.pdf): 14 páginas; editar `reporte/generar_reporte.py` para regenerar PDF y fuente Markdown.
-- [Presentación PPTX](presentacion/Umbral_presentacion.pptx) y [PDF](presentacion/Umbral_presentacion.pdf): diez diapositivas; editar `presentacion/generar_presentacion.py`.
-- [Caso municipal](CASO_MUNICIPAL.md): evidencia, acción propuesta, responsables por validar, recursos, condiciones y evaluación.
-- [Guion](GUION_PRESENTACION.md): discurso de cinco minutos, preguntas y demo en tres pasos.
-- [Demo](../demo/index.html): mantener su carpeta completa para apertura local.
-- [Base municipal](../datos_preparados/municipios_historico_con_calidad.csv) y [proyección exploratoria](../modelado/salidas/proyeccion_exploratoria_2027.csv).
-
-La descripción vigente está en [ANALISIS_TRACK_2.md](../ANALISIS_TRACK_2.md). Modelo y métricas conservan el experimento original. Registro, elegibilidad, firmas, envío y validación institucional requieren actos humanos; no se acreditan aquí.
-
-## Regeneración desde la raíz
+## Regenerar desde la raíz
 
 ```powershell
-python -m pip install --index-url https://pypi.org/simple --target .task_packages python-pptx==1.0.2 reportlab==5.0.1 pymupdf==1.28.2 pillow==12.3.0
-$env:PYTHONPATH = (Join-Path (Get-Location) '.task_packages')
+python -m pip install --index-url https://pypi.org/simple --target .task_packages reportlab==5.0.1 pymupdf==1.28.2 python-pptx==1.0.2 pillow==12.3.0
+python 02_Prediccion_y_escenarios_de_riesgo/tools/construir_demo7.py
 node 02_Prediccion_y_escenarios_de_riesgo/entrega/generar_caso.cjs
+python 02_Prediccion_y_escenarios_de_riesgo/demo/verificar_demo7.py
 python 02_Prediccion_y_escenarios_de_riesgo/entrega/reporte/generar_reporte.py
 python 02_Prediccion_y_escenarios_de_riesgo/entrega/presentacion/generar_presentacion.py
 python 02_Prediccion_y_escenarios_de_riesgo/entrega/verificar_entrega.py
 ```
 
-La presentación usa Segoe UI de Windows. El PDF se construye con la misma composición del generador; no es una conversión mediante PowerPoint. La revisión del motor PowerPoint sigue pendiente. El ZIP anterior conserva su identificación como respaldo histórico; estos archivos son la entrega técnica vigente.
+La prueba de demo7 necesita Edge instalado y genera las capturas del reporte. Los generadores buscan dependencias en `.task_packages` y en las carpetas `.packages` locales. La presentación utiliza Segoe UI de Windows; el reporte emplea Arial si está disponible. El PDF de la presentación se dibuja con la misma composición, sin conversión nativa desde PowerPoint: esa revisión sigue pendiente.
 
-Actualización de escenarios: municipio, estado o México con estimación incluida; cobertura total, distribución por prioridad o proporcional a SV+NV 2024 y acciones con citas originales. El efecto trasladado a México es hipotético. Caso, reporte y presentación distinguen la evidencia publicada de reglas de planeación y supuestos. La demo muestra exclusiones y conserva fuentes y distribución en CSV.
+## Cierre de entrega
+
+Las bases publicadas fijan el envío del ZIP identificado por equipo y eje hasta el 31 de octubre de 2026 a las 23:59, a ambos correos oficiales. Incorporar las dos cartas con firmas reales y comprobar el acuse de registro y la elegibilidad. Detalles, enlaces y estado en la [revisión de requisitos](REVISION_REQUISITOS_INE.md). No se preparó ni envió un paquete oficial con esta revisión.

@@ -1642,7 +1642,7 @@ function initMapDecorations(){
       `${active?'Cálculo actualizado con tu simulación. '+scenarioPlan.action.label+'. Alcance configurado en '+scope+'.':scenarioPlan.description||'Cálculo orientativo automático: información práctica de votación para el 10 % de la base estatal, distribuida proporcionalmente. Efecto supuesto entre personas alcanzadas: 0.3 a 3 puntos porcentuales (central: 1.5).'} Promedio estatal calculado sobre ${fmt.format(baseline.denominator)} personas de la base SV+NV 2024, con el mismo método y filtro de catálogo que la consulta. Escenario de referencia del plan completo, sin efecto comprobado ni intervalo de confianza para 2027. Ajusta cobertura y escenario debajo.`:
       requested?'Corrige la cobertura del simulador para actualizar el impacto.':baseline.denominator&&runtime.stateScenarioError?runtime.stateScenarioError:'No hay base estimable suficiente para calcular el impacto de este estado con los filtros actuales.';
     $('d7-prepare-plan').disabled=!baseline.denominator;
-    $('d7-impact-caption').textContent=active?'Escenario de la acción elegida en el simulador.':'Plan estatal investigado: impacto aproximado para 2027.';
+    $('d7-impact-caption').textContent=active?'Escenario de la acción elegida en el simulador.':'Plan estatal hipotético: cobertura inicial del 10 % y efecto supuesto de 1.5 pp entre personas alcanzadas; ajustables debajo. No es eficacia medida del plan.';
     softenUpdate($('d6-plan-comparison-values'),$('d6-plan-comparison-values').textContent);
     runtime.renderPlanning?.({selection,rows,baseline,scenarioPlan,territory,automatic:!active,valid:hasImpact});
   };
@@ -1663,7 +1663,7 @@ function initMapDecorations(){
     if(limits&&state.year===2027){
       let key=$('d7-thresholds');
       if(!key){key=document.createElement('p');key.id='d7-thresholds';key.className='d6-note';document.querySelector('#paso-1-map .legend').after(key);}
-      key.hidden=false;key.textContent=`Categorías relativas de la proyección municipal: menor < ${safePercent(limits.low)}; intermedia hasta ${safePercent(limits.high)}; mayor a partir de ${safePercent(limits.high)}. Los cortes permanecen fijos al aplicar una acción. Los colores estatales resumen municipios estimables; no son umbrales oficiales de riesgo.`;
+      key.hidden=false;key.textContent=`Semáforo de abstención relativa: bajo < ${safePercent(limits.low)}; medio desde ${safePercent(limits.low)} y < ${safePercent(limits.high)}; alto ≥ ${safePercent(limits.high)}. Gris: sin estimación. Cortes nacionales por tercios del método activo, fijos entre escenarios. No son probabilidades ni umbrales oficiales. Los colores estatales resumen municipios estimables.`;
     }else if($('d7-thresholds'))$('d7-thresholds').hidden=true;
     scheduleMaps();
     document.dispatchEvent(new CustomEvent('umbral7:updated'));
@@ -1835,6 +1835,11 @@ function initMapDecorations(){
       state={selected:0,actions:[{text:'Plan estatal de '+(rows[0]?.state_name||selection.state),activities:texts,group:'Base estatal observable',groupKnown:true,coverage:10,scenario:'central',reach:Math.floor(base*.10),effect:1.5,low:.3,high:3,distribution:'proporcional',lens:'tasa',edited:false,informational:true}]};
       settings.set(selection.state,state);
     }
+    const cfg=state.actions[0];
+    if(!cfg.manualReach){
+      const coverage=Number(cfg.coverage);
+      cfg.reach=String(cfg.coverage).trim()!==''&&Number.isFinite(coverage)&&coverage>=0&&coverage<=100?Math.floor(base*coverage/100):'';
+    }
     return state;
   }
   function configurationError(cfg,base){
@@ -1889,7 +1894,7 @@ function initMapDecorations(){
   }
   function renderEditor(data){
     const state=stateSettings(data.rows,data.selection,data.baseline.denominator),cfg=state.actions[state.selected];
-    $('d7-action-editor').hidden=true;
+    $('d7-action-editor').hidden=false;
     const key=data.selection.state+'|'+state.selected;
     if(formKey!==key){
       $('d7-plan-action').replaceChildren(...state.actions.map((a,i)=>new Option(a.text,String(i))));
@@ -1934,7 +1939,7 @@ function initMapDecorations(){
       $('d7-international-impact').textContent=$('action').value==='ninguna'?'Elige una estrategia internacional para ver el efecto del estudio y su impacto estimado en el territorio.':'Revisa la cobertura para calcular el impacto de la estrategia.';
     }
     for(const id of ['d7-allocation','d7-comparison-block'])$(id).hidden=!snapshot;
-    $('d7-download-brief').disabled=!snapshot;$('d7-print-brief').disabled=!snapshot;
+    for(const id of ['d7-download-brief','d7-print-brief','d7-allocation-download'])$(id).disabled=!snapshot;
     if(!snapshot){$('d7-allocation-rows').innerHTML='';return;}
     const key=JSON.stringify([snapshot.selection,snapshot.plan.served,snapshot.plan.additional,snapshot.plan.distribution,snapshot.lens]);
     if(key!==allocationKey){page=0;allocationKey=key;}
@@ -1967,8 +1972,14 @@ function initMapDecorations(){
     const blob=new Blob([text],{type}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),30000);
   }
   function downloadAllocation(){
+    if(!snapshot)return;
     const cell=value=>{let text=String(value??'');if(typeof value==='string'&&/^[=+\-@]/.test(text))text="'"+text;return '"'+text.replace(/"/g,'""')+'"';};
-    const rows=[['Prioridad','Clave INE','Municipio','Estado','Atención','Personas asignadas','Abstención base (%)','Reducción (pp)','Criterio'],...allocationRows().map(r=>[r.position,r.key,r.name,r.state,r.status,r.served,r.before,r.reduction,r.reason])];
+    const s=snapshot,a=s.plan.action,t=s.territory;
+    const lookup=new Map(s.rows.map(r=>[r.key,r]));
+    const rows=[['Prioridad','Clave INE','Municipio','Estado','Atención','Personas asignadas','Abstención base (%)','Reducción (pp)','Criterio','Abstención con acción (%)','Semáforo sin acción','Semáforo con acción','Umbral medio (%)','Umbral alto (%)','Base observable SV+NV 2024','Año proyectado','Método','Territorio','Catálogo constante','Distribución','Acción','Unidad de cobertura','Efecto supuesto o externo (pp)','Límite inferior efecto (pp)','Límite superior efecto (pp)','Respuesta personalizada (%)','Estimador o supuesto','Fuente de la acción','Cita','Límites','Cobertura total asignada','Base territorial incluida','Abstención territorial sin acción (%)','Abstención territorial con acción (%)'],...allocationRows().map(r=>{
+      const after=Number.isFinite(r.before)?r.before-r.reduction:null;
+      return [r.position,r.key,r.name,r.state,r.status,r.served,r.before,r.reduction,r.reason,after,Decision.level(r.before,thresholds),Decision.level(after,thresholds),thresholds.low,thresholds.high,lookup.get(r.key)?.observed,2027,A.methodName(s.method),s.label,s.selection.stable,s.plan.distribution,a.label,a.unit,a.effect_pp,a.low_pp,a.high_pp,a.id==='personalizada'?Number($('response').value):null,a.estimand,a.source,a.citation,a.limits,s.plan.served,t.population,t.before,t.after];
+    })];
     download('\uFEFF'+rows.map(row=>row.map(cell).join(',')).join('\r\n'),'Umbral_demo7_distribucion.csv','text/csv;charset=utf-8');
   }
   function brief(){
@@ -2001,13 +2012,13 @@ function initMapDecorations(){
     $('action').querySelector('option[value="personalizada"]')?.remove();
     const fields=[['reach','reach'],['effect','effect'],['low','low'],['high','high'],['distribution','distribution'],['lens','lens']];
     for(const [id,field] of fields)$('d7-action-'+id).addEventListener('input',()=>{
-      const state=settings.get(context.state.state);if(!state)return;state.actions[state.selected][field]=$('d7-action-'+id).value;state.actions[state.selected].edited=true;update();
+      const state=settings.get(context.state.state);if(!state)return;state.actions[state.selected][field]=$('d7-action-'+id).value;if(field==='reach')state.actions[state.selected].manualReach=true;state.actions[state.selected].edited=true;update();
     });
     for(const id of ['d7-plan-coverage','d7-plan-scenario'])$(id).addEventListener('input',()=>{
       const state=settings.get(context.state.state);if(!state)return;
       const cfg=state.actions[0],base=A.summary(context.state.state?records.filter(r=>r.state===context.state.state&&(!context.state.stable||r.stable_catalog_state)):[],2027,context.state.method).denominator;
       const coverage=Number($('d7-plan-coverage').value);
-      cfg.coverage=coverage;cfg.reach=$('d7-plan-coverage').value.trim()!==''&&coverage>=0&&coverage<=100?Math.floor(base*coverage/100):'';
+      cfg.coverage=$('d7-plan-coverage').value;cfg.manualReach=false;cfg.reach=cfg.coverage.trim()!==''&&coverage>=0&&coverage<=100?Math.floor(base*coverage/100):'';
       cfg.scenario=$('d7-plan-scenario').value;cfg.effect={conservador:.3,central:1.5,optimista:3}[cfg.scenario];cfg.edited=true;
       $('action').value='ninguna';formKey='';update();
     });
@@ -2033,7 +2044,7 @@ function initMapDecorations(){
     $('d7-tour-close').onclick=closeTour;$('d7-tour').addEventListener('cancel',()=>highlighted?.classList.remove('d7-tour-target'));
     $('d7-tour').addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();closeTour();}});
     // Immutable snapshots make scenario/export review possible without changing data.
-    window.Umbral7Planning=Object.freeze({get snapshot(){return snapshot?{label:snapshot.label,method:snapshot.method,served:snapshot.plan.served,additional:snapshot.plan.additional,rows:allocationRows(),mode:snapshot.mode}:null;},get lastBrief(){return exportText;}});
+    window.Umbral7Planning=Object.freeze({get snapshot(){return snapshot?{label:snapshot.label,method:snapshot.method,population:snapshot.territory.population,served:snapshot.plan.served,additional:snapshot.plan.additional,rows:allocationRows(),mode:snapshot.mode}:null;},get lastBrief(){return exportText;}});
   },{once:true});
 })();
 

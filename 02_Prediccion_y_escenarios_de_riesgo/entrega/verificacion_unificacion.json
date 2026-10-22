@@ -1,19 +1,20 @@
 {
-  "date": "2026-10-06",
+  "date": "2026-10-21",
+  "demo": "demo7",
   "documents": [
     {
       "file": "reporte/Umbral_reporte_metodologico_preventivo.pdf",
       "pages": 14,
       "bounds_ok": true,
       "text_overlap": false,
-      "sha256": "01fe1718c2341574437ba4f726b1e7611f89f8670a23925d796a4205f24e9cde"
+      "sha256": "71cf2dfc48992c4017aee43f5f6b5206e88f8ddb4b7267aafef93f3512acf997"
     },
     {
       "file": "presentacion/Umbral_presentacion.pdf",
       "pages": 10,
       "bounds_ok": true,
       "text_overlap": false,
-      "sha256": "36a87f6518a417be1950fc4136d0bd1eb181205d5315dd5d3a72919dc5051b5f"
+      "sha256": "05d3f642e3ef1eaf31ab9b6580913ab32a756f8bf09eeba2ad3ea27b545b5db0"
     },
     {
       "file": "presentacion/Umbral_presentacion.pptx",
@@ -22,13 +23,14 @@
     }
   ],
   "case_reproduced": true,
-  "browser_checks": 21,
+  "browser_checks": 11,
+  "browser_sources_verified": true,
   "scenario_action": "sms_suecia",
   "external_effect_is_hypothetical": true,
   "browser_errors": [],
   "limitations": [
     "PPTX no renderizado con PowerPoint",
     "Modelo 2027 exploratorio; escenario sin efecto causal demostrado",
-    "Registro, firmas y envío no acreditados"
+    "Registro, elegibilidad, firmas y envío no acreditados"
   ]
 }

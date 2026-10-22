@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-21",
+  "passed": true,
+  "checks": {
+    "local_links": 26,
+    "initial_method": "hgb",
+    "state_plan": {
+      "served": 138762,
+      "additional": 2081.43,
+      "rows": 11
+    },
+    "map_comparison": "QUINTANA ROO · HistGradientBoosting · 10 / 11 municipios estimables",
+    "csv": {
+      "rows": 11,
+      "columns": 34,
+      "full_despite_filter": true,
+      "scenario_and_sources": true
+    },
+    "zero_coverage_and_method": true,
+    "catalog_filter_updates_coverage": true,
+    "municipal_example": {
+      "additional": 3,
+      "reduction_pp": 0.001174802828927568
+    },
+    "invalid_coverage": true,
+    "mobile_width": 390,
+    "historical_hides_future_scenario": true
+  },
+  "page_errors": [],
+  "sources": {
+    "demo7.html": "7d7e6f3501a812e6373e2359562104c9adf5d5f7f670d60c010c723dd9e1d3d4",
+    "assets/demo7.js": "3c4791d1b772e5108ed28a48e0fd3e314562d9d2a5ff02b3ec3d54b82208463e",
+    "assets/demo7.css": "fca83c5acf7b05b997a0b5cb221ab1591e3529584b56429d7e0385b17e16d5e5",
+    "data/comparacion_modelos.js": "20303e82e1da2407afa6e942fcfae13bd593b8f82174d292db44babf97514acd"
+  }
+}

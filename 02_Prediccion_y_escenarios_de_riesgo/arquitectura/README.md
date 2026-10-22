@@ -1,3 +1,9 @@
+# Versión vigente: Demo7 · revisión del 21 de octubre de 2026
+
+[Guía vigente de Demo7](../demo/DEMO7.md) · [Requisitos, evidencias y pendientes](../entrega/REVISION_REQUISITOS_INE.md). Reporte y presentación sincronizados con demo7; el contenido fechado anteriormente describe la etapa previa.
+
+---
+
 # Arquitectura y mantenimiento de Umbral
 
 ## Organización vigente

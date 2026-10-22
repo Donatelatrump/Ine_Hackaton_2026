@@ -1,3 +1,9 @@
+# Versión vigente: Demo7 · revisión del 21 de octubre de 2026
+
+Abrir [demo7.html](demo7.html). Consultar la [guía actual](DEMO7.md) y la [revisión de requisitos del INE](../entrega/REVISION_REQUISITOS_INE.md). El contenido anterior que sigue documenta versiones previas.
+
+---
+
 ## Organización actual del código
 
 Demo6 usa `demo/src/demo6/` y `demo/styles/demo6/` dentro del track. Consultar [arquitectura y comandos](../arquitectura/README.md). Las capturas y copias de depuración están en `demo/archivo/depuracion/`.

@@ -1,45 +1,51 @@
-# Umbral demo7
+# Umbral Demo7
 
-Abrir `demo7.html` con toda la carpeta de recursos. Funciona mediante `file://` y con el servidor local existente; el documento de planes sigue incrustado en el JavaScript generado.
+Versión revisada el 21 de octubre de 2026 para el **Reto 2: Predicción y escenarios de riesgo de abstención**. [Revisión de requisitos y pendientes](../entrega/REVISION_REQUISITOS_INE.md).
 
-## Construcción
+## Abrir y reconstruir
 
-Desde la raíz del proyecto:
+Desde la raíz del repositorio:
+
+```powershell
+python 02_Prediccion_y_escenarios_de_riesgo/tools/servir_demo.py --build
+```
+
+Abrir [demo7 local](http://127.0.0.1:8000/02_Prediccion_y_escenarios_de_riesgo/demo/demo7.html). También funciona abriendo `demo7.html` directamente: datos y Leaflet son locales. Conservar la estructura del proyecto para abrir PDF, CSV y fuentes relativas. Solo los enlaces externos requieren internet. `--demo 6` conserva la entrada anterior.
+
+Solo reconstruir:
 
 ```powershell
 python 02_Prediccion_y_escenarios_de_riesgo/tools/construir_demo7.py
 ```
 
-La configuración `build.demo7.config.json` reutiliza datos, dominio y cartografía de demo6. Las vistas y la experiencia de demo7 están en `src/demo7/`; los ajustes visuales están en `styles/demo7.css`. Los recursos generados son `assets/demo7.js`, `assets/demo7.css` y `assets/build.demo7.json`. La construcción no modifica demo6.
+Editar `src/demo7/`, `styles/demo7.css` y `demo7.html`. El orden de fuentes está en `build.demo7.config.json`; parte del motor procede de `src/demo6/` y `styles/demo6/`. No editar manualmente `assets/demo7.js`, `assets/demo7.css` ni los datos generados. Cambiar una fuente compartida exige revisar ambas versiones.
 
 ## Recorrido
 
-En 03 el orden de lectura es diagnóstico, plan estatal recomendado, impacto aproximado, supuestos y simulación por actividad, distribución municipal y mapas. El impacto aparece inmediatamente después del plan y antes de los controles de simulación. Todo permanece en la misma tarjeta, seguido del simulador general.
+1. Elegir estado, municipio, año y método. Las elecciones 2009–2024 son observadas; 2027 es exploratoria. HistGradientBoosting es el método inicial. El gris representa datos insuficientes, no abstención cero.
+2. Consultar antecedentes, perfil agregado, errores retrospectivos y comparación de modelos. Los dos cortes 2021/2024 participaron en la selección; no validan 2027. MAE medio del modelo seleccionado: 6.8360 pp. En top50 de 2024 la referencia acierta 27 y el seleccionado 19.
+3. Con un estado seleccionado, abrir el plan propuesto. El escenario inicial supone cobertura del 10% y efecto de 1.5 pp entre alcanzados; variantes conservadora/optimista: 0.3/3 pp. Los coeficientes son supuestos del proyecto, no eficacia comprobada del plan. Se aplica un único efecto sobre una población compartida, sin sumar actividades. Las estrategias internacionales conservan su propia fuente y estimador.
+4. Comparar mapas sin/con intervención; usar diferencias para cambios pequeños. El semáforo usa tercios nacionales de las tasas del método activo: bajo < corte inferior, medio desde el inferior y < superior, alto ≥ superior. Los cortes se conservan entre escenarios y no son umbrales oficiales ni probabilidades calibradas.
+5. Descargar la distribución CSV completa, aunque la tabla esté filtrada o paginada, y la ficha imprimible. En Documentos están el reporte, la presentación, la base histórica, la proyección de los cuatro modelos, la evaluación vigente y el código.
 
-La vista inicial prioriza actividades, cifras y controles. Los argumentos de cada recomendación, responsables, fuentes, evidencia y límites se consultan en desplegables. Los controles de la actividad y del simulador permanecen visibles. Las cifras del comparador se actualizan aunque el mapa esté fuera de pantalla; las geometrías se redibujan cuando la vista entra en pantalla.
+«Ver un caso de ejemplo» prepara la clave histórica 23008 y 1,000 SMS; conserva el método elegido. «Recorrido para presentar» elige HistGradientBoosting y guía cinco pasos, con cierre mediante botón o Escape. La ficha descargada es un HTML autónomo imprimible que resume los primeros cinco municipios atendidos; el CSV contiene la distribución completa. Las tres vistas de mapa sincronizan el encuadre. Las órbitas de portada se pueden pausar y respetan movimiento reducido.
 
-1. El botón «Ver un caso de ejemplo» prepara la clave histórica 23008, proyección de 2027 y el ejemplo de SMS para 1,000 personas. No cambia el modelo elegido.
-2. La barra de contexto conserva territorio, año y tipo de dato durante el recorrido. En históricos ofrece volver a 2027.
-3. La tarjeta estatal muestra diagnóstico agregado, comparación 2027, votos adicionales, mejora en puntos porcentuales y personas alcanzadas. Cada actividad explica qué dato orienta explorarla y sus límites. El cálculo automático usa una actividad concreta con alcance y rango de efecto editables; los parámetros se conservan por estado y actividad durante la sesión. Los alcances iniciales son supuestos del 10 % del grupo aproximado; cuando falta el dato del grupo comienzan en cero. Las actividades no informativas sin estimador local comienzan con efecto cero. Ningún coeficiente representa un efecto causal comprobado del plan completo.
-4. La comparación estatal usa las asignaciones reales de la simulación dentro del estado; incluye municipios no atendidos en el promedio. La comparación de mapas usa el territorio elegido en el simulador. Ambas conservan método y filtros.
-5. La vista inicial «Ver cambio exacto (pp)» muestra diferencias con escala relativa al cambio máximo del escenario: blanco sin cambio, azul para reducciones y gris sin estimación. Las tarjetas muestran reducción media, votos adicionales y municipios que mejoran; también se indica cuántos cruzan los umbrales del semáforo. Los detalles al pasar por cada municipio incluyen tasas con cinco decimales. «Comparar niveles de riesgo» conserva los dos mapas con los mismos umbrales de riesgo. Las tres vistas sincronizan zoom y encuadre. La escala de diferencias y los umbrales de riesgo tienen significados distintos y leyendas propias; la magnitud calculada no se modifica para hacer más visible el color.
-6. Las órbitas pueden pausarse; también se detienen al enfocar perfiles, al pasar el cursor y cuando la portada queda fuera de pantalla. Se respeta la preferencia de movimiento reducido.
-7. «¿Cómo se distribuyen los recursos?» muestra cobertura municipal, prioridad, atención, pendientes y falta de estimación. Permite filtrar, paginar y descargar toda la distribución CSV. El recurso es alcance en personas; no se inventan costos monetarios. En distribución proporcional, ordenar por prioridad no significa concentrar la asignación en los primeros lugares.
-8. «Descargar ficha» genera un HTML autónomo imprimible con territorio, método, diagnóstico, acción, alcance, efecto, asignación, fuentes y límites. «Imprimir / guardar PDF» abre la misma ficha para impresión; el navegador permite guardarla como PDF. La ficha resume los primeros cinco municipios atendidos; la distribución completa se entrega en CSV.
-9. «Recorrido para presentar» prepara un caso con HistGradientBoosting, Quintana Roo e información práctica para el 10 % de la base estatal. Guía cinco pasos: diagnóstico, predicción, acción, recursos/resultado y ficha. Se puede cerrar en cualquier momento con el botón o Escape; no avanza automáticamente.
+## Datos y exportaciones
 
-## Cálculo por actividad
+La abstención es `100 × NV / (SV + NV)`. El denominador del escenario es SV+NV 2024 de los municipios estimables incluidos; no proyecta el electorado de 2027. Municipios pendientes permanecen en el agregado sin cambio; los no estimables se identifican y no cuentan como cero.
 
-Se distribuye la cobertura declarada por prioridad o proporcionalmente a SV+NV 2024. Por municipio, votos adicionales = mínimo entre personas alcanzadas × efecto/100 y abstencionistas esperados dentro de las personas alcanzadas. Se repite el cálculo con el efecto inferior y superior. La tasa posterior se calcula sobre la base territorial completa estimable, incluidos los municipios no atendidos. Se simula una sola actividad: no se suman efectos de campañas ni se presume que sus personas destinatarias sean distintas.
+`Umbral_demo7_distribucion.csv` conserva clave INE (cinco caracteres; importar como texto), estado de atención, cobertura asignada, tasa base y posterior, reducción en pp, semáforo en ambos escenarios (`bajo`, `medio`, `alto`, `sin_datos`), umbrales, base observable, año, método, catálogo, territorio, reparto, acción, efecto o respuesta, estimador, fuente y límites. Celdas numéricas vacías significan ausencia de estimación. Los límites del efecto pertenecen al supuesto o estudio, no a la incertidumbre predictiva de 2027.
 
-Los parámetros requieren cobertura entera no negativa, limitada a la base observable, y efectos que cumplan 0 ≤ inferior ≤ central ≤ superior ≤ 100 pp. Un escenario inválido deja de mostrar resultados y desactiva la ficha hasta corregirlo. La composición agregada de grupos orienta una propuesta, sin identificar destinatarios individuales.
+El escenario cumple `H = min(cobertura × efecto/100, cobertura × tasa_base/100)` y `tasa_posterior = tasa_base − 100 × H / base_observable`. El modo personalizado usa respuesta entre abstencionistas y la registra por separado. La agregación pondera por base observable.
 
-## Interpretación
+`data/resultados.json` y `data/metricas.json` pertenecen al experimento anterior; sirven como insumo compartido. Demo7 incorpora el complemento `data/comparacion_modelos.js`. Las descargas vigentes apuntan a `data/comparacion_modelos.json` y a `modelado/salidas/comparacion_modelos/`, evitando atribuir resultados antiguos al modelo actual.
 
-Las actividades del plan documental no tienen un efecto conjunto validado. El simulador estima una acción elegida y una cobertura explícita. El rango de efecto depende de la acción y no constituye un intervalo de confianza para 2027. La base SV+NV 2024 tampoco representa el electorado proyectado de 2027.
+## Verificación
 
-La página ofrece enlaces al reporte, presentación, datos y requisitos oficiales. Las cartas, registro, permisos y vigencia de documentos se verifican por separado: la interfaz no certifica cumplimiento administrativo.
+```powershell
+node --test 02_Prediccion_y_escenarios_de_riesgo/demo/decision.test.cjs 02_Prediccion_y_escenarios_de_riesgo/demo/intervenciones.test.cjs
+python 02_Prediccion_y_escenarios_de_riesgo/demo/verificar_demo7.py
+python 02_Prediccion_y_escenarios_de_riesgo/entrega/verificar_entrega.py
+```
 
-## Revisión
-
-`tmp/revisar_demo7.py` recorre la versión local con Edge sin ventana y guarda capturas y resultados en `tmp/demo7/`. Comprueba arranque, avatares, ejemplo municipal, preparación estatal, tres mapas, ancho móvil, cambio histórico y pausa. Verifica también edición y conservación por actividad, efecto cero sin estimador, validación de rangos, suma de asignaciones, pendientes, filtros, descargas HTML/CSV, impresión PDF de una página para el caso revisado y los cinco pasos del recorrido. No requiere paquetes Python adicionales.
+La prueba de navegador utiliza Edge instalado y Python estándar, con un perfil temporal exclusivo. Revisa arranque local, enlaces de entrega, mapas, cobertura cero, cambio de método, exportación trazable y vista móvil; guarda evidencias en `verificacion/demo7/`. El verificador de entrega comprueba páginas, diapositivas, cifras del caso y la huella de los recursos web. Las pruebas no acreditan inscripción, firmas ni validación institucional.

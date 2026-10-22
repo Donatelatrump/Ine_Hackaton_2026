@@ -28,6 +28,11 @@
       state={selected:0,actions:[{text:'Plan estatal de '+(rows[0]?.state_name||selection.state),activities:texts,group:'Base estatal observable',groupKnown:true,coverage:10,scenario:'central',reach:Math.floor(base*.10),effect:1.5,low:.3,high:3,distribution:'proporcional',lens:'tasa',edited:false,informational:true}]};
       settings.set(selection.state,state);
     }
+    const cfg=state.actions[0];
+    if(!cfg.manualReach){
+      const coverage=Number(cfg.coverage);
+      cfg.reach=String(cfg.coverage).trim()!==''&&Number.isFinite(coverage)&&coverage>=0&&coverage<=100?Math.floor(base*coverage/100):'';
+    }
     return state;
   }
   function configurationError(cfg,base){
@@ -82,7 +87,7 @@
   }
   function renderEditor(data){
     const state=stateSettings(data.rows,data.selection,data.baseline.denominator),cfg=state.actions[state.selected];
-    $('d7-action-editor').hidden=true;
+    $('d7-action-editor').hidden=false;
     const key=data.selection.state+'|'+state.selected;
     if(formKey!==key){
       $('d7-plan-action').replaceChildren(...state.actions.map((a,i)=>new Option(a.text,String(i))));
@@ -127,7 +132,7 @@
       $('d7-international-impact').textContent=$('action').value==='ninguna'?'Elige una estrategia internacional para ver el efecto del estudio y su impacto estimado en el territorio.':'Revisa la cobertura para calcular el impacto de la estrategia.';
     }
     for(const id of ['d7-allocation','d7-comparison-block'])$(id).hidden=!snapshot;
-    $('d7-download-brief').disabled=!snapshot;$('d7-print-brief').disabled=!snapshot;
+    for(const id of ['d7-download-brief','d7-print-brief','d7-allocation-download'])$(id).disabled=!snapshot;
     if(!snapshot){$('d7-allocation-rows').innerHTML='';return;}
     const key=JSON.stringify([snapshot.selection,snapshot.plan.served,snapshot.plan.additional,snapshot.plan.distribution,snapshot.lens]);
     if(key!==allocationKey){page=0;allocationKey=key;}
@@ -160,8 +165,14 @@
     const blob=new Blob([text],{type}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),30000);
   }
   function downloadAllocation(){
+    if(!snapshot)return;
     const cell=value=>{let text=String(value??'');if(typeof value==='string'&&/^[=+\-@]/.test(text))text="'"+text;return '"'+text.replace(/"/g,'""')+'"';};
-    const rows=[['Prioridad','Clave INE','Municipio','Estado','Atención','Personas asignadas','Abstención base (%)','Reducción (pp)','Criterio'],...allocationRows().map(r=>[r.position,r.key,r.name,r.state,r.status,r.served,r.before,r.reduction,r.reason])];
+    const s=snapshot,a=s.plan.action,t=s.territory;
+    const lookup=new Map(s.rows.map(r=>[r.key,r]));
+    const rows=[['Prioridad','Clave INE','Municipio','Estado','Atención','Personas asignadas','Abstención base (%)','Reducción (pp)','Criterio','Abstención con acción (%)','Semáforo sin acción','Semáforo con acción','Umbral medio (%)','Umbral alto (%)','Base observable SV+NV 2024','Año proyectado','Método','Territorio','Catálogo constante','Distribución','Acción','Unidad de cobertura','Efecto supuesto o externo (pp)','Límite inferior efecto (pp)','Límite superior efecto (pp)','Respuesta personalizada (%)','Estimador o supuesto','Fuente de la acción','Cita','Límites','Cobertura total asignada','Base territorial incluida','Abstención territorial sin acción (%)','Abstención territorial con acción (%)'],...allocationRows().map(r=>{
+      const after=Number.isFinite(r.before)?r.before-r.reduction:null;
+      return [r.position,r.key,r.name,r.state,r.status,r.served,r.before,r.reduction,r.reason,after,Decision.level(r.before,thresholds),Decision.level(after,thresholds),thresholds.low,thresholds.high,lookup.get(r.key)?.observed,2027,A.methodName(s.method),s.label,s.selection.stable,s.plan.distribution,a.label,a.unit,a.effect_pp,a.low_pp,a.high_pp,a.id==='personalizada'?Number($('response').value):null,a.estimand,a.source,a.citation,a.limits,s.plan.served,t.population,t.before,t.after];
+    })];
     download('\uFEFF'+rows.map(row=>row.map(cell).join(',')).join('\r\n'),'Umbral_demo7_distribucion.csv','text/csv;charset=utf-8');
   }
   function brief(){
@@ -194,13 +205,13 @@
     $('action').querySelector('option[value="personalizada"]')?.remove();
     const fields=[['reach','reach'],['effect','effect'],['low','low'],['high','high'],['distribution','distribution'],['lens','lens']];
     for(const [id,field] of fields)$('d7-action-'+id).addEventListener('input',()=>{
-      const state=settings.get(context.state.state);if(!state)return;state.actions[state.selected][field]=$('d7-action-'+id).value;state.actions[state.selected].edited=true;update();
+      const state=settings.get(context.state.state);if(!state)return;state.actions[state.selected][field]=$('d7-action-'+id).value;if(field==='reach')state.actions[state.selected].manualReach=true;state.actions[state.selected].edited=true;update();
     });
     for(const id of ['d7-plan-coverage','d7-plan-scenario'])$(id).addEventListener('input',()=>{
       const state=settings.get(context.state.state);if(!state)return;
       const cfg=state.actions[0],base=A.summary(context.state.state?records.filter(r=>r.state===context.state.state&&(!context.state.stable||r.stable_catalog_state)):[],2027,context.state.method).denominator;
       const coverage=Number($('d7-plan-coverage').value);
-      cfg.coverage=coverage;cfg.reach=$('d7-plan-coverage').value.trim()!==''&&coverage>=0&&coverage<=100?Math.floor(base*coverage/100):'';
+      cfg.coverage=$('d7-plan-coverage').value;cfg.manualReach=false;cfg.reach=cfg.coverage.trim()!==''&&coverage>=0&&coverage<=100?Math.floor(base*coverage/100):'';
       cfg.scenario=$('d7-plan-scenario').value;cfg.effect={conservador:.3,central:1.5,optimista:3}[cfg.scenario];cfg.edited=true;
       $('action').value='ninguna';formKey='';update();
     });
@@ -226,6 +237,6 @@
     $('d7-tour-close').onclick=closeTour;$('d7-tour').addEventListener('cancel',()=>highlighted?.classList.remove('d7-tour-target'));
     $('d7-tour').addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();closeTour();}});
     // Immutable snapshots make scenario/export review possible without changing data.
-    window.Umbral7Planning=Object.freeze({get snapshot(){return snapshot?{label:snapshot.label,method:snapshot.method,served:snapshot.plan.served,additional:snapshot.plan.additional,rows:allocationRows(),mode:snapshot.mode}:null;},get lastBrief(){return exportText;}});
+    window.Umbral7Planning=Object.freeze({get snapshot(){return snapshot?{label:snapshot.label,method:snapshot.method,population:snapshot.territory.population,served:snapshot.plan.served,additional:snapshot.plan.additional,rows:allocationRows(),mode:snapshot.mode}:null;},get lastBrief(){return exportText;}});
   },{once:true});
 })();

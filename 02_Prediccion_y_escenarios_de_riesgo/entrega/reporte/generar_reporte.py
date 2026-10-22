@@ -9,7 +9,7 @@ este documento usa una cuartilla = una página carta de PDF (ver LEEME).
 from pathlib import Path
 import sys, json, hashlib, html
 HERE=Path(__file__).resolve().parent
-sys.path.insert(0,str(HERE/'.packages'))
+sys.path[:0]=[str(HERE/'.packages'),str(HERE.parents[2]/'.task_packages')]
 import fitz
 from reportlab.pdfgen import canvas
 from reportlab.pdfbase import pdfmetrics
@@ -18,24 +18,30 @@ from reportlab.platypus import Paragraph, Table, TableStyle
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.colors import HexColor
 ROOT=HERE.parents[1]
-FIG=ROOT/'demo/verificacion/demo6'
+FIG=ROOT/'demo/verificacion/demo7'
 M=json.loads((ROOT/'modelado/salidas/metricas.json').read_text(encoding='utf-8'))
 BENCHMARK=json.loads((ROOT/'modelado/salidas/comparacion_modelos/resultados.json').read_text(encoding='utf-8'))
+FORECAST=json.loads((ROOT/'demo/data/comparacion_modelos.json').read_text(encoding='utf-8'))
+RATES=sorted(r[BENCHMARK['selected_model']] for r in FORECAST['forecasts'] if r.get(BENCHMARK['selected_model']) is not None)
+def quantile(q):
+    pos=(len(RATES)-1)*q;index=int(pos)
+    return RATES[index]+(RATES[min(index+1,len(RATES)-1)]-RATES[index])*(pos-index)
+RISK_LEGEND=f"HistGradientBoosting 2027: verde, bajo < {quantile(1/3):.2f}%; amarillo, medio desde {quantile(1/3):.2f}% y < {quantile(2/3):.2f}%; rosa, alto desde {quantile(2/3):.2f}%. Gris: sin estimación. Cortes redondeados; el cálculo conserva precisión completa."
 M['checks']={year:{**cut['models'],'persistencia':cut['models']['baseline']} for year,cut in BENCHMARK['cuts'].items()}
 
 PAGES=[('UMBRAL',
   'Resumen ejecutivo',
   [('Reporte metodológico y preventivo · Reto 2',
     'aguas.exe. Integrantes: Martin Isai Nuñez Villeda y Cesar Donnet Hernandez Gastelum. Versión técnica para '
-    'revisión, 16 de octubre de 2026. Horizonte exploratorio: elección intermedia de 2027. Cobertura: México por '
+    'revisión, 21 de octubre de 2026. Horizonte exploratorio: elección intermedia de 2027. Cobertura: México por '
     'municipio, claves INE. Datos históricos ordinarios 2009-2024. Presupuesto de 15 páginas; este documento usa 14.'),
    ('Resumen ejecutivo',
     'Se entrenaron y evaluaron Ridge, HistGradientBoosting, LightGBM y CatBoost con las mismas 15 variables '
     'históricas. Se seleccionó HistGradientBoosting: MAE medio 6.8360 pp frente a 9.0094 de Ridge (24.12% menos '
     'error). LightGBM obtuvo MAE 6.8304 pp; la diferencia menor que 0.05 pp activó el desempate por MAE ponderado, '
     'favorable a HistGradientBoosting. Ridge fue el más rápido. La selección es retrospectiva, sin validación futura '
-    'de 2027. Demo6 muestra la consulta histórica y proyecciones precalculadas, comparación estatal, exportación de '
-    'consultas y escenarios hipotéticos con cobertura total y fuentes.'),
+    'de 2027. Demo7 muestra la consulta histórica y proyecciones precalculadas, comparación estatal, exportación de '
+    'consultas y escenarios hipotéticos con cobertura total y fuentes. Incorpora planes estatales, mapas pareados y CSV de escenarios con semáforo y trazabilidad.'),
    ('Qué es y qué no es',
     'Es una herramienta de priorización auditable y un registro explícito de supuestos. No es un predictor validado de '
     '2027, no es un asignador automático de recursos y no demuestra efectos causales de una intervención.')]),
@@ -147,6 +153,7 @@ PAGES=[('UMBRAL',
     'Bajo, medio y alto son tercios de las estimaciones nacionales válidas. Alto es el tercio superior de tasas '
     'estimadas; no es probabilidad calibrada de deterioro. Gris significa información insuficiente para estimar, se '
     'muestra con motivo de exclusión y nunca recibe riesgo cero.'),
+   ('Leyenda de la figura y umbrales',RISK_LEGEND),
    ('Eje de estabilidad',
     'La calidad (NS), la estabilidad entre seis variantes y el acuerdo entre métodos se informan como dimensión '
     'separada del color, en la lista y en la ficha. Los umbrales base permanecen fijos al comparar escenarios para que '
@@ -167,10 +174,11 @@ PAGES=[('UMBRAL',
     'validada. ITT usa personas asignadas a SMS; ATT exige contactos efectivos para llamada. No sumar acciones ni '
     'efectos. País: «México: municipios con estimación incluidos»; catálogo y exclusiones explícitos.'),
    ('FIGURE_TRIPLE', ''),
-   ('Escenario invertido y ejemplo',
-    'Para un objetivo, H requerido = O × (tasa - umbral)/100. Con coeficiente externo, cobertura requerida = '
-    'H/(efecto_pp/100); personalizada usa H/((tasa/100) × (respuesta/100)). Debe respetar O y presupuesto. Caso 23008: '
-    'SMS Suecia a 1,000 personas supone 3 votos adicionales y reducción 0.001175 pp; sigue alto.')]),
+   ('Plan estatal de Demo7',
+    'Al elegir un estado se muestra un escenario ilustrativo: cobertura del 10% de la base estimable y efecto '
+    'supuesto de 1.5 pp entre alcanzados (variantes 0.3 y 3 pp). Son supuestos del proyecto, no eficacia medida '
+    'del plan ni intervalos de confianza. Cobertura editable y reparto proporcional; un único efecto para el plan, '
+    'sin sumar actividades. Fuente: docs/PLANES_ACCION_ESTATALES_PARTICIPACION.md, sección 8.')]),
  ('07 / PREVENCIÓN (1/3)',
   'Tipologías observables y línea de acción',
   [('Tipologías por perfil observable',
@@ -215,10 +223,10 @@ PAGES=[('UMBRAL',
     'entidad, tamaño, calidad y contexto; indicadores de cobertura y comprensión; y regla de análisis fijada antes de '
     'observar resultados. La cercanía del score no acredita equivalencia ni causalidad.'),
    ('Vista operativa',
-    'Demo6 conserva año y territorio al cambiar de método, muestra históricos sin proyecciones del pasado, agrega '
-    'resumen ponderado y brecha estatal, gráfica temporal y exportación de toda la consulta. La simulación compara '
-    'antes/después con presets editables. Cartografía municipal e islas INEGI, con límites históricos sin '
-    'armonizar.')]),
+    'Demo7 permite consultar históricos, seleccionar estado y plan preventivo, ajustar cobertura y supuesto de '
+    'efecto, y comparar mapas sin/con acción con umbrales comunes. El CSV incluye municipios atendidos, pendientes '
+    'y sin estimación, tasas antes/después, semáforo, fuente y denominador. La ficha imprimible resume recursos y '
+    'límites. Revisar responsables, horas y costo real antes de cualquier piloto.')]),
  ('08 / VIABILIDAD',
   'Qué se puede defender hoy y qué falta',
   [('TABLE_VIABILITY', ''),
@@ -227,7 +235,7 @@ PAGES=[('UMBRAL',
     'del municipio a la persona. Se mitigan con revisión humana, etiquetando el escenario como hipótesis y sin inferir '
     'comportamiento individual del agregado.'),
    ('Reproducibilidad y cierre',
-    'Abrir demo/demo6.html. Se ejecutaron comparar_modelos.py, publicar_comparacion_demo6.py y '
+    'Abrir demo/demo7.html. Se ejecutaron comparar_modelos.py, publicar_comparacion_demo6.py y '
     'verificar_comparacion.py en Python 3.12 con dependencias fijadas. Se conservan predicciones por fila, modelo '
     'serializado y hashes. La interacción usa proyecciones precalculadas. Fuentes: protocolo y comparación de cuatro '
     'modelos en modelado/. Voto Vigía no se modifica.')])]
@@ -278,7 +286,7 @@ def main():
  total=len(PAGES)
  pdf=HERE/'Umbral_reporte_metodologico_preventivo.pdf'
  c=canvas.Canvas(str(pdf),pagesize=(612,792));c.setTitle('Umbral | Reporte metodológico y preventivo')
- md=['# Umbral: reporte metodológico y preventivo','Versión técnica para revisión | 16 de octubre de 2026',f'Estructura de {total} páginas (8 secciones)']
+ md=['# Umbral: reporte metodológico y preventivo','Versión técnica para revisión | 21 de octubre de 2026',f'Estructura de {total} páginas (8 secciones)']
  def paragraph(txt,st):
   nonlocal y
   p=Paragraph(html.escape(txt).replace('\n','<br/>'),st);w,h=p.wrap(516,700);y-=h;p.drawOn(c,48,y);y-=6
@@ -296,14 +304,14 @@ def main():
    c.drawImage(str(p),48,y-h,width=w,height=h,preserveAspectRatio=True,anchor='n');y-=h+3
    paragraph('Figura 1. Mapa nacional por estados del semáforo: bajo, medio, alto y sin estimación (gris). Semáforo relativo, no probabilidad. Demo Umbral.',note_style)
   elif kind=='FIGURE_TRIPLE':
-   ps=[FIG/'mapa_base.png',FIG/'mapa_intervencion.png',FIG/'mapa_cambio.png']
+   ps=[FIG/'escenario_sin.png',FIG/'mapa_intervencion.png',FIG/'mapa_cambio.png']
    labels=['(a) Sin intervención','(b) Con intervención','(c) Δ cambio en pp']
    w=168;h=w*aspect(ps[0])
    for i,p in enumerate(ps):
     x=48+i*(w+6);c.drawImage(str(p),x,y-h,width=w,height=h,preserveAspectRatio=True,anchor='n')
     c.setFillColor(HexColor('#526a62'));c.setFont(regular,8);c.drawCentredString(x+w/2,y-h-10,labels[i])
    y-=h+16
-   paragraph('Figura 2. Mismo conjunto y umbrales base fijos: sin intervención, con intervención y cambio hipotético. Captura nacional: SMS Suecia, proporcional, cobertura total 100,000; H=300 votos hipotéticos. No es el caso municipal de 1,000.',note_style)
+   paragraph('Figura 2. Mismo conjunto y umbrales base fijos: sin intervención, con intervención y cambio hipotético. Demo7, Quintana Roo: plan estatal con cobertura del 10%, efecto supuesto de 1.5 pp y reparto proporcional. No es el caso SMS municipal de 1,000 personas.',note_style)
  for i,(label,title,sections) in enumerate(PAGES,1):
   c.setFillColor(HexColor('#edf4f0'));c.rect(0,692,612,100,fill=1,stroke=0)
   c.setFillColor(HexColor('#12645e'));c.setFont(bold,10);c.drawString(48,753,label)
