@@ -5,6 +5,17 @@ const record=(key,rate,weight)=>({key,state:'01',name:'Municipio '+key,state_nam
   baseline:rate,ridge:rate,observed:weight,ln:weight,latest_ns:0,stable_catalog_state:true,
   history:[{year:2009,risk:rate,ln:weight,ns:0}]});
 
+test('consulta compacta conserva el método elegido y omite comparaciones ajenas',()=>{
+  const r={...record('01001',40,100),hgb:55,lightgbm:60,catboost:65};
+  const compact=A.csv([r],{year:2027,method:'hgb'},{},{compact:true});
+  assert.equal(compact.split('\r\n')[0].split(',').length,14);
+  assert.ok(compact.includes('"HistGradientBoosting","55","45"'));
+  assert.ok(!compact.includes('Ridge 2027'));
+  assert.ok(A.csv([r],{year:2027,method:'hgb'},{}).includes('Ridge 2027'));
+  const historic=A.csv([r],{year:2009,method:'hgb'},{},{compact:true});
+  assert.ok(historic.includes('"No aplica","40","60"'));
+});
+
 test('el agregado pondera población y declara la cobertura excluida',()=>{
   const result=A.summary([record('01001',10,10),record('01002',90,90),record('01003',null,100)],2027,'baseline');
   assert.equal(result.rate,82);

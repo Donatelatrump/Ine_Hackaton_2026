@@ -200,3 +200,45 @@ button:disabled{opacity:.5;cursor:default}
 
 /* Historical results must never expose future action scenarios. */
 #modulo-3[hidden],a[href="#modulo-3"][hidden],a[href="#paso-3"][hidden],#d7-back-forecast[hidden]{display:none!important}
+
+/* Preserve reading space inside nested information panels on small viewports. */
+.d7-plan-facts article,.d7-plan-impact-metrics article,.d7-diagnosis-grid article,
+.d7-editor-grid label,.d7-action-list li>div,.document-grid article{min-width:0;overflow-wrap:anywhere}
+.d7-allocation-scroll,.d6-metrics-wrap{max-width:100%;min-width:0}
+.d7-export-actions button,.d7-pagination button{white-space:normal;overflow-wrap:anywhere}
+@media(max-width:900px){
+  .d7-editor-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .d7-diagnosis-grid,.d7-plan-impact-metrics{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  .integrated-flow .module-content .analysis.panel,
+  .integrated-flow .module-content .intervention,
+  #modulo-3 .evidence-brief,#modulo-3 .documents{padding:14px}
+  .detail,.d6-state-plan{padding:14px}
+  .d7-planning-box,.d7-diagnosis,.d7-map-comparison{padding:12px}
+  .d7-plan-facts article,.d7-plan-impact-metrics article{padding:12px}
+  .d7-action-list li{padding:12px!important;gap:10px}
+  .d7-planning-box>a{margin:12px 0;overflow-wrap:anywhere}
+  .d7-context-bar p{overflow-wrap:anywhere}
+  .d6-summary article,.stats article{overflow-wrap:anywhere}
+}
+@media(max-width:420px){
+  .module{padding-left:12px;padding-right:12px}
+  .module-rail{left:12px;width:calc(100% - 24px)}
+  .d7-editor-grid,#paso-2 .stats,.d6-summary{grid-template-columns:minmax(0,1fr)}
+  .d7-editor-grid label:nth-last-child(-n+2){grid-column:auto}
+  .d6-summary article{border-right:0;border-bottom:1px solid var(--line)}
+  .d6-summary article:nth-last-child(2){border-bottom:1px solid var(--line)}
+  .d6-summary article:last-child{border-bottom:0}
+  .d7-export-actions button{flex:1 1 100%}
+  .d6-factor{grid-template-columns:minmax(0,1fr) 50px}
+  .d6-factor-track{grid-column:1;grid-row:2}
+  .d6-factor>strong{grid-column:2;grid-row:2}
+  .d7-action-list li{grid-template-columns:26px minmax(0,1fr);gap:8px}
+  .d7-action-number{width:26px;height:26px}
+}
+@media(max-height:500px){
+  .site-header,.d7-context-bar{position:relative;top:auto}
+  html{scroll-padding-top:16px}
+  #d7-tour{max-height:calc(100dvh - 32px);overflow:auto}
+}

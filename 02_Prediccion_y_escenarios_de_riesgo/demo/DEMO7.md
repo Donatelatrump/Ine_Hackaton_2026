@@ -1,4 +1,4 @@
-# Umbral Demo7
+# Umbral
 
 Versión revisada el 21 de octubre de 2026 para el **Reto 2: Predicción y escenarios de riesgo de abstención**. [Revisión de requisitos y pendientes](../entrega/REVISION_REQUISITOS_INE.md).
 
@@ -10,7 +10,7 @@ Desde la raíz del repositorio:
 python 02_Prediccion_y_escenarios_de_riesgo/tools/servir_demo.py --build
 ```
 
-Abrir [demo7 local](http://127.0.0.1:8000/02_Prediccion_y_escenarios_de_riesgo/demo/demo7.html). También funciona abriendo `demo7.html` directamente: datos y Leaflet son locales. Conservar la estructura del proyecto para abrir PDF, CSV y fuentes relativas. Solo los enlaces externos requieren internet. `--demo 6` conserva la entrada anterior.
+Abrir [Umbral local](http://127.0.0.1:8000/02_Prediccion_y_escenarios_de_riesgo/demo/demo7.html). También funciona abriendo `demo7.html` directamente: datos y Leaflet son locales. Conservar la estructura del proyecto para abrir PDF, CSV y fuentes relativas. Solo los enlaces externos requieren internet. `--demo 6` conserva la entrada anterior.
 
 Solo reconstruir:
 
@@ -49,3 +49,11 @@ python 02_Prediccion_y_escenarios_de_riesgo/entrega/verificar_entrega.py
 ```
 
 La prueba de navegador utiliza Edge instalado y Python estándar, con un perfil temporal exclusivo. Revisa arranque local, enlaces de entrega, mapas, cobertura cero, cambio de método, exportación trazable y vista móvil; guarda evidencias en `verificacion/demo7/`. El verificador de entrega comprueba páginas, diapositivas, cifras del caso y la huella de los recursos web. Las pruebas no acreditan inscripción, firmas ni validación institucional.
+
+## Consulta y acciones simplificadas
+
+El plan estatal conserva su calculo de referencia: 10% de cobertura, efecto central supuesto de 1.5 pp y reparto proporcional. No tiene editor de planes alternativos. El simulador permite elegir acciones y modificar su alcance; ese resultado no modifica el calculo estatal.
+
+La consulta CSV incluye 14 columnas del territorio, datos y metodo elegido. La comparacion de todos los modelos sigue en la descarga de proyecciones. Los dos botones de exportacion de escenarios usan el mismo CSV de 19 columnas, con todos los municipios del escenario (incluidos pendientes y sin estimacion), resultados antes/despues, semaforo, cobertura, metodo, accion y fuente. Se retiran totales repetidos, columnas de otros modelos y recomendaciones del flujo anterior. Los detalles del efecto permanecen en la ficha y la metodologia.
+
+La descarga Excel (.xlsx) contiene dos hojas: datos con bordes, filtros y encabezados fijos, y resumen/fuentes separados. No requiere servicios externos. El CSV se mantiene como formato de intercambio sin estilos.

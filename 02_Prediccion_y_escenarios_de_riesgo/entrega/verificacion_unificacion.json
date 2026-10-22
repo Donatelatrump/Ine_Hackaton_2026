@@ -1,20 +1,20 @@
 {
   "date": "2026-10-22",
-  "demo": "demo7",
+  "application": "Umbral",
   "documents": [
     {
       "file": "reporte/Umbral_reporte_metodologico_preventivo.pdf",
       "pages": 14,
       "bounds_ok": true,
       "text_overlap": false,
-      "sha256": "33b63b3f99a46f8297661b16dae4afc23434376eeb85da6de7e4ebbf0ac396af"
+      "sha256": "db0e53f84a3e2d3456ec70603f30713f26d346d34f01d6e24cc89cf0c8873337"
     },
     {
       "file": "presentacion/Umbral_presentacion.pdf",
       "pages": 10,
       "bounds_ok": true,
       "text_overlap": false,
-      "sha256": "8659759f124cbbb6f495ff781006a6ad16390c9fd96253a0af02b0436389e0ee"
+      "sha256": "fcc56e4ad26c7bef4f4185253f866a1e898c7a670963d44505ab846a8ebe1c25"
     },
     {
       "file": "presentacion/Umbral_presentacion.pptx",
@@ -23,7 +23,7 @@
     }
   ],
   "case_reproduced": true,
-  "browser_checks": 11,
+  "browser_checks": 12,
   "browser_sources_verified": true,
   "scenario_action": "sms_suecia",
   "external_effect_is_hypothetical": true,

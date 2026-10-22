@@ -8,7 +8,7 @@ Estructura de 14 páginas (8 secciones)
 aguas.exe. Integrantes: Martin Isai Nuñez Villeda y Cesar Donnet Hernandez Gastelum. Versión técnica para revisión, 22 de octubre de 2026. Horizonte exploratorio: elección intermedia de 2027. Cobertura: México por municipio, claves INE. Datos históricos ordinarios 2009-2024. Presupuesto de 15 páginas; este documento usa 14.
 
 ### Resumen ejecutivo
-Se entrenaron y evaluaron Ridge, HistGradientBoosting, LightGBM y CatBoost con las mismas 15 variables históricas. Se seleccionó HistGradientBoosting: MAE medio 6.8360 pp frente a 9.0094 de Ridge (24.12% menos error). LightGBM obtuvo MAE 6.8304 pp; la diferencia menor que 0.05 pp activó el desempate por MAE ponderado, favorable a HistGradientBoosting. Ridge fue el más rápido. La selección es retrospectiva, sin validación futura de 2027. Demo7 muestra la consulta histórica y proyecciones precalculadas, comparación estatal, exportación de consultas y escenarios hipotéticos con cobertura total y fuentes. Incorpora planes estatales, mapas pareados y CSV de escenarios con semáforo y trazabilidad.
+Se entrenaron y evaluaron Ridge, HistGradientBoosting, LightGBM y CatBoost con las mismas 15 variables históricas. Se seleccionó HistGradientBoosting: MAE medio 6.8360 pp frente a 9.0094 de Ridge (24.12% menos error). LightGBM obtuvo MAE 6.8304 pp; la diferencia menor que 0.05 pp activó el desempate por MAE ponderado, favorable a HistGradientBoosting. Ridge fue el más rápido. La selección es retrospectiva, sin validación futura de 2027. Umbral muestra la consulta histórica y proyecciones precalculadas, comparación estatal, exportación de consultas y escenarios hipotéticos con cobertura total y fuentes. Incorpora planes estatales, mapas pareados y CSV de escenarios con semáforo y trazabilidad.
 
 ### Qué es y qué no es
 Es una herramienta de priorización auditable y un registro explícito de supuestos. No es un predictor validado de 2027, no es un asignador automático de recursos y no demuestra efectos causales de una intervención.
@@ -128,8 +128,8 @@ O es referencia observable 2024, no electorado 2027. Transferencia del efecto ex
 
 (FIGURE_TRIPLE)
 
-### Plan estatal de Demo7
-Al elegir un estado se muestra un escenario ilustrativo: cobertura del 10% de la base estimable y efecto supuesto de 1.5 pp entre alcanzados (variantes 0.3 y 3 pp). Son supuestos del proyecto, no eficacia medida del plan ni intervalos de confianza. Cobertura editable y reparto proporcional; un único efecto para el plan, sin sumar actividades. Fuente: docs/PLANES_ACCION_ESTATALES_PARTICIPACION.md, sección 8.
+### Plan estatal de Umbral
+Al elegir un estado se muestra un escenario ilustrativo: cobertura del 10% de la base estimable y efecto supuesto de 1.5 pp entre alcanzados (variantes 0.3 y 3 pp). Son supuestos del proyecto, no eficacia medida del plan ni intervalos de confianza. Cobertura fija y reparto proporcional; un único efecto para el plan, sin sumar actividades. Fuente: docs/PLANES_ACCION_ESTATALES_PARTICIPACION.md, sección 8.
 
 ## Página 11: Tipologías observables y línea de acción
 
@@ -162,7 +162,7 @@ Cobertura total limitada a población observable elegible. Prioridad concentra c
 Aleatorizar atención inmediata o diferida entre municipios cercanos al corte de capacidad, con balance por entidad, tamaño, calidad y contexto; indicadores de cobertura y comprensión; y regla de análisis fijada antes de observar resultados. La cercanía del score no acredita equivalencia ni causalidad.
 
 ### Vista operativa
-Demo7 permite consultar históricos, seleccionar estado y plan preventivo, ajustar cobertura y supuesto de efecto, y comparar mapas sin/con acción con umbrales comunes. El CSV incluye municipios atendidos, pendientes y sin estimación, tasas antes/después, semáforo, fuente y denominador. La ficha imprimible resume recursos y límites. Revisar responsables, horas y costo real antes de cualquier piloto.
+Umbral permite consultar históricos y el plan estatal con su cálculo fijo, simular acciones con cobertura editable y comparar mapas sin/con acción con umbrales comunes. El CSV incluye municipios atendidos, pendientes y sin estimación, tasas antes/después, semáforo, fuente y denominador. La ficha imprimible resume recursos y límites. Revisar responsables, horas y costo real antes de cualquier piloto.
 
 ## Página 14: Qué se puede defender hoy y qué falta
 
@@ -179,4 +179,4 @@ Demo7 permite consultar históricos, seleccionar estado y plan preventivo, ajust
 Uso automático de la lista como asignación definitiva; lectura causal del escenario; y falacia ecológica al pasar del municipio a la persona. Se mitigan con revisión humana, etiquetando el escenario como hipótesis y sin inferir comportamiento individual del agregado.
 
 ### Reproducibilidad y cierre
-Abrir demo/demo7.html. Se ejecutaron comparar_modelos.py, publicar_comparacion_demo6.py y verificar_comparacion.py en Python 3.12 con dependencias fijadas. Se conservan predicciones por fila, modelo serializado y hashes. La interacción usa proyecciones precalculadas. Fuentes: protocolo y comparación de cuatro modelos en modelado/. Repositorio: https://github.com/Donatelatrump/Ine_Hackaton_2026.
+Abrir Umbral con la carpeta completa del proyecto. Se ejecutaron comparar_modelos.py, publicar_comparacion_demo6.py y verificar_comparacion.py en Python 3.12 con dependencias fijadas. Se conservan predicciones por fila, modelo serializado y hashes. La interacción usa proyecciones precalculadas. Fuentes: protocolo y comparación de cuatro modelos en modelado/. Repositorio: https://github.com/Donatelatrump/Ine_Hackaton_2026.

@@ -2,9 +2,12 @@
 
 Guarda evidencia del navegador y CSV; no reentrena ni consulta servicios externos.
 """
+from datetime import date
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import urlsplit, unquote
+import zipfile
+import xml.etree.ElementTree as ET
 import base64
 import csv
 import hashlib
@@ -93,7 +96,8 @@ try:
     initial=c.evaluate('window.Umbral7Planning.snapshot')
     checks['state_plan']={'served':initial['served'],'additional':initial['additional'],'rows':len(initial['rows'])}
     assert abs(initial['additional']-initial['served']*.015)<1e-6
-    assert c.evaluate('document.getElementById("d7-plan-coverage").getBoundingClientRect().height>0')
+    assert c.evaluate('!document.getElementById("d7-action-editor") && !document.getElementById("d7-plan-coverage")')
+    state_comparison=c.evaluate('document.getElementById("d6-plan-comparison-values").textContent')
     assert 'supuesto' in c.evaluate('document.getElementById("d7-impact-caption").textContent')
     assert any(r['before'] is None for r in initial['rows'])
     # Capture both maps and differences for exactly the same state plan.
@@ -110,7 +114,7 @@ try:
         c.call('Browser.setDownloadBehavior',{'behavior':'allow','downloadPath':download_dir})
         value('d7-allocation-filter','sin_datos','change')
         c.evaluate('document.getElementById("d7-allocation-download").click()')
-        path=Path(download_dir)/'Umbral_demo7_distribucion.csv'
+        path=Path(download_dir)/'Umbral_distribucion.csv'
         deadline=time.monotonic()+10
         while not path.exists():
             assert time.monotonic()<deadline,'CSV no descargado'
@@ -118,12 +122,17 @@ try:
         rows=list(csv.DictReader(path.open(encoding='utf-8-sig',newline='')))
         assert len(rows)==len(initial['rows'])
         assert sum(float(r['Personas asignadas']) for r in rows)==initial['served']
+        assert len(rows[0])==19
+        rates=sorted(r['hgb'] for r in json.loads((DEMO/'data/comparacion_modelos.json').read_text(encoding='utf-8'))['forecasts'] if r.get('hgb') is not None)
+        def quantile(q):
+            pos=(len(rates)-1)*q;i=int(pos)
+            return rates[i]+(rates[min(i+1,len(rates)-1)]-rates[i])*(pos-i)
         for r in rows:
             assert r['Método']=='HistGradientBoosting' and r['Fuente de la acción'] and r['Límites']
             if r['Abstención base (%)']:
                 before=float(r['Abstención base (%)']);after=float(r['Abstención con acción (%)'])
                 assert abs(before-after-float(r['Reducción (pp)']))<1e-9
-                low=float(r['Umbral medio (%)']);high=float(r['Umbral alto (%)'])
+                low=quantile(1/3);high=quantile(2/3)
                 classify=lambda x:'alto' if x>=high else 'bajo' if x<low else 'medio'
                 assert r['Semáforo sin acción']==classify(before)
                 assert r['Semáforo con acción']==classify(after)
@@ -133,7 +142,7 @@ try:
         shutil.copyfile(path,OUT/'distribucion_ejemplo.csv')
         checks['csv']={'rows':len(rows),'columns':len(rows[0]),'full_despite_filter':True,'scenario_and_sources':True}
     # Zero coverage must preserve both rates; switching methods must invalidate exports.
-    value('d7-plan-coverage','0')
+    value('action','sms_suecia','change');value('reach','0')
     wait_for('window.Umbral7Planning.snapshot?.served===0')
     zero=c.evaluate('window.Umbral7Planning.snapshot')
     assert zero['additional']==0 and all(r['reduction'] in (0,None) for r in zero['rows'])
@@ -141,7 +150,8 @@ try:
     wait_for('window.Umbral7Planning.snapshot?.method==="ridge"')
     assert c.evaluate('window.Umbral7Planning.snapshot.additional')==0
     checks['zero_coverage_and_method']=True
-    value('method','hgb');value('d7-plan-coverage','10')
+    value('method','hgb');value('action','ninguna','change')
+    assert c.evaluate('document.getElementById("d6-plan-comparison-values").textContent')==state_comparison
     c.evaluate('document.getElementById("stable").checked=true;document.getElementById("stable").dispatchEvent(new Event("input"))')
     stable=c.evaluate('window.Umbral7Planning.snapshot')
     assert stable['served']==int(stable['population']*.1) and stable['served']<=initial['served'] and stable['served']>0
@@ -155,13 +165,51 @@ try:
     row=next(r for r in example['rows'] if r['key']=='23008')
     assert abs(row['before']-61.63622241492481)<1e-9
     checks['municipal_example']={'additional':example['additional'],'reduction_pp':row['reduction']}
-    # Invalid state-plan input must block export.
-    value('search','');value('action','ninguna','change');value('d7-plan-coverage','101')
+    with tempfile.TemporaryDirectory(prefix='umbral-action-download-') as download_dir:
+        c.call('Browser.setDownloadBehavior',{'behavior':'allow','downloadPath':download_dir})
+        c.evaluate('document.getElementById("export").click()')
+        path=Path(download_dir)/'Umbral_distribucion.xlsx'
+        deadline=time.monotonic()+10
+        while not path.exists():
+            assert time.monotonic()<deadline,'Excel de acciones no descargado'
+            time.sleep(.1)
+        ns={'s':'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
+        with zipfile.ZipFile(path) as workbook:
+            assert workbook.testzip() is None
+            for name in workbook.namelist():ET.fromstring(workbook.read(name))
+            sheet=ET.fromstring(workbook.read('xl/worksheets/sheet1.xml'))
+            cells={c.attrib['r']:c for c in sheet.findall('.//s:c',ns)}
+            assert cells['B5'].find('s:is/s:t',ns).text=='23008'
+            assert float(cells['F5'].find('s:v',ns).text)==1000
+            assert abs(float(cells['I5'].find('s:v',ns).text)-row['reduction'])<1e-9
+            assert sheet.find('s:autoFilter',ns).attrib['ref']=='A4:L5'
+            assert sheet.find('.//s:pane',ns).attrib['state']=='frozen'
+            styles=ET.fromstring(workbook.read('xl/styles.xml'))
+            assert styles.find('.//s:border/s:left[@style="thin"]',ns) is not None
+            assert 'xl/worksheets/sheet2.xml' in workbook.namelist()
+        shutil.copyfile(path,OUT/'Umbral_distribucion_ejemplo.xlsx')
+        c.evaluate('document.getElementById("d6-excel").click()')
+        query=Path(download_dir)/'Umbral_consulta_23008_2027.xlsx'
+        deadline=time.monotonic()+10
+        while not query.exists():
+            assert time.monotonic()<deadline,'Excel de consulta no descargado'
+            time.sleep(.1)
+        with zipfile.ZipFile(query) as workbook:
+            assert workbook.testzip() is None
+            sheet=ET.fromstring(workbook.read('xl/worksheets/sheet1.xml'))
+            cell=sheet.find('.//s:c[@r="G5"]/s:v',ns)
+            assert abs(float(cell.text)-row['before'])<1e-9
+        shutil.copyfile(query,OUT/'Umbral_consulta_ejemplo.xlsx')
+        checks['excel_downloads']={'sheets':2,'borders':True,'frozen_headers':True,'numeric_cells':True,'current_scenario':True}
+    # Only action coverage is editable; the documented state plan stays fixed.
+    fixed=c.evaluate('document.getElementById("d6-plan-comparison-values").textContent')
+    value('reach','-1')
     assert c.evaluate('window.Umbral7Planning.snapshot===null && document.getElementById("d7-allocation-download").disabled')
-    checks['invalid_coverage']=True
-    value('d7-plan-coverage','10')
+    assert c.evaluate('document.getElementById("d6-plan-comparison-values").textContent')==fixed
+    checks['invalid_action_coverage_preserves_state_plan']=True
+    value('reach','1000')
     c.call('Emulation.setDeviceMetricsOverride',{'width':390,'height':844,'deviceScaleFactor':1,'mobile':True})
-    c.evaluate('document.getElementById("d7-action-editor").scrollIntoView({behavior:"instant"})')
+    c.evaluate('document.getElementById("paso-3").scrollIntoView({behavior:"instant"})')
     time.sleep(.5)
     assert c.evaluate('document.documentElement.scrollWidth<=innerWidth')
     screenshot('movil.png')
@@ -171,7 +219,7 @@ try:
     checks['historical_hides_future_scenario']=True
     assert not c.errors,c.errors
     sources=['demo7.html','assets/demo7.js','assets/demo7.css','data/comparacion_modelos.js']
-    result={'date':'2026-10-21','passed':True,'checks':checks,'page_errors':c.errors,'sources':{p:hashlib.sha256((DEMO/p).read_bytes()).hexdigest() for p in sources}}
+    result={'date':date.today().isoformat(),'passed':True,'checks':checks,'page_errors':c.errors,'sources':{p:hashlib.sha256((DEMO/p).read_bytes()).hexdigest() for p in sources}}
     (OUT/'resultado.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(result,ensure_ascii=True,indent=2))
 finally:

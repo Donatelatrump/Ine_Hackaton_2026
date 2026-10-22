@@ -1,11 +1,11 @@
 /* State action assumptions, traceable allocation, portable briefs and presentation. */
 (() => {
   'use strict';
-  const A=UmbralAnalytics,settings=new Map();
+  const A=UmbralAnalytics;
   const f=n=>Number.isFinite(n)?fmt.format(n):'Sin dato';
   const p=n=>Number.isFinite(n)?n.toFixed(2)+'%':'Sin dato';
   const pp=n=>Number.isFinite(n)?n.toLocaleString('es-MX',{maximumFractionDigits:5})+' pp':'Sin dato';
-  let context=null,snapshot=null,formKey='',page=0,allocationKey='',diagnostic=null,exportText='';
+  let context=null,snapshot=null,page=0,allocationKey='',diagnostic=null,exportText='';
   const criterion={tasa:'Mayor porcentaje de abstención',volumen:'Mayor volumen de abstención',deterioro:'Mayor deterioro frente a 2021'};
   const normalized=text=>String(text).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
   const validRow=r=>Number.isFinite(r.risk)&&r.observed>0;
@@ -22,18 +22,7 @@
   }
   function stateSettings(rows,selection,base){
     const texts=actionTexts();
-    let state=settings.get(selection.state);
-    if(!state){
-      // Whole documented plan, one shared population: never sum overlapping activities.
-      state={selected:0,actions:[{text:'Plan estatal de '+(rows[0]?.state_name||selection.state),activities:texts,group:'Base estatal observable',groupKnown:true,coverage:10,scenario:'central',reach:Math.floor(base*.10),effect:1.5,low:.3,high:3,distribution:'proporcional',lens:'tasa',edited:false,informational:true}]};
-      settings.set(selection.state,state);
-    }
-    const cfg=state.actions[0];
-    if(!cfg.manualReach){
-      const coverage=Number(cfg.coverage);
-      cfg.reach=String(cfg.coverage).trim()!==''&&Number.isFinite(coverage)&&coverage>=0&&coverage<=100?Math.floor(base*coverage/100):'';
-    }
-    return state;
+    return {selected:0,actions:[{text:'Plan estatal de '+(rows[0]?.state_name||selection.state),activities:texts,coverage:10,scenario:'central',reach:Math.floor(base*.10),effect:1.5,low:.3,high:3,distribution:'proporcional',lens:'tasa'}]};
   }
   function configurationError(cfg,base){
     if(!cfg)return 'No se encontró una actividad del plan para este estado.';
@@ -52,7 +41,7 @@
       return {...r,additional,additional_low:amount(cfg.low),additional_high:amount(cfg.high),after:Math.max(0,r.risk-100*additional/r.observed)};
     });
     const additional=selected.reduce((n,r)=>n+r.additional,0);
-    const action={id:'plan_estatal',label:cfg.text,effect_pp:Number(cfg.effect),low_pp:Number(cfg.low),high_pp:Number(cfg.high),unit:'Personas que se supone alcanzar',estimand:'Escenario de referencia del plan documental (sección 8)',source:'https://github.com/Donatelatrump/Ine_Hackaton_2026/blob/main/docs/PLANES_ACCION_ESTATALES_PARTICIPACION.md',citation:'Plan documental del proyecto; coeficiente ilustrativo editable, sin efecto causal local validado',limits:'Plan completo sobre una población compartida; no se suman efectos por actividad. Efecto no validado localmente.'};
+    const action={id:'plan_estatal',label:cfg.text,effect_pp:Number(cfg.effect),low_pp:Number(cfg.low),high_pp:Number(cfg.high),unit:'Personas que se supone alcanzar',estimand:'Escenario de referencia del plan documental (sección 8)',source:'https://github.com/Donatelatrump/Ine_Hackaton_2026/blob/main/docs/PLANES_ACCION_ESTATALES_PARTICIPACION.md',citation:'Plan documental del proyecto; coeficiente ilustrativo fijo, sin efecto causal local validado',limits:'Plan completo sobre una población compartida; no se suman efectos por actividad. Efecto no validado localmente.'};
     return {...allocation,selected,additional,additional_low:selected.reduce((n,r)=>n+r.additional_low,0),additional_high:selected.reduce((n,r)=>n+r.additional_high,0),after:allocation.reference_population?allocation.before-100*additional/allocation.reference_population:0,action,description:`${cfg.text}: ${cfg.activities.length} acciones del documento. Cobertura ${cfg.coverage} %; escenario ${cfg.scenario}. Referencia documental: 10 % de cobertura y 0.3–3 pp entre personas alcanzadas (central 1.5 pp). Se aplica un solo efecto compartido, sin sumar actividades; es una aproximación, no una eficacia medida del plan completo.`};
   }
   runtime.createStateScenario=function(rows,selection,baseline){
@@ -85,24 +74,6 @@
       box.open=open;
     });
   }
-  function renderEditor(data){
-    const state=stateSettings(data.rows,data.selection,data.baseline.denominator),cfg=state.actions[state.selected];
-    $('d7-action-editor').hidden=false;
-    const key=data.selection.state+'|'+state.selected;
-    if(formKey!==key){
-      $('d7-plan-action').replaceChildren(...state.actions.map((a,i)=>new Option(a.text,String(i))));
-      $('d7-plan-action').value=String(state.selected);
-      for(const [id,field] of [['reach','reach'],['effect','effect'],['low','low'],['high','high'],['distribution','distribution'],['lens','lens']])$('d7-action-'+id).value=String(cfg?.[field]??'');
-      formKey=key;
-    }
-    $('d7-action-reach').max=String(Math.floor(data.baseline.denominator));
-    $('d7-plan-coverage').value=String(cfg.coverage);
-    $('d7-plan-scenario').value=cfg.scenario;
-    $('d7-action-assumption').textContent='Referencia: sección 8 del documento de planes estatales. Al 10 % de cobertura: +0.03 a +0.30 pp de participación (central +0.15 pp). Se usa un efecto compartido para todas las acciones, sin duplicar personas. No es eficacia comprobada del plan.';
-    $('d7-editor-error').textContent=configurationError(cfg,data.baseline.denominator);
-    $('d7-editor-mode').textContent=$('action').value==='ninguna'?'Plan completo: todas las acciones mostradas arriba.':'Simulador general activo. Pulsa Simular plan estatal para volver al plan investigado.';
-  }
-
   function allocationRows(){
     if(!snapshot)return [];
     const ranked=Decision.rank(snapshot.rows,snapshot.lens),positions=new Map(ranked.map((r,i)=>[r.key,i+1]));
@@ -132,7 +103,7 @@
       $('d7-international-impact').textContent=$('action').value==='ninguna'?'Elige una estrategia internacional para ver el efecto del estudio y su impacto estimado en el territorio.':'Revisa la cobertura para calcular el impacto de la estrategia.';
     }
     for(const id of ['d7-allocation','d7-comparison-block'])$(id).hidden=!snapshot;
-    for(const id of ['d7-download-brief','d7-print-brief','d7-allocation-download'])$(id).disabled=!snapshot;
+    for(const id of ['d7-download-brief','d7-print-brief','d7-allocation-download','d7-allocation-excel'])$(id).disabled=!snapshot;
     if(!snapshot){$('d7-allocation-rows').innerHTML='';return;}
     const key=JSON.stringify([snapshot.selection,snapshot.plan.served,snapshot.plan.additional,snapshot.plan.distribution,snapshot.lens]);
     if(key!==allocationKey){page=0;allocationKey=key;}
@@ -140,11 +111,11 @@
   }
   runtime.getDisplayedScenario=()=>snapshot;
   runtime.renderPlanning=function(data){
-    renderDiagnosis(data.rows,data.selection,data.baseline);renderEditor(data);
+    renderDiagnosis(data.rows,data.selection,data.baseline);
     const manual=$('action').value!=='ninguna';
     const rows=manual?filtered:data.rows;
     const scenario=manual?(simulationActive()&&$('reach').checkValidity()?plan:null):data.scenarioPlan;
-    const lens=manual?$('lens').value:settings.get(data.selection.state)?.actions[settings.get(data.selection.state).selected]?.lens||'tasa';
+    const lens=manual?$('lens').value:'tasa';
     const exportDiagnosis=manual?{young:weighted(rows,'young_pct'),urban:weighted(rows,'urban_pct'),older:weighted(rows,'older_pct')}:diagnostic;
     adoptSnapshot(data.valid&&scenario?{rows,plan:scenario,territory:Decision.territorialScenario(rows,scenario),selection:{...data.selection},method:data.selection.method,label:manual?context.territoryLabel():rows[0]?.state_name||data.selection.state,lens,diagnostic:exportDiagnosis,mode:manual?'Simulador general':'Plan estatal investigado'}:null);
   };
@@ -152,11 +123,11 @@
   runtime.views.renderSummary=function(ctx){
     context=ctx;previousSummary(ctx);
     if(ctx.state.year!==2027){
-      $('d7-diagnosis').hidden=true;$('d7-action-editor').hidden=true;
-      formKey='';adoptSnapshot(null);return;
+      $('d7-diagnosis').hidden=true;
+      adoptSnapshot(null);return;
     }
     if(!ctx.state.state){
-      $('d7-diagnosis').hidden=true;$('d7-action-editor').hidden=true;formKey='';
+      $('d7-diagnosis').hidden=true;
       adoptSnapshot(ctx.state.year===2027&&simulationActive()?{rows:filtered,plan,territory:Decision.territorialScenario(filtered,plan),selection:{...ctx.state},method:ctx.state.method,label:ctx.territoryLabel(),lens:$('lens').value,diagnostic:null,mode:'Simulador general'}:null);
     }
   };
@@ -164,30 +135,48 @@
   function download(text,name,type){
     const blob=new Blob([text],{type}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=name;link.click();setTimeout(()=>URL.revokeObjectURL(url),30000);
   }
+  function allocationTable(){
+    if(!snapshot)return [];
+    const s=snapshot,a=s.plan.action;
+    const lookup=new Map(s.rows.map(r=>[r.key,r]));
+    const rows=[['Prioridad','Clave INE','Municipio','Estado','Atención','Personas asignadas','Abstención base (%)','Abstención con acción (%)','Reducción (pp)','Semáforo sin acción','Semáforo con acción','Base observable SV+NV 2024','Método','Distribución','Acción','Unidad de cobertura','Efecto supuesto o externo (pp)','Fuente de la acción','Límites'],...allocationRows().map(r=>{
+      const after=Number.isFinite(r.before)?r.before-r.reduction:null;
+      return [r.position,r.key,r.name,r.state,r.status,r.served,r.before,after,r.reduction,Decision.level(r.before,thresholds),Decision.level(after,thresholds),lookup.get(r.key)?.observed,A.methodName(s.method),s.plan.distribution,a.label,a.unit,a.effect_pp,a.source,'Proyección 2027 exploratoria; escenario hipotético. '+a.limits];
+    })];
+    return rows;
+  }
   function downloadAllocation(){
     if(!snapshot)return;
     const cell=value=>{let text=String(value??'');if(typeof value==='string'&&/^[=+\-@]/.test(text))text="'"+text;return '"'+text.replace(/"/g,'""')+'"';};
+    download('\uFEFF'+allocationTable().map(row=>row.map(cell).join(',')).join('\r\n'),'Umbral_distribucion.csv','text/csv;charset=utf-8');
+  }
+  function downloadExcel(){
+    if(!snapshot)return;
     const s=snapshot,a=s.plan.action,t=s.territory;
-    const lookup=new Map(s.rows.map(r=>[r.key,r]));
-    const rows=[['Prioridad','Clave INE','Municipio','Estado','Atención','Personas asignadas','Abstención base (%)','Reducción (pp)','Criterio','Abstención con acción (%)','Semáforo sin acción','Semáforo con acción','Umbral medio (%)','Umbral alto (%)','Base observable SV+NV 2024','Año proyectado','Método','Territorio','Catálogo constante','Distribución','Acción','Unidad de cobertura','Efecto supuesto o externo (pp)','Límite inferior efecto (pp)','Límite superior efecto (pp)','Respuesta personalizada (%)','Estimador o supuesto','Fuente de la acción','Cita','Límites','Cobertura total asignada','Base territorial incluida','Abstención territorial sin acción (%)','Abstención territorial con acción (%)'],...allocationRows().map(r=>{
-      const after=Number.isFinite(r.before)?r.before-r.reduction:null;
-      return [r.position,r.key,r.name,r.state,r.status,r.served,r.before,r.reduction,r.reason,after,Decision.level(r.before,thresholds),Decision.level(after,thresholds),thresholds.low,thresholds.high,lookup.get(r.key)?.observed,2027,A.methodName(s.method),s.label,s.selection.stable,s.plan.distribution,a.label,a.unit,a.effect_pp,a.low_pp,a.high_pp,a.id==='personalizada'?Number($('response').value):null,a.estimand,a.source,a.citation,a.limits,s.plan.served,t.population,t.before,t.after];
-    })];
-    download('\uFEFF'+rows.map(row=>row.map(cell).join(',')).join('\r\n'),'Umbral_demo7_distribucion.csv','text/csv;charset=utf-8');
+    UmbralSpreadsheet.download([
+      {name:'Municipios',title:'UMBRAL | Distribucion municipal',subtitle:s.label+' | Escenario 2027 | '+A.methodName(s.method),rows:allocationTable().map(r=>r.slice(0,12)),widths:[12,14,30,25,22,20,22,22,20,20,20,24]},
+      {name:'Resumen y fuentes',title:'UMBRAL | Resumen y fuentes',subtitle:'Escenario hipotetico. Datos agregados; no acredita impacto causal.',rows:[
+        ['Concepto','Detalle'],['Territorio',s.label],['Metodo',A.methodName(s.method)],['Catalogo',s.selection.stable?'Constante':'Completo'],
+        ['Accion',a.label],['Distribucion',s.plan.distribution],['Criterio',criterion[s.lens]],['Personas asignadas',s.plan.served],['Base observable SV+NV 2024',t.population],
+        ['Abstencion sin accion (%)',t.before],['Abstencion con accion (%)',t.after],['Votos adicionales hipoteticos',t.additional],
+        ['Unidad de cobertura',a.unit],['Efecto central (pp)',a.effect_pp],['Efecto inferior (pp)',a.low_pp],['Efecto superior (pp)',a.high_pp],
+        ['Estimador o supuesto',a.estimand],['Fuente',a.source],['Cita',a.citation],['Limites',a.limits],['Nota','Proyeccion 2027 exploratoria. Base observable de 2024; sin estimacion no equivale a cero.']
+      ],widths:[34,100]}
+    ],'Umbral_distribucion.xlsx');
   }
   function brief(){
     if(!snapshot)return '';
     const s=snapshot,t=s.territory,action=s.plan.action,top=allocationRows().filter(r=>r.served>0).slice(0,5),d=s.diagnostic;
     const source=action.source&&/^https:\/\//.test(action.source)?action.source:'https://ine.mx/transparencia/datos-abiertos/visualizacion-datos/conteos-censales-participacion/';
     const date=new Date().toLocaleString('es-MX',{timeZone:'America/Mexico_City'});
-    return `<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Umbral · Ficha de ${esc(s.label)}</title><style>@page{size:A4;margin:12mm}*{box-sizing:border-box}body{font:12px/1.45 Arial,sans-serif;color:#172d28;max-width:185mm;margin:22px auto;padding:0 12px}h1{font-size:25px;margin:8px 0}h2{font-size:15px;margin:16px 0 6px}p{margin:6px 0}.top{font-size:10px;color:#52645c}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.metrics div{padding:12px;background:#edf3ef;border:1px solid #cad8cf;border-radius:8px}.metrics b{font-size:22px;display:block}.metrics span{font-size:11px}table{width:100%;border-collapse:collapse;font-size:11px}th,td{text-align:left;padding:7px 4px;border-bottom:1px solid #d6ded9}a{color:#224f74;overflow-wrap:anywhere}.note{font-size:10px;color:#52645c}.actions{margin:12px 0}button{padding:10px;border:1px solid #173f35;border-radius:6px;background:white;color:#173f35}svg{width:100%;height:75px}.limit{border-left:3px solid #c69036;padding:7px 11px;background:#fbf5e8}@media print{body{margin:0;padding:0;font-size:11px}.actions{display:none}a{color:inherit}h2,table,.metrics,.limit{break-inside:avoid}.note{font-size:9px}}</style></head><body><p class="top">AGUAS.EXE · UMBRAL · RETO 2 · DEMO7 · ${esc(date)}</p><h1>${esc(s.label)} · escenario 2027</h1><p>${esc(s.mode)} · ${esc(A.methodName(s.method))} · ${s.selection.stable?'Catálogo constante':'Catálogo completo'} · base observable: ${f(t.population)} personas (SV+NV 2024).</p><div class="actions"><button onclick="window.print()">Imprimir / guardar como PDF</button></div><div class="metrics"><div><span>Abstención sin acción</span><b>${p(t.before)}</b></div><div><span>Abstención con acción</span><b>${p(t.after)}</b></div><div><span>Votos adicionales hipotéticos</span><b>≈ ${f(t.additional)}</b></div></div><svg viewBox="0 0 650 75" role="img" aria-label="Comparación de abstención en escala de cero a cien"><text x="0" y="20" font-size="12">Sin acción</text><rect x="110" y="5" width="${Math.max(0,t.before)*4.5}" height="18" fill="#b95d77"/><text x="0" y="55" font-size="12">Con acción</text><rect x="110" y="40" width="${Math.max(0,t.after)*4.5}" height="18" fill="#1a7769"/><text x="570" y="20" font-size="12">${p(t.before)}</text><text x="570" y="55" font-size="12">${p(t.after)}</text></svg><p>Reducción: <strong>${pp(t.before-t.after)}</strong> · alcance supuesto: <strong>${f(s.plan.served)}</strong> personas.</p><h2>Diagnóstico y acción</h2><p>${d?'Proporciones agregadas: jóvenes '+p(d.young)+'; zonas urbanas '+p(d.urban)+'.':'Diagnóstico territorial según la proyección del método activo.'} Son datos descriptivos, no causas.</p><p><strong>${esc(action.label)}</strong></p><p class="note">${esc(action.estimand||'Supuesto editable')} · ${Number.isFinite(action.effect_pp)?'Efecto central: '+action.effect_pp+' pp entre alcanzados. ':''}${Number.isFinite(action.low_pp)?'Rango de efecto: '+action.low_pp+' a '+action.high_pp+' pp. ':''}${esc(action.unit||'Cobertura supuesta')}. ${esc(action.citation||'Respuesta declarada por el usuario.')}</p><h2>Priorización de recursos</h2><p>Distribución ${s.plan.distribution==='proporcional'?'proporcional a SV+NV 2024':'por prioridad'}; ${esc(criterion[s.lens])}. ${allocationRows().filter(r=>r.status==='Con atención').length} municipios atendidos; ${allocationRows().filter(r=>r.status==='Pendiente').length} pendientes; ${allocationRows().filter(r=>r.status==='Sin estimación').length} sin estimación.</p><table><thead><tr><th>Municipio (primeros cinco)</th><th>Personas asignadas</th><th>Reducción</th></tr></thead><tbody>${top.map(r=>`<tr><td>${esc(r.name)} · ${r.key}</td><td>${f(r.served)}</td><td>${pp(r.reduction)}</td></tr>`).join('')||'<tr><td colspan="3">Sin atención asignada.</td></tr>'}</tbody></table><h2>Fuentes y límites</h2><p class="note"><a href="https://ine.mx/transparencia/datos-abiertos/visualizacion-datos/conteos-censales-participacion/">CCPC INE 2009–2024</a> · <a href="${esc(source)}">Fuente de la acción / supuesto</a> · <a href="https://github.com/Donatelatrump/Ine_Hackaton_2026/blob/main/docs/PLANES_ACCION_ESTATALES_PARTICIPACION.md">Plan documental</a></p><p class="limit">Proyección exploratoria y acción hipotética. El efecto del plan es una referencia documental sin validación local. No se suman efectos por actividad. La base de 2024 no proyecta el electorado de 2027; los municipios sin estimación no cuentan como cero. El rango del efecto no es un intervalo de confianza de 2027. Recursos expresados en personas, sin costos monetarios inventados.</p></body></html>`;
+    return `<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Umbral · Ficha de ${esc(s.label)}</title><style>@page{size:A4;margin:12mm}*{box-sizing:border-box}body{font:12px/1.45 Arial,sans-serif;color:#172d28;max-width:185mm;margin:22px auto;padding:0 12px}h1{font-size:25px;margin:8px 0}h2{font-size:15px;margin:16px 0 6px}p{margin:6px 0}.top{font-size:10px;color:#52645c}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.metrics div{padding:12px;background:#edf3ef;border:1px solid #cad8cf;border-radius:8px}.metrics b{font-size:22px;display:block}.metrics span{font-size:11px}table{width:100%;border-collapse:collapse;font-size:11px}th,td{text-align:left;padding:7px 4px;border-bottom:1px solid #d6ded9}a{color:#224f74;overflow-wrap:anywhere}.note{font-size:10px;color:#52645c}.actions{margin:12px 0}button{padding:10px;border:1px solid #173f35;border-radius:6px;background:white;color:#173f35}svg{width:100%;height:75px}.limit{border-left:3px solid #c69036;padding:7px 11px;background:#fbf5e8}@media print{body{margin:0;padding:0;font-size:11px}.actions{display:none}a{color:inherit}h2,table,.metrics,.limit{break-inside:avoid}.note{font-size:9px}}</style></head><body><p class="top">AGUAS.EXE · UMBRAL · RETO 2 · ${esc(date)}</p><h1>${esc(s.label)} · escenario 2027</h1><p>${esc(s.mode)} · ${esc(A.methodName(s.method))} · ${s.selection.stable?'Catálogo constante':'Catálogo completo'} · base observable: ${f(t.population)} personas (SV+NV 2024).</p><div class="actions"><button onclick="window.print()">Imprimir / guardar como PDF</button></div><div class="metrics"><div><span>Abstención sin acción</span><b>${p(t.before)}</b></div><div><span>Abstención con acción</span><b>${p(t.after)}</b></div><div><span>Votos adicionales hipotéticos</span><b>≈ ${f(t.additional)}</b></div></div><svg viewBox="0 0 650 75" role="img" aria-label="Comparación de abstención en escala de cero a cien"><text x="0" y="20" font-size="12">Sin acción</text><rect x="110" y="5" width="${Math.max(0,t.before)*4.5}" height="18" fill="#b95d77"/><text x="0" y="55" font-size="12">Con acción</text><rect x="110" y="40" width="${Math.max(0,t.after)*4.5}" height="18" fill="#1a7769"/><text x="570" y="20" font-size="12">${p(t.before)}</text><text x="570" y="55" font-size="12">${p(t.after)}</text></svg><p>Reducción: <strong>${pp(t.before-t.after)}</strong> · alcance supuesto: <strong>${f(s.plan.served)}</strong> personas.</p><h2>Diagnóstico y acción</h2><p>${d?'Proporciones agregadas: jóvenes '+p(d.young)+'; zonas urbanas '+p(d.urban)+'.':'Diagnóstico territorial según la proyección del método activo.'} Son datos descriptivos, no causas.</p><p><strong>${esc(action.label)}</strong></p><p class="note">${esc(action.estimand||'Supuesto editable')} · ${Number.isFinite(action.effect_pp)?'Efecto central: '+action.effect_pp+' pp entre alcanzados. ':''}${Number.isFinite(action.low_pp)?'Rango de efecto: '+action.low_pp+' a '+action.high_pp+' pp. ':''}${esc(action.unit||'Cobertura supuesta')}. ${esc(action.citation||'Respuesta declarada por el usuario.')}</p><h2>Priorización de recursos</h2><p>Distribución ${s.plan.distribution==='proporcional'?'proporcional a SV+NV 2024':'por prioridad'}; ${esc(criterion[s.lens])}. ${allocationRows().filter(r=>r.status==='Con atención').length} municipios atendidos; ${allocationRows().filter(r=>r.status==='Pendiente').length} pendientes; ${allocationRows().filter(r=>r.status==='Sin estimación').length} sin estimación.</p><table><thead><tr><th>Municipio (primeros cinco)</th><th>Personas asignadas</th><th>Reducción</th></tr></thead><tbody>${top.map(r=>`<tr><td>${esc(r.name)} · ${r.key}</td><td>${f(r.served)}</td><td>${pp(r.reduction)}</td></tr>`).join('')||'<tr><td colspan="3">Sin atención asignada.</td></tr>'}</tbody></table><h2>Fuentes y límites</h2><p class="note"><a href="https://ine.mx/transparencia/datos-abiertos/visualizacion-datos/conteos-censales-participacion/">CCPC INE 2009–2024</a> · <a href="${esc(source)}">Fuente de la acción / supuesto</a> · <a href="https://github.com/Donatelatrump/Ine_Hackaton_2026/blob/main/docs/PLANES_ACCION_ESTATALES_PARTICIPACION.md">Plan documental</a></p><p class="limit">Proyección exploratoria y acción hipotética. El efecto del plan es una referencia documental sin validación local. No se suman efectos por actividad. La base de 2024 no proyecta el electorado de 2027; los municipios sin estimación no cuentan como cero. El rango del efecto no es un intervalo de confianza de 2027. Recursos expresados en personas, sin costos monetarios inventados.</p></body></html>`;
   }
 
   let tourStep=0,highlighted=null;
   const steps=[
     ['Diagnóstico','Ubica el territorio y explica qué muestran los antecedentes. El botón de ejemplo prepara el caso histórico 23008 y una simulación reproducible.','#d7-diagnosis'],
     ['Predicción','Muestra la proyección 2027 frente a los antecedentes. Es exploratoria; cambia de método para explicar la sensibilidad.','#d6-history-title'],
-    ['Acción','Relaciona la propuesta con datos agregados. Simula el plan estatal investigado y compara escenarios de cobertura e impacto.','#paso-3'],
+    ['Acción','Consulta el plan estatal y su cálculo de referencia. Simula una acción y ajusta cuántas personas alcanzarías.','#paso-3'],
     ['Recursos y resultado','Revisa quién recibe atención, quién queda pendiente y cuánto cambiaría la abstención. La vista de diferencias permite ver efectos pequeños.','#d7-allocation'],
     ['Compartir la propuesta','Descarga la ficha o guárdala como PDF. Incluye territorio, método, acción, cobertura, asignación, fuentes y límites.','#d7-download-brief']
   ];
@@ -203,24 +192,12 @@
 
   document.addEventListener('umbral:ready',()=>{
     $('action').querySelector('option[value="personalizada"]')?.remove();
-    const fields=[['reach','reach'],['effect','effect'],['low','low'],['high','high'],['distribution','distribution'],['lens','lens']];
-    for(const [id,field] of fields)$('d7-action-'+id).addEventListener('input',()=>{
-      const state=settings.get(context.state.state);if(!state)return;state.actions[state.selected][field]=$('d7-action-'+id).value;if(field==='reach')state.actions[state.selected].manualReach=true;state.actions[state.selected].edited=true;update();
-    });
-    for(const id of ['d7-plan-coverage','d7-plan-scenario'])$(id).addEventListener('input',()=>{
-      const state=settings.get(context.state.state);if(!state)return;
-      const cfg=state.actions[0],base=A.summary(context.state.state?records.filter(r=>r.state===context.state.state&&(!context.state.stable||r.stable_catalog_state)):[],2027,context.state.method).denominator;
-      const coverage=Number($('d7-plan-coverage').value);
-      cfg.coverage=$('d7-plan-coverage').value;cfg.manualReach=false;cfg.reach=cfg.coverage.trim()!==''&&coverage>=0&&coverage<=100?Math.floor(base*coverage/100):'';
-      cfg.scenario=$('d7-plan-scenario').value;cfg.effect={conservador:.3,central:1.5,optimista:3}[cfg.scenario];cfg.edited=true;
-      $('action').value='ninguna';formKey='';update();
-    });
-    $('d7-plan-action').onchange=()=>{const state=settings.get(context.state.state);if(!state)return;state.selected=Number($('d7-plan-action').value);formKey='';update();};
-    $('d7-use-state-action').onclick=()=>{$('action').value='ninguna';$('search').value='';$('search').dispatchEvent(new Event('input',{bubbles:true}));};
     $('d7-allocation-filter').onchange=()=>{page=0;renderAllocation();};
     $('d7-allocation-prev').onclick=()=>{page=Math.max(0,page-1);renderAllocation();};$('d7-allocation-next').onclick=()=>{page++;renderAllocation();};
     $('d7-allocation-download').onclick=downloadAllocation;
-    $('d7-download-brief').onclick=()=>{exportText=brief();if(exportText)download(exportText,'Umbral_demo7_ficha_'+(snapshot.selection.state||'Mexico')+'.html','text/html;charset=utf-8');};
+    $('export').onclick=downloadExcel;
+    $('d7-allocation-excel').onclick=downloadExcel;
+    $('d7-download-brief').onclick=()=>{exportText=brief();if(exportText)download(exportText,'Umbral_ficha_'+(snapshot.selection.state||'Mexico')+'.html','text/html;charset=utf-8');};
     $('d7-print-brief').onclick=()=>{
       exportText=brief();if(!exportText)return;
       const popup=window.open('','_blank');if(!popup)return;

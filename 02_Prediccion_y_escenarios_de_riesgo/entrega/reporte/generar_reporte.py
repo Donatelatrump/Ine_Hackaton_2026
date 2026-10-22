@@ -40,7 +40,7 @@ PAGES=[('UMBRAL',
     'históricas. Se seleccionó HistGradientBoosting: MAE medio 6.8360 pp frente a 9.0094 de Ridge (24.12% menos '
     'error). LightGBM obtuvo MAE 6.8304 pp; la diferencia menor que 0.05 pp activó el desempate por MAE ponderado, '
     'favorable a HistGradientBoosting. Ridge fue el más rápido. La selección es retrospectiva, sin validación futura '
-    'de 2027. Demo7 muestra la consulta histórica y proyecciones precalculadas, comparación estatal, exportación de '
+    'de 2027. Umbral muestra la consulta histórica y proyecciones precalculadas, comparación estatal, exportación de '
     'consultas y escenarios hipotéticos con cobertura total y fuentes. Incorpora planes estatales, mapas pareados y CSV de escenarios con semáforo y trazabilidad.'),
    ('Qué es y qué no es',
     'Es una herramienta de priorización auditable y un registro explícito de supuestos. No es un predictor validado de '
@@ -174,10 +174,10 @@ PAGES=[('UMBRAL',
     'validada. ITT usa personas asignadas a SMS; ATT exige contactos efectivos para llamada. No sumar acciones ni '
     'efectos. País: «México: municipios con estimación incluidos»; catálogo y exclusiones explícitos.'),
    ('FIGURE_TRIPLE', ''),
-   ('Plan estatal de Demo7',
+   ('Plan estatal de Umbral',
     'Al elegir un estado se muestra un escenario ilustrativo: cobertura del 10% de la base estimable y efecto '
     'supuesto de 1.5 pp entre alcanzados (variantes 0.3 y 3 pp). Son supuestos del proyecto, no eficacia medida '
-    'del plan ni intervalos de confianza. Cobertura editable y reparto proporcional; un único efecto para el plan, '
+    'del plan ni intervalos de confianza. Cobertura fija y reparto proporcional; un único efecto para el plan, '
     'sin sumar actividades. Fuente: docs/PLANES_ACCION_ESTATALES_PARTICIPACION.md, sección 8.')]),
  ('07 / PREVENCIÓN (1/3)',
   'Tipologías observables y línea de acción',
@@ -224,8 +224,8 @@ PAGES=[('UMBRAL',
     'entidad, tamaño, calidad y contexto; indicadores de cobertura y comprensión; y regla de análisis fijada antes de '
     'observar resultados. La cercanía del score no acredita equivalencia ni causalidad.'),
    ('Vista operativa',
-    'Demo7 permite consultar históricos, seleccionar estado y plan preventivo, ajustar cobertura y supuesto de '
-    'efecto, y comparar mapas sin/con acción con umbrales comunes. El CSV incluye municipios atendidos, pendientes '
+    'Umbral permite consultar históricos y el plan estatal con su cálculo fijo, simular acciones con cobertura '
+    'editable y comparar mapas sin/con acción con umbrales comunes. El CSV incluye municipios atendidos, pendientes '
     'y sin estimación, tasas antes/después, semáforo, fuente y denominador. La ficha imprimible resume recursos y '
     'límites. Revisar responsables, horas y costo real antes de cualquier piloto.')]),
  ('08 / VIABILIDAD',
@@ -236,7 +236,7 @@ PAGES=[('UMBRAL',
     'del municipio a la persona. Se mitigan con revisión humana, etiquetando el escenario como hipótesis y sin inferir '
     'comportamiento individual del agregado.'),
    ('Reproducibilidad y cierre',
-    'Abrir demo/demo7.html. Se ejecutaron comparar_modelos.py, publicar_comparacion_demo6.py y '
+    'Abrir Umbral con la carpeta completa del proyecto. Se ejecutaron comparar_modelos.py, publicar_comparacion_demo6.py y '
     'verificar_comparacion.py en Python 3.12 con dependencias fijadas. Se conservan predicciones por fila, modelo '
     'serializado y hashes. La interacción usa proyecciones precalculadas. Fuentes: protocolo y comparación de cuatro '
     'modelos en modelado/. Repositorio: https://github.com/Donatelatrump/Ine_Hackaton_2026.')])]
@@ -312,7 +312,7 @@ def main():
     x=48+i*(w+6);c.drawImage(str(p),x,y-h,width=w,height=h,preserveAspectRatio=True,anchor='n')
     c.setFillColor(HexColor('#526a62'));c.setFont(regular,8);c.drawCentredString(x+w/2,y-h-10,labels[i])
    y-=h+16
-   paragraph('Figura 2. Mismo conjunto y umbrales base fijos: sin intervención, con intervención y cambio hipotético. Demo7, Quintana Roo: plan estatal con cobertura del 10%, efecto supuesto de 1.5 pp y reparto proporcional. No es el caso SMS municipal de 1,000 personas.',note_style)
+   paragraph('Figura 2. Mismo conjunto y umbrales base fijos: sin intervención, con intervención y cambio hipotético. Umbral, Quintana Roo: plan estatal con cobertura del 10%, efecto supuesto de 1.5 pp y reparto proporcional. No es el caso SMS municipal de 1,000 personas.',note_style)
  for i,(label,title,sections) in enumerate(PAGES,1):
   c.setFillColor(HexColor('#edf4f0'));c.rect(0,692,612,100,fill=1,stroke=0)
   c.setFillColor(HexColor('#12645e'));c.setFont(bold,10);c.drawString(48,753,label)

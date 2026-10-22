@@ -1,11 +1,11 @@
 {
   "pages": 14,
   "structure": "8 secciones",
-  "pdf_sha256": "33b63b3f99a46f8297661b16dae4afc23434376eeb85da6de7e4ebbf0ac396af",
+  "pdf_sha256": "db0e53f84a3e2d3456ec70603f30713f26d346d34f01d6e24cc89cf0c8873337",
   "checks": [
     {
       "page": 1,
-      "text_chars": 1407,
+      "text_chars": 1408,
       "bounds_ok": true
     },
     {
@@ -50,7 +50,7 @@
     },
     {
       "page": 10,
-      "text_chars": 1578,
+      "text_chars": 1576,
       "bounds_ok": true
     },
     {
@@ -65,12 +65,12 @@
     },
     {
       "page": 13,
-      "text_chars": 1423,
+      "text_chars": 1424,
       "bounds_ok": true
     },
     {
       "page": 14,
-      "text_chars": 1440,
+      "text_chars": 1468,
       "bounds_ok": true
     }
   ],

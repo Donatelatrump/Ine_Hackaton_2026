@@ -40,7 +40,7 @@ for name, count in [('reporte/Umbral_reporte_metodologico_preventivo.pdf',14), (
     assert '23008' in all_text and 'SMS' in all_text and '0.30' in all_text, name
     assert 'proporcional' in all_text.lower() and 'prioridad' in all_text.lower(), name
     assert 'estabilidad' in all_text.lower() and '2024' in all_text
-    assert 'demo7' in all_text.lower() and '1.5' in all_text and 'semáforo' in all_text.lower()
+    assert 'umbral' in all_text.lower() and 'demo7' not in all_text.lower() and '1.5' in all_text and 'semáforo' in all_text.lower()
     for index, p in enumerate(doc, 1):
         blocks = p.get_text('blocks')
         assert all(b[0] >= 0 and b[1] >= 0 and b[2] <= p.rect.width+1 and b[3] <= p.rect.height+1 for b in blocks), (name, index)
@@ -66,6 +66,6 @@ browser = json.loads((TRACK/'demo/verificacion/demo7/resultado.json').read_text(
 assert browser['passed'] and not browser['page_errors']
 for path,sha in browser['sources'].items():
     assert hashlib.sha256((TRACK/'demo'/path).read_bytes()).hexdigest()==sha,('Verificación web obsoleta',path)
-result = {'date':date.today().isoformat(),'demo':'demo7','documents':checks,'case_reproduced':True,'browser_checks':len(browser['checks']),'browser_sources_verified':True,'scenario_action':case['configuration']['action'],'external_effect_is_hypothetical':True,'browser_errors':browser['page_errors'],'limitations':['PPTX no renderizado con PowerPoint','Modelo 2027 exploratorio; escenario sin efecto causal demostrado','Registro, elegibilidad, firmas y envío no acreditados']}
+result = {'date':date.today().isoformat(),'application':'Umbral','documents':checks,'case_reproduced':True,'browser_checks':len(browser['checks']),'browser_sources_verified':True,'scenario_action':case['configuration']['action'],'external_effect_is_hypothetical':True,'browser_errors':browser['page_errors'],'limitations':['PPTX no renderizado con PowerPoint','Modelo 2027 exploratorio; escenario sin efecto causal demostrado','Registro, elegibilidad, firmas y envío no acreditados']}
 (HERE/'verificacion_unificacion.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print('Entrega verificada: reporte 14 páginas, presentación 10, caso 23008 y geometría textual.')

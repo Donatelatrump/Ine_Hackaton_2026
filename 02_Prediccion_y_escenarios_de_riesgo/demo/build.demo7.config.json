@@ -2,6 +2,7 @@
   "analytics": "src/demo6/domain/analytics.js",
   "state_plan_markdown": "docs/PLANES_ACCION_ESTATALES_PARTICIPACION.md",
   "scripts": [
+    "src/demo7/spreadsheet.js",
     "src/demo6/app/runtime.js",
     "src/demo6/app/context.js",
     "src/demo6/map/context.js",

@@ -138,10 +138,20 @@
     $('method').value=A.initialMethod(metadata);
     $('d6-export').addEventListener('click',()=>{
       readSelection();
-      const content=A.csv(selectedRecords(),state,metadata);
+      const content=A.csv(selectedRecords(),state,metadata,{compact:true});
       const url=URL.createObjectURL(new Blob([content],{type:'text/csv;charset=utf-8'}));
       const a=document.createElement('a');a.href=url;a.download='Umbral_consulta_'+(state.municipality||state.state||'Mexico')+'_'+state.year+'.csv';
       a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+    });
+    $('d6-excel').addEventListener('click',()=>{
+      readSelection();
+      const rows=UmbralSpreadsheet.parseCsv(A.csv(selectedRecords(),state,metadata,{compact:true}));
+      const numeric=new Set([3,6,7,8,9,10]);
+      const table=rows.map((row,i)=>row.slice(0,12).map((v,c)=>i&&numeric.has(c)&&v!==''?Number(v):v));
+      UmbralSpreadsheet.download([
+        {name:'Consulta',title:'UMBRAL | Consulta territorial',subtitle:territoryLabel()+' | '+state.year,rows:table,widths:[14,25,32,12,26,28,22,22,20,20,16,22]},
+        {name:'Fuentes',title:'UMBRAL | Fuentes y alcance',subtitle:'Datos agregados de participacion ciudadana',rows:[['Concepto','Detalle'],['Fuente',rows[1]?.[12]||'INE CCPC'],['Nota',rows[1]?.[13]||'Consulta sin registros'],['Metodo',state.year===2027?A.methodName(state.method):'Dato observado']],widths:[30,100]}
+      ],'Umbral_consulta_'+(state.municipality||state.state||'Mexico')+'_'+state.year+'.xlsx');
     });
     document.querySelectorAll('[data-d6-preset]').forEach(button=>button.addEventListener('click',()=>preset(button.dataset.d6Preset)));
     $('d6-return-2027').addEventListener('click',()=>{$('map-year').value='2027';$('map-year').dispatchEvent(new Event('change'));});

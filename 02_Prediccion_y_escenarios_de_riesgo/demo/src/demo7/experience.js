@@ -8,7 +8,6 @@
   const safePercent=n=>Number.isFinite(n)?n.toFixed(2)+'%':'Sin estimación';
   const fixedDelta=n=>Number.isFinite(n)?n.toLocaleString('es-MX',{minimumFractionDigits:2,maximumFractionDigits:5})+' pp':'Sin comparación';
   const count=n=>Number.isFinite(n)?n.toLocaleString('es-MX',{maximumFractionDigits:2}):'Sin dato';
-  const validBudget=()=>$('reach').value.trim()!==''&&$('reach').checkValidity();
   const revisions=new WeakMap();
   function softenUpdate(element,signature){
     if(revisions.get(element)===signature)return;
@@ -61,10 +60,8 @@
     operationalPlan();
     rows=rows.filter(r=>!selection.stable||r.stable_catalog_state).map(r=>({...r,risk:r[selection.method]}));
     const baseline=A.summary(rows,2027,selection.method);
-    const requested=$('action').value!=='ninguna';
-    const active=requested&&validBudget()&&plan;
     const automaticReach=Math.floor(baseline.denominator*.10);
-    const scenarioPlan=active?plan:!requested&&baseline.denominator?(runtime.createStateScenario?runtime.createStateScenario(rows,selection,baseline):Decision.planIntervention(rows,{budget:automaticReach,reach:automaticReach,action:'info_institucional',distribution:'proporcional',lens:'tasa'})):null;
+    const scenarioPlan=baseline.denominator?runtime.createStateScenario(rows,selection,baseline):null;
     const territory=scenarioPlan?Decision.territorialScenario(rows,scenarioPlan):null;
     const hasImpact=Boolean(territory&&baseline.denominator);
     const eligible=new Set(rows.filter(r=>Number.isFinite(r.risk)&&r.observed>0).map(r=>r.key));
@@ -72,16 +69,15 @@
     const low=assigned.reduce((n,r)=>n+(r.additional_low??0),0),high=assigned.reduce((n,r)=>n+(r.additional_high??0),0);
     const served=assigned.reduce((n,r)=>n+r.served,0);
     $('d6-plan-comparison').hidden=false;
-    $('d6-plan-comparison-values').innerHTML=`<article><span>Sin intervención · 2027</span><strong>${safePercent(baseline.rate)}</strong><small>Abstención; participación ${safePercent(baseline.participation)}</small></article><span class="d6-plan-comparison-arrow" aria-hidden="true">→</span><article><span>${active?'Tu simulación · hipotético':requested?'Corrige la cobertura':'Aplicación ilustrativa · plan estatal'}</span><strong>${hasImpact?safePercent(territory.after):'—'}</strong><small>${hasImpact?'Participación '+safePercent(100-territory.after)+' · cambio '+fixedDelta(territory.before-territory.after):'Introduce una cobertura válida para calcular el impacto.'}</small></article>`;
-    $('d7-plan-impact-metrics').innerHTML=hasImpact?`<article><span>Votos adicionales aproximados</span><strong>≈ ${fmt.format(territory.additional)}</strong><small>${Number.isFinite(scenarioPlan.action.low_pp)?'Rango supuesto: '+fmt.format(low)+' a '+fmt.format(high):'Respuesta definida en tu simulación'}</small></article><article><span>Reducción relativa de abstención</span><strong>${safePercent(territory.before>0?100*(territory.before-territory.after)/territory.before:0)}</strong><small>Participación: +${fixedDelta(territory.before-territory.after)}</small></article><article><span>Personas alcanzadas en el estado</span><strong>${fmt.format(served)}</strong><small>${active?'Según los controles del simulador':'Cobertura elegida para el plan completo'}</small></article>`:'';
-    const scope=$('simulation-scope').value==='municipio'?'el municipio elegido':$('simulation-scope').value==='estado'?'el estado elegido':'el territorio nacional';
+    $('d6-plan-comparison-values').innerHTML=`<article><span>Sin intervención · 2027</span><strong>${safePercent(baseline.rate)}</strong><small>Abstención; participación ${safePercent(baseline.participation)}</small></article><span class="d6-plan-comparison-arrow" aria-hidden="true">→</span><article><span>Aplicación ilustrativa · plan estatal</span><strong>${hasImpact?safePercent(territory.after):'—'}</strong><small>${hasImpact?'Participación '+safePercent(100-territory.after)+' · cambio '+fixedDelta(territory.before-territory.after):'Introduce una cobertura válida para calcular el impacto.'}</small></article>`;
+    $('d7-plan-impact-metrics').innerHTML=hasImpact?`<article><span>Votos adicionales aproximados</span><strong>≈ ${fmt.format(territory.additional)}</strong><small>${Number.isFinite(scenarioPlan.action.low_pp)?'Rango supuesto: '+fmt.format(low)+' a '+fmt.format(high):'Respuesta definida en tu simulación'}</small></article><article><span>Reducción relativa de abstención</span><strong>${safePercent(territory.before>0?100*(territory.before-territory.after)/territory.before:0)}</strong><small>Participación: +${fixedDelta(territory.before-territory.after)}</small></article><article><span>Personas alcanzadas en el estado</span><strong>${fmt.format(served)}</strong><small>10 % de la base estatal estimable</small></article>`:'';
     $('d6-plan-comparison-note').textContent=hasImpact?
-      `${active?'Cálculo actualizado con tu simulación. '+scenarioPlan.action.label+'. Alcance configurado en '+scope+'.':scenarioPlan.description||'Cálculo orientativo automático: información práctica de votación para el 10 % de la base estatal, distribuida proporcionalmente. Efecto supuesto entre personas alcanzadas: 0.3 a 3 puntos porcentuales (central: 1.5).'} Promedio estatal calculado sobre ${fmt.format(baseline.denominator)} personas de la base SV+NV 2024, con el mismo método y filtro de catálogo que la consulta. Escenario de referencia del plan completo, sin efecto comprobado ni intervalo de confianza para 2027. Ajusta cobertura y escenario debajo.`:
-      requested?'Corrige la cobertura del simulador para actualizar el impacto.':baseline.denominator&&runtime.stateScenarioError?runtime.stateScenarioError:'No hay base estimable suficiente para calcular el impacto de este estado con los filtros actuales.';
+      `${scenarioPlan.description} Promedio estatal sobre ${fmt.format(baseline.denominator)} personas (SV+NV 2024). El modelo y el filtro de consulta se conservan. Este resultado del plan es independiente de las acciones simuladas debajo.`:
+      'No hay base estimable suficiente para calcular el impacto del estado con estos filtros.';
     $('d7-prepare-plan').disabled=!baseline.denominator;
-    $('d7-impact-caption').textContent=active?'Escenario de la acción elegida en el simulador.':'Plan estatal hipotético: cobertura inicial del 10 % y efecto supuesto de 1.5 pp entre personas alcanzadas; ajustables debajo. No es eficacia medida del plan.';
+    $('d7-impact-caption').textContent='Plan estatal hipotético: cobertura fija del 10 % y efecto supuesto de 1.5 pp entre personas alcanzadas. No es eficacia medida del plan.';
     softenUpdate($('d6-plan-comparison-values'),$('d6-plan-comparison-values').textContent);
-    runtime.renderPlanning?.({selection,rows,baseline,scenarioPlan,territory,automatic:!active,valid:hasImpact});
+    runtime.renderPlanning?.({selection,rows,baseline,scenarioPlan,territory,automatic:true,valid:hasImpact});
   };
 
   const originalSummary=runtime.views.renderSummary;

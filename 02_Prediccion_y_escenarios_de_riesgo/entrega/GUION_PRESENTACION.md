@@ -1,6 +1,6 @@
-# Guion de demostración de Umbral demo7
+# Guion de demostración de Umbral
 
-Versión del 22 de octubre de 2026. Duración orientativa: cinco minutos. Abrir demo/demo7.html con la carpeta completa.
+Versión del 22 de octubre de 2026. Duración orientativa: cinco minutos. Abrir [Umbral](../demo/demo7.html) con la carpeta completa.
 
 ## 1. Territorio y datos
 
@@ -26,7 +26,7 @@ La cobertura es editable y no constituye una capacidad institucional confirmada.
 
 Volver al estado y abrir su plan. La comparación inicial supone alcanzar al 10% de la base estimable, con un efecto central de 1.5 pp entre personas alcanzadas; las variantes 0.3 y 3 pp son sensibilidad de un supuesto del proyecto. No atribuir eficacia demostrada al plan completo.
 
-Comparar los mapas sin/con acción con los mismos umbrales nacionales por tercios; abrir diferencias para ver cambios pequeños. Cambiar cobertura a 0%: las tasas deben coincidir. Restaurar cobertura y descargar la distribución CSV: incluye antes/después, semáforo, método, fuentes y municipios sin estimación. Descargar la ficha imprimible.
+Comparar los mapas sin/con acción con los mismos umbrales nacionales por tercios; abrir diferencias para ver cambios pequeños. El cálculo del plan estatal es fijo. En el simulador de acciones, seleccionar SMS y cambiar el alcance a 0 personas: las tasas deben coincidir. Restaurar el alcance y descargar la distribución CSV: incluye antes/después, semáforo, método, fuentes y municipios sin estimación. Descargar la ficha imprimible.
 
 En Documentos, mostrar reporte de 14 páginas, presentación de 10 diapositivas, base agregada y proyecciones vigentes. La revisión de requisitos identifica registro, elegibilidad, firmas y envío como no acreditados. La demo y sus documentos no equivalen a una inscripción aceptada.
 

@@ -45,7 +45,7 @@
     if(metadata.comparison_report)return metadata.comparison_report.cuts['2021'].models[method==='baseline'?'baseline':method]?.error_absoluto_p90;
     return metadata.checks?.['2021']?.[method==='ridge'?'ridge':'persistencia']?.error_absoluto_p90;
   }
-  function csv(records,state,metadata){
+  function csv(records,state,metadata,{compact=false}={}){
     const rows=[['Clave INE','Estado','Municipio','Año','Tipo de dato','Método',
       'Abstención (%)','Participación (%)','Base SV+NV','Lista nominal','NS (%)',
       'Referencia 2021 (%)','Ridge 2027 (%)','Diferencia Ridge - referencia (pp)',
@@ -64,7 +64,8 @@
           'SV+NV reconstruido a partir de LN y NS%. Límites históricos sin armonizar.']);
     }
     const cell=v=>'"'+String(v??'').replace(/"/g,'""')+'"';
-    return '\uFEFF'+rows.map(row=>row.map(cell).join(',')).join('\r\n');
+    const columns=compact?[0,1,2,3,4,5,6,7,8,9,10,17,18,19]:null;
+    return '\uFEFF'+rows.map(row=>(columns?columns.map(i=>row[i]):row).map(cell).join(',')).join('\r\n');
   }
   return {methodName,initialMethod,observation,subset,summary,series,historicalError,csv};
 });
