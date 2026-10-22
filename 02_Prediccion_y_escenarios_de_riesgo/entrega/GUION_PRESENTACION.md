@@ -1,6 +1,6 @@
 # Guion de demostración de Umbral demo7
 
-Versión del 21 de octubre de 2026. Duración orientativa: cinco minutos. Abrir demo/demo7.html con la carpeta completa.
+Versión del 22 de octubre de 2026. Duración orientativa: cinco minutos. Abrir demo/demo7.html con la carpeta completa.
 
 ## 1. Territorio y datos
 

@@ -1,11 +1,11 @@
 # Umbral: reporte metodológico y preventivo
-Versión técnica para revisión | 21 de octubre de 2026
+Versión técnica para revisión | 22 de octubre de 2026
 Estructura de 14 páginas (8 secciones)
 
 ## Página 1: Resumen ejecutivo
 
 ### Reporte metodológico y preventivo · Reto 2
-aguas.exe. Integrantes: Martin Isai Nuñez Villeda y Cesar Donnet Hernandez Gastelum. Versión técnica para revisión, 21 de octubre de 2026. Horizonte exploratorio: elección intermedia de 2027. Cobertura: México por municipio, claves INE. Datos históricos ordinarios 2009-2024. Presupuesto de 15 páginas; este documento usa 14.
+aguas.exe. Integrantes: Martin Isai Nuñez Villeda y Cesar Donnet Hernandez Gastelum. Versión técnica para revisión, 22 de octubre de 2026. Horizonte exploratorio: elección intermedia de 2027. Cobertura: México por municipio, claves INE. Datos históricos ordinarios 2009-2024. Presupuesto de 15 páginas; este documento usa 14.
 
 ### Resumen ejecutivo
 Se entrenaron y evaluaron Ridge, HistGradientBoosting, LightGBM y CatBoost con las mismas 15 variables históricas. Se seleccionó HistGradientBoosting: MAE medio 6.8360 pp frente a 9.0094 de Ridge (24.12% menos error). LightGBM obtuvo MAE 6.8304 pp; la diferencia menor que 0.05 pp activó el desempate por MAE ponderado, favorable a HistGradientBoosting. Ridge fue el más rápido. La selección es retrospectiva, sin validación futura de 2027. Demo7 muestra la consulta histórica y proyecciones precalculadas, comparación estatal, exportación de consultas y escenarios hipotéticos con cobertura total y fuentes. Incorpora planes estatales, mapas pareados y CSV de escenarios con semáforo y trazabilidad.
@@ -40,7 +40,7 @@ Se conservan 2,477 claves, con proyección NS10 para 1,783. La cartografía inco
 
 ## Página 4: Variables usadas, omitidas y trazabilidad
 
-Variables del predictor en modelado/core.py: Abstención del mismo tipo, Abstención del último proceso, Diferencia último − mismo tipo, log(LN), Proporción 18-29, Proporción 60+ (sin >120), Proporción urbana, NS de ambos antecedentes, Tipo de elección (intermedia), Interacciones electorales, Indicadores complementarios.
+Variables del predictor en modelado/core.py: Abstención del mismo tipo, Abstención del último proceso, Diferencia último − mismo tipo, log(1 + LN), Proporción 18-29, Proporción 60+ (sin >120), Proporción urbana, NS de ambos antecedentes, Tipo de elección (intermedia), Interacciones electorales, Indicadores complementarios.
 
 ### Variables omitidas y por qué
 Sexo, escolaridad y variables externas no verificadas no forman parte del predictor. Sexo existe en la fuente y se usa solo en la capa explicativa posterior (sección de prevención); el modelo conserva variables agregadas verificables para reducir sobreajuste y fuga. La representación etaria es agregada; no se infieren características individuales.
@@ -137,7 +137,7 @@ Al elegir un estado se muestra un escenario ilustrativo: cobertura del 10% de la
 Se derivan tipologías de información agregada, no de personas: territorio con menor proporción urbana; proporción joven 18-29 ≥25%; proporción 60+ ≥25%; y calidad insuficiente (NS alto o antecedentes incompletos). Cada tipología lleva una línea de acción: información electoral accesible, talleres en espacios educativos y comunitarios, material legible, o revisión de datos antes de priorizar.
 
 ### El perfil no decide, explica
-La prioridad la fija el modelo; la tipología orienta a quién podría dirigirse una intervención. El perfil CCPC por edad, sexo y tipo de sección es una capa explicativa posterior que nunca alimenta al modelo y no implica causalidad; los grupos con muestra insuficiente se marcan como tales. Fuente: modelado/salidas/perfil_demografico.json.
+La prioridad la fija el modelo; la tipología orienta a quién podría dirigirse una intervención. El perfil CCPC por edad, sexo y tipo de sección es una capa explicativa posterior y no implica causalidad. El predictor sí usa proporciones agregadas de edad y urbanización; no usa sexo ni las tipologías posteriores. Los grupos con muestra insuficiente se marcan como tales. Fuente: modelado/salidas/perfil_demografico.json.
 
 ### Mecanismo como hipótesis
 SMS Suecia: ITT 0.30 pp [0.13,0.48], Lindgren, Nyman y Oskarsson (2025), resultados, figura 1; DOI 10.1017/S0007123424000504. SMS EEUU: ITT 0.25 pp, IC95% [0.17,0.34], Haenschen, Mann y DeMora (2026), introducción; DOI 10.1007/s11109-026-10121-2. Plan de voto por llamada: ATT 4.1 pp, EE 1.7, ITT publicado 0.9 pp; Nickerson y Rogers (2010), pp.194-199, tabla 1; DOI 10.1177/0956797609359326. ATT exige contacto efectivo: no intentos ni talleres. No sumar acciones. México requiere validación propia.
@@ -179,4 +179,4 @@ Demo7 permite consultar históricos, seleccionar estado y plan preventivo, ajust
 Uso automático de la lista como asignación definitiva; lectura causal del escenario; y falacia ecológica al pasar del municipio a la persona. Se mitigan con revisión humana, etiquetando el escenario como hipótesis y sin inferir comportamiento individual del agregado.
 
 ### Reproducibilidad y cierre
-Abrir demo/demo7.html. Se ejecutaron comparar_modelos.py, publicar_comparacion_demo6.py y verificar_comparacion.py en Python 3.12 con dependencias fijadas. Se conservan predicciones por fila, modelo serializado y hashes. La interacción usa proyecciones precalculadas. Fuentes: protocolo y comparación de cuatro modelos en modelado/. Voto Vigía no se modifica.
+Abrir demo/demo7.html. Se ejecutaron comparar_modelos.py, publicar_comparacion_demo6.py y verificar_comparacion.py en Python 3.12 con dependencias fijadas. Se conservan predicciones por fila, modelo serializado y hashes. La interacción usa proyecciones precalculadas. Fuentes: protocolo y comparación de cuatro modelos en modelado/. Repositorio: https://github.com/Donatelatrump/Ine_Hackaton_2026.

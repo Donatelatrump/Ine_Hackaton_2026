@@ -1,6 +1,6 @@
 # Entrega técnica de Umbral · Demo7
 
-Actualización: 21 de octubre de 2026. Equipo aguas.exe, Reto 2: Predicción y escenarios de riesgo de abstención.
+Actualización: 22 de octubre de 2026. Equipo aguas.exe, Reto 2: Predicción y escenarios de riesgo de abstención.
 
 La [revisión de requisitos del INE](REVISION_REQUISITOS_INE.md) identifica la evidencia de cada requisito y los pendientes administrativos. Esta carpeta no acredita registro, elegibilidad, firmas ni envío oficial.
 
@@ -14,6 +14,17 @@ La [revisión de requisitos del INE](REVISION_REQUISITOS_INE.md) identifica la e
 - [Verificación de entrega](verificacion_unificacion.json) y [prueba de navegador de demo7](../demo/verificacion/demo7/resultado.json).
 
 El plan estatal usa cobertura inicial del 10% y efecto supuesto de 1.5 pp entre alcanzados, con variantes 0.3/3 pp. Son hipótesis del proyecto. El caso municipal SMS conserva el coeficiente externo de 0.30 pp; no debe confundirse con el plan estatal ni atribuirse a México como eficacia probada.
+
+## Revisión documental del 22 de octubre
+
+Se contrastaron los entregables técnicos con la convocatoria oficial vigente y los resultados del experimento existente. Las cartas de cesión y de decir verdad quedaron fuera del alcance de esta revisión.
+
+- Presentación PDF/PPTX: diez diapositivas; se explicita el resultado top50 de 2024 (referencia 27/50 frente a 19/50 del modelo) y se actualizan el cierre y la referencia al guion de cuatro bloques.
+- Reporte PDF: catorce páginas; se precisa `log(1 + LN)` y se distingue el uso predictivo de edad y urbanización de las tipologías explicativas posteriores.
+- Caso municipal: instrucciones actualizadas a Demo7, separado del escenario estatal. Sus cifras se reprodujeron con `generar_caso.cjs`.
+- Validación: cifras principales contrastadas con el benchmark, enlaces locales Markdown existentes, textos y tablas coincidentes entre PPTX y PDF, y comprobación de límites y superposiciones de los PDF. Se revisaron sus vistas renderizadas. Las huellas de la prueba de navegador existente corresponden a los recursos actuales; no se volvió a ejecutar el navegador ni a entrenar modelos.
+
+El editable todavía requiere revisión de render dentro de PowerPoint. La comprobación del PDF y del contenido OOXML no sustituye esa revisión.
 
 ## Regenerar desde la raíz
 

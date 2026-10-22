@@ -4,6 +4,8 @@ Revisión del 21 de octubre de 2026. Eje elegido: **Reto 2, Predicción y escena
 
 La revisión técnica no acredita una candidatura aceptada. Hay productos técnicos y pendientes administrativos que solo el equipo puede acreditar. No se deduce elegibilidad ni paridad a partir de nombres o fotografías.
 
+Actualización documental del 22 de octubre: se volvió a consultar la convocatoria y se revisaron reporte, presentación, guion y caso municipal contra los resultados vigentes. El detalle y las comprobaciones están en el [registro de revisión técnica](README.md#revisión-documental-del-22-de-octubre). Las dos cartas quedaron excluidas por instrucción del equipo; las referencias administrativas de esta matriz se conservan como antecedente de la revisión del día 21.
+
 ## Requisito y evidencia concreta
 
 | Requisito | Evidencia en el proyecto | Estado y alcance |

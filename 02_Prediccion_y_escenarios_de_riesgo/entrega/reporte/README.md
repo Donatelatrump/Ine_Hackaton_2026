@@ -1,6 +1,6 @@
 # Reporte metodológico y preventivo — Demo7
 
-Actualizado el 21 de octubre de 2026. [PDF de 14 páginas](Umbral_reporte_metodologico_preventivo.pdf), [fuente Markdown](Umbral_reporte_fuente.md) y [generador](generar_reporte.py). Modificar el generador y regenerar; el Markdown y PDF son salidas.
+Actualizado el 22 de octubre de 2026. [PDF de 14 páginas](Umbral_reporte_metodologico_preventivo.pdf), [fuente Markdown](Umbral_reporte_fuente.md) y [generador](generar_reporte.py). Modificar el generador y regenerar; el Markdown y PDF son salidas.
 
 La convocatoria del Reto 2 pide 10–15 cuartillas y no define la unidad. Este reporte interpreta una cuartilla como una página carta. Incluye variables históricas y sociodemográficas, selección retrospectiva de cuatro modelos, semáforo relativo, comparación de escenarios y recomendaciones de prevención y recursos. Sus capturas proceden de `demo/verificacion/demo7/`.
 

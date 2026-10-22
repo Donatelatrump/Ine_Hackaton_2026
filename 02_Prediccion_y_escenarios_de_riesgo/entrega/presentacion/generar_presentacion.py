@@ -20,7 +20,7 @@ slides=[('UMBRAL',
    ('Revisión territorial con evidencia, capacidad y supuestos visibles', 22),
    ('aguas.exe · Hackathon INE 2026 · Track 2', 18),
    ('Martin Isai Nuñez Villeda y Cesar Donnet Hernandez Gastelum', 17),
-   ('Versión técnica · 21 de octubre de 2026', 17)],
+   ('Versión técnica · 22 de octubre de 2026', 17)],
   'Datos agregados CCPC 2009–2024. Prototipo para revisión institucional.'),
  ('Consulta territorial en demo7',
   [('Municipio, estado o país', 26),
@@ -82,7 +82,7 @@ slides=[('UMBRAL',
    ('Validar límites, sedes y atribuciones. Un efecto sobre participación requiere evaluación comparativa y protocolo '
     'previo.',
     21)],
-  'Caso completo: entrega/CASO_MUNICIPAL.md. Guion y demo de tres pasos: entrega/GUION_PRESENTACION.md.'),
+  'Caso completo: entrega/CASO_MUNICIPAL.md. Guion de cuatro bloques: entrega/GUION_PRESENTACION.md.'),
  ('Siguiente decisión: un piloto acotado',
   [('Validación con el área usuaria', 26),
    ('Acordar objetivo de priorización, capacidad real y protocolo de revisión territorial. Elegir acciones con '
@@ -92,9 +92,8 @@ slides=[('UMBRAL',
    ('Predefinir indicadores y asignación del piloto. Conservar la referencia y publicar resultados favorables y '
     'adversos.',
     22),
-   ('Equipo: aguas.exe. Registro, elegibilidad, firmas y envío formal no acreditados.', 19)],
-  '2024 es presidencial y no valida directamente 2027. No se promete superioridad predictiva o efectividad '
-  'preventiva.')]
+   ('Equipo: aguas.exe · Código, datos y guía de ejecución en el repositorio.', 19)],
+  'https://github.com/Donatelatrump/Ine_Hackaton_2026 · Proyección 2027 exploratoria; efecto preventivo por evaluar.')]
 
 TEMPLATE=HERE/'plantilla_base.pptx'
 if not TEMPLATE.exists(): TEMPLATE.write_bytes((HERE/'Umbral_presentacion.pptx').read_bytes())
@@ -164,7 +163,8 @@ for num,(title,parts,foot) in enumerate(slides,1):
                 text_x=.75+sum([4,2,2,2,2][:c])
                 pdf.setFillColor('#'+INK); pdf.setFont('SegoeBold' if r==0 else 'Segoe',20); pdf.drawString(text_x*72,540-(2.1+r*.52)*72-20,value)
         text(slide,'MAE medio 24.1% menor que Ridge.',.65,4.95,12,.5,25,TEAL,True)
-        text(slide,'Empate de MAE con tolerancia 0.05 pp; gana por error ponderado. Ridge es el más rápido. Selección retrospectiva.',.65,5.6,12,.7,20)
+        text(slide,'Desempate por error ponderado (tolerancia MAE: 0.05 pp). Ridge es el más rápido. Selección retrospectiva.',.65,5.5,12,.7,19)
+        text(slide,'Top50 en 2024: referencia 27/50; modelo 19/50. Menor error no garantiza mejor priorización.',.65,6.18,12,.5,17)
     else:
         y=2.15 if num!=1 else 2.6
         for value,size in parts:

@@ -33,7 +33,7 @@ PAGES=[('UMBRAL',
   'Resumen ejecutivo',
   [('Reporte metodológico y preventivo · Reto 2',
     'aguas.exe. Integrantes: Martin Isai Nuñez Villeda y Cesar Donnet Hernandez Gastelum. Versión técnica para '
-    'revisión, 21 de octubre de 2026. Horizonte exploratorio: elección intermedia de 2027. Cobertura: México por '
+    'revisión, 22 de octubre de 2026. Horizonte exploratorio: elección intermedia de 2027. Cobertura: México por '
     'municipio, claves INE. Datos históricos ordinarios 2009-2024. Presupuesto de 15 páginas; este documento usa 14.'),
    ('Resumen ejecutivo',
     'Se entrenaron y evaluaron Ridge, HistGradientBoosting, LightGBM y CatBoost con las mismas 15 variables '
@@ -188,8 +188,9 @@ PAGES=[('UMBRAL',
     'comunitarios, material legible, o revisión de datos antes de priorizar.'),
    ('El perfil no decide, explica',
     'La prioridad la fija el modelo; la tipología orienta a quién podría dirigirse una intervención. El perfil CCPC '
-    'por edad, sexo y tipo de sección es una capa explicativa posterior que nunca alimenta al modelo y no implica '
-    'causalidad; los grupos con muestra insuficiente se marcan como tales. Fuente: '
+    'por edad, sexo y tipo de sección es una capa explicativa posterior y no implica causalidad. El predictor sí '
+    'usa proporciones agregadas de edad y urbanización; no usa sexo ni las tipologías posteriores. Los grupos '
+    'con muestra insuficiente se marcan como tales. Fuente: '
     'modelado/salidas/perfil_demografico.json.'),
    ('Mecanismo como hipótesis',
     'SMS Suecia: ITT 0.30 pp [0.13,0.48], Lindgren, Nyman y Oskarsson (2025), resultados, figura 1; DOI '
@@ -238,14 +239,14 @@ PAGES=[('UMBRAL',
     'Abrir demo/demo7.html. Se ejecutaron comparar_modelos.py, publicar_comparacion_demo6.py y '
     'verificar_comparacion.py en Python 3.12 con dependencias fijadas. Se conservan predicciones por fila, modelo '
     'serializado y hashes. La interacción usa proyecciones precalculadas. Fuentes: protocolo y comparación de cuatro '
-    'modelos en modelado/. Voto Vigía no se modifica.')])]
+    'modelos en modelado/. Repositorio: https://github.com/Donatelatrump/Ine_Hackaton_2026.')])]
 
 VARIABLES=[['Variable', 'Uso y por qué'],
  ['Abstención del mismo tipo',
   'Antecedente comparable; base de la referencia y de la estabilidad entre elecciones del mismo tipo.'],
  ['Abstención del último proceso', 'Señal más reciente del territorio.'],
  ['Diferencia último − mismo tipo', 'Capta deterioro o mejora reciente.'],
- ['log(LN)', 'Escala del padrón sin dominar el ajuste.'],
+ ['log(1 + LN)', 'Logaritmo natural de uno más la lista nominal; controla la escala.'],
  ['Proporción 18-29', 'Composición joven agregada; patrón documentado de mayor abstención.'],
  ['Proporción 60+ (sin >120)', 'Composición de mayor edad; reduce valores extremos.'],
  ['Proporción urbana', 'Contexto territorial agregado.'],
@@ -286,7 +287,7 @@ def main():
  total=len(PAGES)
  pdf=HERE/'Umbral_reporte_metodologico_preventivo.pdf'
  c=canvas.Canvas(str(pdf),pagesize=(612,792));c.setTitle('Umbral | Reporte metodológico y preventivo')
- md=['# Umbral: reporte metodológico y preventivo','Versión técnica para revisión | 21 de octubre de 2026',f'Estructura de {total} páginas (8 secciones)']
+ md=['# Umbral: reporte metodológico y preventivo','Versión técnica para revisión | 22 de octubre de 2026',f'Estructura de {total} páginas (8 secciones)']
  def paragraph(txt,st):
   nonlocal y
   p=Paragraph(html.escape(txt).replace('\n','<br/>'),st);w,h=p.wrap(516,700);y-=h;p.drawOn(c,48,y);y-=6
@@ -305,7 +306,7 @@ def main():
    paragraph('Figura 1. Mapa nacional por estados del semáforo: bajo, medio, alto y sin estimación (gris). Semáforo relativo, no probabilidad. Demo Umbral.',note_style)
   elif kind=='FIGURE_TRIPLE':
    ps=[FIG/'escenario_sin.png',FIG/'mapa_intervencion.png',FIG/'mapa_cambio.png']
-   labels=['(a) Sin intervención','(b) Con intervención','(c) Δ cambio en pp']
+   labels=['(a) Sin intervención','(b) Con intervención','(c) Cambio en pp']
    w=168;h=w*aspect(ps[0])
    for i,p in enumerate(ps):
     x=48+i*(w+6);c.drawImage(str(p),x,y-h,width=w,height=h,preserveAspectRatio=True,anchor='n')
