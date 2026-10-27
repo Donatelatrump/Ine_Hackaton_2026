@@ -1,4 +1,4 @@
-# Dependencias reinstalables; incluidas en el ZIP completo de entrega.
+# Dependencias reinstalables; excluidas del ZIP de entrega.
 .task_packages/
 .venv_modelos/
 .packages/
@@ -9,9 +9,16 @@ __pycache__/
 .env.*
 !.env.example
 
+/Umbral_entrega.zip
+/MANIFIESTO_PAQUETE.json
+/Aguas.exe_Reto_2_Prediccion_y_escenarios_de_riesgo_de_abstencion.zip
+/tmp/
+/umbral/entrega/Carta de cesion de derechos.pdf
+/umbral/entrega/carta decir la verdad.pdf
+
 # Insumo CONABIO y salidas duplicadas de verificación; la demo conserva la capa optimizada.
-/02_Prediccion_y_escenarios_de_riesgo/cartografia/municipiosmx.zip
-/02_Prediccion_y_escenarios_de_riesgo/cartografia/municipiosmx_conabio/*
-!/02_Prediccion_y_escenarios_de_riesgo/cartografia/municipiosmx_conabio/municipiosmx.xml
-/02_Prediccion_y_escenarios_de_riesgo/demo/data/municipios_conabio.geojson
-/02_Prediccion_y_escenarios_de_riesgo/demo/data/estados_conabio.js
+/umbral/cartografia/municipiosmx.zip
+/umbral/cartografia/municipiosmx_conabio/*
+!/umbral/cartografia/municipiosmx_conabio/municipiosmx.xml
+/umbral/demo/data/municipios_conabio.geojson
+/umbral/demo/data/estados_conabio.js

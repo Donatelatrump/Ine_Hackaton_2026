@@ -1,0 +1,25 @@
+{
+  "fuente": "CONABIO/INEGI, Áreas geoestadísticas municipales (AGEM) 2024, escala 1:250000",
+  "licencia": "CC BY-NC 2.5 MX — citar INEGI y CONABIO",
+  "crs": "WGS84 EPSG:4326",
+  "shapefile": "umbral\\cartografia\\municipiosmx_conabio\\municipiosmx.shp",
+  "municipios_originales": 2478,
+  "municipios_salida": 2477,
+  "tolerancia_estados_grados": 0.002,
+  "tolerancia_municipios_grados": 0.002,
+  "vinculacion": "nombres normalizados y alias explícitos por entidad; homónimos emparejados por orden de clave",
+  "agregaciones": [
+    {
+      "claves_conabio": [
+        "24028",
+        "24059"
+      ],
+      "clave_base": "24028",
+      "motivo": "Villa de Pozos se integra al San Luis Potosí del corte de la base"
+    }
+  ],
+  "claves_con_estimacion": 2477,
+  "poligonos_sin_estimacion": 0,
+  "fecha_generacion": "2026-10-13",
+  "advertencia": "Capa de referencia visual. Los límites oficiales vigentes son los del INEGI; la coincidencia de claves no demuestra estabilidad de límites históricos."
+}

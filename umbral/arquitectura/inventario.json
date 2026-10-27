@@ -1,0 +1,470 @@
+{
+  "scope": "Umbral; excluye Voto Vigía, dependencias instaladas, archivo de depuración y cachés. Referencias HTML estáticas, sin ejecutar navegador o pruebas.",
+  "file_count": 256,
+  "extensions": {
+    ".md": 28,
+    ".py": 34,
+    ".json": 37,
+    ".csv": 16,
+    ".txt": 12,
+    ".geojson": 4,
+    ".zip": 1,
+    ".js": 46,
+    ".cjs": 4,
+    ".html": 2,
+    ".pdf": 8,
+    ".joblib": 1,
+    ".png": 42,
+    ".pptx": 2,
+    ".css": 9,
+    "[sin extensión]": 1,
+    ".xlsx": 2,
+    ".jpg": 2,
+    ".dbf": 1,
+    ".prj": 1,
+    ".shp": 1,
+    ".shx": 1,
+    ".xml": 1
+  },
+  "sources": [
+    {
+      "path": "demo/styles/demo6/foundation.css",
+      "bytes": 43620,
+      "lines": 1549
+    },
+    {
+      "path": "modelado/ejecutar.py",
+      "bytes": 21950,
+      "lines": 484
+    },
+    {
+      "path": "cartografia/municipiosmx_conabio/municipiosmx.html",
+      "bytes": 37692,
+      "lines": 449
+    },
+    {
+      "path": "demo/styles/demo6/map.css",
+      "bytes": 13273,
+      "lines": 363
+    },
+    {
+      "path": "entrega/reporte/generar_reporte.py",
+      "bytes": 27796,
+      "lines": 357
+    },
+    {
+      "path": "demo/styles/demo6/identity.css",
+      "bytes": 12180,
+      "lines": 353
+    },
+    {
+      "path": "demo/src/demo6/domain/state-plans.js",
+      "bytes": 22854,
+      "lines": 342
+    },
+    {
+      "path": "modelado/core.py",
+      "bytes": 13484,
+      "lines": 314
+    },
+    {
+      "path": "modelado/tests/test_entrenamiento.py",
+      "bytes": 15259,
+      "lines": 313
+    },
+    {
+      "path": "modelado/entrenamiento.py",
+      "bytes": 12302,
+      "lines": 312
+    },
+    {
+      "path": "modelado/comparar_modelos.py",
+      "bytes": 16338,
+      "lines": 267
+    },
+    {
+      "path": "demo/src/demo6/map/layers.js",
+      "bytes": 10890,
+      "lines": 258
+    },
+    {
+      "path": "demo/demo7.html",
+      "bytes": 38022,
+      "lines": 254
+    },
+    {
+      "path": "demo/styles/demo7.css",
+      "bytes": 20345,
+      "lines": 244
+    },
+    {
+      "path": "demo/src/demo7/experience.js",
+      "bytes": 22328,
+      "lines": 238
+    },
+    {
+      "path": "demo/verificar_demo7.py",
+      "bytes": 14550,
+      "lines": 235
+    },
+    {
+      "path": "demo/src/demo7/planning.js",
+      "bytes": 25321,
+      "lines": 219
+    },
+    {
+      "path": "demo/src/demo7/controller.js",
+      "bytes": 12403,
+      "lines": 199
+    },
+    {
+      "path": "entrega/presentacion/generar_presentacion.py",
+      "bytes": 12794,
+      "lines": 197
+    },
+    {
+      "path": "modelado/tests/test_core.py",
+      "bytes": 9588,
+      "lines": 194
+    },
+    {
+      "path": "demo/src/demo6/controller.js",
+      "bytes": 11385,
+      "lines": 190
+    },
+    {
+      "path": "demo/src/demo6/map/geography.js",
+      "bytes": 9196,
+      "lines": 183
+    },
+    {
+      "path": "modelado/conapo_loader.py",
+      "bytes": 5624,
+      "lines": 166
+    },
+    {
+      "path": "modelado/ampliar_analisis.py",
+      "bytes": 6681,
+      "lines": 147
+    },
+    {
+      "path": "auditoria/procesar_ccpc.py",
+      "bytes": 7560,
+      "lines": 119
+    },
+    {
+      "path": "cartografia/incorporar_islas.py",
+      "bytes": 5371,
+      "lines": 116
+    },
+    {
+      "path": "demo/decision.js",
+      "bytes": 15500,
+      "lines": 111
+    },
+    {
+      "path": "modelado/perfil_demografico.py",
+      "bytes": 4535,
+      "lines": 101
+    },
+    {
+      "path": "demo/src/demo6/views/state-context.js",
+      "bytes": 5720,
+      "lines": 101
+    },
+    {
+      "path": "tools/estimar_impacto_planes.py",
+      "bytes": 4463,
+      "lines": 99
+    },
+    {
+      "path": "modelado/publicar_comparacion_demo6.py",
+      "bytes": 5701,
+      "lines": 98
+    },
+    {
+      "path": "demo/src/demo7/municipality.js",
+      "bytes": 13857,
+      "lines": 96
+    },
+    {
+      "path": "demo/src/demo6/views/municipality.js",
+      "bytes": 13768,
+      "lines": 96
+    },
+    {
+      "path": "cartografia/preparar_cartografia.py",
+      "bytes": 5725,
+      "lines": 92
+    },
+    {
+      "path": "demo/src/demo6/app/render.js",
+      "bytes": 15462,
+      "lines": 87
+    },
+    {
+      "path": "auditoria/finalizar_revision.py",
+      "bytes": 5378,
+      "lines": 85
+    },
+    {
+      "path": "modelado/imprimir_cifras.py",
+      "bytes": 3432,
+      "lines": 85
+    },
+    {
+      "path": "demo/src/demo7/state-context.js",
+      "bytes": 3570,
+      "lines": 78
+    },
+    {
+      "path": "demo/decision.test.cjs",
+      "bytes": 4957,
+      "lines": 72
+    },
+    {
+      "path": "entrega/verificar_entrega.py",
+      "bytes": 5077,
+      "lines": 71
+    },
+    {
+      "path": "demo/src/demo6/domain/analytics.js",
+      "bytes": 4331,
+      "lines": 71
+    },
+    {
+      "path": "demo/comprimir_datos.py",
+      "bytes": 2352,
+      "lines": 68
+    },
+    {
+      "path": "demo/src/demo6/ui/search.js",
+      "bytes": 3817,
+      "lines": 67
+    },
+    {
+      "path": "demo/styles/demo6/main.css",
+      "bytes": 5049,
+      "lines": 66
+    },
+    {
+      "path": "demo/src/demo6/map/start.js",
+      "bytes": 2382,
+      "lines": 64
+    },
+    {
+      "path": "modelado/ampliacion.py",
+      "bytes": 2583,
+      "lines": 62
+    },
+    {
+      "path": "demo/src/demo7/spreadsheet.js",
+      "bytes": 7657,
+      "lines": 58
+    },
+    {
+      "path": "modelado/tests/test_ampliacion.py",
+      "bytes": 2794,
+      "lines": 55
+    },
+    {
+      "path": "modelado/verificar_comparacion.py",
+      "bytes": 3384,
+      "lines": 54
+    },
+    {
+      "path": "demo/intervenciones.test.cjs",
+      "bytes": 3572,
+      "lines": 52
+    },
+    {
+      "path": "demo/src/demo6/map/decorations.js",
+      "bytes": 1884,
+      "lines": 52
+    },
+    {
+      "path": "descargar_documentos.py",
+      "bytes": 2209,
+      "lines": 50
+    },
+    {
+      "path": "demo/src/demo6/ui/motion.js",
+      "bytes": 2061,
+      "lines": 50
+    },
+    {
+      "path": "demo/src/demo6/map/navigation.js",
+      "bytes": 2467,
+      "lines": 48
+    },
+    {
+      "path": "demo/demo6.test.cjs",
+      "bytes": 2631,
+      "lines": 47
+    },
+    {
+      "path": "tools/browser_cdp.py",
+      "bytes": 2366,
+      "lines": 45
+    },
+    {
+      "path": "demo/src/demo6/app/exploration.js",
+      "bytes": 4030,
+      "lines": 45
+    },
+    {
+      "path": "demo/src/demo6/views/state-profile.js",
+      "bytes": 4945,
+      "lines": 44
+    },
+    {
+      "path": "modelado/generar_fichas_estatales.py",
+      "bytes": 4515,
+      "lines": 41
+    },
+    {
+      "path": "demo/src/demo6/app/bootstrap.js",
+      "bytes": 6714,
+      "lines": 40
+    },
+    {
+      "path": "tools/inventario.py",
+      "bytes": 2255,
+      "lines": 36
+    },
+    {
+      "path": "entrega/generar_caso.cjs",
+      "bytes": 3001,
+      "lines": 35
+    },
+    {
+      "path": "demo/preparar_datos.py",
+      "bytes": 2693,
+      "lines": 34
+    },
+    {
+      "path": "tools/construir_demo7.py",
+      "bytes": 1858,
+      "lines": 32
+    },
+    {
+      "path": "modelado/tests/test_comparacion_modelos.py",
+      "bytes": 1264,
+      "lines": 29
+    },
+    {
+      "path": "demo/src/demo6/views/history.js",
+      "bytes": 2166,
+      "lines": 29
+    },
+    {
+      "path": "demo/src/demo6/legacy/scenario-controls.js",
+      "bytes": 1557,
+      "lines": 27
+    },
+    {
+      "path": "demo/src/demo6/views/summary.js",
+      "bytes": 2160,
+      "lines": 27
+    },
+    {
+      "path": "demo/src/demo6/map/years.js",
+      "bytes": 688,
+      "lines": 26
+    },
+    {
+      "path": "demo/src/demo6/views/evidence.js",
+      "bytes": 3027,
+      "lines": 25
+    },
+    {
+      "path": "tools/servir_demo.py",
+      "bytes": 964,
+      "lines": 23
+    },
+    {
+      "path": "modelado/verificar_artefactos.py",
+      "bytes": 1380,
+      "lines": 22
+    },
+    {
+      "path": "demo/styles/demo6/layout.css",
+      "bytes": 21018,
+      "lines": 18
+    },
+    {
+      "path": "demo/styles/demo6/state-profile.css",
+      "bytes": 1545,
+      "lines": 17
+    },
+    {
+      "path": "demo/src/demo6/legacy/scenario-export.js",
+      "bytes": 10189,
+      "lines": 16
+    },
+    {
+      "path": "demo/src/demo6/legacy/scenarios.js",
+      "bytes": 2945,
+      "lines": 13
+    },
+    {
+      "path": "demo/src/demo6/map/context.js",
+      "bytes": 395,
+      "lines": 13
+    },
+    {
+      "path": "demo/src/demo6/ui/lenses.js",
+      "bytes": 653,
+      "lines": 13
+    },
+    {
+      "path": "demo/src/demo6/app/context.js",
+      "bytes": 1508,
+      "lines": 11
+    },
+    {
+      "path": "demo/src/demo6/app/start.js",
+      "bytes": 447,
+      "lines": 11
+    },
+    {
+      "path": "demo/src/demo6/legacy/scenario-evidence.js",
+      "bytes": 1712,
+      "lines": 9
+    },
+    {
+      "path": "demo/src/demo6/app/runtime.js",
+      "bytes": 370,
+      "lines": 8
+    },
+    {
+      "path": "demo/src/demo6/map/renderer.js",
+      "bytes": 196,
+      "lines": 4
+    },
+    {
+      "path": "demo/src/demo6/map/styles.js",
+      "bytes": 166,
+      "lines": 3
+    }
+  ],
+  "pages": {
+    "demo7.html": {
+      "resources": [
+        "vendor/leaflet.css",
+        "assets/demo7.css",
+        "vendor/leaflet.js",
+        "decision.js",
+        "data/datos_embebidos.js",
+        "data/comparacion_modelos.js",
+        "data/estados.js",
+        "data/islas.js",
+        "data/fichas_estatales.js",
+        "assets/demo7.js",
+        "images/collaborators/donatelatrump.jpg",
+        "images/collaborators/tzisai.jpg"
+      ],
+      "missing": []
+    }
+  }
+}

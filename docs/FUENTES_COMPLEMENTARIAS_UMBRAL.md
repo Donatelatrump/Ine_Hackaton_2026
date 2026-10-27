@@ -3,21 +3,21 @@
 **Fecha de elaboración:** 16 de octubre de 2026.  
 **Contenido:** inventario, alcance, límites y guía de documentación descriptiva por entidad.
 
-Este documento reúne los insumos de `Otras_fuentes_de_informacion`, `Bases_de_datos_explicativos` y `Datos_propuestas_estatales`. Sirve para documentar contexto y programas existentes. No contiene estrategias de movilización electoral ni recomendaciones de canales, mensajes o grupos que deban recibir una intervención.
+Este documento reúne los insumos de `fuentes/Otras_fuentes_de_informacion`, `fuentes/Bases_de_datos_explicativos` y `fuentes/Datos_propuestas_estatales`. Sirve para documentar contexto y programas existentes. No contiene estrategias de movilización electoral ni recomendaciones de canales, mensajes o grupos que deban recibir una intervención.
 
 ## 1. Qué información hay realmente
 
 Se identificaron **7 documentos y 6 CSV**. Son fuentes de naturaleza diferente: estudios históricos, una tesis de caso, una nota de divulgación, una encuesta, estudios de participación y un acuerdo institucional, además de series demográficas.
 
-La carpeta `Datos_propuestas_estatales` no contiene un plan validado para cada uno de los 32 estados. Su nombre no determina el alcance de los documentos. El acuerdo de ENCÍVICA es nacional; los estudios describen resultados y características, sin demostrar por sí solos qué actividad tendría efectos en una entidad.
+La carpeta `fuentes/Datos_propuestas_estatales` no contiene un plan validado para cada uno de los 32 estados. Su nombre no determina el alcance de los documentos. El acuerdo de ENCÍVICA es nacional; los estudios describen resultados y características, sin demostrar por sí solos qué actividad tendría efectos en una entidad.
 
 ## 2. Otras fuentes de información
 
 | Archivo | Contenido identificado | Alcance y uso descriptivo | Límite principal |
 | --- | --- | --- | --- |
-| [Insituto Federal Electoral.html](<../Otras_fuentes_de_informacion/Insituto Federal Electoral.html>) | Informe preliminar sobre abstencionismo en México; discute variables sociodemográficas, históricas y estructurales | Antecedente conceptual e histórico para explicar la complejidad del fenómeno | No constituye un diagnóstico actual de cada estado; el propio texto distingue las opiniones de sus autores de la postura institucional |
-| [Martha Iris González Rodriguez.pdf](<../Otras_fuentes_de_informacion/Martha Iris González Rodriguez.pdf>) | Tesis sobre participación juvenil y redes sociales en las presidenciales de 2018; caso de Gustavo A. Madero, publicada en abril de 2024 | Referencia académica para describir el caso estudiado y sus preguntas de investigación | No representa a todas las juventudes, alcaldías, municipios o estados |
-| [Nota de Central Electoral sobre juventudes](<../Otras_fuentes_de_informacion/Presentan en Durango investigación sobre participación política y electoral de las juventudes en México - Central Electoral.html>) | Presentación de una investigación sobre participación política y electoral de las juventudes | Registro de divulgación y referencia para localizar la investigación original | Una presentación en Durango no convierte sus resultados en una medición representativa de Durango |
+| [Insituto Federal Electoral.html](<../fuentes/Otras_fuentes_de_informacion/Insituto Federal Electoral.html>) | Informe preliminar sobre abstencionismo en México; discute variables sociodemográficas, históricas y estructurales | Antecedente conceptual e histórico para explicar la complejidad del fenómeno | No constituye un diagnóstico actual de cada estado; el propio texto distingue las opiniones de sus autores de la postura institucional |
+| [Martha Iris González Rodriguez.pdf](<../fuentes/Otras_fuentes_de_informacion/Martha Iris González Rodriguez.pdf>) | Tesis sobre participación juvenil y redes sociales en las presidenciales de 2018; caso de Gustavo A. Madero, publicada en abril de 2024 | Referencia académica para describir el caso estudiado y sus preguntas de investigación | No representa a todas las juventudes, alcaldías, municipios o estados |
+| [Nota de Central Electoral sobre juventudes](<../fuentes/Otras_fuentes_de_informacion/Presentan en Durango investigación sobre participación política y electoral de las juventudes en México - Central Electoral.html>) | Presentación de una investigación sobre participación política y electoral de las juventudes | Registro de divulgación y referencia para localizar la investigación original | Una presentación en Durango no convierte sus resultados en una medición representativa de Durango |
 
 ### Lectura de estas fuentes
 
@@ -27,10 +27,10 @@ Registrar el año de publicación y el periodo estudiado por separado. Una tesis
 
 | Documento | Qué aporta | Qué no permite concluir |
 | --- | --- | --- |
-| [CGex202602-26-ap-3.pdf](../Datos_propuestas_estatales/CGex202602-26-ap-3.pdf) | Acuerdo INE/CG61/2026, aprobado el 26 de febrero de 2026, que aprueba el Plan de Implementación 2026 de la ENCÍVICA 2024–2026 | No acredita que una actividad concreta esté disponible en cada municipio ni demuestra su efecto sobre la abstención |
-| [coe-3se-09-12-2024-p02.pdf](../Datos_propuestas_estatales/coe-3se-09-12-2024-p02.pdf) | Estudio muestral de participación ciudadana del proceso concurrente 2023–2024, fechado en diciembre de 2024 | Una estimación muestral no equivale a un conteo censal; no se deben mezclar cifras sin revisar población y denominadores |
-| [ENCUCI_2020_Presentacion_Ejecutiva.pdf](../Datos_propuestas_estatales/ENCUCI_2020_Presentacion_Ejecutiva.pdf) | Principales resultados de la Encuesta Nacional de Cultura Cívica 2020, presentados en junio de 2021; incluye creencias, valores, actitudes y prácticas | Sus resultados nacionales o regionales no se convierten en porcentajes municipales. Su población de interés de 15 años y más tampoco equivale a la lista nominal |
-| [Estudio-Censal-2015-VF.pdf](../Datos_propuestas_estatales/Estudio-Censal-2015-VF.pdf) | Estudio censal de participación en las elecciones federales de 2015, fechado en diciembre de 2016; incluye desgloses estatales y por características agregadas | Sus resultados describen esa elección; no explican automáticamente las causas actuales ni constituyen una proyección de 2027 |
+| [CGex202602-26-ap-3.pdf](../fuentes/Datos_propuestas_estatales/CGex202602-26-ap-3.pdf) | Acuerdo INE/CG61/2026, aprobado el 26 de febrero de 2026, que aprueba el Plan de Implementación 2026 de la ENCÍVICA 2024–2026 | No acredita que una actividad concreta esté disponible en cada municipio ni demuestra su efecto sobre la abstención |
+| [coe-3se-09-12-2024-p02.pdf](../fuentes/Datos_propuestas_estatales/coe-3se-09-12-2024-p02.pdf) | Estudio muestral de participación ciudadana del proceso concurrente 2023–2024, fechado en diciembre de 2024 | Una estimación muestral no equivale a un conteo censal; no se deben mezclar cifras sin revisar población y denominadores |
+| [ENCUCI_2020_Presentacion_Ejecutiva.pdf](../fuentes/Datos_propuestas_estatales/ENCUCI_2020_Presentacion_Ejecutiva.pdf) | Principales resultados de la Encuesta Nacional de Cultura Cívica 2020, presentados en junio de 2021; incluye creencias, valores, actitudes y prácticas | Sus resultados nacionales o regionales no se convierten en porcentajes municipales. Su población de interés de 15 años y más tampoco equivale a la lista nominal |
+| [Estudio-Censal-2015-VF.pdf](../fuentes/Datos_propuestas_estatales/Estudio-Censal-2015-VF.pdf) | Estudio censal de participación en las elecciones federales de 2015, fechado en diciembre de 2016; incluye desgloses estatales y por características agregadas | Sus resultados describen esa elección; no explican automáticamente las causas actuales ni constituyen una proyección de 2027 |
 
 ### 3.1 Qué consta en el acuerdo de ENCÍVICA
 
@@ -68,12 +68,12 @@ El inventario disponible se generó recorriendo los seis CSV. Los rangos siguien
 
 | Archivo | Filas | Años presentes | Contenido principal |
 | --- | ---: | --- | --- |
-| [00_Pob_Inicio_1950_2070.csv](../Bases_de_datos_explicativos/00_Pob_Inicio_1950_2070.csv) | 718,080 | 1970–2071 | Población por entidad, año, edad y sexo |
-| [01_Defunciones_1950_2070.csv](../Bases_de_datos_explicativos/01_Defunciones_1950_2070.csv) | 711,040 | 1970–2070 | Defunciones por entidad, año, edad y sexo |
-| [data-2026-10-13.csv](../Bases_de_datos_explicativos/data-2026-10-13.csv) | 718,080 | 1970–2071 | Serie de población con columnas temporales adicionales |
-| [pobproy_ggrupos.csv](../Bases_de_datos_explicativos/pobproy_ggrupos.csv) | 252,450 | 1990–2040 | Población municipal por grandes grupos de edad, sexo y año |
-| [pobproy_inddemo.csv](../Bases_de_datos_explicativos/pobproy_inddemo.csv) | 126,225 | 1990–2040 | Población e indicadores demográficos municipales |
-| [pobproy_quinq1.csv](../Bases_de_datos_explicativos/pobproy_quinq1.csv) | 252,450 | 1990–2040 | Población municipal por grupos quinquenales, sexo y año |
+| [00_Pob_Inicio_1950_2070.csv](../fuentes/Bases_de_datos_explicativos/00_Pob_Inicio_1950_2070.csv) | 718,080 | 1970–2071 | Población por entidad, año, edad y sexo |
+| [01_Defunciones_1950_2070.csv](../fuentes/Bases_de_datos_explicativos/01_Defunciones_1950_2070.csv) | 711,040 | 1970–2070 | Defunciones por entidad, año, edad y sexo |
+| [data-2026-10-13.csv](../fuentes/Bases_de_datos_explicativos/data-2026-10-13.csv) | 718,080 | 1970–2071 | Serie de población con columnas temporales adicionales |
+| [pobproy_ggrupos.csv](../fuentes/Bases_de_datos_explicativos/pobproy_ggrupos.csv) | 252,450 | 1990–2040 | Población municipal por grandes grupos de edad, sexo y año |
+| [pobproy_inddemo.csv](../fuentes/Bases_de_datos_explicativos/pobproy_inddemo.csv) | 126,225 | 1990–2040 | Población e indicadores demográficos municipales |
+| [pobproy_quinq1.csv](../fuentes/Bases_de_datos_explicativos/pobproy_quinq1.csv) | 252,450 | 1990–2040 | Población municipal por grupos quinquenales, sexo y año |
 
 ### 4.1 Precauciones de interpretación
 
@@ -162,10 +162,10 @@ Describir datos faltantes, cambios de límites, años no comparables, ausencia d
 
 ## 7. Archivos de Umbral relacionados
 
-- [Catálogo e inventario legible por máquina](../02_Prediccion_y_escenarios_de_riesgo/demo/data/fichas_estatales.json): rutas, columnas, filas, años y huellas SHA-256.
-- [Generador del catálogo](../02_Prediccion_y_escenarios_de_riesgo/modelado/generar_fichas_estatales.py).
-- [Documentación de las fichas](../02_Prediccion_y_escenarios_de_riesgo/demo/FICHAS_ESTATALES.md).
-- [Componente de presentación](../02_Prediccion_y_escenarios_de_riesgo/demo/src/demo6/views/state-profile.js).
-- [Metodología de los modelos](../02_Prediccion_y_escenarios_de_riesgo/modelado/METODOLOGIA.md).
+- [Catálogo e inventario legible por máquina](../umbral/demo/data/fichas_estatales.json): rutas, columnas, filas, años y huellas SHA-256.
+- [Generador del catálogo](../umbral/modelado/generar_fichas_estatales.py).
+- [Documentación de las fichas](../umbral/demo/FICHAS_ESTATALES.md).
+- [Componente de presentación](../umbral/demo/src/demo6/views/state-profile.js).
+- [Metodología de los modelos](../umbral/modelado/METODOLOGIA.md).
 
 Este documento describe las copias locales revisadas. No constituye una comprobación de vigencia posterior, ejecución actual o disponibilidad de servicios en cada entidad.
