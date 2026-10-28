@@ -89,15 +89,22 @@ try:
     c.evaluate('document.fonts.ready.then(()=>{document.documentElement.style.setProperty("scroll-behavior","auto","important")})')
     checks['initial_method']=c.evaluate('document.getElementById("method").value')
     assert checks['initial_method']=='hgb'
+    assert c.evaluate('!document.getElementById("map-navigation-help").hidden')
+    assert c.evaluate('document.querySelectorAll("#paso-1-map .legend small").length')==4
+    assert c.evaluate('Boolean(document.getElementById("d7-thresholds").closest("details:not([open])"))')
+    screenshot('mapa_leyenda.png','#paso-1-map')
     assert c.evaluate('document.querySelectorAll("[id]").length===new Set([...document.querySelectorAll("[id]")].map(e=>e.id)).size')
     screenshot('mapa_base.png','#map')
     value('state','23')
+    assert c.evaluate('document.getElementById("map-navigation-help").hidden')
     wait_for('window.Umbral7Planning.snapshot?.served>0')
     initial=c.evaluate('window.Umbral7Planning.snapshot')
     checks['state_plan']={'served':initial['served'],'additional':initial['additional'],'rows':len(initial['rows'])}
     assert abs(initial['additional']-initial['served']*.015)<1e-6
     assert c.evaluate('!document.getElementById("d7-action-editor") && !document.getElementById("d7-plan-coverage")')
     state_comparison=c.evaluate('document.getElementById("d6-plan-comparison-values").textContent')
+    assert c.evaluate('document.querySelector(".wordmark-copy small").textContent') == 'Participación electoral en tu municipio'
+    screenshot('plan_estatal_presentacion.png','#d6-state-plan')
     assert 'supuesto' in c.evaluate('document.getElementById("d7-impact-caption").textContent')
     assert any(r['before'] is None for r in initial['rows'])
     # Capture both maps and differences for exactly the same state plan.
@@ -159,6 +166,19 @@ try:
     c.evaluate('document.getElementById("stable").checked=false;document.getElementById("stable").dispatchEvent(new Event("input"))')
     # Preserve the documented municipal example and exact arithmetic.
     c.evaluate('window.Umbral7.example()')
+    assert c.evaluate('Number(document.getElementById("reach").value)')==437681
+    assert c.evaluate('window.Umbral7Planning.snapshot.served')==255362
+    value('reach','1234')
+    value('method','ridge')
+    assert c.evaluate('Number(document.getElementById("reach").value)')==1234
+    value('method','hgb')
+    value('state','23');value('search','')
+    assert c.evaluate('Number(document.getElementById("reach").value)')==2179491
+    value('search','23008')
+    assert c.evaluate('Number(document.getElementById("reach").value)')==437681
+    checks['population_default']={'municipality':437681,'state':2179491,'manual_value_preserved':True,'electoral_cap':255362}
+    # The 1,000-person case remains a manually editable regression example.
+    value('reach','1000')
     wait_for('window.Umbral7Planning.snapshot?.additional===3')
     example=c.evaluate('window.Umbral7Planning.snapshot')
     assert example['served']==1000 and example['method']=='hgb'

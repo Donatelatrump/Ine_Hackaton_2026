@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-26",
+  "date": "2026-10-28",
   "passed": true,
   "checks": {
     "local_links": 25,
@@ -18,6 +18,12 @@
     },
     "zero_coverage_and_method": true,
     "catalog_filter_updates_coverage": true,
+    "population_default": {
+      "municipality": 437681,
+      "state": 2179491,
+      "manual_value_preserved": true,
+      "electoral_cap": 255362
+    },
     "municipal_example": {
       "additional": 3,
       "reduction_pp": 0.001174802828927568
@@ -31,13 +37,125 @@
     },
     "invalid_action_coverage_preserves_state_plan": true,
     "mobile_width": 390,
-    "historical_hides_future_scenario": true
+    "historical_hides_future_scenario": true,
+    "tour_steps": [
+      {
+        "selection": {
+          "year": 2027,
+          "state": "",
+          "municipality": null,
+          "method": "hgb",
+          "stable": false
+        },
+        "focus": null,
+        "target": "map",
+        "title": "México: punto de partida",
+        "visible": true,
+        "mapView": "difference"
+      },
+      {
+        "selection": {
+          "year": 2027,
+          "state": "23",
+          "municipality": "23008",
+          "method": "hgb",
+          "stable": false
+        },
+        "focus": "23008",
+        "target": "map",
+        "title": "Del país al municipio",
+        "visible": true,
+        "mapView": "difference"
+      },
+      {
+        "selection": {
+          "year": 2027,
+          "state": "23",
+          "municipality": "23008",
+          "method": "hgb",
+          "stable": false
+        },
+        "focus": "23008",
+        "target": "d6-history-title",
+        "title": "Antecedentes y proyección",
+        "visible": true,
+        "mapView": "difference"
+      },
+      {
+        "selection": {
+          "year": 2027,
+          "state": "23",
+          "municipality": null,
+          "method": "hgb",
+          "stable": false
+        },
+        "focus": null,
+        "target": "paso-3",
+        "title": "Preparar una acción",
+        "visible": true,
+        "mapView": "difference"
+      },
+      {
+        "selection": {
+          "year": 2027,
+          "state": "23",
+          "municipality": null,
+          "method": "hgb",
+          "stable": false
+        },
+        "focus": null,
+        "target": "d7-paired-maps",
+        "title": "Comparar los mapas del plan estatal",
+        "visible": true,
+        "mapView": "paired"
+      },
+      {
+        "selection": {
+          "year": 2027,
+          "state": "23",
+          "municipality": null,
+          "method": "hgb",
+          "stable": false
+        },
+        "focus": null,
+        "target": "d7-allocation",
+        "title": "Recursos y resultado del ejemplo",
+        "visible": true,
+        "mapView": "paired"
+      },
+      {
+        "selection": {
+          "year": 2027,
+          "state": "23",
+          "municipality": null,
+          "method": "hgb",
+          "stable": false
+        },
+        "focus": null,
+        "target": "d7-download-brief",
+        "title": "Compartir la propuesta",
+        "visible": true,
+        "mapView": "paired"
+      }
+    ],
+    "tour_mobile_geometry": {
+      "top": 178.640625,
+      "bottom": 358.640625,
+      "dialogTop": 576.875,
+      "height": 844
+    },
+    "municipal_state_plan": {
+      "after": "61.486223589727636",
+      "served": "25536",
+      "stateServed": "138762"
+    },
+    "municipal_plan_independent_of_sms": true
   },
   "page_errors": [],
   "sources": {
-    "demo7.html": "112d471144575ab4ccc32cabe239d17bc0235a2a47a1689e2ef40ba3c3b91700",
-    "assets/demo7.js": "e7add3c5a78cc5319689d60beaca29f6c7a6f3bc824c7aeda55f52e4b09e390d",
-    "assets/demo7.css": "242694d00f64f467378b70e1511f56c764ab22d59bf1a490d9f631da60d96191",
+    "demo7.html": "26065774635ea9344a0bb963e6b4a69091678395addf55968d4679af5104253d",
+    "assets/demo7.js": "b2219aa3e5a5158149de7686f91a5b9821c47d5d2346132b7db4c7371eb95e89",
+    "assets/demo7.css": "76168974805b8e4fadbdb21cc4936ca2101ece7f696096299171f7ae806ef702",
     "data/comparacion_modelos.js": "20303e82e1da2407afa6e942fcfae13bd593b8f82174d292db44babf97514acd"
   }
 }

@@ -1,6 +1,7 @@
 /* Demo7: readable data, persistent territory and restrained motion. */
 :root{--d7-radius:14px;--muted:#59616a}
-html{scroll-padding-top:150px}
+html{scroll-padding-top:var(--d7-scroll-offset,150px)}
+.module{overflow:clip}
 .site-header{height:72px}
 .d7-context-bar{position:sticky;top:72px;z-index:19;display:flex;align-items:center;gap:16px;justify-content:space-between;padding:10px 5vw;background:#143f38;color:#fffdf7;border-bottom:1px solid #ffffff2b;font-size:13px}
 .d7-context-bar p{margin:0;min-width:0;line-height:1.5;color:#fffdf7}
@@ -36,6 +37,27 @@ html{scroll-padding-top:150px}
 input,select,button{font-family:var(--body)}
 .controls select,.controls input,.scenario-controls select,.scenario-controls input{font-size:15px;min-height:44px}
 .legend{font-size:14px;line-height:1.6;gap:12px}
+.map-navigation-help{position:absolute;right:12px;top:12px;z-index:500;max-width:245px;padding:10px 12px;border:1px solid #d4dfd9;border-radius:8px;background:#fffffff2;color:#15353b;box-shadow:0 2px 8px #15353b12;pointer-events:none;font:12px/1.4 var(--body,Arial,sans-serif)}
+.map-navigation-help[hidden]{display:none}
+.map-navigation-help>strong{display:block;font-size:12px;color:#10685f;margin-bottom:6px}
+.map-navigation-help dl{margin:0}
+.map-navigation-help dl>div{display:grid;grid-template-columns:82px 1fr;gap:8px;padding:3px 0}
+.map-navigation-help dt{font-weight:600}.map-navigation-help dd{margin:0}
+.map-navigation-help p{font-size:10px;color:#587177;margin:6px 0 0}
+.map-touch-help{display:none}
+@media(pointer:coarse){.map-navigation-help{max-width:170px}.map-navigation-help dl,.map-navigation-help p{display:none}.map-touch-help{display:block}}
+#paso-1-map .legend{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:14px 18px 10px;margin:0;border-top:1px solid var(--line,#dbe3de)}
+#paso-1-map .legend>span{align-items:flex-start;gap:7px;font-size:12px;line-height:1.35;min-width:0}
+#paso-1-map .legend>span:only-child{grid-column:1/-1}
+#paso-1-map .legend>span>i{margin-top:3px;width:10px;height:10px}
+#paso-1-map .legend .map-key-label{display:block;font-weight:600}
+#paso-1-map .legend small{display:block;font-size:12px;font-weight:400;margin-top:4px;color:var(--muted,#587177)}
+#paso-1-map .map-guide{margin:0;padding:4px 18px 10px;font-size:12px;line-height:1.4}
+#paso-1-map #confidence-note:empty{display:none}
+#paso-1-map .map-reading{margin:0;padding:10px 18px 14px;border-top:1px solid var(--line,#dbe3de);font-size:12px}
+#paso-1-map .map-reading summary{font-weight:600;cursor:pointer}
+#paso-1-map .map-reading p{font-size:12px;line-height:1.5;margin:10px 0 0}
+@media(max-width:600px){#paso-1-map .legend{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 16px}}
 .legend span{display:inline-flex;align-items:center;gap:7px}
 .legend i{display:inline-block;width:13px;height:13px;border-radius:3px;flex:none}
 .d7-plan-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:20px 0}
@@ -88,7 +110,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
 .site-footer{font-size:12px}
 @media(max-width:1000px){.module{grid-template-columns:40px minmax(0,1fr);gap:18px}.d7-plan-facts{grid-template-columns:1fr}.d7-map{height:300px}.d7-context-bar{font-size:12px}}
 @media(max-width:700px){
-  html{scroll-padding-top:190px}
+  html{scroll-padding-top:var(--d7-scroll-offset,190px)}
   .site-header{height:92px;display:grid;grid-template-columns:1fr auto;grid-template-rows:48px 36px;padding:4px 18px}
   .quick-nav{display:flex;grid-column:1/-1;grid-row:2;justify-content:space-between;gap:14px;width:100%}
   .quick-nav a{font-size:13px;padding:8px 0}
@@ -99,6 +121,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
   .hero{padding:36px 22px;min-height:0;gap:16px}
   .hero-lede{font-size:17px}.hero-art{height:330px;min-height:0;margin:0}
   .module{padding:32px 18px;display:block}.module-content{padding-top:42px}.module-rail{top:32px;left:18px;width:calc(100% - 36px)}
+  .module-rail>i{height:1px;min-height:0;max-height:1px;width:28px;flex:none;align-self:center}
   .module h2,#module-three-title{font-size:clamp(34px,9vw,48px);margin-bottom:16px;line-height:1.08}
   .module-heading .module-sticker{width:64px;height:64px;font-size:8px}
   .module-description{font-size:16px}

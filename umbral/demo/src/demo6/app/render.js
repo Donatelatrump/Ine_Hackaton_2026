@@ -12,7 +12,7 @@ function renderApplication(){
  $('reach').setAttribute('aria-invalid',simOn&&!budgetValid?'true':'false');
  $('simulation-inputs').hidden=!simOn;$('simulation-results').hidden=!hasResults;
  $('simulation-empty').hidden=hasResults;$('simulation-prompt').hidden=hasResults;
- $('simulation-prompt').textContent=simOn&&!budgetValid?'Introduce un número entero de personas entre 0 y 100,000,000 para calcular el escenario.':'Elige una acción para configurar la cobertura y comparar los resultados.';
+ $('simulation-prompt').textContent=simOn&&!budgetValid?'Introduce un número entero de personas entre 0 y 200,000,000 para calcular el escenario.':'Elige una acción para configurar la cobertura y comparar los resultados.';
  $('simulation-empty').querySelector('h3').textContent=simOn&&!budgetValid?'Revisa la cobertura':'¿Qué podría cambiar?';
  $('simulation-empty').querySelector('p').textContent=simOn&&!budgetValid?'Los resultados están pendientes hasta corregir el número de personas. Puedes seguir consultando el mapa y las fichas.':'Los resultados aparecerán al elegir una acción. Puedes seguir consultando municipios sin configurar este paso.';
  $('simulation-map-controls').hidden=!hasResults;

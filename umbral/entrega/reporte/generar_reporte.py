@@ -33,24 +33,16 @@ PAGES=[('UMBRAL',
   'Resumen ejecutivo',
   [('Reporte metodológico y preventivo · Reto 2',
     'aguas.exe. Integrantes: Martin Isai Nuñez Villeda y Cesar Donnet Hernandez Gastelum. Versión técnica para '
-    'revisión, 22 de octubre de 2026. Horizonte exploratorio: elección intermedia de 2027. Cobertura: México por '
-    'municipio, claves INE. Datos históricos ordinarios 2009-2024. Presupuesto de 15 páginas; este documento usa 14.'),
+    'revisión, 28 de octubre de 2026. Horizonte de predicción: elección intermedia de 2027. Cobertura: México por '
+    'municipio, claves INE. Datos históricos ordinarios 2009-2024. Reporte de 14 páginas.'),
    ('Resumen ejecutivo',
-    'Se entrenaron y evaluaron Ridge, HistGradientBoosting, LightGBM y CatBoost con las mismas 15 variables '
-    'históricas. Se seleccionó HistGradientBoosting: MAE medio 6.8360 pp frente a 9.0094 de Ridge (24.12% menos '
-    'error). LightGBM obtuvo MAE 6.8304 pp; la diferencia menor que 0.05 pp activó el desempate por MAE ponderado, '
-    'favorable a HistGradientBoosting. Ridge fue el más rápido. La selección es retrospectiva, sin validación futura '
-    'de 2027. Umbral muestra la consulta histórica y proyecciones precalculadas, comparación estatal, exportación de '
-    'consultas y escenarios hipotéticos con cobertura total y fuentes. Incorpora planes estatales, mapas pareados y CSV de escenarios con semáforo y trazabilidad.'),
-   ('Qué es y qué no es',
-    'Es una herramienta de priorización auditable y un registro explícito de supuestos. No es un predictor validado de '
-    '2027, no es un asignador automático de recursos y no demuestra efectos causales de una intervención.')]),
+    'Umbral predice la abstención municipal para las elecciones de 2027, permite consultar información electoral y simula acciones para reducir la abstención. Utiliza conteos del INE de 2009 a 2024 y características sociodemográficas agregadas. De 2,477 claves históricas, 1,783 tienen información suficiente para estimar. Se compararon cuatro modelos y se seleccionó HistGradientBoosting: su error absoluto medio fue de 6.84 puntos porcentuales en las evaluaciones de 2021 y 2024, frente a 8.88 de la referencia simple. Las predicciones pueden equivocarse y su acierto en 2027 se comprobará cuando existan resultados observados. La consulta informativa reúne históricos, perfiles territoriales y fuentes. El simulador calcula cambios hipotéticos con coeficientes publicados en investigaciones y coberturas elegidas por el usuario. Además, propone planes para las 32 entidades, apoyados en su contexto y en estudios mexicanos de participación y abstencionismo. Los coeficientes de acciones específicas y los supuestos del plan estatal se presentan por separado. El conjunto sirve para anticipar riesgos, entender los territorios y preparar decisiones de prevención y recursos.'),
+   ('Alcance de la propuesta',
+    'Umbral es una herramienta predictiva, informativa y de simulación. Sus estimaciones orientan la priorización y sus planes proponen actividades para revisión institucional. La evaluación histórica permite conocer errores del predictor; no elimina el error futuro. Los escenarios calculan qué ocurriría si se cumplieran los efectos y coberturas indicados. El respaldo documental de una propuesta no equivale a haber demostrado su eficacia en cada estado.')]),
  ('01 / PROBLEMA Y DECISIÓN',
   'Para qué sirve y para quién',
   [('Pregunta operativa',
-    'Con una cobertura total de personas, ¿cómo distribuir una acción en un municipio, un estado o el país y qué '
-    'cambio hipotético permite suponer la evidencia externa? La cobertura es un único presupuesto territorial, no una '
-    'cantidad repetida por municipio.'),
+    'Si un área de educación cívica puede atender a un número limitado de personas, ¿en qué municipios conviene concentrar el trabajo y con qué criterio? Umbral permite comparar la abstención estimada, revisar la información disponible y repartir esa capacidad. Por ejemplo, una cobertura de 1,000 personas para un estado se distribuye entre sus municipios: no equivale a atender 1,000 en cada uno. El escenario permite examinar el cambio que se obtendría si se cumpliera el efecto supuesto de la acción.'),
    ('Criterio de prioridad y selector',
     'La prioridad principal es la tasa de abstención estimada, no el número absoluto ni el deterioro. El prototipo '
     'permite elegir entre tres lentes que responden preguntas distintas: tasa (proporción estimada), volumen sobre la '
@@ -100,18 +92,14 @@ PAGES=[('UMBRAL',
     'no existe antecedente válido, no se sustituye por otro tipo electoral. Es interpretable y constituye la exigencia '
     'mínima que la complejidad debe superar.'),
    ('Cuatro regresores',
-    'Se comparan cuatro regresores del residual respecto a la misma referencia: Ridge, HistGradientBoosting, LightGBM '
-    'y CatBoost. Todos usan las mismas 15 variables históricas y cohortes. Cuatro configuraciones por familia, semilla '
-    '42 y un hilo de CPU. No se añaden variables futuras ni categóricas a un único competidor.'),
+    'Ridge, HistGradientBoosting, LightGBM y CatBoost estiman una cantidad continua: el cambio respecto a la última elección del mismo tipo. A ese cambio se le llama residual. Si la referencia fuera 60% y el cambio estimado fuera -4 puntos porcentuales, la proyección sería 56%; es un ejemplo didáctico, no un resultado municipal. Ridge ajusta una relación lineal; los otros tres métodos combinan árboles de decisión para representar relaciones más complejas. La comparación usa las mismas 15 variables y los mismos municipios, cuatro configuraciones por familia, semilla 42 y un hilo de CPU. Así se evita favorecer a un modelo con información adicional.'),
    ('Flujo simple',
     'Antecedentes observados con calidad verificada → Referencia del mismo tipo → Ajuste del residual con el modelo seleccionado → '
     'Estimación 2027 → Semáforo relativo, estabilidad y decisión con capacidad.')]),
  ('03 / MODELO (2/2)',
   'Construcción, cortes y regla de selección',
   [('Cortes temporales',
-    'Evaluación 2021: entrenamiento 2015/2018 y validación interna 2018 con entrenamiento 2015. Evaluación 2024: '
-    'entrenamiento 2015/2018/2021 y validaciones internas 2018/2021 con años anteriores. Para 2027 se entrena hasta '
-    '2024. No se ajusta ni detiene el aprendizaje con el corte externo.'),
+    'Se simula qué habría podido conocerse antes de cada elección. Para evaluar 2021 se entrena con 2015 y 2018; las configuraciones se comparan primero prediciendo 2018 a partir de 2015. Para evaluar 2024 se entrena con 2015, 2018 y 2021, usando las evaluaciones internas de 2018 y 2021 para elegir configuraciones. Los resultados del año evaluado no se usan para ajustar ese modelo. Finalmente, la proyección de 2027 incorpora datos hasta 2024. Esta separación temporal evita usar información del futuro durante el ajuste.'),
    ('Regla de selección',
     'Menor MAE medio, igual peso para 2021 y 2024. Diferencias ≤0.05 pp se desempatan por MAE ponderado; después top50 '
     'y tiempo. HistGradientBoosting y LightGBM empatan dentro de la tolerancia; gana el primero por su menor MAE '
@@ -123,12 +111,8 @@ PAGES=[('UMBRAL',
  ('04 / EVIDENCIA Y LÍMITES (1/2)',
   'Comparación temporal de cuatro modelos',
   [('TABLE_METRICS', ''),
-   ('Lectura honesta',
-    'Se entrenaron y evaluaron Ridge, HistGradientBoosting, LightGBM y CatBoost con las mismas 15 variables '
-    'históricas. Se seleccionó HistGradientBoosting: MAE medio 6.8360 pp frente a 9.0094 de Ridge (24.12% menos '
-    'error). LightGBM obtuvo MAE 6.8304 pp; la diferencia menor que 0.05 pp activó el desempate por MAE ponderado, '
-    'favorable a HistGradientBoosting. Ridge fue el más rápido. La selección es retrospectiva, sin validación futura '
-    'de 2027.'),
+   ('Cómo leer los resultados',
+    'MAE es el error absoluto medio: cuánto se aparta la estimación del valor observado. Se expresa en puntos porcentuales (pp); pasar de 40% a 45% equivale a 5 pp. La columna Pond. da mayor peso a municipios con mayor población observable. n indica municipios evaluados. Top50 cuenta coincidencias entre los 50 municipios con mayor abstención estimada y los 50 con mayor abstención observada. Un menor MAE es mejor; en Top50, un mayor número es mejor.'),
    ('Resultados y límites de priorización',
     'Se publican MAE, error ponderado, sesgo con signo, P90 y aciertos top50 para cada método y corte. En 2024 la '
     'referencia recupera 27/50 frente a 19/50 de HistGradientBoosting: mejorar error no garantiza mejor priorización. '
@@ -136,13 +120,11 @@ PAGES=[('UMBRAL',
  ('04 / EVIDENCIA Y LÍMITES (2/2)',
   'Estabilidad, incertidumbre y límites',
   [('Estabilidad del top N',
-    'Seis variantes: referencia y método activo, con calidad NS5/10/20. Al consultar referencia, el comparador es '
+    'Seis variantes: referencia y método activo, con límites de participación no especificada (NS) de 5%, 10% y 20%. Al consultar referencia, el comparador es '
     'Ridge. Se fijan los parámetros elegidos en NS10 y se reentrena sobre cada cohorte. La frecuencia describe el '
     'ranking topN; no es probabilidad ni se utiliza para elegir al ganador.'),
    ('Incertidumbre de prioridad, no de intervalo',
-    'Cada método muestra su P90 retrospectivo de 2021. Para HistGradientBoosting, ±18.04 pp, acotado a [0,100]. No es '
-    'intervalo prospectivo calibrado. La estabilidad compara referencia y método activo en NS5/10/20 con parámetros '
-    'finales congelados; no interviene en la selección del ganador.'),
+    'P90 es el valor por debajo del cual quedó el 90% de los errores absolutos en la evaluación de 2021. Para HistGradientBoosting fue 18.04 pp. La ficha muestra ese margen alrededor de la proyección, limitado a [0,100]. Sirve para dimensionar el error histórico; no garantiza que el resultado de 2027 quede dentro de ese rango.'),
    ('Error por tamaño y límites',
     'El P90 del error por denominador observable previo (<10 mil, 10-100 mil, ≥100 mil) describe heterogeneidad por '
     'escala, no un intervalo para 2027. Límites: seis ocasiones electorales y tres intermedias; 2024 es presidencial y '
@@ -158,10 +140,8 @@ PAGES=[('UMBRAL',
     'La calidad (NS), la estabilidad entre seis variantes y el acuerdo entre métodos se informan como dimensión '
     'separada del color, en la lista y en la ficha. Los umbrales base permanecen fijos al comparar escenarios para que '
     'el color no se redefina entre ellos.'),
-   ('Sensibilidad de umbrales',
-    'Mover el corte cambia el número de municipios por nivel; el informe incluye variación por tamaño municipal y por '
-    'umbral NS. Ejemplo: alternar el filtro de catálogo constante pasa de 1,144 a 1,783 estimaciones. Fuente: '
-    'modelado/salidas/metricas.json.'),
+   ('Cobertura del catálogo',
+    'El catálogo constante restringe la consulta a claves presentes en la serie histórica: quedan 1,144 estimaciones, frente a 1,783 sin ese filtro. Esta diferencia corresponde a la cobertura del catálogo, no a mover los cortes del semáforo. La coincidencia de claves tampoco garantiza límites municipales idénticos. Fuente: modelado/salidas/metricas.json.'),
    ('FIGURE_MAP_STATES', '')]),
  ('06 / ESCENARIOS',
   'Sin intervención y con intervención hipotética',
@@ -171,7 +151,7 @@ PAGES=[('UMBRAL',
     '× H/O. La comparación pondera por O TODOS los municipios estimables filtrados, incluidos los no atendidos (H=0).'),
    ('Supuestos explícitos',
     'O es referencia observable 2024, no electorado 2027. Transferencia del efecto extranjero a México hipotética y no '
-    'validada. ITT usa personas asignadas a SMS; ATT exige contactos efectivos para llamada. No sumar acciones ni '
+    'validada. ITT mide el efecto de asignar la intervención; ATT, el efecto entre quienes la reciben. SMS usa asignaciones; llamada exige contactos efectivos. No sumar acciones ni '
     'efectos. País: «México: municipios con estimación incluidos»; catálogo y exclusiones explícitos.'),
    ('FIGURE_TRIPLE', ''),
    ('Plan estatal de Umbral',
@@ -186,12 +166,9 @@ PAGES=[('UMBRAL',
     'joven 18-29 ≥25%; proporción 60+ ≥25%; y calidad insuficiente (NS alto o antecedentes incompletos). Cada '
     'tipología lleva una línea de acción: información electoral accesible, talleres en espacios educativos y '
     'comunitarios, material legible, o revisión de datos antes de priorizar.'),
-   ('El perfil no decide, explica',
-    'La prioridad la fija el modelo; la tipología orienta a quién podría dirigirse una intervención. El perfil CCPC '
-    'por edad, sexo y tipo de sección es una capa explicativa posterior y no implica causalidad. El predictor sí '
-    'usa proporciones agregadas de edad y urbanización; no usa sexo ni las tipologías posteriores. Los grupos '
-    'con muestra insuficiente se marcan como tales. Fuente: '
-    'modelado/salidas/perfil_demografico.json.'),
+   ('Uso de los perfiles territoriales',
+    'El criterio elegido ordena los municipios; las tipologías ayudan a adaptar las actividades a su contexto. El perfil CCPC por edad, sexo y tipo de sección describe grupos agregados, sin explicar por sí solo las causas de abstención. El predictor usa proporciones de edad y urbanización; no usa sexo ni las tipologías posteriores. Los grupos con muestra insuficiente se señalan. Fuente: modelado/salidas/perfil_demografico.json.'),
+   ('Sustento de los planes estatales', 'Los planes de las 32 entidades son propuestas del proyecto que combinan contexto territorial, estudios mexicanos sobre abstencionismo y participación, ENCUCI 2020 y el marco de ENCÍVICA. Estas fuentes orientan el diagnóstico y las líneas de acción; los planes no se transcriben de ellas. Los coeficientes del simulador proceden de investigaciones sobre intervenciones específicas. El efecto de 1.5 pp del plan estatal es un supuesto independiente. Fuentes y alcances: docs/FUENTES_COMPLEMENTARIAS_UMBRAL.md y docs/PLANES_ACCION_ESTATALES_PARTICIPACION.md.'),
    ('Mecanismo como hipótesis',
     'SMS Suecia: ITT 0.30 pp [0.13,0.48], Lindgren, Nyman y Oskarsson (2025), resultados, figura 1; DOI '
     '10.1017/S0007123424000504. SMS EEUU: ITT 0.25 pp, IC95% [0.17,0.34], Haenschen, Mann y DeMora (2026), '
@@ -201,16 +178,14 @@ PAGES=[('UMBRAL',
  ('07 / PREVENCIÓN (2/3)',
   'Ficha tipo y ejemplo completo',
   [('Ficha tipo',
-    'Cada recomendación registra: condición observable, acción, responsable propuesto, cobertura, condiciones de '
-    'aplicación, recurso (personas y horas), medición y mecanismo hipotético.'),
+    'La ficha reúne condición observable, acción, responsable propuesto, cobertura, recursos y medición. Para este caso se propone que el área de educación cívica revise el mensaje, confirme un canal autorizado y registre asignaciones y entregas. Las 1,000 personas son un supuesto de simulación; personal, horas y costo deben acordarse antes del piloto. Entregar un mensaje no demuestra que haya causado un voto.'),
    ('Caso 23008: SOLIDARIDAD (catálogo histórico)',
     'HistGradientBoosting, catálogo constante: puesto 9; referencia 3. Proyección 61.636222%. Frecuencia nacional '
     'top50 4/6. SMS Suecia a 1,000 personas asignadas: 3 votos hipotéticos [1.3,4.8], posterior 61.635048%, reducción '
     '0.001175 pp. Base 255,362. La transferencia del efecto a México requiere evaluación. Fuente: '
     'entrega/caso_municipal.json.'),
-   ('El resto, en el CSV',
-    'La ficha completa de cada municipio seleccionado se exporta en el plan CSV; este PDF incluye un ejemplo '
-    'representativo.')]),
+   ('Interpretación del cambio municipal',
+    'En este ejemplo, 0.30 pp entre 1,000 personas equivalen a 3 votos hipotéticos. Al repartir ese cambio sobre la base municipal de 255,362 personas, la reducción es de apenas 0.001175 pp. Por eso puede resultar imperceptible en el mapa. El CSV permite revisar las cifras sin depender del color; la ficha imprimible reúne la recomendación y sus límites.')]),
  ('07 / PREVENCIÓN (3/3)',
   'Priorización de recursos y diseño de evaluación',
   [('Priorización de recursos',
@@ -220,9 +195,7 @@ PAGES=[('UMBRAL',
     'límite de abstenciones, igual cobertura produce igual H total: cambia dónde se asigna, no necesariamente el '
     'impacto agregado. Estabilidad de referencia separada del reparto actual.'),
    ('Diseño de evaluación propuesto',
-    'Aleatorizar atención inmediata o diferida entre municipios cercanos al corte de capacidad, con balance por '
-    'entidad, tamaño, calidad y contexto; indicadores de cobertura y comprensión; y regla de análisis fijada antes de '
-    'observar resultados. La cercanía del score no acredita equivalencia ni causalidad.'),
+    'Se propone un piloto en tres etapas. Antes de iniciar: el área responsable confirma territorios, capacidad, canal y costos; fija indicadores y un protocolo de análisis. Durante la ejecución: se asigna al azar atención inmediata o diferida entre municipios cercanos al límite de capacidad, equilibrando entidad, tamaño y contexto; se registran personas alcanzadas, horas y comprensión del mensaje. Al cierre: se comparan los grupos y se documentan costos y dificultades. Medir comprensión permite evaluar la comunicación, pero demostrar un cambio en participación requiere observar resultados electorales y una evaluación causal. La proximidad en el ranking no sustituye la asignación aleatoria.'),
    ('Vista operativa',
     'Umbral permite consultar históricos y el plan estatal con su cálculo fijo, simular acciones con cobertura '
     'editable y comparar mapas sin/con acción con umbrales comunes. El CSV incluye municipios atendidos, pendientes '
@@ -236,10 +209,7 @@ PAGES=[('UMBRAL',
     'del municipio a la persona. Se mitigan con revisión humana, etiquetando el escenario como hipótesis y sin inferir '
     'comportamiento individual del agregado.'),
    ('Reproducibilidad y cierre',
-    'Abrir Umbral con la carpeta completa del proyecto. Se ejecutaron comparar_modelos.py, publicar_comparacion_demo6.py y '
-    'verificar_comparacion.py en Python 3.12 con dependencias fijadas. Se conservan predicciones por fila, modelo '
-    'serializado y hashes. La interacción usa proyecciones precalculadas. Fuentes: protocolo y comparación de cuatro '
-    'modelos en modelado/. Repositorio: https://github.com/Donatelatrump/Ine_Hackaton_2026.')])]
+    'Para consultar la entrega, descomprimir el ZIP y abrir index.html junto a los PDF, CSV y carpetas incluidos. El mapa utiliza proyecciones precalculadas; no necesita entrenar modelos al abrirse. La carpeta codigo contiene la aplicación y el experimento de cuatro modelos. En el repositorio se conservan el protocolo, las predicciones por municipio, el modelo serializado y las huellas de integridad. Las rutas citadas en este reporte se refieren al proyecto completo; no todas forman parte del ZIP. Repositorio: https://github.com/Donatelatrump/Ine_Hackaton_2026.')])]
 
 VARIABLES=[['Variable', 'Uso y por qué'],
  ['Abstención del mismo tipo',
@@ -259,7 +229,7 @@ VARIABLES=[['Variable', 'Uso y por qué'],
 VIABILITY=[['Se puede defender hoy','Falta evidencia o validación'],
 ['Marco de decisión con capacidad y criterio explícitos','Aceptación institucional del flujo y de los responsables.'],
 ['Auditoría de datos y calidad visible','Armonización histórica de límites municipales.'],
-['Comparación honesta con la referencia (2021 y 2024)','Validación prospectiva; 2024 adverso no se oculta.'],
+['Comparación con la referencia (2021 y 2024)','Validación futura y mejora de la identificación del grupo prioritario.'],
 ['Análisis posteriores congelados (rango, tamaño, estabilidad)','Semáforo calibrado como probabilidad; hoy es relativo.'],
 ['Escenarios y fichas preventivas revisables','Costos monetarios y efecto causal.'],
 ['Reproducibilidad local (mapa, cifras, código)','Piloto ejecutado y evaluado.']]
@@ -287,7 +257,7 @@ def main():
  total=len(PAGES)
  pdf=HERE/'Umbral_reporte_metodologico_preventivo.pdf'
  c=canvas.Canvas(str(pdf),pagesize=(612,792));c.setTitle('Umbral | Reporte metodológico y preventivo')
- md=['# Umbral: reporte metodológico y preventivo','Versión técnica para revisión | 22 de octubre de 2026',f'Estructura de {total} páginas (8 secciones)']
+ md=['# Umbral: reporte metodológico y preventivo','Versión técnica para revisión | 28 de octubre de 2026',f'Estructura de {total} páginas (8 secciones)']
  def paragraph(txt,st):
   nonlocal y
   p=Paragraph(html.escape(txt).replace('\n','<br/>'),st);w,h=p.wrap(516,700);y-=h;p.drawOn(c,48,y);y-=6

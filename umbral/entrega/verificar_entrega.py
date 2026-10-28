@@ -67,5 +67,11 @@ assert browser['passed'] and not browser['page_errors']
 for path,sha in browser['sources'].items():
     assert hashlib.sha256((TRACK/'demo'/path).read_bytes()).hexdigest()==sha,('Verificación web obsoleta',path)
 result = {'date':date.today().isoformat(),'application':'Umbral','documents':checks,'case_reproduced':True,'browser_checks':len(browser['checks']),'browser_sources_verified':True,'scenario_action':case['configuration']['action'],'external_effect_is_hypothetical':True,'browser_errors':browser['page_errors'],'limitations':['PPTX no renderizado con PowerPoint','Modelo 2027 exploratorio; escenario sin efecto causal demostrado','Registro, elegibilidad, firmas y envío no acreditados']}
+previous_path = HERE/'verificacion_unificacion.json'
+if previous_path.exists():
+    native = json.loads(previous_path.read_text(encoding='utf-8')).get('native_powerpoint')
+    if native and native.get('pptx_sha256') == hashlib.sha256((HERE/'presentacion/Umbral_presentacion.pptx').read_bytes()).hexdigest():
+        result['native_powerpoint'] = native
+        result['limitations'] = [value for value in result['limitations'] if value != 'PPTX no renderizado con PowerPoint']
 (HERE/'verificacion_unificacion.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print('Entrega verificada: reporte 14 páginas, presentación 10, caso 23008 y geometría textual.')

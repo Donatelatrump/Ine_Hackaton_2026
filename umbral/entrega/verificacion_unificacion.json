@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-22",
+  "date": "2026-10-28",
   "application": "Umbral",
   "documents": [
     {
@@ -7,14 +7,14 @@
       "pages": 14,
       "bounds_ok": true,
       "text_overlap": false,
-      "sha256": "db0e53f84a3e2d3456ec70603f30713f26d346d34f01d6e24cc89cf0c8873337"
+      "sha256": "5849e038889b6d55bb1e8fa0885e8dc5108b0921f3de81366841ca5d2355afbb"
     },
     {
       "file": "presentacion/Umbral_presentacion.pdf",
       "pages": 10,
       "bounds_ok": true,
       "text_overlap": false,
-      "sha256": "fcc56e4ad26c7bef4f4185253f866a1e898c7a670963d44505ab846a8ebe1c25"
+      "sha256": "f3c6c95b0184180cb231447cfff9554fadda3ff065dd4d9469138422ac4df9cf"
     },
     {
       "file": "presentacion/Umbral_presentacion.pptx",
@@ -23,14 +23,19 @@
     }
   ],
   "case_reproduced": true,
-  "browser_checks": 12,
+  "browser_checks": 17,
   "browser_sources_verified": true,
   "scenario_action": "sms_suecia",
   "external_effect_is_hypothetical": true,
   "browser_errors": [],
   "limitations": [
-    "PPTX no renderizado con PowerPoint",
     "Modelo 2027 exploratorio; escenario sin efecto causal demostrado",
     "Registro, elegibilidad, firmas y envío no acreditados"
-  ]
+  ],
+  "native_powerpoint": {
+    "version": "16.0",
+    "slides": 10,
+    "visual_review": "Portada con logos originales exportada por PowerPoint y revisada visualmente.",
+    "pptx_sha256": "bec9a74c70edb44a1a523da4b583b016f252eb53ae590b89b64037ef91f6054c"
+  }
 }

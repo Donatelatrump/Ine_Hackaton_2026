@@ -1,0 +1,176 @@
+{
+  "date": "2026-10-28",
+  "passed": true,
+  "checks": {
+    "local_links": 25,
+    "initial_method": "hgb",
+    "state_plan": {
+      "served": 138762,
+      "additional": 2081.43,
+      "rows": 11
+    },
+    "map_comparison": "QUINTANA ROO · HistGradientBoosting · 10 / 11 municipios estimables",
+    "csv": {
+      "rows": 11,
+      "columns": 19,
+      "full_despite_filter": true,
+      "scenario_and_sources": true
+    },
+    "zero_coverage_and_method": true,
+    "catalog_filter_updates_coverage": true,
+    "population_default": {
+      "municipality": 437681,
+      "state": 2179491,
+      "manual_value_preserved": true,
+      "electoral_cap": 255362
+    },
+    "municipal_example": {
+      "additional": 3,
+      "reduction_pp": 0.001174802828927568
+    },
+    "excel_downloads": {
+      "sheets": 2,
+      "borders": true,
+      "frozen_headers": true,
+      "numeric_cells": true,
+      "current_scenario": true
+    },
+    "invalid_action_coverage_preserves_state_plan": true,
+    "mobile_width": 390,
+    "historical_hides_future_scenario": true,
+    "tour_steps": [
+      {
+        "selection": {
+          "year": 2027,
+          "state": "",
+          "municipality": null,
+          "method": "hgb",
+          "stable": false
+        },
+        "focus": null,
+        "target": "map",
+        "title": "México: punto de partida",
+        "visible": true,
+        "mapView": "difference"
+      },
+      {
+        "selection": {
+          "year": 2027,
+          "state": "23",
+          "municipality": "23008",
+          "method": "hgb",
+          "stable": false
+        },
+        "focus": "23008",
+        "target": "map",
+        "title": "Del país al municipio",
+        "visible": true,
+        "mapView": "difference"
+      },
+      {
+        "selection": {
+          "year": 2027,
+          "state": "23",
+          "municipality": "23008",
+          "method": "hgb",
+          "stable": false
+        },
+        "focus": "23008",
+        "target": "d6-history-title",
+        "title": "Antecedentes y proyección",
+        "visible": true,
+        "mapView": "difference"
+      },
+      {
+        "selection": {
+          "year": 2027,
+          "state": "23",
+          "municipality": null,
+          "method": "hgb",
+          "stable": false
+        },
+        "focus": null,
+        "target": "paso-3",
+        "title": "Preparar una acción",
+        "visible": true,
+        "mapView": "difference"
+      },
+      {
+        "selection": {
+          "year": 2027,
+          "state": "23",
+          "municipality": null,
+          "method": "hgb",
+          "stable": false
+        },
+        "focus": null,
+        "target": "d7-paired-maps",
+        "title": "Comparar los mapas del plan estatal",
+        "visible": true,
+        "mapView": "paired"
+      },
+      {
+        "selection": {
+          "year": 2027,
+          "state": "23",
+          "municipality": null,
+          "method": "hgb",
+          "stable": false
+        },
+        "focus": null,
+        "target": "d7-allocation",
+        "title": "Recursos y resultado del ejemplo",
+        "visible": true,
+        "mapView": "paired"
+      },
+      {
+        "selection": {
+          "year": 2027,
+          "state": "23",
+          "municipality": null,
+          "method": "hgb",
+          "stable": false
+        },
+        "focus": null,
+        "target": "d7-download-brief",
+        "title": "Compartir la propuesta",
+        "visible": true,
+        "mapView": "paired"
+      }
+    ],
+    "tour_mobile_geometry": {
+      "top": 178.640625,
+      "bottom": 358.640625,
+      "dialogTop": 576.875,
+      "height": 844
+    },
+    "municipal_state_plan": {
+      "after": "61.486223589727636",
+      "served": "25536",
+      "stateServed": "138762"
+    },
+    "municipal_plan_independent_of_sms": true
+  },
+  "page_errors": [],
+  "sources": {
+    "index.html": "1bdb208374738de30d60f082bf1764b0ed42055cb9eb9bcc8cfd07a654e38185"
+  },
+  "zip": {
+    "file": "Aguas.exe_Reto_2_Prediccion_y_escenarios_de_riesgo_de_abstencion.zip",
+    "bytes": 87068100,
+    "sha256": "16e7f291259b1e1d30401c488784d59b980e7a5835f1dcc42006810c931a474f",
+    "files": 131
+  },
+  "document_update": "Revisión visual final: navegación, leyenda, títulos, móvil y reencuadre de mapas comparados. Paquete probado en Edge.",
+  "latest_content_check": {
+    "current": true,
+    "files": 131,
+    "changed_contents": [
+      "index.html",
+      "codigo/aplicacion/src/aplicacion/experience.js"
+    ],
+    "removed": [],
+    "sha256": "16e7f291259b1e1d30401c488784d59b980e7a5835f1dcc42006810c931a474f",
+    "bytes": 87068100
+  }
+}

@@ -1,5 +1,13 @@
 # Revisión de requisitos del INE — Umbral
 
+## Estado actualizado al 28 de octubre de 2026
+
+Reporte y presentación regenerados (14 páginas y 10 diapositivas), con capturas actuales. Prueba de Edge y verificador de entrega completos, sin errores. Caso municipal reproducido. Ambas cartas se revisaron visualmente: datos del equipo y firmas visibles de dos integrantes; se preservan los originales. Esto no autentica las firmas ni acredita registro o elegibilidad.
+
+Paquete final: `Aguas.exe_Reto_2_Prediccion_y_escenarios_de_riesgo_de_abstencion.zip`, en la raíz. Se reconstruye con `python tools/empaquetar_proyecto.py`, que selecciona los archivos de entrega, integra la aplicación local y comprueba la integridad del ZIP. No se ha enviado. Revisión nativa completada el 28 de octubre de 2026 con PowerPoint 16.0: apertura del PPTX y exportación de las diez diapositivas a PNG; inspección visual sin recortes ni superposiciones visibles.
+
+Los registros anteriores se conservan como antecedentes; este estado sustituye sus pendientes de capturas, prueba web, cartas y empaquetado.
+
 Revisión del 21 de octubre de 2026. Eje elegido: **Reto 2, Predicción y escenarios de riesgo de abstención**. Referencias contrastadas: [micrositio oficial](https://ine.mx/hackathon-2026/), [convocatoria oficial](https://ine.mx/wp-content/uploads/2026/09/Convocatoria_Hackaton-1.pdf) y [copia del proyecto](../documentos_oficiales/Convocatoria_Hackaton-1.pdf). Los números de página siguientes son los del PDF, empezando en 1.
 
 La revisión técnica no acredita una candidatura aceptada. Hay productos técnicos y pendientes administrativos que solo el equipo puede acreditar. No se deduce elegibilidad ni paridad a partir de nombres o fotografías.
@@ -17,11 +25,11 @@ Actualización documental del 22 de octubre: se volvió a consultar la convocato
 | Prevención y priorización de recursos (pp. 3–4) | [Planes estatales](../../docs/PLANES_ACCION_ESTATALES_PARTICIPACION.md), [caso municipal](CASO_MUNICIPAL.md), distribución y ficha | Actores propuestos, actividades, indicadores y horizonte; capacidad en personas. Costos, atribuciones y efectividad requieren validación. |
 | Reporte PDF de 10–15 cuartillas (p. 4) | [Reporte de 14 páginas](reporte/Umbral_reporte_metodologico_preventivo.pdf) | Sincronizado con Umbral: variables, evaluación, semáforo, escenarios y prevención. Se interpreta una cuartilla como una página carta; la convocatoria no define la unidad ni exige la tipografía del Reto 1 para Reto 2. |
 | Mapa ejecutable y base CSV/XLSX agregada (pp. 4–5) | [HTML ejecutable local](../demo/demo7.html), [GeoJSON](../demo/data/municipios.geojson), [CSV histórico](../datos_preparados/municipios_historico_con_calidad.csv), [CSV de proyecciones](../modelado/salidas/comparacion_modelos/proyeccion_2027.csv) | Disponibles localmente; el CSV descargado desde la distribución añade ambos escenarios, semáforo, modelo, denominador y fuente. Mantener la estructura del proyecto. |
-| Presentación de hasta 10 diapositivas (p. 4) | [PDF](presentacion/Umbral_presentacion.pdf), [PPTX editable](presentacion/Umbral_presentacion.pptx) | Diez diapositivas, actualizadas con plan y semáforo de Umbral. PDF generado directamente; render nativo de PowerPoint pendiente. |
+| Presentación de hasta 10 diapositivas (p. 4) | [PDF](presentacion/Umbral_presentacion.pdf), [PPTX editable](presentacion/Umbral_presentacion.pptx) | Diez diapositivas, actualizadas con plan y semáforo de Umbral. PDF generado directamente; render nativo revisado con PowerPoint 16.0 el 28 de octubre. |
 | Código o repositorio (p. 4) | [Repositorio](https://github.com/Donatelatrump/Ine_Hackaton_2026), [guía de ejecución](../demo/DEMO7.md) | Código local y generadores disponibles. Esta revisión no publica cambios en el repositorio remoto. |
-| Dos cartas firmadas por todos los integrantes (p. 4) | [Cesión](../documentos_oficiales/Carta-de-cesion-de-derechos_Hackaton-1.pdf), [declaratoria](../documentos_oficiales/Carta-declaratoria-de-decir-la-verdad_Hackaton.pdf) | Formatos disponibles; no se acreditan firmas. La cesión también se anexa al registro según p. 6. |
+| Dos cartas firmadas por todos los integrantes (p. 4) | [Cesión](Carta%20de%20cesion%20de%20derechos.pdf), [declaratoria](carta%20decir%20la%20verdad.pdf) | Dos cartas escaneadas, con datos del equipo y firmas visibles de los dos integrantes; copias idénticas dentro del ZIP. La revisión visual no autentica las firmas. La cesión también se anexa al registro según p. 6. |
 | Registro y elegibilidad (pp. 1, 4) | No consta acreditación en la entrega revisada | Verificar acuse, integrantes y requisitos con la organización. El plazo publicado de registro terminó el 15 de octubre. |
-| ZIP identificado por equipo y eje, envío a ambos correos antes del límite (p. 5) | Archivos técnicos revisados; empaquetador general existente | Paquete final con cartas y envío no acreditados. Fecha publicada: 31 de octubre de 2026, 23:59. Destinatarios: `grecia.castro@ine.mx` y `cirse.rodriguez@ine.mx`. No se ha enviado correo. |
+| ZIP identificado por equipo y eje, envío a ambos correos antes del límite (p. 5) | ZIP final comprobado y aplicación autónoma probada en Edge | Paquete final con cartas verificado; envío no realizado. Fecha publicada: 31 de octubre de 2026, 23:59. Destinatarios: `grecia.castro@ine.mx` y `cirse.rodriguez@ine.mx`. No se ha enviado correo. |
 
 ## Cambios de esta revisión
 

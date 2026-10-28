@@ -1,0 +1,307 @@
+{
+  "date": "2026-10-28",
+  "passed": true,
+  "checks": {
+    "local_links": 25,
+    "initial_method": "hgb",
+    "state_plan": {
+      "served": 138762,
+      "additional": 2081.43,
+      "rows": 11
+    },
+    "map_comparison": "QUINTANA ROO · HistGradientBoosting · 10 / 11 municipios estimables",
+    "csv": {
+      "rows": 11,
+      "columns": 19,
+      "full_despite_filter": true,
+      "scenario_and_sources": true
+    },
+    "zero_coverage_and_method": true,
+    "catalog_filter_updates_coverage": true,
+    "population_default": {
+      "municipality": 437681,
+      "state": 2179491,
+      "manual_value_preserved": true,
+      "electoral_cap": 255362
+    },
+    "municipal_example": {
+      "additional": 3,
+      "reduction_pp": 0.001174802828927568
+    },
+    "excel_downloads": {
+      "sheets": 2,
+      "borders": true,
+      "frozen_headers": true,
+      "numeric_cells": true,
+      "current_scenario": true
+    },
+    "invalid_action_coverage_preserves_state_plan": true,
+    "mobile_width": 390,
+    "historical_hides_future_scenario": true,
+    "tour_steps": [
+      {
+        "selection": {
+          "year": 2027,
+          "state": "",
+          "municipality": null,
+          "method": "hgb",
+          "stable": false
+        },
+        "focus": null,
+        "target": "map",
+        "title": "México: punto de partida",
+        "visible": true,
+        "mapView": "difference"
+      },
+      {
+        "selection": {
+          "year": 2027,
+          "state": "23",
+          "municipality": "23008",
+          "method": "hgb",
+          "stable": false
+        },
+        "focus": "23008",
+        "target": "map",
+        "title": "Del país al municipio",
+        "visible": true,
+        "mapView": "difference"
+      },
+      {
+        "selection": {
+          "year": 2027,
+          "state": "23",
+          "municipality": "23008",
+          "method": "hgb",
+          "stable": false
+        },
+        "focus": "23008",
+        "target": "d6-history-title",
+        "title": "Antecedentes y proyección",
+        "visible": true,
+        "mapView": "difference"
+      },
+      {
+        "selection": {
+          "year": 2027,
+          "state": "23",
+          "municipality": null,
+          "method": "hgb",
+          "stable": false
+        },
+        "focus": null,
+        "target": "paso-3",
+        "title": "Preparar una acción",
+        "visible": true,
+        "mapView": "difference"
+      },
+      {
+        "selection": {
+          "year": 2027,
+          "state": "23",
+          "municipality": null,
+          "method": "hgb",
+          "stable": false
+        },
+        "focus": null,
+        "target": "d7-paired-maps",
+        "title": "Comparar los mapas del plan estatal",
+        "visible": true,
+        "mapView": "paired"
+      },
+      {
+        "selection": {
+          "year": 2027,
+          "state": "23",
+          "municipality": null,
+          "method": "hgb",
+          "stable": false
+        },
+        "focus": null,
+        "target": "d7-allocation",
+        "title": "Recursos y resultado del ejemplo",
+        "visible": true,
+        "mapView": "paired"
+      },
+      {
+        "selection": {
+          "year": 2027,
+          "state": "23",
+          "municipality": null,
+          "method": "hgb",
+          "stable": false
+        },
+        "focus": null,
+        "target": "d7-download-brief",
+        "title": "Compartir la propuesta",
+        "visible": true,
+        "mapView": "paired"
+      }
+    ],
+    "tour_mobile_geometry": {
+      "top": 178.640625,
+      "bottom": 358.640625,
+      "dialogTop": 576.875,
+      "height": 844
+    },
+    "municipal_state_plan": {
+      "after": "61.486223589727636",
+      "served": "25536",
+      "stateServed": "138762"
+    },
+    "municipal_plan_independent_of_sms": true,
+    "complete_walkthrough": {
+      "years": [
+        "2009",
+        "2012",
+        "2015",
+        "2018",
+        "2021",
+        "2024",
+        "2027"
+      ],
+      "methods": [
+        "hgb",
+        "lightgbm",
+        "catboost",
+        "ridge",
+        "baseline"
+      ],
+      "temporal_matrix": [
+        {
+          "year": "2009",
+          "state": ""
+        },
+        {
+          "year": "2009",
+          "state": "23"
+        },
+        {
+          "year": "2009",
+          "state": "09"
+        },
+        {
+          "year": "2012",
+          "state": ""
+        },
+        {
+          "year": "2012",
+          "state": "23"
+        },
+        {
+          "year": "2012",
+          "state": "09"
+        },
+        {
+          "year": "2015",
+          "state": ""
+        },
+        {
+          "year": "2015",
+          "state": "23"
+        },
+        {
+          "year": "2015",
+          "state": "09"
+        },
+        {
+          "year": "2018",
+          "state": ""
+        },
+        {
+          "year": "2018",
+          "state": "23"
+        },
+        {
+          "year": "2018",
+          "state": "09"
+        },
+        {
+          "year": "2021",
+          "state": ""
+        },
+        {
+          "year": "2021",
+          "state": "23"
+        },
+        {
+          "year": "2021",
+          "state": "09"
+        },
+        {
+          "year": "2024",
+          "state": ""
+        },
+        {
+          "year": "2024",
+          "state": "23"
+        },
+        {
+          "year": "2024",
+          "state": "09"
+        },
+        {
+          "year": "2027",
+          "method": "hgb"
+        },
+        {
+          "year": "2027",
+          "method": "lightgbm"
+        },
+        {
+          "year": "2027",
+          "method": "catboost"
+        },
+        {
+          "year": "2027",
+          "method": "ridge"
+        },
+        {
+          "year": "2027",
+          "method": "baseline"
+        }
+      ],
+      "states": 32,
+      "actions": [
+        "ninguna",
+        "sms_suecia",
+        "sms_eeuu",
+        "plan_voto",
+        "digital_juventud",
+        "info_institucional",
+        "confianza_institucional"
+      ],
+      "viewports": [
+        {
+          "viewport": 1440,
+          "body": 1425,
+          "root": 1425
+        },
+        {
+          "viewport": 768,
+          "body": 753,
+          "root": 753
+        },
+        {
+          "viewport": 390,
+          "body": 390,
+          "root": 390
+        },
+        {
+          "viewport": 360,
+          "body": 360,
+          "root": 360
+        }
+      ],
+      "all_page_sections_captured": true,
+      "page_errors": []
+    }
+  },
+  "page_errors": [],
+  "sources": {
+    "demo7.html": "26065774635ea9344a0bb963e6b4a69091678395addf55968d4679af5104253d",
+    "assets/demo7.js": "e4aa80e998387f1766b79fe778c0d546863e437f813521321c081282cae86cf4",
+    "assets/demo7.css": "76168974805b8e4fadbdb21cc4936ca2101ece7f696096299171f7ae806ef702",
+    "data/comparacion_modelos.js": "20303e82e1da2407afa6e942fcfae13bd593b8f82174d292db44babf97514acd"
+  }
+}

@@ -32,6 +32,8 @@
   function refresh(){
     if(!ready)return;
     readSelection();
+    const navigationHelp=$('map-navigation-help');
+    if(navigationHelp)navigationHelp.hidden=Boolean(state.state);
     const context={A,state,selectedRecords,territoryLabel,records,view,metadata,name,$,pct,fmt,esc};
     const views=runtime.views;
     views.renderSummary(context);views.renderHistory(context);views.renderEvidence(context);
@@ -87,12 +89,12 @@
       $('action').value='ninguna';
     }else{
       $('action').value=kind==='sms'?'sms_suecia':'plan_voto';
-      $('reach').value='1000';
+      syncDefaultReach(true);
       $('distribution').value=kind==='sms'?'proporcional':'prioridad';
     }
     update();
     $('d6-preset-note').textContent=kind==='reset'?'Simulación desactivada.':
-      'Ejemplo editable: 1,000 '+(kind==='sms'?'personas asignadas al SMS; distribución proporcional.':'conversaciones completadas; distribución por prioridad.')+' La cobertura es un supuesto del usuario y el efecto externo no está validado para México.';
+      'Alcance inicial editable: población proyectada de 2027 del territorio. '+(kind==='sms'?'Personas asignadas al SMS; distribución proporcional.':'Conversaciones completadas; distribución por prioridad.')+' El cálculo limita la atención a la base electoral observable.';
   }
   // Instantánea de diagnóstico: valores copiados, sin referencias mutables a mapas o registros.
   function inspect(stateKey=state.state){
@@ -110,6 +112,7 @@
   }
   function init(){
     if(typeof mapInitialized==='undefined'||!mapInitialized)return false;
+    document.addEventListener('umbral:maprebuilt',refresh);
     runtime.hooks.beforeUpdate=()=>{
       const active=$('method').value==='baseline'?'ridge':$('method').value;
       for(const r of records){

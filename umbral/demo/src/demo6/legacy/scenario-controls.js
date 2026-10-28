@@ -1,3 +1,18 @@
+let defaultReachTerritory=null;
+function simulationPopulationDefault(){
+ const state=$('state').value;
+ const exact=state?records.find(r=>r.state===state&&(r.key===$('search').value||r.name===$('search').value)):null;
+ const key=exact?'municipio:'+exact.key:state?'estado:'+state:'pais';
+ const population=exact?territoryPopulation2027.municipalities[exact.key]:state?territoryPopulation2027.states[state]:territoryPopulation2027.national;
+ return {key,population:Number.isFinite(population)?population:null};
+}
+function syncDefaultReach(force=false){
+ const selected=simulationPopulationDefault();
+ if(force||selected.key!==defaultReachTerritory){
+  $('reach').value=selected.population!==null?String(selected.population):'';
+  defaultReachTerritory=selected.key;
+ }
+}
 function simulationMunicipalities(){
  const previous=$('simulation-municipality').value;
  $('simulation-municipality').replaceChildren();
@@ -23,5 +38,6 @@ function syncSimulationTerritory(){
  if(exact)$('simulation-municipality').value=exact.key;
  $('simulation-state-wrap').hidden=!state;
  $('simulation-municipality-wrap').hidden=!exact;
+ syncDefaultReach();
 }
 // Actualizar resultados de exploración sin repintar ni reencuadrar el mapa histórico.

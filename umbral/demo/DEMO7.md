@@ -57,3 +57,7 @@ El plan estatal conserva su calculo de referencia: 10% de cobertura, efecto cent
 La consulta CSV incluye 14 columnas del territorio, datos y metodo elegido. La comparacion de todos los modelos sigue en la descarga de proyecciones. Los dos botones de exportacion de escenarios usan el mismo CSV de 19 columnas, con todos los municipios del escenario (incluidos pendientes y sin estimacion), resultados antes/despues, semaforo, cobertura, metodo, accion y fuente. Se retiran totales repetidos, columnas de otros modelos y recomendaciones del flujo anterior. Los detalles del efecto permanecen en la ficha y la metodologia.
 
 La descarga Excel (.xlsx) contiene dos hojas: datos con bordes, filtros y encabezados fijos, y resumen/fuentes separados. No requiere servicios externos. El CSV se mantiene como formato de intercambio sin estilos.
+# Alcance inicial del simulador
+
+Al seleccionar un municipio o estado, el alcance se completa con su población proyectada de 2027 (CONAPO). El usuario puede editarlo; cambiar de modelo conserva esa edición, mientras que cambiar de territorio carga la población del nuevo territorio. La atención efectiva sigue limitada por la base electoral observable y los municipios con estimación. El plan estatal mantiene su cálculo independiente. Los datos iniciales se generan con `python umbral/tools/preparar_poblacion_simulador.py` antes de construir la aplicación.
+

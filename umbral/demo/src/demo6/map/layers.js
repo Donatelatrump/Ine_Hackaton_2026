@@ -254,5 +254,6 @@ function reconstruirMapa(year, {encuadrar=true}={}){
       'Mapa histórico: los estados se colorean con su abstención promedio observada en '+year+'. Click en un estado para explorar municipios.';
   }
   console.log('Umbral map: mapa reconstruido para año', year, esPrediccion2027 ? '(estimación 2027)' : '(histórico)', enEstado ? 'estado:'+enEstado : 'nacional');
+  document.dispatchEvent(new CustomEvent('umbral:maprebuilt'));
 }
 

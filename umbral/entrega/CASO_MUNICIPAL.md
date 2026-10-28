@@ -1,6 +1,6 @@
 # Caso municipal vigente: SOLIDARIDAD, clave histórica 23008
 
-Revisado el 22 de octubre de 2026 con los resultados del experimento del 16 de octubre. Modelo seleccionado: HistGradientBoosting. Nombre y límites del catálogo histórico, sin certificar denominación o fronteras actuales.
+Revisado el 28 de octubre de 2026 con los resultados del experimento del 16 de octubre. Modelo seleccionado: HistGradientBoosting. Nombre y límites del catálogo histórico, sin certificar denominación o fronteras actuales.
 
 Abrir [Umbral](../demo/demo7.html), Quintana Roo, clave 23008, año 2027, HistGradientBoosting y catálogo constante. Elegir SMS Suecia, cobertura total de 1,000 personas. Los puestos nacionales usan la cohorte de catálogo constante; no son el ranking local de un único municipio. Este ejemplo es independiente del plan estatal de cobertura inicial del 10% y efecto supuesto de 1.5 pp.
 

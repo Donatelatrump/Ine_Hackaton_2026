@@ -37,6 +37,13 @@ function initMapDecorations(){
   coordinates.textContent = 'N ↑   MUEVE EL CURSOR';
   mapElement.append(coordinates);
 
+  const navigationHelp=document.createElement('aside');
+  navigationHelp.id='map-navigation-help';
+  navigationHelp.className='map-navigation-help';
+  navigationHelp.setAttribute('aria-label','Cómo navegar por el mapa');
+  navigationHelp.innerHTML='<strong>Cómo navegar</strong><dl><div><dt>Clic izquierdo</dt><dd>Entrar a un estado</dd></div><div><dt>Clic derecho</dt><dd>Volver un nivel</dd></div></dl><p>Después, elige un municipio.</p><span class="map-touch-help">Toca un estado para explorar sus municipios.</span>';
+  mapElement.append(navigationHelp);
+
   const formatCoordinate = (value, positive, negative) => {
     const direction = value < 0 ? negative : positive;
     return `${Math.abs(value).toFixed(4)}° ${direction}`;

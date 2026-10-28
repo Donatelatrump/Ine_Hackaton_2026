@@ -95,9 +95,20 @@
     const limits=thresholds;
     if(limits&&state.year===2027){
       let key=$('d7-thresholds');
-      if(!key){key=document.createElement('p');key.id='d7-thresholds';key.className='d6-note';document.querySelector('#paso-1-map .legend').after(key);}
+      if(!key){key=document.createElement('p');key.id='d7-thresholds';key.className='d6-note';document.querySelector('#paso-1-map .map-reading').append(key);}
       key.hidden=false;key.textContent=`Semáforo de abstención relativa: bajo < ${safePercent(limits.low)}; medio desde ${safePercent(limits.low)} y < ${safePercent(limits.high)}; alto ≥ ${safePercent(limits.high)}. Gris: sin estimación. Cortes nacionales por tercios del método activo, fijos entre escenarios. No son probabilidades ni umbrales oficiales. Los colores estatales resumen municipios estimables.`;
+      const standard=!$('confidence').checked&&(!simulationActive()||$('map-mode').value!=='cambio');
+      if(standard){
+        document.querySelector('#paso-1-map .legend').innerHTML=[
+          ['low','Menor abstención','< '+safePercent(limits.low)],
+          ['medium','Intermedia',safePercent(limits.low)+' – < '+safePercent(limits.high)],
+          ['high','Mayor abstención','≥ '+safePercent(limits.high)],
+          ['missing','Sin estimación','Datos insuficientes']
+        ].map(([color,label,range])=>`<span><i class="${color}" aria-hidden="true"></i><span class="map-key-label">${label}<small>${range.replace(/</g,'&lt;')}</small></span></span>`).join('');
+      }
     }else if($('d7-thresholds'))$('d7-thresholds').hidden=true;
+    const guide=document.querySelector('#paso-1-map .map-guide');
+    if(guide)guide.textContent=state.municipality?'Selecciona otro municipio para comparar.':state.state?'Selecciona un municipio para abrir su ficha.':'Selecciona un estado para explorar sus municipios.';
     scheduleMaps();
     document.dispatchEvent(new CustomEvent('umbral7:updated'));
   };
@@ -200,6 +211,14 @@
   }
 
   document.addEventListener('umbral:ready',()=>{
+    const header=document.querySelector('.site-header'),contextBar=document.querySelector('.d7-context-bar');
+    const updateScrollOffset=()=>{
+      const sticky=getComputedStyle(header).position==='sticky';
+      const offset=sticky?header.getBoundingClientRect().height+contextBar.getBoundingClientRect().height+16:16;
+      document.documentElement.style.setProperty('--d7-scroll-offset',offset+'px');
+    };
+    const headerObserver=new ResizeObserver(updateScrollOffset);
+    headerObserver.observe(header);headerObserver.observe(contextBar);updateScrollOffset();
     $('d7-example').onclick=prepareExample;
     $('d7-back-forecast').onclick=()=>{$('map-year').value='2027';$('map-year').dispatchEvent(new Event('change'));};
     $('d7-prepare-plan').onclick=()=>{
@@ -221,7 +240,7 @@
     };
     document.querySelectorAll('[data-d7-map-view]').forEach(button=>button.onclick=()=>{$('d7-map-view').value=button.dataset.d7MapView;$('d7-map-view').dispatchEvent(new Event('change'));});
     document.querySelectorAll('[data-scenario-map]').forEach(link=>link.addEventListener('click',event=>{event.preventDefault();$('paso-1-map').scrollIntoView({behavior:smooth(),block:'start'});}));
-    const mapResizeObserver=new ResizeObserver(scheduleMaps);mapResizeObserver.observe($('d7-map-before'));mapResizeObserver.observe($('d7-map-difference'));
+    const mapResizeObserver=new ResizeObserver(()=>{territorySignature='';mapSignature='';scheduleMaps();});mapResizeObserver.observe($('d7-map-before'));mapResizeObserver.observe($('d7-map-difference'));
     $('lens-cards').addEventListener('keydown',event=>{
       const keys=['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home','End'];
       if(!keys.includes(event.key))return;
@@ -232,6 +251,6 @@
       radios[next].click();radios[next].focus();
     });
     installMotion();
-    window.Umbral7=Object.freeze({example:prepareExample,refreshMaps:scheduleMaps,get state(){return window.Umbral6.state;},get comparisonMaps(){return pair.map(m=>({zoom:m.getZoom(),lat:m.getCenter().lat,lng:m.getCenter().lng}));}});
+    window.Umbral7=Object.freeze({example:prepareExample,refreshMaps:scheduleMaps,get state(){return window.Umbral6.state;},get comparisonMaps(){return pair.map(m=>({zoom:m.getZoom(),lat:m.getCenter().lat,lng:m.getCenter().lng,fitsTerritory:bounds?m.getBounds().contains(bounds):null}));}});
   },{once:true});
 })();

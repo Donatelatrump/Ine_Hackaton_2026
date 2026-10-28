@@ -23,7 +23,7 @@
   <header class="site-header">
     <a class="wordmark" href="#inicio" aria-label="Umbral, por Aguas.exe, inicio">
       <span class="wordmark-symbol" aria-hidden="true">U</span>
-      <span class="wordmark-copy"><strong>UMBRAL</strong><small>Participación electoral en tu municipio — Demo 7</small></span>
+      <span class="wordmark-copy"><strong>UMBRAL</strong><small>Participación electoral en tu municipio</small></span>
     </a>
     <nav class="quick-nav" aria-label="Navegar módulos">
       <a href="#modulo-1"><span>01</span> Mapa</a>
@@ -107,8 +107,7 @@
           <div id="map" aria-label="Mapa de los estados de México"></div>
           <div class="legend"><span><i class="low"></i>Bajo</span><span><i class="medium"></i>Medio</span><span><i class="high"></i>Alto</span><span><i class="missing"></i>Sin estimación</span><span><i class="chosen"></i>Seleccionado</span><span>Atenuado: fuera del filtro</span></div>
           <p class="map-guide"><a href="#sin-estimacion">Consultar criterios para municipios sin estimación ↓</a></p>
-          <p id="confidence-note" class="table-note hint"></p>
-          <details class="map-reading"><summary>Cómo leer los colores y el promedio</summary><p id="map-reading-text" class="hint"></p></details>
+          <details class="map-reading"><summary>Cómo leer el mapa</summary><p id="map-reading-text" class="hint"></p><p id="confidence-note" class="table-note hint"></p></details>
 
           <!-- NUEVO: panel de plan recomendado por estado -->
           <details class="panel state-plan-panel" id="state-plan-panel" hidden>
@@ -176,7 +175,7 @@
   <div id="simulation-state-wrap" hidden><label for="simulation-state">Estado</label><select id="simulation-state"></select></div>
   <div id="simulation-municipality-wrap" hidden><label for="simulation-municipality">Municipio</label><select id="simulation-municipality"></select></div>
   <p id="scope-coverage" class="filter-summary" aria-live="polite"></p>
-  <label for="reach" id="reach-label">Personas que alcanzarías en total</label><input id="reach" aria-describedby="coverage-help simulation-prompt" type="number" min="0" max="100000000" step="1" value="1000">
+  <label for="reach" id="reach-label">Personas que alcanzarías en total</label><input id="reach" aria-describedby="coverage-help simulation-prompt" type="number" min="0" max="200000000" step="1" value="">
   <p id="coverage-help" class="hint"></p>
   <div id="custom-response" hidden><label for="response">De quienes no votarían, ¿qué porcentaje supones que participaría tras la acción? <output id="response-out">5%</output></label><input id="response" type="range" min="0" max="100" value="5"></div>
    <details class="planning-settings" id="planning-settings"><summary>Cómo repartir y priorizar las personas</summary><label for="distribution">¿Cómo repartir las personas?</label><select id="distribution"><option value="prioridad">Primero los municipios con mayor prioridad</option><option value="proporcional">Proporcional al tamaño de cada municipio</option></select><p id="distribution-help" class="hint"></p><div class="lens-section">
